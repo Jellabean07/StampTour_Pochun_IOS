@@ -1,0 +1,50 @@
+PODS:
+  - ActionSheetPicker-3.0 (2.2.0)
+  - Alamofire (4.0.0)
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
+  - CircleProgressView (1.0.11)
+  - DLRadioButton (1.4.9)
+  - FBSDKCoreKit (4.15.1):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.15.1):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.15.1):
+    - FBSDKCoreKit
+
+DEPENDENCIES:
+  - ActionSheetPicker-3.0
+  - Alamofire (~> 4.0)
+  - Bolts
+  - CircleProgressView (from `https://github.com/CardinalNow/iOS-CircleProgressView.git`)
+  - DLRadioButton (~> 1.4)
+  - FBSDKCoreKit
+  - FBSDKLoginKit
+  - FBSDKShareKit
+
+EXTERNAL SOURCES:
+  CircleProgressView:
+    :git: https://github.com/CardinalNow/iOS-CircleProgressView.git
+
+CHECKOUT OPTIONS:
+  CircleProgressView:
+    :commit: 51cbf218c4b417aed925d0d30e0c03dbff9b98cd
+    :git: https://github.com/CardinalNow/iOS-CircleProgressView.git
+
+SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: d11a4c12c6aaf704b8a3f56d179198c99f3e41e6
+  Alamofire: fef59f00388f267e52d9b432aa5d93dc97190f14
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  CircleProgressView: 3e7e26454ad9a93e310fe9cd612af6d779deb0c1
+  DLRadioButton: 7bb8a6e3768b572469ace553391ab4d2af6f9c19
+  FBSDKCoreKit: fc7fa53d16b095ee3fd53f0cd59f1df8bcbb634d
+  FBSDKLoginKit: 073f79b3b2e762fc6f54a283fe15f45372d59f5f
+  FBSDKShareKit: 11cbb5a4d7b5fda8143cc95b76188147e6725736
+
+PODFILE CHECKSUM: 221aff9089699ac8ea67b9dadc12d0bec7325d54
+
+COCOAPODS: 1.0.1
