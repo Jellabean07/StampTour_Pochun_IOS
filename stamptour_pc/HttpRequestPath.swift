@@ -10,7 +10,7 @@ import Foundation
 
 class HttpReqPath {
     
-    static let HttpHost = "http://stamptour.mybluemix.net"
+    static let HttpHost = "http://stamptourpochon.mybluemix.net"
     static let LoginReq = "/user/login"
     static let LogoutReq = "/user/logout"
     static let JoinReq = "/user/join"
@@ -18,4 +18,8 @@ class HttpReqPath {
     static let JoinNickOverlap = "/user/nick/check"
     static let ForgetPass = "/user/find/password"
     static let ForgetId = "/user/find/id"
+    static let StampListReq = "/town/list"
+    
+    
+    
 }

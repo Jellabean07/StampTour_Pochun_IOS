@@ -99,11 +99,16 @@ class LoginViewController: UIViewController , UITextFieldDelegate, HttpResponse{
         
         NSLog("\(self.TAG) nick : \(nick)")
         
-        UserDefaultManager.init().loggedIn(self.id_txt.text!, nick: nick, accessToken: accesstoken, LoginCase: self.loginCase!)
+        if(nick != "-1" && accesstoken != "-1"){
+            UserDefaultManager.init().loggedIn(self.id_txt.text!, nick: nick, accessToken: accesstoken, LoginCase: self.loginCase!)
+            
+            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+            let navController = UINavigationController(rootViewController: viewController)
+            self.present(navController, animated:true, completion: nil)
+        }else{
+            NSLog(TAG,"Login Fail")
+        }
         
-        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-        let navController = UINavigationController(rootViewController: viewController)
-        self.present(navController, animated:true, completion: nil)
        //go-> main
        
     }

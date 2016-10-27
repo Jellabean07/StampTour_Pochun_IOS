@@ -59,11 +59,16 @@ class MapViewController : UIViewController , MKMapViewDelegate, CLLocationManage
         let location = locations.last
         let center = CLLocationCoordinate2DMake(location!.coordinate.latitude, location!.coordinate.longitude)
         
+        print("\(TAG) changed loction")
         
         let span = MKCoordinateSpanMake(1, 1)
         let region = MKCoordinateRegion(center: center, span: span)
         self.map.setRegion(region, animated: true)
-        self.locationManager.stopUpdatingLocation()
+        //self.locationManager.stopUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+        print("\(TAG) changed head")
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
