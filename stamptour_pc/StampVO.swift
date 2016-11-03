@@ -27,6 +27,7 @@ class StampVO {
     var region : String?
     var rank_no : Int?
     var distance : String?
+    var active : Bool?
     
   
 }

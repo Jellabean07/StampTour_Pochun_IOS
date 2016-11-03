@@ -10,13 +10,9 @@ import Foundation
 import Alamofire
 
 
-protocol HttpResponse{
-    func HttpResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject)
-    
-}
 
 class HttpRequestToServer {
-   
+    
     var TAG : String?
     var delegate : HttpResponse?
     
@@ -31,6 +27,9 @@ class HttpRequestToServer {
         print("\(self.TAG!) : reqParameter : \(reqParameter)")
         Alamofire.request(HttpReqPath.HttpHost+reqPath,method: .post, parameters: reqParameter)
             .validate()
+            .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
+                print("Progress: \(progress.fractionCompleted)")
+            }
             .responseJSON { response in
                 switch response.result {
                 case .success:
@@ -85,17 +84,17 @@ class HttpRequestToServer {
                                 
                             }
                         }
-                
+                        
                     }catch let myJSONError {
                         print("\(self.TAG!) : \(myJSONError)")
                         
                     }
-               
+                    
                 case .failure(let error):
                     print("\(self.TAG!) : \(error)")
                 }
         }
-
+        
     }
     
 }
