@@ -62,18 +62,46 @@ class MoreViewController : UIViewController ,UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row{
         case 0:
+            NSLog("메뉴"+indexPath.row.description, "탭");
+            moveToAccountManageView();
             break
         case 1:
+            NSLog("메뉴"+indexPath.row.description, "탭");
             break
         case 2:
+            NSLog("메뉴"+indexPath.row.description, "탭");
             break
         case 3:
+            NSLog("메뉴"+indexPath.row.description, "탭");
             break
         default: break
             
         }
     }
-    
+    func moveToAccountManageView(){
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "AcctIdentifyViewController") as! AcctIdentifyViewController
+        let navController = UINavigationController(rootViewController: viewController)
+        self.present(navController, animated:true, completion: nil)
+        
+    }
+    func moveToGiftManageView(){
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "AcctIdentifyViewController") as! AcctIdentifyViewController
+        let navController = UINavigationController(rootViewController: viewController)
+        self.present(navController, animated:true, completion: nil)
+        
+    }
+    func moveToHideManageView(){
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "AcctIdentifyViewController") as! AcctIdentifyViewController
+        let navController = UINavigationController(rootViewController: viewController)
+        self.present(navController, animated:true, completion: nil)
+        
+    }
+    func moveToSurveyView(){
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "AcctIdentifyViewController") as! AcctIdentifyViewController
+        let navController = UINavigationController(rootViewController: viewController)
+        self.present(navController, animated:true, completion: nil)
+        
+    }
     func HttpResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
         let data = resData["resultData"] as! String
         
