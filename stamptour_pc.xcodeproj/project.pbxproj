@@ -62,6 +62,8 @@
 		33C1BC661DC59534001DC8DE /* StampAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C1BC651DC59534001DC8DE /* StampAnimationView.swift */; };
 		33FED6C01DC8780000A5D131 /* ResChanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FED6BF1DC8780000A5D131 /* ResChanger.swift */; };
 		5D7B2E56B7B3ADE47F5C6A0C /* Pods_stamptour_pc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A14BFF4D0240426E1497D821 /* Pods_stamptour_pc.framework */; };
+		7353E92A1DCB0BE80033BDB5 /* GiftManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7353E9291DCB0BE80033BDB5 /* GiftManageViewController.swift */; };
+		7353E92C1DCB0F920033BDB5 /* HideListManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7353E92B1DCB0F920033BDB5 /* HideListManageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +146,8 @@
 		33FED6BF1DC8780000A5D131 /* ResChanger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResChanger.swift; sourceTree = "<group>"; };
 		3B695BF8DFFC816A4E838855 /* Pods-stamptour_pc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stamptour_pc.release.xcconfig"; path = "Pods/Target Support Files/Pods-stamptour_pc/Pods-stamptour_pc.release.xcconfig"; sourceTree = "<group>"; };
 		70E3A8C079B7299CCD1BFFC0 /* Pods-stamptour_pc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stamptour_pc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-stamptour_pc/Pods-stamptour_pc.debug.xcconfig"; sourceTree = "<group>"; };
+		7353E9291DCB0BE80033BDB5 /* GiftManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftManageViewController.swift; sourceTree = "<group>"; };
+		7353E92B1DCB0F920033BDB5 /* HideListManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideListManageViewController.swift; sourceTree = "<group>"; };
 		A14BFF4D0240426E1497D821 /* Pods_stamptour_pc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_stamptour_pc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -248,6 +252,8 @@
 				335C97BD1D9A4D050066E25F /* RankViewController.swift */,
 				335C97BF1D9A4D050066E25F /* StampViewController.swift */,
 				3381B9171DC9847B002EE080 /* SplashViewController.swift */,
+				7353E9291DCB0BE80033BDB5 /* GiftManageViewController.swift */,
+				7353E92B1DCB0F920033BDB5 /* HideListManageViewController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -588,6 +594,7 @@
 				335C97CC1D9A4D050066E25F /* HttpRequestPath.swift in Sources */,
 				335C97D41D9A4D050066E25F /* LoggedInCaseVO.swift in Sources */,
 				335C97DC1D9A4D050066E25F /* RankVO.swift in Sources */,
+				7353E92A1DCB0BE80033BDB5 /* GiftManageViewController.swift in Sources */,
 				3392EE251DC19CA800582308 /* StampVO.swift in Sources */,
 				33FED6C01DC8780000A5D131 /* ResChanger.swift in Sources */,
 				335C97CF1D9A4D050066E25F /* JoinNickViewController.swift in Sources */,
@@ -598,6 +605,7 @@
 				335C97DE1D9A4D050066E25F /* StringMsg.swift in Sources */,
 				335C97D91D9A4D050066E25F /* MoreViewController.swift in Sources */,
 				335C97C81D9A4D050066E25F /* ActionVO.swift in Sources */,
+				7353E92C1DCB0F920033BDB5 /* HideListManageViewController.swift in Sources */,
 				335C97CB1D9A4D050066E25F /* ForgetViewController.swift in Sources */,
 				336342391DC8A2E30052A153 /* RegionResManager.swift in Sources */,
 				335C97C91D9A4D050066E25F /* CommonFunction.swift in Sources */,
