@@ -7,19 +7,24 @@
 //
 
 import Foundation
+import Zip
 
 
 class ContentsManager : HttpResponse{
     
     let TAG = "ContentsManager"
     
+    var httpRequest : HttpRequestToServer?
+    var httpDownload : HttpDownWithServer?
+
     init() {
-        
+        self.httpRequest = HttpRequestToServer.init(TAG: TAG, delegate: self)
+        self.httpDownload = HttpDownWithServer.init(TAG: TAG, delegate: self)
     }
     
     func versionCheck(){
         
-        let path = HttpReqPath.LoginReq
+        let path = HttpReqPath.VersionCheck
         let parameters : [ String : String] = [
             "nick" : UserDefaultManager.init().getUserNick(),
             "accesstoken" : UserDefaultManager.init().getUserAccessToken(),
@@ -30,24 +35,66 @@ class ContentsManager : HttpResponse{
         //        accesstoken : 로그인성공시 받은 엑세스토큰
         //        lastversion : 현재 클라이언트 콘텐츠 버전(처음일시 0 보내면 됨)
         //        lastsize : 현재 클라이언트 콘텐츠 사이즈(처음일시 0 보내면 됨)
+        httpRequest?.connection(path, reqParameter: parameters)
+    }
+    
+    func contentsDown(){
         
+        let path = HttpReqPath.ContentsReq
+        let parameters : [ String : String] = [
+            "nick" : UserDefaultManager.init().getUserNick(),
+            "accesstoken" : UserDefaultManager.init().getUserAccessToken()
+        ]
+        //        nick : 유저 닉네임
+        //        accesstoken : 로그인성공시 받은 엑세스토큰
+
+        httpDownload?.download(path, reqParameter: parameters)
     }
 
     
+    func expanding(){
+     /*   do {
+            let filePath = Bundle.main.url(forResource: "file", withExtension: "zip")!
+            let documentsDirectory = FileManager.default.urls(for:.documentDirectory, in: .userDomainMask)[0]
+            try Zip.unzipFile(filePath, destination: documentsDirectory, overwrite: true, password: "password", progress: { (progress) -> () in
+                print(progress)
+            }) // Unzip
+            
+            let zipFilePath = documentsFolder.appendingPathComponent("contents.zip")
+            try Zip.zipFiles([filePath], zipFilePath: zipFilePath, password: "password", progress: { (progress) -> () in
+                print(progress)
+            }) //Zip
+            
+        }
+        catch {
+            print("Something went wrong")
+        }
+*/
+    }
+    
     func HttpResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
         let data = resData["resultData"] as! NSDictionary
-        let version = data["Version"] as! Int
-        let size = data["Size"] as! Int
-        let uploadtime = data["UploadTime"] as! String
-        
-        if((version == -1) && (size == -1)){
+        if(reqPath == HttpReqPath.VersionCheck){
+            let version = data["Version"] as! Int
+            let size = data["Size"] as! Int
+            //let uploadtime = data["UploadTime"] as! String
             
+            if((version == -1) && (size == -1)){
+                print("\(TAG) : current version ")
+            }else{
+                let appDefualt = AppDefaultManager.init()
+                appDefualt.setSize(size)
+                appDefualt.setVersion(version)
+               // appDefualt.setUploadtime(uploadtime)
+                //download
+                contentsDown()
+            }
+
         }else{
-            let appDefualt = AppDefaultManager.init()
-            appDefualt.setSize(size)
-            appDefualt.setVersion(version)
-            appDefualt.setUploadtime(uploadtime)
-            //download
+            print("download good")
+            print(resCode)
+            print(resMsg)
+            print(resData)
         }
     }
 }

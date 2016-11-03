@@ -60,6 +60,7 @@
 		3392EE2C1DC1FD9E00582308 /* CurrentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392EE2B1DC1FD9D00582308 /* CurrentLocation.swift */; };
 		33938AE11D9E0D710058B5DC /* StampCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33938AE01D9E0D710058B5DC /* StampCell.swift */; };
 		33C1BC661DC59534001DC8DE /* StampAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C1BC651DC59534001DC8DE /* StampAnimationView.swift */; };
+		33FA50F11DCB13EA00F81A27 /* FileBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FA50F01DCB13EA00F81A27 /* FileBrowser.swift */; };
 		33FED6C01DC8780000A5D131 /* ResChanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FED6BF1DC8780000A5D131 /* ResChanger.swift */; };
 		5D7B2E56B7B3ADE47F5C6A0C /* Pods_stamptour_pc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A14BFF4D0240426E1497D821 /* Pods_stamptour_pc.framework */; };
 		7353E92A1DCB0BE80033BDB5 /* GiftManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7353E9291DCB0BE80033BDB5 /* GiftManageViewController.swift */; };
@@ -143,6 +144,7 @@
 		3392EE2B1DC1FD9D00582308 /* CurrentLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocation.swift; sourceTree = "<group>"; };
 		33938AE01D9E0D710058B5DC /* StampCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StampCell.swift; sourceTree = "<group>"; };
 		33C1BC651DC59534001DC8DE /* StampAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StampAnimationView.swift; sourceTree = "<group>"; };
+		33FA50F01DCB13EA00F81A27 /* FileBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileBrowser.swift; sourceTree = "<group>"; };
 		33FED6BF1DC8780000A5D131 /* ResChanger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResChanger.swift; sourceTree = "<group>"; };
 		3B695BF8DFFC816A4E838855 /* Pods-stamptour_pc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stamptour_pc.release.xcconfig"; path = "Pods/Target Support Files/Pods-stamptour_pc/Pods-stamptour_pc.release.xcconfig"; sourceTree = "<group>"; };
 		70E3A8C079B7299CCD1BFFC0 /* Pods-stamptour_pc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stamptour_pc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-stamptour_pc/Pods-stamptour_pc.debug.xcconfig"; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				335C97C21D9A4D050066E25F /* UIControlManager.swift */,
 				335C97C31D9A4D050066E25F /* UserDefaultManager.swift */,
 				3381B9191DC98F0C002EE080 /* AppDefaultManager.swift */,
+				33FA50F01DCB13EA00F81A27 /* FileBrowser.swift */,
 			);
 			name = common;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				335C97DA1D9A4D050066E25F /* RankCell.swift in Sources */,
 				335C97D51D9A4D050066E25F /* LoginViewController.swift in Sources */,
 				335C97CD1D9A4D050066E25F /* HttpRequestToServer.swift in Sources */,
+				33FA50F11DCB13EA00F81A27 /* FileBrowser.swift in Sources */,
 				335C977F1D9A4A3F0066E25F /* stamptour_pc.xcdatamodeld in Sources */,
 				335C97D11D9A4D050066E25F /* LanguageInCase.swift in Sources */,
 				335C97DB1D9A4D050066E25F /* RankViewController.swift in Sources */,
