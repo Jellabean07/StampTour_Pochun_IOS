@@ -62,18 +62,67 @@ class MoreViewController : UIViewController ,UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row{
         case 0:
+            NSLog("메뉴"+indexPath.row.description, "탭");
+            moveToAccountManageView();
             break
         case 1:
+            NSLog("메뉴"+indexPath.row.description, "탭");
+            moveToGiftManageView();
             break
         case 2:
+            NSLog("메뉴"+indexPath.row.description, "탭");
+            moveToHideManageView();
             break
         case 3:
+            NSLog("메뉴"+indexPath.row.description, "탭");
             break
         default: break
             
         }
     }
-    
+    func moveToAccountManageView(){
+        let loggedCase = UserDefaultManager.init().getIsLoggedCase()
+        switch loggedCase {
+        case LoggedInCase.normal.hashValue:
+            NSLog("normal", LoggedInCase.normal.description)
+            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "AcctIdentifyViewController") as! AcctIdentifyViewController
+            let navController = UINavigationController(rootViewController: viewController)
+            self.present(navController, animated:true, completion: nil)
+            break
+        case LoggedInCase.fbLogin.hashValue:
+            NSLog(TAG, LoggedInCase.fbLogin.description)
+            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "AcctManagerViewController") as! AcctManagerViewController
+            let navController = UINavigationController(rootViewController: viewController)
+            self.present(navController, animated:true, completion: nil)
+            break
+        case LoggedInCase.kakaoLogin.hashValue:
+            NSLog(TAG, LoggedInCase.kakaoLogin.description)
+            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "AcctManagerViewController") as! AcctManagerViewController
+            let navController = UINavigationController(rootViewController: viewController)
+            self.present(navController, animated:true, completion: nil)
+            break
+        default:
+            break
+        }
+    }
+    func moveToGiftManageView(){
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "GiftManageViewController") as! GiftManageViewController
+        let navController = UINavigationController(rootViewController: viewController)
+        self.present(navController, animated:true, completion: nil)
+        
+    }
+    func moveToHideManageView(){
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "HideListManageViewController") as! HideListManageViewController
+        let navController = UINavigationController(rootViewController: viewController)
+        self.present(navController, animated:true, completion: nil)
+        
+    }
+    func moveToSurveyView(){
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "AcctIdentifyViewController") as! AcctIdentifyViewController
+        let navController = UINavigationController(rootViewController: viewController)
+        self.present(navController, animated:true, completion: nil)
+        
+    }
     func HttpResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
         let data = resData["resultData"] as! String
         
