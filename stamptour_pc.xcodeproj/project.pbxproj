@@ -44,11 +44,23 @@
 		335C97DF1D9A4D050066E25F /* TextValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335C97C11D9A4D050066E25F /* TextValidation.swift */; };
 		335C97E01D9A4D050066E25F /* UIControlManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335C97C21D9A4D050066E25F /* UIControlManager.swift */; };
 		335C97E11D9A4D050066E25F /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335C97C31D9A4D050066E25F /* UserDefaultManager.swift */; };
+		336342371DC8A24E0052A153 /* RegionResValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336342361DC8A24E0052A153 /* RegionResValue.swift */; };
+		336342391DC8A2E30052A153 /* RegionResManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336342381DC8A2E30052A153 /* RegionResManager.swift */; };
+		336CB5331DC59FE5007D047C /* StampSealProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336CB5321DC59FE5007D047C /* StampSealProtocol.swift */; };
+		3381B9181DC9847B002EE080 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3381B9171DC9847B002EE080 /* SplashViewController.swift */; };
+		3381B91A1DC98F0C002EE080 /* AppDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3381B9191DC98F0C002EE080 /* AppDefaultManager.swift */; };
+		3381B91C1DC9BCA8002EE080 /* HttpDownWithServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3381B91B1DC9BCA8002EE080 /* HttpDownWithServer.swift */; };
+		3381B91E1DC9BD28002EE080 /* HttpProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3381B91D1DC9BD28002EE080 /* HttpProtocol.swift */; };
+		3381B9201DC9C0E8002EE080 /* ContentsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3381B91F1DC9C0E8002EE080 /* ContentsManager.swift */; };
+		338FE03D1DC868E5008E39AD /* RegionInCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338FE03C1DC868E5008E39AD /* RegionInCase.swift */; };
+		338FE03F1DC869CF008E39AD /* RegionPartitionSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338FE03E1DC869CF008E39AD /* RegionPartitionSystem.swift */; };
 		3392EE251DC19CA800582308 /* StampVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392EE241DC19CA800582308 /* StampVO.swift */; };
 		3392EE281DC1D44B00582308 /* CalculateDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392EE271DC1D44B00582308 /* CalculateDistance.swift */; };
 		3392EE2A1DC1D65D00582308 /* MyLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392EE291DC1D65D00582308 /* MyLocationManager.swift */; };
 		3392EE2C1DC1FD9E00582308 /* CurrentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392EE2B1DC1FD9D00582308 /* CurrentLocation.swift */; };
 		33938AE11D9E0D710058B5DC /* StampCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33938AE01D9E0D710058B5DC /* StampCell.swift */; };
+		33C1BC661DC59534001DC8DE /* StampAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C1BC651DC59534001DC8DE /* StampAnimationView.swift */; };
+		33FED6C01DC8780000A5D131 /* ResChanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FED6BF1DC8780000A5D131 /* ResChanger.swift */; };
 		5D7B2E56B7B3ADE47F5C6A0C /* Pods_stamptour_pc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A14BFF4D0240426E1497D821 /* Pods_stamptour_pc.framework */; };
 /* End PBXBuildFile section */
 
@@ -113,11 +125,23 @@
 		335C97C11D9A4D050066E25F /* TextValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextValidation.swift; sourceTree = "<group>"; };
 		335C97C21D9A4D050066E25F /* UIControlManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControlManager.swift; sourceTree = "<group>"; };
 		335C97C31D9A4D050066E25F /* UserDefaultManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		336342361DC8A24E0052A153 /* RegionResValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionResValue.swift; sourceTree = "<group>"; };
+		336342381DC8A2E30052A153 /* RegionResManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionResManager.swift; sourceTree = "<group>"; };
+		336CB5321DC59FE5007D047C /* StampSealProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StampSealProtocol.swift; sourceTree = "<group>"; };
+		3381B9171DC9847B002EE080 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		3381B9191DC98F0C002EE080 /* AppDefaultManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDefaultManager.swift; sourceTree = "<group>"; };
+		3381B91B1DC9BCA8002EE080 /* HttpDownWithServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpDownWithServer.swift; sourceTree = "<group>"; };
+		3381B91D1DC9BD28002EE080 /* HttpProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpProtocol.swift; sourceTree = "<group>"; };
+		3381B91F1DC9C0E8002EE080 /* ContentsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsManager.swift; sourceTree = "<group>"; };
+		338FE03C1DC868E5008E39AD /* RegionInCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionInCase.swift; sourceTree = "<group>"; };
+		338FE03E1DC869CF008E39AD /* RegionPartitionSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionPartitionSystem.swift; sourceTree = "<group>"; };
 		3392EE241DC19CA800582308 /* StampVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StampVO.swift; sourceTree = "<group>"; };
 		3392EE271DC1D44B00582308 /* CalculateDistance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculateDistance.swift; sourceTree = "<group>"; };
 		3392EE291DC1D65D00582308 /* MyLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyLocationManager.swift; sourceTree = "<group>"; };
 		3392EE2B1DC1FD9D00582308 /* CurrentLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocation.swift; sourceTree = "<group>"; };
 		33938AE01D9E0D710058B5DC /* StampCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StampCell.swift; sourceTree = "<group>"; };
+		33C1BC651DC59534001DC8DE /* StampAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StampAnimationView.swift; sourceTree = "<group>"; };
+		33FED6BF1DC8780000A5D131 /* ResChanger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResChanger.swift; sourceTree = "<group>"; };
 		3B695BF8DFFC816A4E838855 /* Pods-stamptour_pc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stamptour_pc.release.xcconfig"; path = "Pods/Target Support Files/Pods-stamptour_pc/Pods-stamptour_pc.release.xcconfig"; sourceTree = "<group>"; };
 		70E3A8C079B7299CCD1BFFC0 /* Pods-stamptour_pc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stamptour_pc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-stamptour_pc/Pods-stamptour_pc.debug.xcconfig"; sourceTree = "<group>"; };
 		A14BFF4D0240426E1497D821 /* Pods_stamptour_pc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_stamptour_pc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +198,7 @@
 		335C97751D9A4A3F0066E25F /* stamptour_pc */ = {
 			isa = PBXGroup;
 			children = (
+				338FE0401DC86EB0008E39AD /* appmanage */,
 				3392EE261DC1BD3E00582308 /* stamp */,
 				3392EE211DC18BDD00582308 /* httpReq */,
 				335C97E91D9A4E0C0066E25F /* strings */,
@@ -222,6 +247,7 @@
 				335C97BB1D9A4D050066E25F /* MoreViewController.swift */,
 				335C97BD1D9A4D050066E25F /* RankViewController.swift */,
 				335C97BF1D9A4D050066E25F /* StampViewController.swift */,
+				3381B9171DC9847B002EE080 /* SplashViewController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -236,6 +262,7 @@
 				335C97C11D9A4D050066E25F /* TextValidation.swift */,
 				335C97C21D9A4D050066E25F /* UIControlManager.swift */,
 				335C97C31D9A4D050066E25F /* UserDefaultManager.swift */,
+				3381B9191DC98F0C002EE080 /* AppDefaultManager.swift */,
 			);
 			name = common;
 			sourceTree = "<group>";
@@ -278,6 +305,7 @@
 			children = (
 				335C97B31D9A4D050066E25F /* LanguageInCase.swift */,
 				335C97B51D9A4D050066E25F /* LoggedInCase.swift */,
+				338FE03C1DC868E5008E39AD /* RegionInCase.swift */,
 			);
 			name = case;
 			sourceTree = "<group>";
@@ -291,11 +319,24 @@
 			name = strings;
 			sourceTree = "<group>";
 		};
+		338FE0401DC86EB0008E39AD /* appmanage */ = {
+			isa = PBXGroup;
+			children = (
+				338FE03E1DC869CF008E39AD /* RegionPartitionSystem.swift */,
+				33FED6BF1DC8780000A5D131 /* ResChanger.swift */,
+				336342361DC8A24E0052A153 /* RegionResValue.swift */,
+				336342381DC8A2E30052A153 /* RegionResManager.swift */,
+			);
+			name = appmanage;
+			sourceTree = "<group>";
+		};
 		3392EE211DC18BDD00582308 /* httpReq */ = {
 			isa = PBXGroup;
 			children = (
 				335C97AE1D9A4D050066E25F /* HttpRequestPath.swift */,
 				335C97AF1D9A4D050066E25F /* HttpRequestToServer.swift */,
+				3381B91B1DC9BCA8002EE080 /* HttpDownWithServer.swift */,
+				3381B91D1DC9BD28002EE080 /* HttpProtocol.swift */,
 			);
 			name = httpReq;
 			sourceTree = "<group>";
@@ -305,6 +346,9 @@
 			children = (
 				3392EE271DC1D44B00582308 /* CalculateDistance.swift */,
 				3392EE291DC1D65D00582308 /* MyLocationManager.swift */,
+				336CB5321DC59FE5007D047C /* StampSealProtocol.swift */,
+				33C1BC651DC59534001DC8DE /* StampAnimationView.swift */,
+				3381B91F1DC9C0E8002EE080 /* ContentsManager.swift */,
 			);
 			name = stamp;
 			sourceTree = "<group>";
@@ -517,11 +561,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				336CB5331DC59FE5007D047C /* StampSealProtocol.swift in Sources */,
 				3392EE2A1DC1D65D00582308 /* MyLocationManager.swift in Sources */,
+				3381B9201DC9C0E8002EE080 /* ContentsManager.swift in Sources */,
 				335C97CE1D9A4D050066E25F /* ItemCell.swift in Sources */,
 				335C97DF1D9A4D050066E25F /* TextValidation.swift in Sources */,
 				3392EE2C1DC1FD9E00582308 /* CurrentLocation.swift in Sources */,
 				33938AE11D9E0D710058B5DC /* StampCell.swift in Sources */,
+				338FE03F1DC869CF008E39AD /* RegionPartitionSystem.swift in Sources */,
 				335C97C71D9A4D050066E25F /* ActionParaVO.swift in Sources */,
 				3392EE281DC1D44B00582308 /* CalculateDistance.swift in Sources */,
 				335C97E11D9A4D050066E25F /* UserDefaultManager.swift in Sources */,
@@ -533,13 +580,18 @@
 				335C977F1D9A4A3F0066E25F /* stamptour_pc.xcdatamodeld in Sources */,
 				335C97D11D9A4D050066E25F /* LanguageInCase.swift in Sources */,
 				335C97DB1D9A4D050066E25F /* RankViewController.swift in Sources */,
+				3381B9181DC9847B002EE080 /* SplashViewController.swift in Sources */,
+				3381B91A1DC98F0C002EE080 /* AppDefaultManager.swift in Sources */,
 				335C97D31D9A4D050066E25F /* LoggedInCase.swift in Sources */,
+				3381B91C1DC9BCA8002EE080 /* HttpDownWithServer.swift in Sources */,
 				335C97DD1D9A4D050066E25F /* StampViewController.swift in Sources */,
 				335C97CC1D9A4D050066E25F /* HttpRequestPath.swift in Sources */,
 				335C97D41D9A4D050066E25F /* LoggedInCaseVO.swift in Sources */,
 				335C97DC1D9A4D050066E25F /* RankVO.swift in Sources */,
 				3392EE251DC19CA800582308 /* StampVO.swift in Sources */,
+				33FED6C01DC8780000A5D131 /* ResChanger.swift in Sources */,
 				335C97CF1D9A4D050066E25F /* JoinNickViewController.swift in Sources */,
+				33C1BC661DC59534001DC8DE /* StampAnimationView.swift in Sources */,
 				335C97C61D9A4D050066E25F /* ActionDisplay.swift in Sources */,
 				335C97D71D9A4D050066E25F /* MapViewController.swift in Sources */,
 				335C97C51D9A4D050066E25F /* AccountViewController.swift in Sources */,
@@ -547,8 +599,12 @@
 				335C97D91D9A4D050066E25F /* MoreViewController.swift in Sources */,
 				335C97C81D9A4D050066E25F /* ActionVO.swift in Sources */,
 				335C97CB1D9A4D050066E25F /* ForgetViewController.swift in Sources */,
+				336342391DC8A2E30052A153 /* RegionResManager.swift in Sources */,
 				335C97C91D9A4D050066E25F /* CommonFunction.swift in Sources */,
+				336342371DC8A24E0052A153 /* RegionResValue.swift in Sources */,
+				3381B91E1DC9BD28002EE080 /* HttpProtocol.swift in Sources */,
 				335C97D01D9A4D050066E25F /* JoinViewController.swift in Sources */,
+				338FE03D1DC868E5008E39AD /* RegionInCase.swift in Sources */,
 				335C97E01D9A4D050066E25F /* UIControlManager.swift in Sources */,
 				335C97771D9A4A3F0066E25F /* AppDelegate.swift in Sources */,
 				335C97D61D9A4D050066E25F /* MainViewController.swift in Sources */,
@@ -702,11 +758,15 @@
 			baseConfigurationReference = 70E3A8C079B7299CCD1BFFC0 /* Pods-stamptour_pc.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 7PL62EHX8R;
 				INFOPLIST_FILE = stamptour_pc/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.thatzit.stamptour-pc";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thatzit.stamptour.PochunStampTour;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -716,11 +776,15 @@
 			baseConfigurationReference = 3B695BF8DFFC816A4E838855 /* Pods-stamptour_pc.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 7PL62EHX8R;
 				INFOPLIST_FILE = stamptour_pc/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.thatzit.stamptour-pc";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thatzit.stamptour.PochunStampTour;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

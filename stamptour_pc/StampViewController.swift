@@ -16,7 +16,7 @@ class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITabl
     let TAG : String = "StampViewController"
     var httpRequest : HttpRequestToServer?
     var stamps = Array<StampVO>()
-     var locationManager = CLLocationManager()
+    var locationManager = CLLocationManager()
     var currentLocation : CurrentLocation?
     
     override func viewDidLoad() {
@@ -53,40 +53,62 @@ class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITabl
         let path = HttpReqPath.StampListReq
         let parameters : [ String : String] = [
             "nick" : UserDefaultManager.init().getUserNick(),
-            "accesstoken" : UserDefaultManager.init().getUserAccessToken(),
+            "accesstoken" : UserDefaultManager.init().getUserAccessToken()
         ]
         
         self.httpRequest?.connection(path, reqParameter: parameters)
     }
     
-    func HttpResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
-        let data = resData["resultData"] as! NSArray
-       self.tableView.rowHeight = 80
-        var mvo : StampVO
-    
-        for row in data{
-            var obj = row as! NSDictionary
-            
-            mvo = StampVO()
-            
-            mvo.town_code = obj.object(forKey: "TOWN_CODE") as! Int
-            mvo.latitud = obj.object(forKey: "latitud") as! String
-            mvo.longitude = obj.object(forKey: "longitude") as! String
-            mvo.region_code = obj.object(forKey: "region_code") as! Int
-            mvo.valid_range = obj.object(forKey: "valid_range") as! Int
-            mvo.nick = obj.object(forKey: "Nick") as! String
-            mvo.checktime = obj.object(forKey: "CheckTime") as! String
-            mvo.region = obj.object(forKey: "region") as! String
-            mvo.rank_no = obj.object(forKey: "rank_no") as! Int
-            
-           // NSLog(TAG,"\(mvo)")
-            self.stamps.append(mvo)
-        }
-       // NSLog(TAG,"\(stamps)")
-       
-        tableView.reloadData()
+    func reqStampSeal(town_code : String, latitude : String, logitude : String){
+        let path = HttpReqPath.StampSealReq
+        let parameters : [ String : String] = [
+            "nick" : UserDefaultManager.init().getUserNick(),
+            "accesstoken" : UserDefaultManager.init().getUserAccessToken(),
+            "town_code" : town_code,
+            "latitude" : latitude,
+            "logitude" : logitude
+        ]
+        
+        self.httpRequest?.connection(path, reqParameter: parameters)
         
     }
+    
+    func HttpResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
+        if(reqPath == HttpReqPath.StampListReq){
+            let data = resData["resultData"] as! NSArray
+            self.tableView.rowHeight = 80
+            var mvo : StampVO
+            
+            for row in data{
+                var obj = row as! NSDictionary
+                
+                mvo = StampVO()
+                
+                mvo.town_code = obj.object(forKey: "TOWN_CODE") as! Int
+                mvo.latitud = obj.object(forKey: "latitud") as! String
+                mvo.longitude = obj.object(forKey: "longitude") as! String
+                mvo.region_code = obj.object(forKey: "region_code") as! Int
+                mvo.valid_range = obj.object(forKey: "valid_range") as! Int
+                mvo.nick = obj.object(forKey: "Nick") as! String
+                mvo.checktime = obj.object(forKey: "CheckTime") as! String
+                mvo.region = obj.object(forKey: "region") as! String
+                mvo.rank_no = obj.object(forKey: "rank_no") as! Int
+                mvo.active = false
+                // NSLog(TAG,"\(mvo)")
+                self.stamps.append(mvo)
+            }
+            // NSLog(TAG,"\(stamps)")
+            
+            tableView.reloadData()
+        }else if(reqPath == HttpReqPath.StampSealReq){
+            
+        }else{
+            print("\(TAG) : nothing")
+        }
+    
+    }
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return stamps.count
@@ -94,7 +116,7 @@ class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = self.stamps[(indexPath as NSIndexPath).row];
-        var Active : Bool = false
+       
         
         let NormalCell = tableView.dequeueReusableCell(withIdentifier: "NormalCell") as! NormalCell
         let ActiveCell = tableView.dequeueReusableCell(withIdentifier: "ActiveCell") as! ActiveCell
@@ -107,7 +129,7 @@ class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITabl
             
             print("\(TAG) : \(distance)")
             if(dist * 1000 <= Double(row.valid_range!)){
-                Active = true
+                row.active =  true
                 //버튼활성화처리
             }
         }else{
@@ -127,7 +149,7 @@ class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITabl
             return CompleteCell
             
         }else{
-            if(Active){ // distanse active
+            if(row.active)!{ // distanse active
                 // active
                 ActiveCell.vil_thumbnail.image = UIImage(named: "img_stamp")
                 ActiveCell.vil_name.text = "액티브 마을"
@@ -165,6 +187,11 @@ class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITabl
 //        if(Active){
 //            
 //        }
+       
+        
+        let row = self.stamps[(indexPath as NSIndexPath).row];
+        
+      //  reqStampSeal(town_code: String(describing: row.town_code) , latitude: String(describing: currentLocation?.latitude), logitude: String(describing: currentLocation?.longitude))
        
     }
     

@@ -9,10 +9,8 @@
 import Foundation
 import UIKit
 
-class UIControlManager {
-    init(){
-        
-    }
+class UIControlManager{
+
     
     func setNavigationConfig(_ naviColorHex : String, naviFontColorHex : String){
         let naviColor = colorWithHexString(naviColorHex)
