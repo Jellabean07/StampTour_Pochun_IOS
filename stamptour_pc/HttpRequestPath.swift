@@ -23,7 +23,8 @@ class HttpReqPath {
     static let ForgetId = "/user/find/id"
     static let StampListReq = "/town/list"
     static let StampSealReq = "/stamp/check"
-    
-    
+    static let UserInfoReq = "/user/info"
+    static let PasswordChangeReq = "/user/change/password"
+    static let UserRemoveReq = "/user/remove"
     
 }
