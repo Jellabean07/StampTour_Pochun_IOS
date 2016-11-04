@@ -3077,7 +3077,7 @@
                                                     <constraint firstAttribute="height" constant="45" id="5Q8-aA-ROt"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <state key="normal" title="로그 아웃">
+                                                <state key="normal" title="계정 삭제">
                                                     <color key="titleColor" red="0.99607843139999996" green="0.2470588235" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -3089,7 +3089,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="logout_btn:" destination="Goa-bT-ZO2" eventType="touchUpInside" id="7r7-3j-q8x"/>
+                                                    <action selector="removeUser:" destination="EyT-26-GmP" eventType="touchUpInside" id="lko-6g-KjK"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="계정을 삭제하면 회원정보, 선물 신청 내역도 영구적으로 삭제됩니다." lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTX-qz-tdZ">
@@ -3145,12 +3145,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iL8-bi-DhG">
-                        <barButtonItem key="leftBarButtonItem" title="취소" id="raR-kX-cg1" userLabel="취소">
+                        <barButtonItem key="leftBarButtonItem" title="뒤로" id="raR-kX-cg1">
                             <connections>
                                 <action selector="pop:" destination="EyT-26-GmP" id="LZ4-Av-xC6"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="전송" id="g2H-Ji-uCR" userLabel="전송">
+                        <barButtonItem key="rightBarButtonItem" title="저장" id="g2H-Ji-uCR" userLabel="저장">
                             <connections>
                                 <action selector="submit:" destination="EyT-26-GmP" id="ryN-z2-JvC"/>
                             </connections>
