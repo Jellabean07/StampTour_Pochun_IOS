@@ -25,6 +25,6 @@ class HttpReqPath {
     static let StampSealReq = "/stamp/check"
     static let UserInfoReq = "/user/info"
     static let PasswordChangeReq = "/user/change/password"
-    
+    static let UserRemoveReq = "/user/remove"
     
 }

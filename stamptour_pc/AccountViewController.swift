@@ -24,19 +24,26 @@ class AcctManagerViewController : UIViewController , HttpResponse{
         self.hideKeyboardWhenTappedAround()
         self.httpRequest = HttpRequestToServer.init(TAG: TAG, delegate : self)
         scrollView.contentSize.height = 667
+        let loggedCase = UserDefaultManager.init().getIsLoggedCase()
+        if(loggedCase == LoggedInCase.normal.hashValue){
+            passwordField.isUserInteractionEnabled = true
+            passwordRepeatFiled.isUserInteractionEnabled = true
+        }else{
+            passwordField.isUserInteractionEnabled = false
+            passwordRepeatFiled.isUserInteractionEnabled = false
+        }
         let nick = UserDefaultManager.init().getUserNick()
         let accesstoken = UserDefaultManager.init().getUserAccessToken()
         let parameters : [ String : String] = [
             "accesstoken" : accesstoken,
             "nick" : nick
         ]
-        httpRequestMode = "Render";
         self.httpRequest?.connection(HttpReqPath.UserInfoReq, reqParameter: parameters)
     }
     
     
     func HttpResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
-        if(httpRequestMode == "Render"){
+        if(reqPath == HttpReqPath.UserInfoReq){
             let data = resData["resultData"] as! NSDictionary
             let nick = data["Nick"] as! String
             let id = data["id"] as! String
@@ -54,9 +61,30 @@ class AcctManagerViewController : UIViewController , HttpResponse{
             else{
                 NSLog(TAG,"UserInfoRequest Fail")
             }
-        }else if(httpRequestMode == "Send"){
-            
+        }else if(reqPath == HttpReqPath.PasswordChangeReq){
+            if(resCode == "00" && resMsg == "SUCCESS"){
+                ActionDisplay.init(uvc: self).displayMyAlertMessage("비밀번호변경 성공")
+            }else{
+                ActionDisplay.init(uvc: self).displayMyAlertMessage("비밀번호변경 실패")
+            }
+        }else if(reqPath == HttpReqPath.UserRemoveReq){
+            if(resCode == "00" && resMsg == "SUCCESS"){
+                ActionDisplay.init(uvc: self).displayMyAlertMessage("탈퇴 성공")
+            }else{
+                ActionDisplay.init(uvc: self).displayMyAlertMessage("탈퇴 실패")
+            }
         }
+    }
+    
+    @IBAction func removeUser(_ sender: AnyObject) {
+        let nick = UserDefaultManager.init().getUserNick()
+        let accesstoken = UserDefaultManager.init().getUserAccessToken()
+        let parameters : [ String : String] = [
+            "accesstoken" : accesstoken,
+            "nick" : nick,
+            "devicetoken":"abcd"
+        ]
+        self.httpRequest?.connection(HttpReqPath.UserRemoveReq, reqParameter: parameters)
     }
     @IBAction func pop(_ sender: AnyObject) {
         CommonFunction.dismiss(self)
