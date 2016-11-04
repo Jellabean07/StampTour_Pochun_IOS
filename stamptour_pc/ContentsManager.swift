@@ -53,23 +53,8 @@ class ContentsManager : HttpResponse{
 
     
     func expanding(){
-     /*   do {
-            let filePath = Bundle.main.url(forResource: "file", withExtension: "zip")!
-            let documentsDirectory = FileManager.default.urls(for:.documentDirectory, in: .userDomainMask)[0]
-            try Zip.unzipFile(filePath, destination: documentsDirectory, overwrite: true, password: "password", progress: { (progress) -> () in
-                print(progress)
-            }) // Unzip
-            
-            let zipFilePath = documentsFolder.appendingPathComponent("contents.zip")
-            try Zip.zipFiles([filePath], zipFilePath: zipFilePath, password: "password", progress: { (progress) -> () in
-                print(progress)
-            }) //Zip
-            
-        }
-        catch {
-            print("Something went wrong")
-        }
-*/
+        
+     FileBrowser.init().setUnZip(file: "contents.zip")
     }
     
     func HttpResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
@@ -80,17 +65,20 @@ class ContentsManager : HttpResponse{
             //let uploadtime = data["UploadTime"] as! String
             
             if((version == -1) && (size == -1)){
-                print("\(TAG) : current version ")
+                print("\(TAG) : Latest version ")
             }else{
+                let uploadtime = data["UploadTime"] as! String
                 let appDefualt = AppDefaultManager.init()
                 appDefualt.setSize(size)
                 appDefualt.setVersion(version)
-               // appDefualt.setUploadtime(uploadtime)
+                appDefualt.setUploadtime(uploadtime)
                 //download
                 contentsDown()
+                
             }
 
         }else{
+            
             print("download good")
             print(resCode)
             print(resMsg)
