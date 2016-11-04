@@ -64,9 +64,20 @@ class FileBrowser {
         }
     }
     
-    func setUnZip(){
-        let filePath = selectedFiles.first
-        let pathURL = path!.appendingPathComponent(filePath!)
+    func setUnZip(file : String){
+        let filePath = file
+        let pathURL = path!.appendingPathComponent(filePath)
+        print("pathURL : \(pathURL)")
+        do {
+            let _ = try Zip.quickUnzipFile(pathURL)
+            updateFiles()
+        } catch {
+            print("ERROR")
+        }
+    }
+    
+    func fileUnZip(pathURL : URL){
+        print("pathURL : \(pathURL)")
         do {
             let _ = try Zip.quickUnzipFile(pathURL)
             updateFiles()
