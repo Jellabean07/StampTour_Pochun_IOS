@@ -10,8 +10,8 @@ import Foundation
 
 class HttpReqPath {
     
-    static let HttpHost = "http://stamptourshinan.mybluemix.net"
-//    static let HttpHost = "http://stamptourpochon.mybluemix.net"
+   // static let HttpHost = "http://stamptourshinan.mybluemix.net"
+    static let HttpHost = "http://stamptourpochon.mybluemix.net"
     static let VersionCheck = "/user/check/version"
     static let ContentsReq = "/town/contents/contents.zip"
     static let LoginReq = "/user/login"

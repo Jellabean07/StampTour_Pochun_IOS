@@ -20,10 +20,19 @@ class SplashViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         AppDefaultManager.init().setFirst(true)
-        FileBrowser.init().updateFiles()
+        unZipTest()
         setView()
         callTimer()
        
+        
+    }
+    
+    func unZipTest(){
+        //FileBrowser.init().updateFiles()
+        let fileBrowser = FileBrowser.init()
+        fileBrowser.updateFiles()
+        //fileBrowser.setUnZip(file: "contents.zip")
+        //fileBrowser.fileUnZip()
         
     }
     func setView(){
