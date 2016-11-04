@@ -20,19 +20,26 @@ class SplashViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         AppDefaultManager.init().setFirst(true)
+        FileBrowser.init().updateFiles()
+        setView()
         callTimer()
        
         
     }
+    func setView(){
+        self.bgImg.image = UIImage(named: "img_splash_bg")
+        self.logoImg.image = UIImage(named: "img_splash_logo")
+        self.applyName.text = "©2016. POCHEON"
+    }
+
     
-      
     func show() {
-//        if(UserDefaultManager.init().getIsLoggedState()){
-//            SideBarSetupGo.init().startSideBarThemeViewController()
-//        }else{
-//            self.performSegue(withIdentifier: "showApp", sender: self)
-//        }
-         self.performSegue(withIdentifier: "showApp", sender: self)
+//       if(UserDefaultManager.init().getIsLoggedState()){
+//           SideBarSetupGo.init().startSideBarThemeViewController()
+//       }else{
+//           self.performSegue(withIdentifier: "showApp", sender: self)
+//       }
+        self.performSegue(withIdentifier: "showApp", sender: self)
     }
     
     func callTimer(){
@@ -41,5 +48,6 @@ class SplashViewController : UIViewController{
         )
     }
     
+  
 
 }
