@@ -26,5 +26,6 @@ class HttpReqPath {
     static let UserInfoReq = "/user/info"
     static let PasswordChangeReq = "/user/change/password"
     static let UserRemoveReq = "/user/remove"
+    static let UserCurrentGift = "/user/current/gift"
     
 }
