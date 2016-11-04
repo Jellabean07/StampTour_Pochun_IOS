@@ -81,29 +81,10 @@ class MoreViewController : UIViewController ,UITableViewDelegate, UITableViewDat
         }
     }
     func moveToAccountManageView(){
-        let loggedCase = UserDefaultManager.init().getIsLoggedCase()
-        switch loggedCase {
-        case LoggedInCase.normal.hashValue:
-            NSLog("normal", LoggedInCase.normal.description)
-            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "AcctIdentifyViewController") as! AcctIdentifyViewController
-            let navController = UINavigationController(rootViewController: viewController)
-            self.present(navController, animated:true, completion: nil)
-            break
-        case LoggedInCase.fbLogin.hashValue:
-            NSLog(TAG, LoggedInCase.fbLogin.description)
-            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "AcctManagerViewController") as! AcctManagerViewController
-            let navController = UINavigationController(rootViewController: viewController)
-            self.present(navController, animated:true, completion: nil)
-            break
-        case LoggedInCase.kakaoLogin.hashValue:
-            NSLog(TAG, LoggedInCase.kakaoLogin.description)
-            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "AcctManagerViewController") as! AcctManagerViewController
-            let navController = UINavigationController(rootViewController: viewController)
-            self.present(navController, animated:true, completion: nil)
-            break
-        default:
-            break
-        }
+        
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "AcctManagerViewController") as! AcctManagerViewController
+        let navController = UINavigationController(rootViewController: viewController)
+        self.present(navController, animated:true, completion: nil)
     }
     func moveToGiftManageView(){
         let viewController = self.storyboard?.instantiateViewController(withIdentifier: "GiftManageViewController") as! GiftManageViewController
