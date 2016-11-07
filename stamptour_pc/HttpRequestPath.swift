@@ -9,9 +9,12 @@
 import Foundation
 
 class HttpReqPath {
-    
-   // static let HttpHost = "http://stamptourshinan.mybluemix.net"
-    static let HttpHost = "http://stamptourpochon.mybluemix.net"
+    // 신안 프로덕션 호스트
+    // static let HttpHost = "http://stamptourshinan.mybluemix.net"
+    // 포천 개발서버 호스트
+     static let HttpHost = "http://stamptourpochondev.mybluemix.net"
+    // 포천 프로덕션 호스트
+//    static let HttpHost = "http://stamptourpochon.mybluemix.net"
     static let VersionCheck = "/user/check/version"
     static let ContentsReq = "/town/contents/contents.zip"
     static let LoginReq = "/user/login"
@@ -26,5 +29,6 @@ class HttpReqPath {
     static let UserInfoReq = "/user/info"
     static let PasswordChangeReq = "/user/change/password"
     static let UserRemoveReq = "/user/remove"
+    static let UserCurrentGift = "/user/current/gift"
     
 }
