@@ -19,7 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         //let config = Config.init();
         //UIControlManager.init().setNavigationConfig(config.NaviBackGroundColor,naviFontColorHex: config.NaviFontColor)
+        let insertDummy = InsertDummy.init()
+        insertDummy.setDummy()
+        //print(FileBrowser.init().readFromDocumentsFile(fileName: "kr.json"))
         
+        //print(print(FileBrowser.init().readFromDocumentsFile(fileName: "kr.json")))
+        let jsonString = FileBrowser.init().readFromDocumentsFile(fileName: "kr.json")
+        FileBrowser.init().convertJsonArray(text: jsonString)
+        print(FileBrowser.init().getDocumentsDirectory())
+        FileBrowser.init().currentFiles()
         return true
     }
 

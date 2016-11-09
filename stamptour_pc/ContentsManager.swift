@@ -73,7 +73,8 @@ class ContentsManager : HttpResponse{
                 appDefualt.setVersion(version)
                 appDefualt.setUploadtime(uploadtime)
                 //download
-                contentsDown()
+                //contentsDown()
+                print("Contents not download")
                 
             }
 
