@@ -18,6 +18,7 @@ class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITabl
     var stamps = Array<StampVO>()
     var locationManager = CLLocationManager()
     var currentLocation : CurrentLocation?
+    var townListitem : [ContentsVO]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,7 @@ class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITabl
         self.setLoactionManager()
         self.reqStamp()
          self.tableView.allowsSelection = true
+       
         
         
     }
@@ -111,6 +113,13 @@ class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITabl
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let townList : [ContentsVO] = StampDefaultManager.init().getTownList(){
+            self.townListitem = townList
+            print("\(TAG) : 진입 완료")
+            for row in townList{
+                print("\(TAG) : townListItem : \(row.title)")
+            }
+        }
         return stamps.count
     }
     

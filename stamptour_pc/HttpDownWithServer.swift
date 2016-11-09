@@ -48,7 +48,9 @@ class HttpDownWithServer {
         let pathURL = HttpReqPath.HttpHost+reqPath+nick+token
         print(pathURL)
         
-        Alamofire.download(HttpReqPath.HttpHost+reqPath, method: .get, parameters: reqParameter, encoding: JSONEncoding.default, to: destination)
+       // Alamofire.request(HttpReqPath.HttpHost+reqPath, method:.get)
+        Alamofire.download(HttpReqPath.HttpHost+reqPath, method:.get, parameters: reqParameter, to : destination)
+       // Alamofire.download(HttpReqPath.HttpHost+reqPath, method: .get, parameters: reqParameter, encoding: JSONEncoding.default, to: destination)
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
                 print("Progress: \(progress.fractionCompleted)")
             }
@@ -65,7 +67,7 @@ class HttpDownWithServer {
                 
                 let fileBrowser = FileBrowser.init()
                 fileBrowser.updateFiles()
-                fileBrowser.fileUnZip(pathURL: response.destinationURL!)
+                //fileBrowser.fileUnZip(pathURL: response.destinationURL!)
         }
     
     }
