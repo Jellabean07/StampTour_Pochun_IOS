@@ -9,7 +9,7 @@
 import UIKit
 
 
-class GiftManageViewController : UIViewController , UITableViewDelegate, UITableViewDataSource, HttpResponse{
+class GiftManageViewController : UIViewController ,UITableViewDelegate, UITableViewDataSource,GiftCellDelegate ,HttpResponse{
     
     let TAG : String = "GiftManageViewController"
     var httpRequest : HttpRequestToServer?
@@ -17,6 +17,7 @@ class GiftManageViewController : UIViewController , UITableViewDelegate, UITable
     var allGradeList = Array<allGradeVO>()
     var agoGiftList = Array<agoGiftVO>()
     var mycountVO = MyCountVO.init()
+    var sendGrade: String?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -76,35 +77,56 @@ class GiftManageViewController : UIViewController , UITableViewDelegate, UITable
         let row = self.allGradeList[(indexPath as NSIndexPath).row];
         let giftCell = tableView.dequeueReusableCell(withIdentifier: "GiftCell") as! GiftCell
         let agoGiftCount = self.agoGiftList.count
+        if giftCell.buttonDelegate == nil {
+            giftCell.buttonDelegate = self
+        }
         if((mycountVO.stamp_count?.hashValue)!>=row.stamp_count!){
+            NSLog("StampCount is up", "comein")
             if(agoGiftList.count != 0){
-                if((indexPath as NSIndexPath).row < agoGiftCount){
-                    let agoGift = self.agoGiftList[(indexPath as NSIndexPath).row]
-                    if(agoGift.grade == row.grade){
+                NSLog("comein?", "comein")
+                for agoGiftData in agoGiftList{
+                    if(agoGiftData.grade == row.grade){
                         giftCell.giftGrade.text = row.grade
                         giftCell.giftCount.text = "선물신청 완료"
+                        giftCell.giftSendBtn.isUserInteractionEnabled = false
+                        giftCell.giftSendBtn.isHidden = true
                         return giftCell
                     }
+                    giftCell.giftGrade.text = row.grade
+                    giftCell.giftCount.text = "눌러서 선물을 신청하세요"
+                    giftCell.giftSendBtn.tag = indexPath.row
+                    return giftCell
                 }
-                giftCell.giftGrade.text = row.grade
-                giftCell.giftCount.text = "눌러서 선물을 신청하세요"
-                return giftCell
             }else{
                 giftCell.giftGrade.text = row.grade
                 giftCell.giftCount.text = "눌러서 선물을 신청하세요"
+                giftCell.giftSendBtn.tag = indexPath.row
                 return giftCell
             }
         }else{
             giftCell.giftGrade.text = row.grade
             giftCell.giftCount.text = "선물받기까지 "+(row.stamp_count?.description)!+"개 남았습니다."
+            giftCell.giftSendBtn.isUserInteractionEnabled = false
+            giftCell.giftSendBtn.isHidden = true
         }
         NSLog(row.grade!, row.grade!)
         return giftCell
     }
     
-    
+    func cellTapped(cell: GiftCell) {
+        let tapped_row = self.allGradeList[tableView.indexPath(for: cell)!.row];
+        self.sendGrade = tapped_row.grade
+        NSLog("TABLE BUTTON TAP : "+tapped_row.grade!)
+//        self.performSegue(withIdentifier: "GiftRequestsegue", sender: self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "GiftRequestsegue") {
+            let giftRequestViewController = (segue.destination as! GiftRequestViewController)
+            NSLog(TAG+self.sendGrade!)
+            giftRequestViewController.Grade = self.sendGrade
+        }
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        let row = self.allGradeList[(indexPath as NSIndexPath).row];
     }
-
 }
