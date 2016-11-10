@@ -12,7 +12,7 @@ class HttpReqPath {
     // 신안 프로덕션 호스트
     // static let HttpHost = "http://stamptourshinan.mybluemix.net"
     // 포천 개발서버 호스트
-     static let HttpHost = "http://stamptourpochondev.mybluemix.net"
+    static let HttpHost = "http://stamptourpochondev.mybluemix.net"
     // 포천 프로덕션 호스트
 //    static let HttpHost = "http://stamptourpochon.mybluemix.net"
     static let VersionCheck = "/user/check/version"
