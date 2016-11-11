@@ -18,6 +18,7 @@ class GiftManageViewController : UIViewController ,UITableViewDelegate, UITableV
     var agoGiftList = Array<agoGiftVO>()
     var mycountVO = MyCountVO.init()
     var sendGrade: String?
+    var sendStampCount:Int?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -116,6 +117,7 @@ class GiftManageViewController : UIViewController ,UITableViewDelegate, UITableV
     func cellTapped(cell: GiftCell) {
         let tapped_row = self.allGradeList[tableView.indexPath(for: cell)!.row];
         self.sendGrade = tapped_row.grade
+        self.sendStampCount = tapped_row.stamp_count
         NSLog("TABLE BUTTON TAP : "+tapped_row.grade!)
 //        self.performSegue(withIdentifier: "GiftRequestsegue", sender: self)
     }
@@ -123,7 +125,8 @@ class GiftManageViewController : UIViewController ,UITableViewDelegate, UITableV
         if(segue.identifier == "GiftRequestsegue") {
             let giftRequestViewController = (segue.destination as! GiftRequestViewController)
             NSLog(TAG+self.sendGrade!)
-            giftRequestViewController.Grade = self.sendGrade
+            giftRequestViewController.grade = self.sendGrade
+            giftRequestViewController.stamp_count = self.sendStampCount
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
