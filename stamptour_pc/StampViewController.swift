@@ -113,19 +113,19 @@ class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITabl
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if let townList : [ContentsVO] = StampDefaultManager.init().getTownList(){
-//            self.townListitem = townList
-//            print("\(TAG) : 진입 완료")
-//            for row in townList{
-//                print("\(TAG) : townListItem : \(row.title)")
-//            }
-//        }
+        if let townList : [ContentsVO] = StampDefaultManager.init().getTownList(){
+            self.townListitem = townList
+            print("\(TAG) : 진입 완료")
+            for row in townList{
+                print("\(TAG) : townListItem : \(row.title)")
+            }
+        }
         return stamps.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = self.stamps[(indexPath as NSIndexPath).row];
-       // let town = self.townListitem?[(indexPath as NSIndexPath).row];
+        let town = self.townListitem?[(indexPath as NSIndexPath).row];
         
         let NormalCell = tableView.dequeueReusableCell(withIdentifier: "NormalCell") as! NormalCell
         let ActiveCell = tableView.dequeueReusableCell(withIdentifier: "ActiveCell") as! ActiveCell
@@ -169,7 +169,8 @@ class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITabl
                 // normal
                 
                 NormalCell.vil_thumbnail.image = UIImage(named: "img_stamp")
-                NormalCell.vil_name.text = "기본마을"
+                //NormalCell.vil_name.text = "기본마을"
+                NormalCell.vil_name.text = town?.title
                 NormalCell.vil_region.text = "\(row.region!)"
                 NormalCell.vil_distance.text = "\(distance) km"
                 return NormalCell
