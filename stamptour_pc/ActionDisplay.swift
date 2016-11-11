@@ -25,7 +25,17 @@ class ActionDisplay{
         myAlert.addAction(okAction);
         self.uvc!.present(myAlert, animated: true, completion: nil);
     }
-    
+    func displayMyAlertMessageDismissView(_ userMessage:String)
+    {
+        let myAlert=UIAlertController(title:"",message: userMessage,preferredStyle: UIAlertControllerStyle.alert);
+        let okAction=UIAlertAction(title:"OK",style: UIAlertActionStyle.default,handler: {
+            (_)in
+            CommonFunction.dismiss(self.uvc!)
+        });
+        
+        myAlert.addAction(okAction);
+        self.uvc!.present(myAlert, animated: true, completion: nil);
+    }
     func displayMyAlertMessageAction(_ userMessage:String, action: @escaping (Void)->Void)
     {
         let myAlert=UIAlertController(title:"",message: userMessage,preferredStyle: UIAlertControllerStyle.alert);
@@ -138,4 +148,5 @@ class ActionDisplay{
         self.uvc!.present(alertCtrl, animated: true, completion: nil)
         
     }
+    
 }

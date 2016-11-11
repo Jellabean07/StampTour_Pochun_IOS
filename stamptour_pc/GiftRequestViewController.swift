@@ -17,18 +17,28 @@ class GiftRequestViewController: UIViewController,HttpResponse {
     var httpRequest : HttpRequestToServer?
     var grade : String!
     var stamp_count : Int!
+    var sourceViewController :GiftManageViewController!
+    
     override func viewDidLoad(){
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         self.httpRequest = HttpRequestToServer.init(TAG: TAG, delegate : self)
+        
     }
     func HttpResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
         //let data = resData["resultData"] as! String
-        if reqPath == HttpReqPath.UserGiftApply {
+        
+        if (reqPath == HttpReqPath.UserGiftApply) {
+            let event = GiftRequestEvent.init(status: true, giftSendDelegate: self.sourceViewController)
+            event.refresh()
+            ActionDisplay.init(uvc: self).displayMyAlertMessageDismissView("선물신청 성공")
             
+//            CommonFunction.dismiss(self)
         }
     }
     @IBAction func pop(_ sender: AnyObject) {
+        let event = GiftRequestEvent.init(status: false, giftSendDelegate: sourceViewController)
+        event.refresh()
         CommonFunction.dismiss(self)
     }
     
@@ -38,7 +48,7 @@ class GiftRequestViewController: UIViewController,HttpResponse {
         let name = nameTextField.text?.description
         let phone = phoneTextField.text?.description
         
-        NSLog(nick+"\n"+name!+"\n"+accesstoken+"\n"+phone!+"\n"+self.grade+"\n"+self.stamp_count.description)
+//        NSLog(nick+"\n"+name!+"\n"+accesstoken+"\n"+phone!+"\n"+self.grade+"\n"+self.stamp_count.description)
         
         
         let parameters : [ String : String] = [
