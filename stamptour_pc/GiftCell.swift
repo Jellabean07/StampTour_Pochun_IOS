@@ -15,4 +15,11 @@ class GiftCell: UITableViewCell {
     @IBOutlet var giftGrade: UILabel!
     
     @IBOutlet var giftSendBtn: UIButton!
+    
+    var buttonDelegate: GiftCellDelegate?
+    @IBAction func buttonTap(_ sender: AnyObject) {
+        if let delegate = buttonDelegate {
+            delegate.cellTapped(cell: self)
+        }
+    }
 }

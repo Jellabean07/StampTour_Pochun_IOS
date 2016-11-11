@@ -121,25 +121,25 @@ class TownVO{
         self.range = stampVO.valid_range
         self.intro = contentsVO.intro
         self.images = [UIImage]()
-        self.images.append()
+        //self.images.append()
         
     }
     
-    func getImage(named : String) -> UIImage{
-        let fileManager = FileManager.default
-        let imagePAth = (self.getDirectoryPath() as NSString).appendingPathComponent(named)
-        if fileManager.fileExists(atPath: imagePAth){
-           return UIImage(contentsOfFile: imagePAth)!
-        }else{
-            print("No Image")
-            return UIImage(named : "img_no_img")
-        }
-    }
-    
-    func getDirectoryPath() -> String {
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        let documentsDirectory = paths[0].appendingPathComponent("contents", isDirectory: true).appendingPathComponent("contents", isDirectory: true)
-        return documentsDirectory
-    }
+//    func getImage(named : String) -> UIImage{
+//        let fileManager = FileManager.default
+//        let imagePAth = (self.getDirectoryPath() as NSString).appendingPathComponent(named)
+//        if fileManager.fileExists(atPath: imagePAth){
+//           return UIImage(contentsOfFile: imagePAth)!
+//        }else{
+//            print("No Image")
+//            return UIImage(named : "img_no_img")
+//        }
+//    }
+//    
+//    func getDirectoryPath() -> String {
+//        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+//        let documentsDirectory = paths[0].appendingPathComponent("contents", isDirectory: true).appendingPathComponent("contents", isDirectory: true)
+//        return documentsDirectory
+//    }
     
 }
