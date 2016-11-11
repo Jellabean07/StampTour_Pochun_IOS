@@ -164,12 +164,13 @@ class FileBrowser {
                     }
                     
                     
+                  
                 }
 
             } catch {
                 print("\(TAG) : Something went wrong")
             }
-            StampDefaultManager.init().setTownList(townList : townList)
+           StampDefaultManager.init().setTownList(townList : townList)
         }
     }
 }

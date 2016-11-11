@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 class ContentsVO : NSObject, NSCoding{
     
@@ -33,16 +33,16 @@ class ContentsVO : NSObject, NSCoding{
     }
     
     
-    required convenience init?(coder decoder: NSCoder) {
-        guard let no = decoder.decodeObject(forKey: "no") as? String,
-            let title = decoder.decodeObject(forKey: "title") as? String,
-            let subtitle = decoder.decodeObject(forKey: "subtitle") as? String,
-            let region = decoder.decodeObject(forKey: "region") as? String,
-            let latitude = decoder.decodeObject(forKey: "latitude") as? String,
-            let longitude = decoder.decodeObject(forKey: "logitude") as? String,
-            let range = decoder.decodeObject(forKey: "range") as? String,
-            let intro = decoder.decodeObject(forKey: "intro") as? String
-            else { return nil }
+    required convenience init(coder decoder: NSCoder) {
+        let no = decoder.decodeObject(forKey: "no") as! String
+        let title = decoder.decodeObject(forKey: "title") as! String
+        let subtitle = decoder.decodeObject(forKey: "subtitle") as! String
+        let region = decoder.decodeObject(forKey: "region") as! String
+        let latitude = decoder.decodeObject(forKey: "latitude") as! String
+        let longitude = decoder.decodeObject(forKey: "longitude") as! String
+        let range = decoder.decodeObject(forKey: "range") as! String
+        let intro = decoder.decodeObject(forKey: "intro") as! String
+        
         
         self.init(
             no: no,
@@ -89,4 +89,57 @@ class StampVO {
     var active : Bool?
     
   
+}
+
+
+class TownVO{
+    
+   // var contentsVO : ContentsVO?
+    //var stampVO : StampVO?
+    
+    var code : Int? //마을번호
+    var regionCode : Int? //권역코드
+    var stampCount : Int? //몇번째 스탬프
+    var title : String?  //마을이름
+    var subtitle : String? //부제목
+    var region : String? //권역
+    var latitude : String? //위도
+    var longitude : String? //경도
+    var range : Int? //반경
+    var intro : String? //마을소개
+    var images : [UIImage?] //마을 이미지
+    
+    init(contentsVO : ContentsVO, stampVO : StampVO){
+        self.code = stampVO.town_code
+        self.regionCode = stampVO.region_code
+        self.stampCount = stampVO.rank_no
+        self.title = contentsVO.title
+        self.subtitle = contentsVO.subtitle
+        self.region = contentsVO.region
+        self.latitude = stampVO.latitud
+        self.longitude = stampVO.longitude
+        self.range = stampVO.valid_range
+        self.intro = contentsVO.intro
+        self.images = [UIImage]()
+        //self.images.append()
+        
+    }
+    
+//    func getImage(named : String) -> UIImage{
+//        let fileManager = FileManager.default
+//        let imagePAth = (self.getDirectoryPath() as NSString).appendingPathComponent(named)
+//        if fileManager.fileExists(atPath: imagePAth){
+//           return UIImage(contentsOfFile: imagePAth)!
+//        }else{
+//            print("No Image")
+//            return UIImage(named : "img_no_img")
+//        }
+//    }
+//    
+//    func getDirectoryPath() -> String {
+//        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+//        let documentsDirectory = paths[0].appendingPathComponent("contents", isDirectory: true).appendingPathComponent("contents", isDirectory: true)
+//        return documentsDirectory
+//    }
+    
 }
