@@ -46,8 +46,7 @@ class RankViewController : UIViewController , UITableViewDelegate, UITableViewDa
         cell.no.text = "\(row.no!)."
         cell.nick.text = row.nick!
         cell.cnt.text = "찍은 스탬프 \(row.cnt!)개"
-     
-
+        
         
         return cell;
     }
