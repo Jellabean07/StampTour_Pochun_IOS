@@ -27,8 +27,6 @@ class StampDefaultManager{
     func getTownList() -> [ContentsVO] {
         if let data = self.userDefault?.object(forKey: "townList"),
             let townList = NSKeyedUnarchiver.unarchiveObject(with: data as! Data) as? [ContentsVO] {
-            townList.forEach({print( $0.no, $0.title)})  // Joe 10
-            print("There is an townList")
             return townList
         } else {
             print("There is an issue")

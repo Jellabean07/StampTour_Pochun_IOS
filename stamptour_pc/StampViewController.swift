@@ -125,7 +125,7 @@ class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = self.stamps[(indexPath as NSIndexPath).row];
-       
+        let town = self.townListitem?[(indexPath as NSIndexPath).row];
         
         let NormalCell = tableView.dequeueReusableCell(withIdentifier: "NormalCell") as! NormalCell
         let ActiveCell = tableView.dequeueReusableCell(withIdentifier: "ActiveCell") as! ActiveCell
@@ -169,7 +169,7 @@ class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITabl
                 // normal
                 
                 NormalCell.vil_thumbnail.image = UIImage(named: "img_stamp")
-                NormalCell.vil_name.text = "기본 마을"
+                NormalCell.vil_name.text = town?.title
                 NormalCell.vil_region.text = "\(row.region!)"
                 NormalCell.vil_distance.text = "\(distance) km"
                 return NormalCell
