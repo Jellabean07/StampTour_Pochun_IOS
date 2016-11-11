@@ -894,29 +894,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이름" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="an7-m0-u9I">
-                                <frame key="frameInset" minX="20" minY="96" width="335" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이름" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="an7-m0-u9I">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="gXr-5j-bEw"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="전화번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oTx-8a-PQe">
-                                <frame key="frameInset" minX="20" minY="148" width="335" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="전화번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oTx-8a-PQe">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="dLw-Ag-hqF"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="정확히 입력하세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldC-GK-bFn">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="oTx-8a-PQe" firstAttribute="top" secondItem="an7-m0-u9I" secondAttribute="bottom" constant="8" symbolic="YES" id="T2l-i1-VqD"/>
+                            <constraint firstItem="an7-m0-u9I" firstAttribute="top" secondItem="ldC-GK-bFn" secondAttribute="bottom" constant="10" id="T8f-5M-c4v"/>
+                            <constraint firstItem="an7-m0-u9I" firstAttribute="leading" secondItem="0nm-1P-emS" secondAttribute="leading" id="agV-rP-y61"/>
+                            <constraint firstItem="ldC-GK-bFn" firstAttribute="leading" secondItem="0nm-1P-emS" secondAttribute="leading" constant="10" id="gaQ-jS-70x"/>
+                            <constraint firstAttribute="trailing" secondItem="oTx-8a-PQe" secondAttribute="trailing" id="jP3-HT-Iwi"/>
+                            <constraint firstItem="ldC-GK-bFn" firstAttribute="top" secondItem="JKh-xU-bOY" secondAttribute="bottom" constant="30" id="kid-Df-gqJ"/>
+                            <constraint firstItem="oTx-8a-PQe" firstAttribute="leading" secondItem="0nm-1P-emS" secondAttribute="leading" id="n5L-xy-tVZ"/>
+                            <constraint firstAttribute="trailing" secondItem="an7-m0-u9I" secondAttribute="trailing" id="pEz-u3-Wsu"/>
+                            <constraint firstAttribute="trailing" secondItem="ldC-GK-bFn" secondAttribute="trailing" id="tLN-FA-jFf"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="선물신청" id="0WI-H5-2Gn">
-                        <barButtonItem key="leftBarButtonItem" title="뒤로" id="WjO-hg-y0I"/>
-                        <barButtonItem key="rightBarButtonItem" title="신청" id="Gqw-uN-Uvv"/>
+                        <barButtonItem key="leftBarButtonItem" title="뒤로" id="WjO-hg-y0I">
+                            <connections>
+                                <action selector="pop:" destination="LRc-vd-U53" id="gKH-lu-dVy"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="신청" id="Gqw-uN-Uvv">
+                            <connections>
+                                <action selector="submit:" destination="LRc-vd-U53" id="bgH-to-Qhf"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="nameTextField" destination="an7-m0-u9I" id="Ha7-P8-Rad"/>
+                        <outlet property="phoneTextField" destination="oTx-8a-PQe" id="YAL-gu-IDy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tjF-m0-tSY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7948" y="2248"/>
+            <point key="canvasLocation" x="7945" y="2236"/>
         </scene>
         <!--거리순-->
         <scene sceneID="alN-0P-DY5">

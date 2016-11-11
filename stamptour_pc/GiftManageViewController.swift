@@ -9,7 +9,7 @@
 import UIKit
 
 
-class GiftManageViewController : UIViewController ,UITableViewDelegate, UITableViewDataSource,GiftCellDelegate ,HttpResponse{
+class GiftManageViewController : UIViewController ,UITableViewDelegate, UITableViewDataSource,GiftCellDelegate,GiftSendDelegate,HttpResponse{
     
     let TAG : String = "GiftManageViewController"
     var httpRequest : HttpRequestToServer?
@@ -18,6 +18,7 @@ class GiftManageViewController : UIViewController ,UITableViewDelegate, UITableV
     var agoGiftList = Array<agoGiftVO>()
     var mycountVO = MyCountVO.init()
     var sendGrade: String?
+    var sendStampCount:Int?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -82,6 +83,7 @@ class GiftManageViewController : UIViewController ,UITableViewDelegate, UITableV
         }
         if((mycountVO.stamp_count?.hashValue)!>=row.stamp_count!){
             NSLog("StampCount is up", "comein")
+            var flag = true
             if(agoGiftList.count != 0){
                 NSLog("comein?", "comein")
                 for agoGiftData in agoGiftList{
@@ -90,8 +92,15 @@ class GiftManageViewController : UIViewController ,UITableViewDelegate, UITableV
                         giftCell.giftCount.text = "선물신청 완료"
                         giftCell.giftSendBtn.isUserInteractionEnabled = false
                         giftCell.giftSendBtn.isHidden = true
+                        flag = false
                         return giftCell
                     }
+//                    giftCell.giftGrade.text = row.grade
+//                    giftCell.giftCount.text = "눌러서 선물을 신청하세요"
+//                    giftCell.giftSendBtn.tag = indexPath.row
+//                    return giftCell
+                }
+                if(flag){
                     giftCell.giftGrade.text = row.grade
                     giftCell.giftCount.text = "눌러서 선물을 신청하세요"
                     giftCell.giftSendBtn.tag = indexPath.row
@@ -104,18 +113,35 @@ class GiftManageViewController : UIViewController ,UITableViewDelegate, UITableV
                 return giftCell
             }
         }else{
+            let count = row.stamp_count!-mycountVO.stamp_count!
             giftCell.giftGrade.text = row.grade
-            giftCell.giftCount.text = "선물받기까지 "+(row.stamp_count?.description)!+"개 남았습니다."
+            giftCell.giftCount.text = "선물받기까지 "+(count.description)+"개 남았습니다."
             giftCell.giftSendBtn.isUserInteractionEnabled = false
             giftCell.giftSendBtn.isHidden = true
         }
         NSLog(row.grade!, row.grade!)
         return giftCell
     }
+    func Tapped(event: GiftRequestEvent) {
+        NSLog("GiftRequestEventCall")
+        if event.status == false {
+            return
+        }
+        let nick = UserDefaultManager.init().getUserNick()
+        let accesstoken = UserDefaultManager.init().getUserAccessToken()
+        let parameters : [ String : String] = [
+            "accesstoken" : accesstoken,
+            "nick" : nick
+        ]
+        allGradeList.removeAll()
+        agoGiftList.removeAll()
+        self.httpRequest?.connection(HttpReqPath.UserCurrentGift, reqParameter: parameters)
+    }
     
     func cellTapped(cell: GiftCell) {
         let tapped_row = self.allGradeList[tableView.indexPath(for: cell)!.row];
         self.sendGrade = tapped_row.grade
+        self.sendStampCount = tapped_row.stamp_count
         NSLog("TABLE BUTTON TAP : "+tapped_row.grade!)
 //        self.performSegue(withIdentifier: "GiftRequestsegue", sender: self)
     }
@@ -123,7 +149,9 @@ class GiftManageViewController : UIViewController ,UITableViewDelegate, UITableV
         if(segue.identifier == "GiftRequestsegue") {
             let giftRequestViewController = (segue.destination as! GiftRequestViewController)
             NSLog(TAG+self.sendGrade!)
-            giftRequestViewController.Grade = self.sendGrade
+            giftRequestViewController.grade = self.sendGrade
+            giftRequestViewController.stamp_count = self.sendStampCount
+            giftRequestViewController.sourceViewController = self
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
