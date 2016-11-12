@@ -7,19 +7,22 @@
 //
 
 import Foundation
+import UIKit
 import Zip
 
 
-class ContentsManager : HttpResponse{
+class ContentsManager : HttpResponse, HttpDownResponse{
     
     let TAG = "ContentsManager"
     
     var httpRequest : HttpRequestToServer?
     var httpDownload : HttpDownWithServer?
-
-    init() {
+    var uvc : UIViewController?
+    
+    init(uvc : UIViewController) {
         self.httpRequest = HttpRequestToServer.init(TAG: TAG, delegate: self)
-        self.httpDownload = HttpDownWithServer.init(TAG: TAG, delegate: self)
+        self.httpDownload = HttpDownWithServer.init(TAG: TAG, delegate: self ,view : uvc.view)
+        self.uvc = uvc
     }
     
     func versionCheck(){
@@ -59,31 +62,46 @@ class ContentsManager : HttpResponse{
     
     func HttpResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
         let data = resData["resultData"] as! NSDictionary
-        if(reqPath == HttpReqPath.VersionCheck){
-            let version = data["Version"] as! Int
-            let size = data["Size"] as! Int
-            //let uploadtime = data["UploadTime"] as! String
-            
-            if((version == -1) && (size == -1)){
-                print("\(TAG) : Latest version ")
-            }else{
-                let uploadtime = data["UploadTime"] as! String
-                let appDefualt = AppDefaultManager.init()
-                appDefualt.setSize(size)
-                appDefualt.setVersion(version)
-                appDefualt.setUploadtime(uploadtime)
-                //download
-                contentsDown()
-                print("Contents not download")
-                
-            }
-
+    
+        let version = data["Version"] as! Int
+        let size = data["Size"] as! Int
+        //let uploadtime = data["UploadTime"] as! String
+        
+        if((version == -1) && (size == -1)){
+            print("\(TAG) : Latest version ")
+            CommonFunction.moveToController(uvc: self.uvc!)
         }else{
+            let uploadtime = data["UploadTime"] as! String
+            let appDefualt = AppDefaultManager.init()
+            appDefualt.setSize(size)
+            appDefualt.setVersion(version)
+            appDefualt.setUploadtime(uploadtime)
+            //download
+            contentsDown()
+            print("Download Contents")
             
-            print("download good")
-            print(resCode)
-            print(resMsg)
-            print(resData)
         }
+        
+        
     }
+    
+    func HttpDownResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
+        //let data = resData["resultData"] as! NSDictionary
+    
+        let fileBrowser = FileBrowser.init()
+        fileBrowser.setUnZip(file: "contents.zip")
+        fileBrowser.updateFiles()
+        let jsonString = fileBrowser.readFromDocumentsFile(fileName: "kr.json")
+        fileBrowser.convertJsonArray(text: jsonString)
+        print(FileBrowser.init().getDocumentsDirectory())
+        fileBrowser.currentFiles()
+        
+        CommonFunction.moveToController(uvc: self.uvc!)
+        print("download good")
+        print(resCode)
+        print(resMsg)
+        print(resData)
+        
+    }
+    
 }

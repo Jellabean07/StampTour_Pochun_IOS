@@ -29,8 +29,11 @@ class HttpRequestToServer {
             .validate()
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
                 print("Progress: \(progress.fractionCompleted)")
+                
+                
             }
             .responseJSON { response in
+                //To to long tasks
                 switch response.result {
                 case .success:
                     print("\(self.TAG!) : Validation Successful")
