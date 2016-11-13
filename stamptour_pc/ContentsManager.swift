@@ -81,7 +81,7 @@ class ContentsManager : HttpResponse, HttpDownResponse{
             print("Download Contents")
             
         }
-        
+        // contentsDown()
         
     }
     
@@ -103,5 +103,7 @@ class ContentsManager : HttpResponse, HttpDownResponse{
         print(resData)
         
     }
+    
+    
     
 }

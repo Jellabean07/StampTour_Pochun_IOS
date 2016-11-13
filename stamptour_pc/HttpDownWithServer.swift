@@ -46,12 +46,16 @@ class HttpDownWithServer {
         
         let nick = "?nick=\(String(describing: reqParameter["nick"]!))&"
         let token = "accesstoken=\(String(describing: reqParameter["accesstoken"]!))"
-        let pathURL = HttpReqPath.HttpHost+reqPath+nick+token
+        let pathURL : String = HttpReqPath.HttpHost+reqPath+nick+token
         print(pathURL)
         
+        FileBrowser.init().fileExistCheck(fileName: "contents.zip", defaultPath : true)
+        
+        
+       // Alamofire.download(pathURL, method:.get,encoding: JSONEncoding.default, to: destination)
        // Alamofire.request(HttpReqPath.HttpHost+reqPath, method:.get)
         Alamofire.download(HttpReqPath.HttpHost+reqPath, method:.get, parameters: reqParameter, to : destination)
-       // Alamofire.download(HttpReqPath.HttpHost+reqPath, method: .get, parameters: reqParameter, encoding: JSONEncoding.default, to: destination)
+        //Alamofire.download(HttpReqPath.HttpHost+reqPath, method: .get, parameters: reqParameter, encoding: JSONEncoding.default, to: destination)
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
                 print("Progress: \(progress.fractionCompleted)")
             }
