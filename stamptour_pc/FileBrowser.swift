@@ -94,6 +94,7 @@ class FileBrowser {
     }
     
     func setUnZip(file : String){
+        FileBrowser.init().fileExistCheck(fileName: "contents", defaultPath : false)
         let filePath = file
         let pathURL = path!.appendingPathComponent(filePath)
         print("pathURL : \(pathURL)")
@@ -135,6 +136,38 @@ class FileBrowser {
             print("ERROR : reading from file \(fileName) : \(error.localizedDescription)")
         }
         return readText
+    }
+    
+    func fileExistCheck(fileName : String, defaultPath : Bool){
+        var path : String?
+        if defaultPath{
+            path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+        }else{
+            path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0].appending("/contents") as String
+        }
+        
+        print("\(TAG) : fileExistCheck : \(path!)")
+        let url = NSURL(fileURLWithPath: path!)
+        let filePath = url.appendingPathComponent(fileName)?.path
+        let fileManager = FileManager.default
+        if fileManager.fileExists(atPath: filePath!) {
+             print("FILE AVAILABLE")
+            do {
+                try fileManager.removeItem(atPath:  filePath!)
+                print("\(TAG) : Success remove item")
+            }
+            catch let error as NSError {
+                print("\(TAG) : Something went wrong: \(error)")
+            }
+        } else {
+            print("FILE NOT AVAILABLE")
+        }
+    }
+    
+    func getDefaultDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
     }
     
     func getDocumentsDirectory() -> URL {
