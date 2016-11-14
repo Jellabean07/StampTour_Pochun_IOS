@@ -21,12 +21,14 @@ class LoadingOverlay{
         return Static.instance
     }
     
+    
     func showOverlay(view: UIView) {
-        
-        overlayView.frame = CGRect(x : 0,y : 0, width: 80,height: 80)
+        view.isUserInteractionEnabled = false
+        overlayView.frame = CGRect(x : 0,y : 0, width: 80,height: 80) // 375 , 667
         overlayView.center = view.center
         //overlayView.backgroundColor = UIColor(white: 0x444444, alpha: 0.7)
-        overlayView.backgroundColor = UIControlManager.init().colorWithHexString("#444444")
+        //overlayView.backgroundColor = UIControlManager.init().colorWithHexString("#b3444444")
+        overlayView.backgroundColor = UIControlManager.init().colorWithHexString("#ffffffff")
         overlayView.clipsToBounds = true
         overlayView.layer.cornerRadius = 10
         

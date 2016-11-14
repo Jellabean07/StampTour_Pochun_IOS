@@ -25,6 +25,40 @@ class ContentsManager : HttpResponse, HttpDownResponse{
         self.uvc = uvc
     }
     
+    
+    func mergeVO(contents : [ContentsVO], stamps : [StampVO]) -> [TownVO]{
+        var towns : [TownVO] = [TownVO]()
+        for row in contents{
+            for col in stamps{
+                print("\(TAG) : col.town_code : \(col.town_code!)")
+                print("\(TAG) : row.no : \(Int(row.no)!)")
+                if Int(row.no)! == col.town_code!{
+                   
+                    let code = col.town_code!
+                    let regionCode = col.region_code!
+                    let stampCount = col.rank_no!
+                    let title = row.title
+                    let subtitle = row.subtitle
+                    let region = col.region!
+                    let latitude = col.latitud!
+                    let longitude = col.longitude!
+                    let range = col.valid_range!
+                    let intro = row.intro
+                    let nick = col.nick!
+                    let checktime = col.checktime!
+                    var images = [UIImage]()
+                    for img in row.imgStr{
+                        images.append(FileBrowser.init().getImage(named: img))
+                    }
+                    let townVO = TownVO(code: code, regionCode: regionCode, stampCount: stampCount, title: title, subtitle: subtitle, region: region, latitude: latitude, longitude: longitude, range: range, intro: intro, nick: nick, checktime: checktime, images: images)
+                    towns.append(townVO)
+                }
+            }
+        }
+        return towns
+    }
+    
+ 
     func versionCheck(){
         
         let path = HttpReqPath.VersionCheck
@@ -88,11 +122,21 @@ class ContentsManager : HttpResponse, HttpDownResponse{
     func HttpDownResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
         //let data = resData["resultData"] as! NSDictionary
     
+       
         let fileBrowser = FileBrowser.init()
         fileBrowser.setUnZip(file: "contents.zip")
-        fileBrowser.updateFiles()
-        let jsonString = fileBrowser.readFromDocumentsFile(fileName: "kr.json")
+        
+        
+        let langStr = LocalizationManager.shared.getLanguageCode()
+        print("\(TAG) : language code : \(langStr) ")
+        
+        let langCode = LocalizationManager.shared.getConvertContentsLanguageCode(code: langStr )
+        let jsonString = fileBrowser.readFromDocumentsFile(fileName: "\(langCode).json")
+
         fileBrowser.convertJsonArray(text: jsonString)
+        
+        //파일확인 로그
+        fileBrowser.updateFiles()
         print(FileBrowser.init().getDocumentsDirectory())
         fileBrowser.currentFiles()
         
