@@ -12,3 +12,9 @@ protocol HttpResponse{
     func HttpResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject)
     
 }
+
+
+protocol HttpDownResponse{
+    func HttpDownResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject)
+    
+}

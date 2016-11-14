@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		331800C31DD61ABC00AFD22E /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331800C21DD61ABC00AFD22E /* LoadingOverlay.swift */; };
+		331800C61DD8621D00AFD22E /* LocalizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331800C51DD8621D00AFD22E /* LocalizationManager.swift */; };
 		331B50FB1DD1750D00438111 /* InsertDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331B50FA1DD1750D00438111 /* InsertDummy.swift */; };
 		331B50FE1DD175A100438111 /* contents.zip in Resources */ = {isa = PBXBuildFile; fileRef = 331B50FD1DD175A100438111 /* contents.zip */; };
 		331B51401DD1A10B00438111 /* eng.json in Resources */ = {isa = PBXBuildFile; fileRef = 331B51001DD1A10B00438111 /* eng.json */; };
@@ -161,6 +163,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		331800C21DD61ABC00AFD22E /* LoadingOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
+		331800C51DD8621D00AFD22E /* LocalizationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationManager.swift; sourceTree = "<group>"; };
 		331B50FA1DD1750D00438111 /* InsertDummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertDummy.swift; sourceTree = "<group>"; };
 		331B50FD1DD175A100438111 /* contents.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = contents.zip; sourceTree = "<group>"; };
 		331B51001DD1A10B00438111 /* eng.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = eng.json; sourceTree = "<group>"; };
@@ -331,6 +335,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		331800C41DD861E600AFD22E /* localize */ = {
+			isa = PBXGroup;
+			children = (
+				331800C51DD8621D00AFD22E /* LocalizationManager.swift */,
+			);
+			name = localize;
+			sourceTree = "<group>";
+		};
 		331B50FC1DD1753400438111 /* contents */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +448,7 @@
 		335C97751D9A4A3F0066E25F /* stamptour_pc */ = {
 			isa = PBXGroup;
 			children = (
+				331800C41DD861E600AFD22E /* localize */,
 				735397CB1DD5BC13003D9F1C /* event */,
 				735397C81DD5BB78003D9F1C /* delegate */,
 				335C97761D9A4A3F0066E25F /* AppDelegate.swift */,
@@ -507,6 +520,7 @@
 				335C97C21D9A4D050066E25F /* UIControlManager.swift */,
 				335C97C31D9A4D050066E25F /* UserDefaultManager.swift */,
 				3381B9191DC98F0C002EE080 /* AppDefaultManager.swift */,
+				331800C21DD61ABC00AFD22E /* LoadingOverlay.swift */,
 			);
 			name = common;
 			sourceTree = "<group>";
@@ -919,6 +933,7 @@
 				73CE51A71DCC942100E17D58 /* allGradeVO.swift in Sources */,
 				33FA50F11DCB13EA00F81A27 /* FileBrowser.swift in Sources */,
 				335C977F1D9A4A3F0066E25F /* stamptour_pc.xcdatamodeld in Sources */,
+				331800C31DD61ABC00AFD22E /* LoadingOverlay.swift in Sources */,
 				331B50FB1DD1750D00438111 /* InsertDummy.swift in Sources */,
 				335C97D11D9A4D050066E25F /* LanguageInCase.swift in Sources */,
 				335C97DB1D9A4D050066E25F /* RankViewController.swift in Sources */,
@@ -931,6 +946,7 @@
 				335C97CC1D9A4D050066E25F /* HttpRequestPath.swift in Sources */,
 				73CE51A11DCC8BE100E17D58 /* GiftCell.swift in Sources */,
 				335C97D41D9A4D050066E25F /* LoggedInCaseVO.swift in Sources */,
+				331800C61DD8621D00AFD22E /* LocalizationManager.swift in Sources */,
 				335C97DC1D9A4D050066E25F /* RankVO.swift in Sources */,
 				7353E92A1DCB0BE80033BDB5 /* GiftManageViewController.swift in Sources */,
 				73CE51AB1DCC9BF100E17D58 /* agoGiftVO.swift in Sources */,

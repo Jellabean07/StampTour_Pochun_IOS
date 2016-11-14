@@ -103,10 +103,8 @@ class LoginViewController: UIViewController , UITextFieldDelegate, HttpResponse{
         if(nick != "-1" && accesstoken != "-1"){
             UserDefaultManager.init().loggedIn(self.id_txt.text!, nick: nick, accessToken: accesstoken, LoginCase: self.loginCase!)
             
-            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-            let navController = UINavigationController(rootViewController: viewController)
-            self.present(navController, animated:true, completion: nil)
-            ContentsManager.init().versionCheck()
+            
+            ContentsManager.init(uvc: self).versionCheck()
         }else{
             NSLog(TAG,"Login Fail")
         }

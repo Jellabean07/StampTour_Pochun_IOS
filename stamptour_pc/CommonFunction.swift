@@ -20,4 +20,12 @@ class CommonFunction {
             selfView.navigationController?.popViewController(animated: true)
         }
     }
+    
+    static func moveToController(uvc : UIViewController){
+        typealias viewControllerType = MainViewController
+        let viewController = uvc.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! viewControllerType
+        
+        let navController = UINavigationController(rootViewController: viewController)
+        uvc.present(navController, animated:true, completion: nil)
+    }
 }
