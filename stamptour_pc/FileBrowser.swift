@@ -175,7 +175,56 @@ class FileBrowser {
         let documentsDirectory = paths[0].appendingPathComponent("contents", isDirectory: true).appendingPathComponent("contents", isDirectory: true)
         return documentsDirectory
     }
+    
+    func isExsitString(fileName : String) -> Bool{
+        var path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0].appending("/contents").appending("/contents") as String
         
+        print("\(TAG) : fileExistCheck : \(path)")
+        let url = NSURL(fileURLWithPath: path)
+        let filePath = url.appendingPathComponent(fileName)?.path
+        let fileManager = FileManager.default
+        if fileManager.fileExists(atPath: filePath!) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func getImage(named : String) -> UIImage{
+        var path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0].appending("/contents").appending("/contents") as String
+        
+        // print("\(TAG) : getImage : \(path)")
+        let url = NSURL(fileURLWithPath: path)
+        let imagePAth = url.appendingPathComponent(named)?.path
+        
+        let fileManager = FileManager.default
+        if fileManager.fileExists(atPath: imagePAth!){
+            print("load Image")
+            return UIImage(contentsOfFile: imagePAth!)!
+        }else{
+            print("No Image")
+            return UIImage(named : "img_no_img")!
+        }
+    }
+    
+    func getTownImgString(townNo : String) -> [String]{
+        let no : Int = Int(townNo)!
+        var townImg : [String] = [String]()
+        
+        for index in 1...5 {
+            let imgStr = "town\(no)_\(index).png"
+            print("\(TAG) : imgStr : \(imgStr)")
+            if isExsitString(fileName: imgStr) {
+                townImg.append(imgStr)
+                print("\(TAG) : imgStr append")
+            }else{
+                print("\(TAG) : imgStr not append")
+                
+            }
+        }
+        return townImg
+    }
+    
     func convertJsonArray(text : String){
         var townList = [ContentsVO]()
         if let data = text.data(using: String.Encoding.utf8) {
@@ -192,11 +241,12 @@ class FileBrowser {
                         let range = obj["반경"] as! String
                         let subtitle = obj["서브타이틀"] as! String
                         let intro = obj["소개내용"] as! String
-                        let mvo = ContentsVO(no: no, title: title, subtitle: subtitle, region: region, latitude: latitude, longitude: longitude, range: range, intro: intro)
+                        let imgStr = getTownImgString(townNo: no)
+                        
+                        
+                        let mvo = ContentsVO(no: no, title: title, subtitle: subtitle, region: region, latitude: latitude, longitude: longitude, range: range, intro: intro, imgStr : imgStr)
                         townList.append(mvo)
                     }
-                    
-                    
                   
                 }
 

@@ -19,9 +19,10 @@ class ContentsVO : NSObject, NSCoding{
     var longitude : String
     var range : String
     var intro : String
+    var imgStr : [String]
     
     
-    init(no : String, title : String, subtitle : String, region : String, latitude : String, longitude : String, range : String, intro : String) {
+    init(no : String, title : String, subtitle : String, region : String, latitude : String, longitude : String, range : String, intro : String, imgStr : [String]) {
         self.no = no
         self.title = title
         self.subtitle = subtitle
@@ -30,6 +31,7 @@ class ContentsVO : NSObject, NSCoding{
         self.longitude = longitude
         self.range = range
         self.intro = intro
+        self.imgStr = imgStr
     }
     
     
@@ -42,7 +44,7 @@ class ContentsVO : NSObject, NSCoding{
         let longitude = decoder.decodeObject(forKey: "longitude") as! String
         let range = decoder.decodeObject(forKey: "range") as! String
         let intro = decoder.decodeObject(forKey: "intro") as! String
-        
+        let imgStr = decoder.decodeObject(forKey : "imgStr") as! [String]
         
         self.init(
             no: no,
@@ -52,7 +54,8 @@ class ContentsVO : NSObject, NSCoding{
             latitude: latitude,
             longitude: longitude,
             range: range,
-            intro: intro
+            intro: intro,
+            imgStr: imgStr
         )
     }
     
@@ -65,13 +68,14 @@ class ContentsVO : NSObject, NSCoding{
         coder.encode(self.longitude, forKey: "longitude")
         coder.encode(self.range, forKey: "range")
         coder.encode(self.intro, forKey: "intro")
+        coder.encode(self.imgStr, forKey: "imgStr")
     }
 }
 
 class StampVO {
 
     init() {
-        
+
     }
     
   
@@ -94,47 +98,42 @@ class StampVO {
 
 class TownVO{
     
-   // var contentsVO : ContentsVO?
-    //var stampVO : StampVO?
+    //var contents : [ContentsVO]?
+    //var stamps : [StampVO]?
     
-    var code : Int? //마을번호
-    var regionCode : Int? //권역코드
-    var stampCount : Int? //몇번째 스탬프
-    var title : String?  //마을이름
-    var subtitle : String? //부제목
-    var region : String? //권역
-    var latitude : String? //위도
-    var longitude : String? //경도
-    var range : Int? //반경
-    var intro : String? //마을소개
-    var images : [UIImage?] //마을 이미지
+    var code : Int //마을번호
+    var regionCode : Int //권역코드
+    var stampCount : Int = 0//몇번째 스탬프
+    var title : String  //마을이름
+    var subtitle : String //부제목
+    var region : String //권역
+    var latitude : String //위도
+    var longitude : String //경도
+    var range : Int //반경
+    var intro : String //마을소개
+    var nick : String = ""
+    var checktime : String = ""
+    var images : [UIImage] //마을 이미지
     
-    init(contentsVO : ContentsVO, stampVO : StampVO){
-        self.code = stampVO.town_code
-        self.regionCode = stampVO.region_code
-        self.stampCount = stampVO.rank_no
-        self.title = contentsVO.title
-        self.subtitle = contentsVO.subtitle
-        self.region = contentsVO.region
-        self.latitude = stampVO.latitud
-        self.longitude = stampVO.longitude
-        self.range = stampVO.valid_range
-        self.intro = contentsVO.intro
-        self.images = [UIImage]()
-        //self.images.append()
-        
+    init(code : Int, regionCode : Int, stampCount : Int, title : String, subtitle : String, region : String, latitude : String, longitude : String, range : Int, intro : String, nick : String, checktime : String, images : [UIImage] ){
+        self.code = code
+        self.regionCode = regionCode
+        self.stampCount = stampCount
+        self.title = title
+        self.subtitle = subtitle
+        self.region = region
+        self.latitude = latitude
+        self.longitude = longitude
+        self.range = range
+        self.intro = intro
+        self.nick = nick
+        self.checktime = checktime
+        self.images = images
     }
     
-//    func getImage(named : String) -> UIImage{
-//        let fileManager = FileManager.default
-//        let imagePAth = (self.getDirectoryPath() as NSString).appendingPathComponent(named)
-//        if fileManager.fileExists(atPath: imagePAth){
-//           return UIImage(contentsOfFile: imagePAth)!
-//        }else{
-//            print("No Image")
-//            return UIImage(named : "img_no_img")
-//        }
-//    }
+    
+    
+
 //    
 //    func getDirectoryPath() -> String {
 //        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)

@@ -15,10 +15,15 @@ class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITabl
     
     let TAG : String = "StampViewController"
     var httpRequest : HttpRequestToServer?
-    var stamps = Array<StampVO>()
+    
     var locationManager = CLLocationManager()
     var currentLocation : CurrentLocation?
-    var townListitem : [ContentsVO]?
+    
+    
+    var contents : [ContentsVO]? = [ContentsVO]()
+    var stamps : [StampVO]? = [StampVO]()
+    var towns : [TownVO]? = [TownVO]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +31,7 @@ class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITabl
         self.currentLocation = CurrentLocation()
         self.httpRequest = HttpRequestToServer.init(TAG: TAG, delegate : self)
         self.setLoactionManager()
+        setContentsData()
         self.reqStamp()
          self.tableView.allowsSelection = true
        
@@ -79,12 +85,12 @@ class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITabl
         if(reqPath == HttpReqPath.StampListReq){
             let data = resData["resultData"] as! NSArray
             self.tableView.rowHeight = 80
-            var mvo : StampVO
+           // var mvo : StampVO
             
             for row in data{
                 var obj = row as! NSDictionary
                 
-                mvo = StampVO()
+                let mvo = StampVO()
                 
                 mvo.town_code = obj.object(forKey: "TOWN_CODE") as! Int
                 mvo.latitud = obj.object(forKey: "latitud") as! String
@@ -96,11 +102,14 @@ class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITabl
                 mvo.region = obj.object(forKey: "region") as! String
                 mvo.rank_no = obj.object(forKey: "rank_no") as! Int
                 mvo.active = false
-                // NSLog(TAG,"\(mvo)")
-                self.stamps.append(mvo)
+                //NSLog(TAG,"\(mvo)")
+                self.stamps?.append(mvo)
             }
-            // NSLog(TAG,"\(stamps)")
+            for row in self.stamps!{
+                print("\(TAG) : town_code : \(row.town_code!)")
+            }
             
+            dataMerge()
             tableView.reloadData()
         }else if(reqPath == HttpReqPath.StampSealReq){
             
@@ -110,36 +119,44 @@ class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITabl
     
     }
     
+    func setContentsData(){
+        if let contents : [ContentsVO] = StampDefaultManager.init().getTownList(){
+            self.contents = contents
+            print("\(TAG) : Success Receive Cotnent Data")
+        }
+        //dataMerge()
+    }
+    
+    func dataMerge(){
+        self.towns = ContentsManager.init(uvc: self).mergeVO(contents: self.contents!, stamps: self.stamps!)
+//        for row in self.towns!{
+//            print("\(TAG) : region : \(row.region)")
+//        }
+        //self.tableView.reloadData()
+    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let townList : [ContentsVO] = StampDefaultManager.init().getTownList(){
-            self.townListitem = townList
-            print("\(TAG) : 진입 완료")
-            for row in townList{
-                print("\(TAG) : townListItem : \(row.title)")
-            }
-        }
-        return stamps.count
+        return self.towns!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let row = self.stamps[(indexPath as NSIndexPath).row];
-        let town = self.townListitem?[(indexPath as NSIndexPath).row];
-        
+        let row = self.towns![(indexPath as NSIndexPath).row];
+        var active = false
         let NormalCell = tableView.dequeueReusableCell(withIdentifier: "NormalCell") as! NormalCell
         let ActiveCell = tableView.dequeueReusableCell(withIdentifier: "ActiveCell") as! ActiveCell
         let CompleteCell = tableView.dequeueReusableCell(withIdentifier: "CompleteCell") as! CompleteCell
         
         var distance : String
         if (currentLocation?.state)!{
-            let dist = CalculateDistance().distance(lat1: Double(row.latitud!)!, lon1: Double(row.longitude!)!, lat2: Double((currentLocation?.latitude)!), lon2: Double((currentLocation?.longitude)!), unit: "K")
-            distance = String(dist)
+            let dist = CalculateDistance().distance(lat1: Double((row.latitude))!, lon1: Double((row.longitude))!, lat2: Double((currentLocation?.latitude)!), lon2: Double((currentLocation?.longitude)!), unit: "K")
+            distance = "\(String(dist)) km"
             
             print("\(TAG) : \(distance)")
-            if(dist * 1000 <= Double(row.valid_range!)){
-                row.active =  true
-                //버튼활성화처리
+            let range : Int = (row.range)
+            if(dist * 1000 <= Double(range)){
+                active = true
+            //버튼활성화처리
             }
         }else{
             distance = "Not Find"
@@ -147,49 +164,37 @@ class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITabl
         
         
         
-        if(IsStampSealed(nick: row.nick!, checktime: row.checktime!)){
+        if(IsStampSealed(nick: row.nick, checktime: row.checktime)){
             // complete
-            CompleteCell.vil_thumbnail.image = UIImage(named: "img_stamp")
-            CompleteCell.vil_name.text = "완료 마을"
-            CompleteCell.vil_region.text = row.region!
-            CompleteCell.vil_distance.text = "\(distance) km"
-            CompleteCell.vil_count.text = "\(row.rank_no!)"
-            CompleteCell.vil_date.text = row.checktime!
+            CompleteCell.vil_thumbnail.image = row.images[0]
+            CompleteCell.vil_name.text = row.title
+            CompleteCell.vil_region.text = row.region
+            CompleteCell.vil_distance.text = "\(distance)"
+            CompleteCell.vil_count.text = "\(row.stampCount)"
+            CompleteCell.vil_date.text = row.checktime
             return CompleteCell
             
         }else{
-            if(row.active)!{ // distanse active
+            if(active){ // distanse active
                 // active
-                ActiveCell.vil_thumbnail.image = UIImage(named: "img_stamp")
-                ActiveCell.vil_name.text = "액티브 마을"
-                ActiveCell.vil_region.text = row.region!
+                ActiveCell.vil_thumbnail.image = row.images[0]
+                ActiveCell.vil_name.text = row.title
+                ActiveCell.vil_region.text = row.region
                
                 return ActiveCell
             }else{
                 // normal
                 
-                NormalCell.vil_thumbnail.image = UIImage(named: "img_stamp")
-                //NormalCell.vil_name.text = "기본마을"
-                NormalCell.vil_name.text = town?.title
-                NormalCell.vil_region.text = "\(row.region!)"
-                NormalCell.vil_distance.text = "\(distance) km"
+                NormalCell.vil_thumbnail.image = row.images[0]
+                NormalCell.vil_name.text = row.title
+                NormalCell.vil_region.text = "\(row.region)"
+                NormalCell.vil_distance.text = "\(distance)"
                 return NormalCell
             }
         }
         
 
-        
     
-        //stamps[indexPath]
-//        "TOWN_CODE": 4,
-//        "latitud": "38.0798562",
-//        "longitude": "127.2169767",
-//        "region_code": 1,
-//        "valid_range": 50,
-//        "Nick": "김지페",
-//        "CheckTime": "2016-10-17 03:46:57",
-//        "region": "북구",
-//        "rank_no": 2
     }
     
     
@@ -199,7 +204,7 @@ class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITabl
 //        }
        
         
-        let row = self.stamps[(indexPath as NSIndexPath).row];
+        //let row = self.stamps[(indexPath as NSIndexPath).row];
         
       //  reqStampSeal(town_code: String(describing: row.town_code) , latitude: String(describing: currentLocation?.latitude), logitude: String(describing: currentLocation?.longitude))
        
