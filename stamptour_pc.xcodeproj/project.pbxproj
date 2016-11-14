@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		331800C31DD61ABC00AFD22E /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331800C21DD61ABC00AFD22E /* LoadingOverlay.swift */; };
 		331800C61DD8621D00AFD22E /* LocalizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331800C51DD8621D00AFD22E /* LocalizationManager.swift */; };
+		331800C81DD99C9700AFD22E /* LocationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331800C71DD99C9700AFD22E /* LocationProtocol.swift */; };
 		331B50FB1DD1750D00438111 /* InsertDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331B50FA1DD1750D00438111 /* InsertDummy.swift */; };
 		331B50FE1DD175A100438111 /* contents.zip in Resources */ = {isa = PBXBuildFile; fileRef = 331B50FD1DD175A100438111 /* contents.zip */; };
 		331B51401DD1A10B00438111 /* eng.json in Resources */ = {isa = PBXBuildFile; fileRef = 331B51001DD1A10B00438111 /* eng.json */; };
@@ -165,6 +166,7 @@
 /* Begin PBXFileReference section */
 		331800C21DD61ABC00AFD22E /* LoadingOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
 		331800C51DD8621D00AFD22E /* LocalizationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationManager.swift; sourceTree = "<group>"; };
+		331800C71DD99C9700AFD22E /* LocationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationProtocol.swift; sourceTree = "<group>"; };
 		331B50FA1DD1750D00438111 /* InsertDummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertDummy.swift; sourceTree = "<group>"; };
 		331B50FD1DD175A100438111 /* contents.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = contents.zip; sourceTree = "<group>"; };
 		331B51001DD1A10B00438111 /* eng.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = eng.json; sourceTree = "<group>"; };
@@ -616,6 +618,7 @@
 				33C1BC651DC59534001DC8DE /* StampAnimationView.swift */,
 				3381B91F1DC9C0E8002EE080 /* ContentsManager.swift */,
 				331B51821DD21A3200438111 /* StampDefaultManager.swift */,
+				331800C71DD99C9700AFD22E /* LocationProtocol.swift */,
 			);
 			name = stamp;
 			sourceTree = "<group>";
@@ -969,6 +972,7 @@
 				335C97D01D9A4D050066E25F /* JoinViewController.swift in Sources */,
 				338FE03D1DC868E5008E39AD /* RegionInCase.swift in Sources */,
 				335C97E01D9A4D050066E25F /* UIControlManager.swift in Sources */,
+				331800C81DD99C9700AFD22E /* LocationProtocol.swift in Sources */,
 				335C97771D9A4A3F0066E25F /* AppDelegate.swift in Sources */,
 				331B51831DD21A3200438111 /* StampDefaultManager.swift in Sources */,
 				335C97D61D9A4D050066E25F /* MainViewController.swift in Sources */,

@@ -10,18 +10,24 @@ import UIKit
 import MapKit
 import CoreLocation
 
+
 class MainViewController : UITabBarController , CLLocationManagerDelegate{
     var TAG : String = "MainViewController"
     var locationManager = CLLocationManager()
+    var delegateLoc : LocationProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSLog(TAG,"kkkkkkkkkkkkkkkkk")
-        print("aaaaaaaaaaaaaaaaaaasaa")
-       //self.setLoactionManager()
+       setLoactionManager()
     }
     
-
+    override func viewDidAppear(_ animated: Bool) {
+        self.setLoactionManager()
+    }
+    
+    func setDelegate(delegate : LocationProtocol){
+        self.delegateLoc = delegate
+    }
     
     func setLoactionManager(){
         locationManager.delegate = self
@@ -31,30 +37,34 @@ class MainViewController : UITabBarController , CLLocationManagerDelegate{
         if CLLocationManager.locationServicesEnabled() {
             locationManager.startUpdatingLocation()
             //locationManager.startUpdatingHeading()
-             print("bbbbbbbbbbbbbbbbbbbbbbb")
+            print("\(TAG) : start loaction")
         }
         
     }
-    
 
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let userLocation:CLLocation = locations[0] as CLLocation
+        let location = locations.last
         
         // Call stopUpdatingLocation() to stop listening for location updates,
         // other wise this function will be called every time when user location changes.
-        manager.stopUpdatingLocation()
-        NSLog(TAG,"user latitude = \(userLocation.coordinate.latitude)")
-        NSLog(TAG,"user longitude = \(userLocation.coordinate.longitude)")
-        print("user latitude = \(userLocation.coordinate.latitude)")
-        print("user longitude = \(userLocation.coordinate.longitude)")
+        
+        let latitude = Double(location!.coordinate.latitude)
+        let logitude = Double(location!.coordinate.longitude)
+        print("\(TAG) : user latitude = \(location!.coordinate.latitude)")
+        print("\(TAG) : user longitude = \(location!.coordinate.longitude)")
+        
+        self.delegateLoc?.LocationSuccessReceive(latitude: latitude, longitude: logitude)
+        
+        //self.locationManager.stopUpdatingLocation()
         
     }
     
     
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Error \(error.localizedDescription)")
+        self.delegateLoc?.LocationFailureReceive(didFailWithError: error)
+        print("\(TAG) : Error \(error.localizedDescription)")
     }
 
 }

@@ -7,18 +7,15 @@
 //
 
 import UIKit
-import CoreLocation
 
-class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITableViewDelegate, UITableViewDataSource, HttpResponse{
+class StampViewController : UIViewController,  UITableViewDelegate, UITableViewDataSource, HttpResponse, LocationProtocol{
     
     @IBOutlet var tableView: UITableView!
     
     let TAG : String = "StampViewController"
     var httpRequest : HttpRequestToServer?
-    
-    var locationManager = CLLocationManager()
+
     var currentLocation : CurrentLocation?
-    
     
     var contents : [ContentsVO]? = [ContentsVO]()
     var stamps : [StampVO]? = [StampVO]()
@@ -30,31 +27,15 @@ class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITabl
         //self.hideKeyboardWhenTappedAround()
         self.currentLocation = CurrentLocation()
         self.httpRequest = HttpRequestToServer.init(TAG: TAG, delegate : self)
-        self.setLoactionManager()
         setContentsData()
         self.reqStamp()
          self.tableView.allowsSelection = true
-       
         
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+        viewController.delegateLoc = self
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-         self.setLoactionManager()
-    }
-    
-    func setLoactionManager(){
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-        
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.startUpdatingLocation()
-            //locationManager.startUpdatingHeading()
-            print("start loaction")
-        }
-        
-    }
 
     
     func reqStamp(){
@@ -215,27 +196,15 @@ class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITabl
     }
     
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.last
-
-        // Call stopUpdatingLocation() to stop listening for location updates,
-        // other wise this function will be called every time when user location changes.
-       
-        print("\(TAG) user latitude = \(location!.coordinate.latitude)")
-        print("\(TAG) user longitude = \(location!.coordinate.longitude)")
-        
-        currentLocation?.latitude = Double(location!.coordinate.latitude)
-        currentLocation?.longitude = Double(location!.coordinate.longitude)
+    func LocationSuccessReceive(latitude : Double, longitude : Double){
+        currentLocation?.latitude = latitude
+        currentLocation?.longitude = longitude
         currentLocation?.state = true
         self.tableView.reloadData()
-        //self.locationManager.stopUpdatingLocation()
-    
     }
     
-    
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    func LocationFailureReceive(didFailWithError error: Error ){
         currentLocation?.state = false
-        print("Error \(error.localizedDescription)")
     }
+    
 }
