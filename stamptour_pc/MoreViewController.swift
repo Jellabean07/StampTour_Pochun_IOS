@@ -75,6 +75,7 @@ class MoreViewController : UIViewController ,UITableViewDelegate, UITableViewDat
             break
         case 3:
             NSLog("메뉴"+indexPath.row.description, "탭");
+            moveToSurveyView();
             break
         default: break
             
@@ -99,7 +100,7 @@ class MoreViewController : UIViewController ,UITableViewDelegate, UITableViewDat
         
     }
     func moveToSurveyView(){
-        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "AcctIdentifyViewController") as! AcctIdentifyViewController
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "SurveyViewController") as! SurveyViewController
         let navController = UINavigationController(rootViewController: viewController)
         self.present(navController, animated:true, completion: nil)
         
