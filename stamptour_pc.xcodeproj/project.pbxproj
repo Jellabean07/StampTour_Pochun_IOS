@@ -12,6 +12,8 @@
 		331800C81DD99C9700AFD22E /* LocationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331800C71DD99C9700AFD22E /* LocationProtocol.swift */; };
 		331800CA1DDAAC2C00AFD22E /* StampOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331800C91DDAAC2C00AFD22E /* StampOverlay.swift */; };
 		331800CC1DDAB8BD00AFD22E /* LodingIndicatorOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331800CB1DDAB8BD00AFD22E /* LodingIndicatorOverlay.swift */; };
+		331800CE1DDB19AD00AFD22E /* Shinan.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 331800CD1DDB19AD00AFD22E /* Shinan.xcassets */; };
+		331800D21DDB3D1E00AFD22E /* PochunStampTour.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 331800D11DDB3D1E00AFD22E /* PochunStampTour.xcassets */; };
 		331B50FB1DD1750D00438111 /* InsertDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331B50FA1DD1750D00438111 /* InsertDummy.swift */; };
 		331B50FE1DD175A100438111 /* contents.zip in Resources */ = {isa = PBXBuildFile; fileRef = 331B50FD1DD175A100438111 /* contents.zip */; };
 		331B51401DD1A10B00438111 /* eng.json in Resources */ = {isa = PBXBuildFile; fileRef = 331B51001DD1A10B00438111 /* eng.json */; };
@@ -171,6 +173,8 @@
 		331800C71DD99C9700AFD22E /* LocationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationProtocol.swift; sourceTree = "<group>"; };
 		331800C91DDAAC2C00AFD22E /* StampOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StampOverlay.swift; sourceTree = "<group>"; };
 		331800CB1DDAB8BD00AFD22E /* LodingIndicatorOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LodingIndicatorOverlay.swift; sourceTree = "<group>"; };
+		331800CD1DDB19AD00AFD22E /* Shinan.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Shinan.xcassets; sourceTree = "<group>"; };
+		331800D11DDB3D1E00AFD22E /* PochunStampTour.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PochunStampTour.xcassets; sourceTree = "<group>"; };
 		331B50FA1DD1750D00438111 /* InsertDummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertDummy.swift; sourceTree = "<group>"; };
 		331B50FD1DD175A100438111 /* contents.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = contents.zip; sourceTree = "<group>"; };
 		331B51001DD1A10B00438111 /* eng.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = eng.json; sourceTree = "<group>"; };
@@ -473,6 +477,8 @@
 				335C97801D9A4A3F0066E25F /* Assets.xcassets */,
 				335C97851D9A4A3F0066E25F /* Info.plist */,
 				335C977D1D9A4A3F0066E25F /* stamptour_pc.xcdatamodeld */,
+				331800CD1DDB19AD00AFD22E /* Shinan.xcassets */,
+				331800D11DDB3D1E00AFD22E /* PochunStampTour.xcassets */,
 			);
 			path = stamptour_pc;
 			sourceTree = "<group>";
@@ -802,6 +808,7 @@
 				331B51741DD1A10B00438111 /* town7_4.png in Resources */,
 				331B51401DD1A10B00438111 /* eng.json in Resources */,
 				331B515D1DD1A10B00438111 /* town3_1.png in Resources */,
+				331800CE1DDB19AD00AFD22E /* Shinan.xcassets in Resources */,
 				331B51671DD1A10B00438111 /* town5_1.png in Resources */,
 				331B51421DD1A10B00438111 /* town10_1.png in Resources */,
 				331B514F1DD1A10B00438111 /* town12_4.png in Resources */,
@@ -841,6 +848,7 @@
 				331B516E1DD1A10B00438111 /* town6_3.png in Resources */,
 				331B516C1DD1A10B00438111 /* town6_1.png in Resources */,
 				331B51631DD1A10B00438111 /* town4_2.png in Resources */,
+				331800D21DDB3D1E00AFD22E /* PochunStampTour.xcassets in Resources */,
 				331B515A1DD1A10B00438111 /* town2_2.png in Resources */,
 				331B514D1DD1A10B00438111 /* town12_2.png in Resources */,
 				331B516F1DD1A10B00438111 /* town6_4.png in Resources */,
