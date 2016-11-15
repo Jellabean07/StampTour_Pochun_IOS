@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import CoreLocation
 
-class StampViewController : UIViewController,  UITableViewDelegate, UITableViewDataSource, HttpResponse, LocationProtocol{
+
+class StampViewController : UIViewController,UITabBarControllerDelegate,  UITableViewDelegate, UITableViewDataSource, HttpResponse , LocationProtocol, LocationDetect{
     
     @IBOutlet var tableView: UITableView!
     
     let TAG : String = "StampViewController"
     var httpRequest : HttpRequestToServer?
-
+    
+    var calcDist : CalculateDistance?
     var currentLocation : CurrentLocation?
     
     var contents : [ContentsVO]? = [ContentsVO]()
@@ -25,18 +28,25 @@ class StampViewController : UIViewController,  UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.hideKeyboardWhenTappedAround()
+        self.calcDist = CalculateDistance.init(delegate: self)
         self.currentLocation = CurrentLocation()
         self.httpRequest = HttpRequestToServer.init(TAG: TAG, delegate : self)
         setContentsData()
         self.reqStamp()
          self.tableView.allowsSelection = true
         
-        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-        viewController.delegateLoc = self
+        
+        let tbvc = self.tabBarController as! MainViewController
+        tbvc.setDelegate(delegate: self)
+        
+        
+//        StampOverlay.setLongPress()
+//        StampOverlay.show("Loading")
+//        
+//        // simulate time consuming work
+//        Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(doWork), userInfo: nil, repeats: false)
         
     }
-    
-
     
     func reqStamp(){
         let path = HttpReqPath.StampListReq
@@ -130,10 +140,10 @@ class StampViewController : UIViewController,  UITableViewDelegate, UITableViewD
         
         var distance : String
         if (currentLocation?.state)!{
-            let dist = CalculateDistance().distance(lat1: Double((row.latitude))!, lon1: Double((row.longitude))!, lat2: Double((currentLocation?.latitude)!), lon2: Double((currentLocation?.longitude)!), unit: "K")
+            let dist = calcDist!.distance(lat1: Double((row.latitude))!, lon1: Double((row.longitude))!, lat2: Double((currentLocation?.latitude)!), lon2: Double((currentLocation?.longitude)!), unit: "K")
             distance = "\(String(dist)) km"
             
-            print("\(TAG) : \(distance)")
+            //print("\(TAG) : \(distance)")
             let range : Int = (row.range)
             if(dist * 1000 <= Double(range)){
                 active = true
@@ -197,14 +207,32 @@ class StampViewController : UIViewController,  UITableViewDelegate, UITableViewD
     
     
     func LocationSuccessReceive(latitude : Double, longitude : Double){
+        print("\(TAG) : LocationSuccessReceive")
         currentLocation?.latitude = latitude
         currentLocation?.longitude = longitude
         currentLocation?.state = true
+        
+        
+        self.calcDist!.detectDistance(towns: self.towns!, lat: latitude, long: longitude)
         self.tableView.reloadData()
     }
-    
     func LocationFailureReceive(didFailWithError error: Error ){
         currentLocation?.state = false
+        print("\(TAG) : LocationFailureReceive")
     }
     
+    func ActivatedStampEvent(townVO : TownVO, dist : Double){
+        print("\(TAG) : ActivatedStampEvent : \(townVO.title)")
+       // StampOverlay.show()
+    }
+    func doWork() {
+        // dismiss the loading indicator view once work is done
+       // StampOverlay.hide()
+    }
+    
+
+
+    func DeactivatedStampEvent(){
+        print("\(TAG) : DeactivatedStampEvent")
+    }
 }

@@ -199,10 +199,10 @@ class FileBrowser {
         
         let fileManager = FileManager.default
         if fileManager.fileExists(atPath: imagePAth!){
-            print("load Image")
+            print("load Image : \(named)")
             return UIImage(contentsOfFile: imagePAth!)!
         }else{
-            print("No Image")
+            print("No Image : \(named)")
             return UIImage(named : "img_no_img")!
         }
     }

@@ -10,9 +10,19 @@ import Foundation
 import UIKit
 import CoreLocation
 
+protocol LocationDetect{
+    func ActivatedStampEvent(townVO : TownVO, dist : Double)
+    func DeactivatedStampEvent()
+}
+
 class CalculateDistance {
     var TAG : String = "CalculateDistance"
- 
+    let delegate : LocationDetect?
+    
+    init(delegate : LocationDetect){
+        self.delegate = delegate
+    }
+    
     func deg2rad(deg:Double) -> Double {
         return deg * M_PI / 180
     }
@@ -42,6 +52,19 @@ class CalculateDistance {
     func roundToPlaces(value : Double, places:Int) -> Double {
         let divisor = pow(10.0, Double(places))
         return round(value * divisor) / divisor
+    }
+    
+    func detectDistance(towns : [TownVO], lat : Double, long : Double){
+        for row in towns {
+            let dist = distance(lat1: Double((row.latitude))!, lon1: Double((row.longitude))!, lat2: lat, lon2: long, unit: "K")
+            
+            if(dist * 1000 <= Double(row.range)){
+                self.delegate?.ActivatedStampEvent(townVO: row, dist: dist)
+                return
+            }else{
+               // self.delegate?.DeactivatedStampEvent()
+            }
+        }
     }
     
 

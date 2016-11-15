@@ -14,13 +14,10 @@ class HttpDownWithServer {
     
     var TAG : String?
     var delegate : HttpDownResponse?
-    var view : UIView?
     
-    init(TAG : String, delegate : HttpDownResponse, view : UIView){
+    init(TAG : String, delegate : HttpDownResponse){
         self.TAG = TAG
         self.delegate = delegate
-        self.view = view
-        
     }
     
     func setDestination(){
@@ -39,7 +36,8 @@ class HttpDownWithServer {
     func download(_ reqPath : String, reqParameter : Parameters){
         print("\(self.TAG!) : reqURL : \(HttpReqPath.HttpHost+reqPath)")
         print("\(self.TAG!) : reqParameter : \(reqParameter)")
-        LoadingOverlay.shared.showOverlay(view: self.view!)
+       
+        LoadingIndicatorView.show("Content Downloading..")
         //let destination = DownloadRequest.suggestedDownloadDestination(for: .documentDirectory)
         
        let destination = DownloadRequest.suggestedDownloadDestination(for: .documentDirectory, in: .userDomainMask)
@@ -67,7 +65,7 @@ class HttpDownWithServer {
                 print("temporaryURL : \(response.temporaryURL!)")
                 print("destinationURL : \(response.destinationURL!)")
                 
-                LoadingOverlay.shared.hideOverlayView()
+                LoadingIndicatorView.hide()
                 self.delegate?.HttpDownResult(reqPath,resCode : "", resMsg: "", resData: "" as AnyObject)
                 
                 switch response.result {
