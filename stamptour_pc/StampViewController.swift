@@ -184,7 +184,7 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
             let distK = Int(dist)
             let distM = (dist - Double(distK)) * 1000
             
-            distance = "\(distK)Km \(distM)M"
+            distance = "\(distK)Km \(Int(distM))M"
             //print("\(TAG) : \(distance)")
             let range : Int = (row.range)
             if(dist * 1000 <= Double(range)){

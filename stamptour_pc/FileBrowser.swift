@@ -119,6 +119,11 @@ class FileBrowser {
             updateFiles()
         } catch {
             print("ERROR")
+             let appDefualt = AppDefaultManager.init()
+            appDefualt.setSize(0)
+            appDefualt.setVersion(0)
+            appDefualt.setUploadtime("")
+            
         }
     }
   
