@@ -13,7 +13,10 @@ import CoreLocation
 class StampViewController : UIViewController,UITabBarControllerDelegate,  UITableViewDelegate, UITableViewDataSource, HttpResponse , LocationProtocol, LocationDetect, StampSeal{
     
     @IBOutlet var tableView: UITableView!
-    
+    @IBOutlet var introMsg: UILabel!
+    @IBOutlet var stampCnt: UILabel!
+    @IBOutlet var stampTotal: UILabel!
+ 
     let TAG : String = "StampViewController"
     var httpRequest : HttpRequestToServer?
     
@@ -32,14 +35,20 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
         self.currentLocation = CurrentLocation()
         self.httpRequest = HttpRequestToServer.init(TAG: TAG, delegate : self)
         setContentsData()
-        self.reqCurrentStamp()
-        self.reqStamp()
+        setRequest()
          self.tableView.allowsSelection = true
         StampOverlay.delegate = self
         
         let tbvc = self.tabBarController as! MainViewController
         tbvc.setDelegate(delegate: self)
         
+    }
+    @IBAction func shared(_ sender: Any) {
+    }
+    
+    func setRequest(){
+        self.reqCurrentStamp()
+        self.reqStamp()
     }
     
     func reqCurrentStamp(){
@@ -110,7 +119,7 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
             tableView.reloadData()
         }else if(reqPath == HttpReqPath.StampSealReq){
             print("\(TAG) : Success Seal !!!")
-            self.reqStamp()
+            self.setRequest()
         }else if(reqPath == HttpReqPath.UserCurrentStamp){
            
             let data = resData["resultData"] as! NSDictionary
@@ -122,9 +131,12 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
             
             print("\(TAG) : next_stamp_count :\(next_stamp_count)")
             print("\(TAG) : stamp_count :\(stamp_count)")
-            print("\(TAG) : grade :\(next_stamp_count)")
+            print("\(TAG) : grade :\(grade)")
             print("\(TAG) : nick :\(nick)")
             
+            self.stampCnt.text = String(stamp_count)
+            self.stampTotal.text = String(next_stamp_count)
+            self.introMsg.text = "\(nick)님은 \(grade) 등급입니다"
 //            "next_stamp_count": 3,
 //            "stamp_count": 2,
 //            "grade": "초급자",
@@ -167,12 +179,16 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
         var distance : String
         if (currentLocation?.state)!{
             let dist = calcDist!.distance(lat1: Double((row.latitude))!, lon1: Double((row.longitude))!, lat2: Double((currentLocation?.latitude)!), lon2: Double((currentLocation?.longitude)!), unit: "K")
-            distance = "\(String(dist)) km"
+            //distance = "\(String(dist)) km"
             
+            let distK = Int(dist)
+            let distM = (dist - Double(distK)) * 1000
+            
+            distance = "\(distK)Km \(distM)M"
             //print("\(TAG) : \(distance)")
             let range : Int = (row.range)
             if(dist * 1000 <= Double(range)){
-                active = true
+               // active = true
             //버튼활성화처리
             }
         }else{

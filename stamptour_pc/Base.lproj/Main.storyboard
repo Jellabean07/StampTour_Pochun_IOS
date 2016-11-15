@@ -582,7 +582,7 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yTM-iq-wDq">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="khJ-vK-iNc">
+                                        <view key="tableHeaderView" contentMode="scaleToFill" id="khJ-vK-iNc">
                                             <rect key="frame" x="0.0" y="64" width="375" height="35"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -620,7 +620,7 @@
                                             </constraints>
                                         </view>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MenuCell" id="ZUF-wC-dBN" customClass="MenuCell" customModule="stamptour_pc" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MenuCell" id="ZUF-wC-dBN" customClass="MenuCell" customModule="stamptour_pc" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="63" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZUF-wC-dBN" id="Gff-er-xiV">
@@ -790,7 +790,7 @@
                                 <rect key="frame" x="0.0" y="151" width="375" height="516"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GiftCell" rowHeight="76" id="LAV-Dv-O4E" customClass="GiftCell" customModule="stamptour_pc" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GiftCell" rowHeight="76" id="LAV-Dv-O4E" customClass="GiftCell" customModule="stamptour_pc" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1" width="375" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LAV-Dv-O4E" id="oab-vs-BDE">
@@ -808,7 +808,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u78-uM-yiC">
-                                                    <rect key="frame" x="945" y="23" width="40" height="30"/>
+                                                    <rect key="frame" x="320" y="23" width="40" height="30"/>
                                                     <state key="normal" title="신청 &gt;"/>
                                                     <connections>
                                                         <action selector="buttonTap:" destination="LAV-Dv-O4E" eventType="touchUpInside" id="Ztc-vq-luZ"/>
@@ -888,19 +888,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6b1-Ha-6Gg" userLabel="headerContainer">
+                                <rect key="frame" x="0.0" y="20" width="375" height="200"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_survey_circle" translatesAutoresizingMaskIntoConstraints="NO" id="SBB-3f-CAY">
+                                        <rect key="frame" x="157.5" y="35" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="6Zv-tw-TqS"/>
                                             <constraint firstAttribute="height" constant="60" id="SHm-ym-7Kq"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이용하신 모바일 스탬프에 대해 만족하십니까?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RiB-Gh-80t">
+                                        <rect key="frame" x="15" y="105" width="345" height="19.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 서비스의 만족도를 평가해주세요. 만족도 조사 결과는 서비스 개선을 위한 자료로 활용됩니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wtf-oA-bvs">
+                                        <rect key="frame" x="15" y="128.5" width="345" height="38.5"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1189,6 +1193,9 @@
                                                     <rect key="frame" x="330" y="0.0" width="30" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <state key="normal" title="공유"/>
+                                                    <connections>
+                                                        <action selector="shared:" destination="nFj-cb-7UY" eventType="touchUpInside" id="OHx-mK-iDP"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="홍길동님은 성골등급이니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oUy-P0-uTn">
                                                     <rect key="frame" x="15" y="5" width="248" height="21"/>
@@ -1558,6 +1565,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="introMsg" destination="oUy-P0-uTn" id="hhj-yY-plv"/>
+                        <outlet property="stampCnt" destination="oM0-Q7-R6n" id="m6g-9H-Flm"/>
+                        <outlet property="stampTotal" destination="6qT-Fp-kV2" id="qcz-b8-gxT"/>
                         <outlet property="tableView" destination="hO3-yH-fGV" id="42L-7Y-ZRG"/>
                     </connections>
                 </viewController>
