@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 
 
-class StampViewController : UIViewController,UITabBarControllerDelegate,  UITableViewDelegate, UITableViewDataSource, HttpResponse , LocationProtocol, LocationDetect{
+class StampViewController : UIViewController,UITabBarControllerDelegate,  UITableViewDelegate, UITableViewDataSource, HttpResponse , LocationProtocol, LocationDetect, StampSeal{
     
     @IBOutlet var tableView: UITableView!
     
@@ -32,20 +32,25 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
         self.currentLocation = CurrentLocation()
         self.httpRequest = HttpRequestToServer.init(TAG: TAG, delegate : self)
         setContentsData()
+        self.reqCurrentStamp()
         self.reqStamp()
          self.tableView.allowsSelection = true
-        
+        StampOverlay.delegate = self
         
         let tbvc = self.tabBarController as! MainViewController
         tbvc.setDelegate(delegate: self)
         
+    }
+    
+    func reqCurrentStamp(){
+        let path = HttpReqPath.UserCurrentStamp
+        let parameters : [ String : String] = [
+            "nick" : UserDefaultManager.init().getUserNick(),
+            "accesstoken" : UserDefaultManager.init().getUserAccessToken()
+        ]
         
-//        StampOverlay.setLongPress()
-//        StampOverlay.show("Loading")
-//        
-//        // simulate time consuming work
-//        Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(doWork), userInfo: nil, repeats: false)
-        
+        self.httpRequest?.connection(path, reqParameter: parameters)
+
     }
     
     func reqStamp(){
@@ -58,14 +63,14 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
         self.httpRequest?.connection(path, reqParameter: parameters)
     }
     
-    func reqStampSeal(town_code : String, latitude : String, logitude : String){
+    func reqStampSeal(town_code : String, latitude : String, longitude : String){
         let path = HttpReqPath.StampSealReq
         let parameters : [ String : String] = [
             "nick" : UserDefaultManager.init().getUserNick(),
             "accesstoken" : UserDefaultManager.init().getUserAccessToken(),
             "town_code" : town_code,
             "latitude" : latitude,
-            "logitude" : logitude
+            "longitude" : longitude
         ]
         
         self.httpRequest?.connection(path, reqParameter: parameters)
@@ -77,7 +82,7 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
             let data = resData["resultData"] as! NSArray
             self.tableView.rowHeight = 80
            // var mvo : StampVO
-            
+            self.stamps?.removeAll()
             for row in data{
                 var obj = row as! NSDictionary
                 
@@ -101,9 +106,30 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
             }
             
             dataMerge()
+            StampOverlay.isOverlay = false
             tableView.reloadData()
         }else if(reqPath == HttpReqPath.StampSealReq){
+            print("\(TAG) : Success Seal !!!")
+            self.reqStamp()
+        }else if(reqPath == HttpReqPath.UserCurrentStamp){
+           
+            let data = resData["resultData"] as! NSDictionary
+            let next_stamp_count = data["next_stamp_count"] as! Int
+            let stamp_count = data["stamp_count"] as! Int
+            let grade = data["grade"] as! String
+            let nick = data["nick"] as! String
             
+            
+            print("\(TAG) : next_stamp_count :\(next_stamp_count)")
+            print("\(TAG) : stamp_count :\(stamp_count)")
+            print("\(TAG) : grade :\(next_stamp_count)")
+            print("\(TAG) : nick :\(nick)")
+            
+//            "next_stamp_count": 3,
+//            "stamp_count": 2,
+//            "grade": "초급자",
+//            "nick": "김지운"
+
         }else{
             print("\(TAG) : nothing")
         }
@@ -157,7 +183,7 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
         
         if(IsStampSealed(nick: row.nick, checktime: row.checktime)){
             // complete
-            CompleteCell.vil_thumbnail.image = row.images[0]
+            CompleteCell.vil_thumbnail.image = row.images[0].circle
             CompleteCell.vil_name.text = row.title
             CompleteCell.vil_region.text = row.region
             CompleteCell.vil_distance.text = "\(distance)"
@@ -168,7 +194,7 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
         }else{
             if(active){ // distanse active
                 // active
-                ActiveCell.vil_thumbnail.image = row.images[0]
+                ActiveCell.vil_thumbnail.image = row.images[0].circle
                 ActiveCell.vil_name.text = row.title
                 ActiveCell.vil_region.text = row.region
                
@@ -176,7 +202,7 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
             }else{
                 // normal
                 
-                NormalCell.vil_thumbnail.image = row.images[0]
+                NormalCell.vil_thumbnail.image = row.images[0].circle
                 NormalCell.vil_name.text = row.title
                 NormalCell.vil_region.text = "\(row.region)"
                 NormalCell.vil_distance.text = "\(distance)"
@@ -190,15 +216,8 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if(Active){
-//            
-//        }
-       
-        
         //let row = self.stamps[(indexPath as NSIndexPath).row];
-        
-      //  reqStampSeal(town_code: String(describing: row.town_code) , latitude: String(describing: currentLocation?.latitude), logitude: String(describing: currentLocation?.longitude))
-       
+        //자세히보기 갈부분
     }
     
     func IsStampSealed(nick : String, checktime : String) -> Bool{
@@ -221,18 +240,27 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
         print("\(TAG) : LocationFailureReceive")
     }
     
-    func ActivatedStampEvent(townVO : TownVO, dist : Double){
+    func ActivatedStampEvent(townVO : TownVO, dist : Double, lat : Double, long : Double){
         print("\(TAG) : ActivatedStampEvent : \(townVO.title)")
-       // StampOverlay.show()
+        if !StampOverlay.isOverlay{
+            StampOverlay.town_code = String(townVO.code)
+            StampOverlay.latitude = String(lat)
+            StampOverlay.longitude = String(long)
+            StampOverlay.show()
+        }
     }
-    func doWork() {
-        // dismiss the loading indicator view once work is done
-       // StampOverlay.hide()
-    }
-    
-
 
     func DeactivatedStampEvent(){
         print("\(TAG) : DeactivatedStampEvent")
+        if StampOverlay.isOverlay{
+            StampOverlay.isOverlay = false
+            StampOverlay.hide()
+        }
     }
+    
+    func Seal(_ town_code : String, latitude : String, longitude : String){
+         print("\(TAG) : SealStampEvent")
+        self.reqStampSeal(town_code: town_code , latitude: latitude, longitude: longitude)
+    }
+    
 }

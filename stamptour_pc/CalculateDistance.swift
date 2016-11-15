@@ -11,7 +11,7 @@ import UIKit
 import CoreLocation
 
 protocol LocationDetect{
-    func ActivatedStampEvent(townVO : TownVO, dist : Double)
+    func ActivatedStampEvent(townVO : TownVO, dist : Double, lat : Double, long : Double)
     func DeactivatedStampEvent()
 }
 
@@ -58,15 +58,21 @@ class CalculateDistance {
         for row in towns {
             let dist = distance(lat1: Double((row.latitude))!, lon1: Double((row.longitude))!, lat2: lat, lon2: long, unit: "K")
             
-            if(dist * 1000 <= Double(row.range)){
-                self.delegate?.ActivatedStampEvent(townVO: row, dist: dist)
-                return
-            }else{
-               // self.delegate?.DeactivatedStampEvent()
+            if(!IsStampSealed(nick: row.nick, checktime: row.checktime)){
+                if(dist * 1000 <= Double(row.range)){
+                    self.delegate?.ActivatedStampEvent(townVO: row, dist: dist, lat : lat, long : long)
+                    return
+                }else{
+                    // self.delegate?.DeactivatedStampEvent()
+                }
             }
+            
         }
     }
     
+    func IsStampSealed(nick : String, checktime : String) -> Bool{
+        return (nick != "") && (checktime != "")
+    }
 
 }
 

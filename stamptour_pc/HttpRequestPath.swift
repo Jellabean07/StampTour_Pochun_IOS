@@ -31,4 +31,5 @@ class HttpReqPath {
     static let UserRemoveReq = "/user/remove"
     static let UserCurrentGift = "/user/current/gift"
     static let UserGiftApply = "/user/current/gift/apply"
+    static let UserCurrentStamp = "/user/current/stamp"
 }
