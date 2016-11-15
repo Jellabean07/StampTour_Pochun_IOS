@@ -878,7 +878,7 @@
         <!--설문-->
         <scene sceneID="351-PX-CBK">
             <objects>
-                <viewController id="LQu-0S-lVU" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SurveyViewController" id="LQu-0S-lVU" customClass="SurveyViewController" customModule="stamptour_pc" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xLL-po-a0K"/>
                         <viewControllerLayoutGuide type="bottom" id="ArZ-8Q-9PG"/>
@@ -886,11 +886,58 @@
                     <view key="view" contentMode="scaleToFill" id="Vxt-oT-yW2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6b1-Ha-6Gg" userLabel="headerContainer">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_survey_circle" translatesAutoresizingMaskIntoConstraints="NO" id="SBB-3f-CAY">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="6Zv-tw-TqS"/>
+                                            <constraint firstAttribute="height" constant="60" id="SHm-ym-7Kq"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이용하신 모바일 스탬프에 대해 만족하십니까?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RiB-Gh-80t">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 서비스의 만족도를 평가해주세요. 만족도 조사 결과는 서비스 개선을 위한 자료로 활용됩니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wtf-oA-bvs">
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Wtf-oA-bvs" firstAttribute="top" secondItem="RiB-Gh-80t" secondAttribute="bottom" constant="4" id="FyO-sw-s3P"/>
+                                    <constraint firstAttribute="trailing" secondItem="RiB-Gh-80t" secondAttribute="trailing" constant="15" id="Rky-aF-kOw"/>
+                                    <constraint firstItem="RiB-Gh-80t" firstAttribute="leading" secondItem="6b1-Ha-6Gg" secondAttribute="leading" constant="15" id="Wdw-Et-toO"/>
+                                    <constraint firstItem="Wtf-oA-bvs" firstAttribute="leading" secondItem="RiB-Gh-80t" secondAttribute="leading" id="Y2T-or-Ugi"/>
+                                    <constraint firstItem="Wtf-oA-bvs" firstAttribute="trailing" secondItem="RiB-Gh-80t" secondAttribute="trailing" id="bNe-YL-QOg"/>
+                                    <constraint firstItem="SBB-3f-CAY" firstAttribute="top" secondItem="6b1-Ha-6Gg" secondAttribute="top" constant="35" id="eDV-qM-PkX"/>
+                                    <constraint firstItem="SBB-3f-CAY" firstAttribute="centerX" secondItem="6b1-Ha-6Gg" secondAttribute="centerX" id="fd7-yE-aN0"/>
+                                    <constraint firstItem="RiB-Gh-80t" firstAttribute="top" secondItem="SBB-3f-CAY" secondAttribute="bottom" constant="10" id="j15-Lk-HjK"/>
+                                    <constraint firstAttribute="height" constant="200" id="twS-3D-Fjv"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6b1-Ha-6Gg" firstAttribute="top" secondItem="xLL-po-a0K" secondAttribute="bottom" id="mkr-kD-6hO"/>
+                            <constraint firstAttribute="trailing" secondItem="6b1-Ha-6Gg" secondAttribute="trailing" id="vyQ-fF-fO1"/>
+                            <constraint firstItem="6b1-Ha-6Gg" firstAttribute="leading" secondItem="Vxt-oT-yW2" secondAttribute="leading" id="xCr-aa-svu"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="설문" id="UPA-En-217">
-                        <barButtonItem key="leftBarButtonItem" title="뒤로" id="l3N-rP-jTR"/>
-                        <barButtonItem key="rightBarButtonItem" title="작성" id="aHe-M6-3Cc"/>
+                        <barButtonItem key="leftBarButtonItem" title="뒤로" id="l3N-rP-jTR">
+                            <connections>
+                                <action selector="pop:" destination="LQu-0S-lVU" id="lJW-4J-FkD"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="전송" id="aHe-M6-3Cc">
+                            <connections>
+                                <action selector="submit:" destination="LQu-0S-lVU" id="gL0-D0-nRA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hol-Gs-8Hs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3440,6 +3487,7 @@
         <image name="img_footprint" width="9" height="11"/>
         <image name="img_gift_circle" width="60" height="60"/>
         <image name="img_stmap" width="60" height="60"/>
+        <image name="img_survey_circle" width="60" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tvw-tR-dVN"/>

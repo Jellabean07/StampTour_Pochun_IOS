@@ -85,7 +85,6 @@
 		335C977F1D9A4A3F0066E25F /* stamptour_pc.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 335C977D1D9A4A3F0066E25F /* stamptour_pc.xcdatamodeld */; };
 		335C97811D9A4A3F0066E25F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 335C97801D9A4A3F0066E25F /* Assets.xcassets */; };
 		335C97841D9A4A3F0066E25F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 335C97821D9A4A3F0066E25F /* LaunchScreen.storyboard */; };
-		335C978F1D9A4A3F0066E25F /* stamptour_pcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335C978E1D9A4A3F0066E25F /* stamptour_pcTests.swift */; };
 		335C979A1D9A4A3F0066E25F /* stamptour_pcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335C97991D9A4A3F0066E25F /* stamptour_pcUITests.swift */; };
 		335C97C51D9A4D050066E25F /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335C97A71D9A4D050066E25F /* AccountViewController.swift */; };
 		335C97C61D9A4D050066E25F /* ActionDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335C97A81D9A4D050066E25F /* ActionDisplay.swift */; };
@@ -136,6 +135,7 @@
 		33FA50F31DCC558100F81A27 /* AppInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FA50F21DCC558100F81A27 /* AppInfomation.swift */; };
 		33FED6C01DC8780000A5D131 /* ResChanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FED6BF1DC8780000A5D131 /* ResChanger.swift */; };
 		5D7B2E56B7B3ADE47F5C6A0C /* Pods_stamptour_pc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A14BFF4D0240426E1497D821 /* Pods_stamptour_pc.framework */; };
+		732B88C21DDAE5A00018461B /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B88C11DDAE5A00018461B /* SurveyViewController.swift */; };
 		735397CA1DD5BBA2003D9F1C /* GiftSendDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735397C91DD5BBA2003D9F1C /* GiftSendDelegate.swift */; };
 		735397CD1DD5BC35003D9F1C /* GiftRequestEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735397CC1DD5BC35003D9F1C /* GiftRequestEvent.swift */; };
 		7353E92A1DCB0BE80033BDB5 /* GiftManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7353E9291DCB0BE80033BDB5 /* GiftManageViewController.swift */; };
@@ -302,6 +302,7 @@
 		33FED6BF1DC8780000A5D131 /* ResChanger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResChanger.swift; sourceTree = "<group>"; };
 		3B695BF8DFFC816A4E838855 /* Pods-stamptour_pc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stamptour_pc.release.xcconfig"; path = "Pods/Target Support Files/Pods-stamptour_pc/Pods-stamptour_pc.release.xcconfig"; sourceTree = "<group>"; };
 		70E3A8C079B7299CCD1BFFC0 /* Pods-stamptour_pc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stamptour_pc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-stamptour_pc/Pods-stamptour_pc.debug.xcconfig"; sourceTree = "<group>"; };
+		732B88C11DDAE5A00018461B /* SurveyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
 		735397C91DD5BBA2003D9F1C /* GiftSendDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftSendDelegate.swift; sourceTree = "<group>"; };
 		735397CC1DD5BC35003D9F1C /* GiftRequestEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftRequestEvent.swift; sourceTree = "<group>"; };
 		7353E9291DCB0BE80033BDB5 /* GiftManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftManageViewController.swift; sourceTree = "<group>"; };
@@ -511,6 +512,7 @@
 				7353E9291DCB0BE80033BDB5 /* GiftManageViewController.swift */,
 				7353E92B1DCB0F920033BDB5 /* HideListManageViewController.swift */,
 				7396BC191DD447D100E9000A /* GiftRequestViewController.swift */,
+				732B88C11DDAE5A00018461B /* SurveyViewController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -946,6 +948,7 @@
 				331800C31DD61ABC00AFD22E /* LoadingOverlay.swift in Sources */,
 				331B50FB1DD1750D00438111 /* InsertDummy.swift in Sources */,
 				335C97D11D9A4D050066E25F /* LanguageInCase.swift in Sources */,
+				732B88C21DDAE5A00018461B /* SurveyViewController.swift in Sources */,
 				335C97DB1D9A4D050066E25F /* RankViewController.swift in Sources */,
 				3381B9181DC9847B002EE080 /* SplashViewController.swift in Sources */,
 				3381B91A1DC98F0C002EE080 /* AppDefaultManager.swift in Sources */,
@@ -991,7 +994,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				335C978F1D9A4A3F0066E25F /* stamptour_pcTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

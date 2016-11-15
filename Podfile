@@ -8,6 +8,7 @@ target ’stamptour_pc’ do
   use_frameworks!
   pod 'Alamofire', '~> 4.0'
   pod 'Zip', '~> 0.6'
+  pod 'DLRadioButton', '~> 1.4'
   # Pods for stamptour_pc
 
 
