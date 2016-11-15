@@ -14,3 +14,5 @@ protocol LocationProtocol{
     func LocationFailureReceive(didFailWithError error: Error )
     
 }
+
+

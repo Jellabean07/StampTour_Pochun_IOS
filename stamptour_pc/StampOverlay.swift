@@ -11,11 +11,13 @@ import UIKit
 
 class StampOverlay{
 
-    var isOverlay : Bool = false
+    static var isOverlay : Bool = false
     
     static var currentOverlay : UIView?
-   
-    
+    static var delegate : StampSeal?
+    static var town_code : String?
+    static var latitude : String?
+    static var longitude : String?
     
     static func show() {
         guard let currentMainWindow = UIApplication.shared.keyWindow else {
@@ -40,7 +42,7 @@ class StampOverlay{
     
     static func show(_ overlayTarget : UIView, loadingText: String?) {
         // Clear it first in case it was already shown
-        hide()
+        self.isOverlay = true
         
         // Create the overlay
         let overlay = UIView(frame: overlayTarget.frame)
@@ -48,7 +50,7 @@ class StampOverlay{
         overlay.alpha = 0.9
         overlay.backgroundColor = UIColor.black
         overlayTarget.addSubview(overlay)
-        overlayTarget.bringSubview(toFront: overlay)
+        //overlayTarget.bringSubview(toFront: overlay)
         
         
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 275))
@@ -69,9 +71,14 @@ class StampOverlay{
         imageView.startAnimating()
         overlay.addSubview(imageView)
         
-        let longGesture = UILongPressGestureRecognizer(target: imageView, action:  #selector(hide))
-        currentOverlay?.addGestureRecognizer(longGesture)
+        let longPressGesture = UILongPressGestureRecognizer()
+        longPressGesture.minimumPressDuration = 1.0
         
+        // add target for long press
+        longPressGesture.addTarget(self, action: #selector(StampOverlay.longPressSeal))
+        
+        // add long press gesture in to view
+       
         // Animate the overlay to show
 //        UIView.beginAnimations(nil, context: nil)
 //        UIView.setAnimationDuration(0.5)
@@ -79,17 +86,22 @@ class StampOverlay{
 //        UIView.commitAnimations()
 //        
         currentOverlay = overlay
+        currentOverlay?.addGestureRecognizer(longPressGesture)
     }
     
-    @objc static func hide() {
+    
+    static func hide() {
         if currentOverlay != nil {
             currentOverlay?.removeFromSuperview()
             currentOverlay =  nil
         }
     }
 
-    
-    func isOverlayState() -> Bool{
-        return isOverlay
+    @objc static func longPressSeal(){
+        print("long press")
+        self.hide()
+        self.delegate?.Seal(self.town_code!, latitude: self.latitude!, longitude: self.longitude!)
     }
+   
+    
 }
