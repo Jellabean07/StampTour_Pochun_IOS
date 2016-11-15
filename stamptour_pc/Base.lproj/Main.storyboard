@@ -558,6 +558,7 @@
                     <navigationItem key="navigationItem" title="랭킹" id="dql-GX-XsX"/>
                     <connections>
                         <outlet property="msg_lab" destination="3dk-oT-asW" id="bps-d0-bbA"/>
+                        <outlet property="tableView" destination="1vU-zB-H5b" id="2C4-6C-gQx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pVV-4k-8Yv" userLabel="First Responder" sceneMemberID="firstResponder"/>
