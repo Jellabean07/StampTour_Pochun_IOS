@@ -85,7 +85,6 @@
 		335C977F1D9A4A3F0066E25F /* stamptour_pc.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 335C977D1D9A4A3F0066E25F /* stamptour_pc.xcdatamodeld */; };
 		335C97811D9A4A3F0066E25F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 335C97801D9A4A3F0066E25F /* Assets.xcassets */; };
 		335C97841D9A4A3F0066E25F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 335C97821D9A4A3F0066E25F /* LaunchScreen.storyboard */; };
-		335C978F1D9A4A3F0066E25F /* stamptour_pcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335C978E1D9A4A3F0066E25F /* stamptour_pcTests.swift */; };
 		335C979A1D9A4A3F0066E25F /* stamptour_pcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335C97991D9A4A3F0066E25F /* stamptour_pcUITests.swift */; };
 		335C97C51D9A4D050066E25F /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335C97A71D9A4D050066E25F /* AccountViewController.swift */; };
 		335C97C61D9A4D050066E25F /* ActionDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335C97A81D9A4D050066E25F /* ActionDisplay.swift */; };
@@ -995,7 +994,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				335C978F1D9A4A3F0066E25F /* stamptour_pcTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
