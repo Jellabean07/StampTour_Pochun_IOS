@@ -18,9 +18,11 @@ protocol LocationDetect{
 class CalculateDistance {
     var TAG : String = "CalculateDistance"
     let delegate : LocationDetect?
+    var crurrentCode : Int?
     
     init(delegate : LocationDetect){
         self.delegate = delegate
+        self.crurrentCode = 0
     }
     
     func deg2rad(deg:Double) -> Double {
@@ -61,9 +63,13 @@ class CalculateDistance {
             if(!IsStampSealed(nick: row.nick, checktime: row.checktime)){
                 if(dist * 1000 <= Double(row.range)){
                     self.delegate?.ActivatedStampEvent(townVO: row, dist: dist, lat : lat, long : long)
+                    crurrentCode = row.code
                     return
                 }else{
-                    // self.delegate?.DeactivatedStampEvent()
+                    if(crurrentCode == row.code){
+                        self.delegate?.DeactivatedStampEvent()
+                    }
+                   
                 }
             }
             
