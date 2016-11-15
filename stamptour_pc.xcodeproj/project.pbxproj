@@ -455,6 +455,7 @@
 		335C97751D9A4A3F0066E25F /* stamptour_pc */ = {
 			isa = PBXGroup;
 			children = (
+				73A373C91DDB324C00AA55E6 /* radio */,
 				331800C41DD861E600AFD22E /* localize */,
 				735397CB1DD5BC13003D9F1C /* event */,
 				735397C81DD5BB78003D9F1C /* delegate */,
@@ -645,6 +646,13 @@
 				735397CC1DD5BC35003D9F1C /* GiftRequestEvent.swift */,
 			);
 			name = event;
+			sourceTree = "<group>";
+		};
+		73A373C91DDB324C00AA55E6 /* radio */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = radio;
 			sourceTree = "<group>";
 		};
 		7A17FD24DB8B47654DA39A1A /* Frameworks */ = {
