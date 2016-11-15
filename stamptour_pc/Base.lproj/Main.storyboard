@@ -2791,6 +2791,7 @@
                         <outlet property="applyName" destination="kDy-70-xUV" id="ssa-9z-ygq"/>
                         <outlet property="bgImg" destination="hl9-as-KBb" id="dIW-8m-34v"/>
                         <outlet property="logoImg" destination="a6o-DY-YRi" id="Eoz-W9-RDr"/>
+                        <outlet property="produceName" destination="zCM-ys-hVF" id="dkD-e5-75r"/>
                         <segue destination="bpg-iA-fMh" kind="presentation" identifier="showApp" id="EDH-jG-MqI"/>
                     </connections>
                 </viewController>
@@ -3497,7 +3498,7 @@
         <image name="img_account" width="29" height="29"/>
         <image name="img_footprint" width="9" height="11"/>
         <image name="img_gift_circle" width="60" height="60"/>
-        <image name="img_stmap" width="60" height="60"/>
+        <image name="img_stmap" width="65" height="65"/>
         <image name="img_survey_circle" width="60" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>

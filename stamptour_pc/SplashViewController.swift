@@ -14,6 +14,7 @@ class SplashViewController : UIViewController{
     @IBOutlet var bgImg: UIImageView!
     @IBOutlet var logoImg: UIImageView!
     @IBOutlet var applyName: UILabel!
+    @IBOutlet var produceName: UILabel!
     
     let TAG = "SplashViewController"
     
@@ -39,6 +40,10 @@ class SplashViewController : UIViewController{
         self.bgImg.image = UIImage(named: "img_splash_bg")
         self.logoImg.image = UIImage(named: "img_splash_logo")
         self.applyName.text = "©2016. POCHEON"
+       // self.applyName.text = "©2016. SHINAN"
+      //  self.applyName.textColor = UIControlManager.init().colorWithHexString("#303030")
+       // self.produceName.textColor =  UIControlManager.init().colorWithHexString("#B4B4B4")
+
     }
 
     

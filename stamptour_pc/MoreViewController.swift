@@ -75,7 +75,7 @@ class MoreViewController : UIViewController ,UITableViewDelegate, UITableViewDat
             break
         case 3:
             NSLog("메뉴"+indexPath.row.description, "탭");
-            moveToSurveyView();
+            //moveToSurveyView();
             break
         default: break
             
