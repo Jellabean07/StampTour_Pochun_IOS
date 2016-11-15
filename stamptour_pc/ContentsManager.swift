@@ -21,7 +21,7 @@ class ContentsManager : HttpResponse, HttpDownResponse{
     
     init(uvc : UIViewController) {
         self.httpRequest = HttpRequestToServer.init(TAG: TAG, delegate: self)
-        self.httpDownload = HttpDownWithServer.init(TAG: TAG, delegate: self ,view : uvc.view)
+        self.httpDownload = HttpDownWithServer.init(TAG: TAG, delegate: self)
         self.uvc = uvc
     }
     
@@ -30,8 +30,8 @@ class ContentsManager : HttpResponse, HttpDownResponse{
         var towns : [TownVO] = [TownVO]()
         for row in contents{
             for col in stamps{
-                print("\(TAG) : col.town_code : \(col.town_code!)")
-                print("\(TAG) : row.no : \(Int(row.no)!)")
+               // print("\(TAG) : col.town_code : \(col.town_code!)")
+               // print("\(TAG) : row.no : \(Int(row.no)!)")
                 if Int(row.no)! == col.town_code!{
                    
                     let code = col.town_code!

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MapKit
 
-class MyLocationManager {
+class MyLocationManager  {
     
     var locationManager = CLLocationManager()
     init(locationManager : CLLocationManager) {

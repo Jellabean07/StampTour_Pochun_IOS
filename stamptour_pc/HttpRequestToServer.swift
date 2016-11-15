@@ -23,6 +23,7 @@ class HttpRequestToServer {
     
     
     func connection(_ reqPath : String, reqParameter : Parameters){
+        LoadingIndicatorView.show("Loading")
         print("\(self.TAG!) : reqURL : \(HttpReqPath.HttpHost+reqPath)")
         print("\(self.TAG!) : reqParameter : \(reqParameter)")
         Alamofire.request(HttpReqPath.HttpHost+reqPath,method: .post, parameters: reqParameter)
@@ -34,6 +35,7 @@ class HttpRequestToServer {
             }
             .responseJSON { response in
                 //To to long tasks
+                LoadingIndicatorView.hide()
                 switch response.result {
                 case .success:
                     print("\(self.TAG!) : Validation Successful")

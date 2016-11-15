@@ -9,16 +9,16 @@
 import UIKit
 import CoreLocation
 
-class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITableViewDelegate, UITableViewDataSource, HttpResponse{
+
+class StampViewController : UIViewController,UITabBarControllerDelegate,  UITableViewDelegate, UITableViewDataSource, HttpResponse , LocationProtocol, LocationDetect{
     
     @IBOutlet var tableView: UITableView!
     
     let TAG : String = "StampViewController"
     var httpRequest : HttpRequestToServer?
     
-    var locationManager = CLLocationManager()
+    var calcDist : CalculateDistance?
     var currentLocation : CurrentLocation?
-    
     
     var contents : [ContentsVO]? = [ContentsVO]()
     var stamps : [StampVO]? = [StampVO]()
@@ -28,34 +28,25 @@ class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.hideKeyboardWhenTappedAround()
+        self.calcDist = CalculateDistance.init(delegate: self)
         self.currentLocation = CurrentLocation()
         self.httpRequest = HttpRequestToServer.init(TAG: TAG, delegate : self)
-        self.setLoactionManager()
         setContentsData()
         self.reqStamp()
          self.tableView.allowsSelection = true
-       
         
         
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-         self.setLoactionManager()
-    }
-    
-    func setLoactionManager(){
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
+        let tbvc = self.tabBarController as! MainViewController
+        tbvc.setDelegate(delegate: self)
         
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.startUpdatingLocation()
-            //locationManager.startUpdatingHeading()
-            print("start loaction")
-        }
+        
+//        StampOverlay.setLongPress()
+//        StampOverlay.show("Loading")
+//        
+//        // simulate time consuming work
+//        Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(doWork), userInfo: nil, repeats: false)
         
     }
-
     
     func reqStamp(){
         let path = HttpReqPath.StampListReq
@@ -149,10 +140,10 @@ class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITabl
         
         var distance : String
         if (currentLocation?.state)!{
-            let dist = CalculateDistance().distance(lat1: Double((row.latitude))!, lon1: Double((row.longitude))!, lat2: Double((currentLocation?.latitude)!), lon2: Double((currentLocation?.longitude)!), unit: "K")
+            let dist = calcDist!.distance(lat1: Double((row.latitude))!, lon1: Double((row.longitude))!, lat2: Double((currentLocation?.latitude)!), lon2: Double((currentLocation?.longitude)!), unit: "K")
             distance = "\(String(dist)) km"
             
-            print("\(TAG) : \(distance)")
+            //print("\(TAG) : \(distance)")
             let range : Int = (row.range)
             if(dist * 1000 <= Double(range)){
                 active = true
@@ -215,27 +206,33 @@ class StampViewController : UIViewController ,CLLocationManagerDelegate,  UITabl
     }
     
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.last
-
-        // Call stopUpdatingLocation() to stop listening for location updates,
-        // other wise this function will be called every time when user location changes.
-       
-        print("\(TAG) user latitude = \(location!.coordinate.latitude)")
-        print("\(TAG) user longitude = \(location!.coordinate.longitude)")
-        
-        currentLocation?.latitude = Double(location!.coordinate.latitude)
-        currentLocation?.longitude = Double(location!.coordinate.longitude)
+    func LocationSuccessReceive(latitude : Double, longitude : Double){
+        print("\(TAG) : LocationSuccessReceive")
+        currentLocation?.latitude = latitude
+        currentLocation?.longitude = longitude
         currentLocation?.state = true
+        
+        
+        self.calcDist!.detectDistance(towns: self.towns!, lat: latitude, long: longitude)
         self.tableView.reloadData()
-        //self.locationManager.stopUpdatingLocation()
-    
+    }
+    func LocationFailureReceive(didFailWithError error: Error ){
+        currentLocation?.state = false
+        print("\(TAG) : LocationFailureReceive")
     }
     
+    func ActivatedStampEvent(townVO : TownVO, dist : Double){
+        print("\(TAG) : ActivatedStampEvent : \(townVO.title)")
+       // StampOverlay.show()
+    }
+    func doWork() {
+        // dismiss the loading indicator view once work is done
+       // StampOverlay.hide()
+    }
     
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        currentLocation?.state = false
-        print("Error \(error.localizedDescription)")
+
+
+    func DeactivatedStampEvent(){
+        print("\(TAG) : DeactivatedStampEvent")
     }
 }
