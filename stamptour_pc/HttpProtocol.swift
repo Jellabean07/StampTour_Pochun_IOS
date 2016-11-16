@@ -9,8 +9,8 @@
 import Foundation
 
 protocol HttpResponse{
-    func HttpResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject)
-    
+    func HttpSuccessResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject)
+    func HttpFailureResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject)
 }
 
 

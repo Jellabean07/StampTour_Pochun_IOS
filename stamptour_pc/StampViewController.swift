@@ -86,7 +86,7 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
         
     }
     
-    func HttpResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
+    func HttpSuccessResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
         if(reqPath == HttpReqPath.StampListReq){
             let data = resData["resultData"] as! NSArray
             self.tableView.rowHeight = 80
@@ -146,6 +146,16 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
             print("\(TAG) : nothing")
         }
     
+    }
+    
+    func HttpFailureResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject){
+        if (resCode == "01"){
+            
+        }else if (resCode == "02"){
+            
+        }else if (resCode == "03"){
+            
+        }
     }
     
     func setContentsData(){

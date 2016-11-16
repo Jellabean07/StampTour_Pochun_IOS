@@ -36,20 +36,30 @@ class ForgetPassViewController : UIViewController, HttpResponse{
         if ((self.nick_txt.text!.isEmpty) || (self.id_txt.text!.isEmpty))  {
             alert?.displayMyAlertMessage("정보를 모두 입력해주세요")
         } else{
-            let path = HttpReqPath.JoinReq
-            let parameters : [ String : AnyObject] = [
-                "id" : self.nick_txt.text! as AnyObject,
-                "nick" : self.nick_txt.text! as AnyObject
+            let path = HttpReqPath.ForgetPass
+            let parameters : [ String : String] = [
+                "id" : self.nick_txt.text!,
+                "nick" : self.nick_txt.text!,
+                "loggedincase" : LoggedInCase.normal.description
             ]
             self.httpRequest?.connection(path, reqParameter: parameters)
         }
     }
     
-    func HttpResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
+    func HttpSuccessResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
         let data = resData["resultData"] as! String
         alert?.displayMyAlertMessage("\(data)")
     }
     
+    func HttpFailureResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject){
+        if (resCode == "01"){
+            
+        }else if (resCode == "02"){
+            
+        }else if (resCode == "03"){
+            
+        }
+    }
 }
 
 
@@ -78,16 +88,27 @@ class ForgetIdViewController : UIViewController, HttpResponse{
         if (self.nick_txt.text!.isEmpty) {
             alert?.displayMyAlertMessage("정보를 모두 입력해주세요")
         } else{
-            let path = HttpReqPath.JoinReq
-            let parameters : [ String : AnyObject] = [
-                "nick" : self.nick_txt.text! as AnyObject
+            let path = HttpReqPath.ForgetId
+            let parameters : [ String : String] = [
+                "nick" : self.nick_txt.text!,
+                "loggedincase" : LoggedInCase.normal.description
             ]
             self.httpRequest?.connection(path, reqParameter: parameters)
         }
     }
     
-    func HttpResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
+    func HttpSuccessResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
         let data = resData["resultData"] as! String
         alert?.displayMyAlertMessage("\(data)")
+    }
+    
+    func HttpFailureResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject){
+        if (resCode == "01"){
+            
+        }else if (resCode == "02"){
+            
+        }else if (resCode == "03"){
+            
+        }
     }
 }

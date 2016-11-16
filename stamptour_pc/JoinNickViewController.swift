@@ -63,7 +63,7 @@ class JoinNickViewController : UIViewController,UITextFieldDelegate, HttpRespons
     }
     
     
-    func HttpResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
+    func HttpSuccessResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
         let data = resData["resultData"] as! String
         if(reqPath == HttpReqPath.JoinNickOverlap){
             if data == "duplicate"{
@@ -72,6 +72,16 @@ class JoinNickViewController : UIViewController,UITextFieldDelegate, HttpRespons
                 self.chkNick = true
             }
         }else if(reqPath == HttpReqPath.JoinReq){
+            
+        }
+    }
+    
+    func HttpFailureResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject){
+        if (resCode == "01"){
+            
+        }else if (resCode == "02"){
+            
+        }else if (resCode == "03"){
             
         }
     }

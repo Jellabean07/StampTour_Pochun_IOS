@@ -25,7 +25,9 @@ class CommonFunction {
         typealias viewControllerType = MainViewController
         let viewController = uvc.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! viewControllerType
         
-        let navController = UINavigationController(rootViewController: viewController)
-        uvc.present(navController, animated:true, completion: nil)
+        uvc.present(viewController, animated:true, completion: nil)
+        
+//        let navController = UINavigationController(rootViewController: viewController)
+//        uvc.present(navController, animated:true, completion: nil)
     }
 }
