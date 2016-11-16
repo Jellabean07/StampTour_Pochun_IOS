@@ -41,8 +41,11 @@ class SplashViewController : UIViewController{
         self.logoImg.image = UIImage(named: "img_splash_logo")
         //self.applyName.text = "©2016. POCHEON"
         self.applyName.text = "©2016. SHINAN"
+
         self.applyName.textColor = UIControlManager.init().colorWithHexString("#303030")
         self.produceName.textColor =  UIControlManager.init().colorWithHexString("#B4B4B4")
+        
+        
 
     }
 

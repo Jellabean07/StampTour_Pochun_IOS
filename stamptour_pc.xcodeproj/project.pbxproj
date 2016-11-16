@@ -132,6 +132,7 @@
 		3392EE2C1DC1FD9E00582308 /* CurrentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392EE2B1DC1FD9D00582308 /* CurrentLocation.swift */; };
 		33938AE11D9E0D710058B5DC /* StampCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33938AE01D9E0D710058B5DC /* StampCell.swift */; };
 		33C1BC661DC59534001DC8DE /* StampAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C1BC651DC59534001DC8DE /* StampAnimationView.swift */; };
+		33E8F47E1DDC3FEB00FC1021 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8F47D1DDC3FEB00FC1021 /* Button.swift */; };
 		33FA50F11DCB13EA00F81A27 /* FileBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FA50F01DCB13EA00F81A27 /* FileBrowser.swift */; };
 		33FA50F31DCC558100F81A27 /* AppInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FA50F21DCC558100F81A27 /* AppInfomation.swift */; };
 		33FED6C01DC8780000A5D131 /* ResChanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FED6BF1DC8780000A5D131 /* ResChanger.swift */; };
@@ -300,6 +301,7 @@
 		3392EE2B1DC1FD9D00582308 /* CurrentLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocation.swift; sourceTree = "<group>"; };
 		33938AE01D9E0D710058B5DC /* StampCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StampCell.swift; sourceTree = "<group>"; };
 		33C1BC651DC59534001DC8DE /* StampAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StampAnimationView.swift; sourceTree = "<group>"; };
+		33E8F47D1DDC3FEB00FC1021 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		33FA50F01DCB13EA00F81A27 /* FileBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileBrowser.swift; sourceTree = "<group>"; };
 		33FA50F21DCC558100F81A27 /* AppInfomation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfomation.swift; sourceTree = "<group>"; };
 		33FED6BF1DC8780000A5D131 /* ResChanger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResChanger.swift; sourceTree = "<group>"; };
@@ -458,6 +460,7 @@
 		335C97751D9A4A3F0066E25F /* stamptour_pc */ = {
 			isa = PBXGroup;
 			children = (
+				33E8F47C1DDC3F4E00FC1021 /* customview */,
 				73A373C91DDB324C00AA55E6 /* radio */,
 				331800C41DD861E600AFD22E /* localize */,
 				735397CB1DD5BC13003D9F1C /* event */,
@@ -530,7 +533,6 @@
 				335C97AC1D9A4D050066E25F /* Config.swift */,
 				335C97C01D9A4D050066E25F /* StringMsg.swift */,
 				335C97C11D9A4D050066E25F /* TextValidation.swift */,
-				335C97C21D9A4D050066E25F /* UIControlManager.swift */,
 				335C97C31D9A4D050066E25F /* UserDefaultManager.swift */,
 				3381B9191DC98F0C002EE080 /* AppDefaultManager.swift */,
 				331800C21DD61ABC00AFD22E /* LoadingOverlay.swift */,
@@ -634,6 +636,15 @@
 				331800C91DDAAC2C00AFD22E /* StampOverlay.swift */,
 			);
 			name = stamp;
+			sourceTree = "<group>";
+		};
+		33E8F47C1DDC3F4E00FC1021 /* customview */ = {
+			isa = PBXGroup;
+			children = (
+				335C97C21D9A4D050066E25F /* UIControlManager.swift */,
+				33E8F47D1DDC3FEB00FC1021 /* Button.swift */,
+			);
+			name = customview;
 			sourceTree = "<group>";
 		};
 		735397C81DD5BB78003D9F1C /* delegate */ = {
@@ -1000,6 +1011,7 @@
 				335C97771D9A4A3F0066E25F /* AppDelegate.swift in Sources */,
 				331B51831DD21A3200438111 /* StampDefaultManager.swift in Sources */,
 				335C97D61D9A4D050066E25F /* MainViewController.swift in Sources */,
+				33E8F47E1DDC3FEB00FC1021 /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

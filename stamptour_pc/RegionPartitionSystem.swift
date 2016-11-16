@@ -10,10 +10,30 @@ import Foundation
 import UIKit
 
 
-class RegionPartitionSystem : NSObject {
-    private static let sharedInstance = RegionPartitionSystem()
+class RegionPartitionSystem  {
     
-    override init() {
+    class var shared: RegionPartitionSystem {
+        struct Static {
+            static let instance: RegionPartitionSystem = RegionPartitionSystem()
+        }
+        return Static.instance
+    }
+    
+    func setResourse(){
+        let enm : ResRegion
+        
+        let region = ResRegion.shinan
+        AppInfomation.region = region
+        AppInfomation.themeColor = region.mainColor
+        AppInfomation.name = region.appName
+        print("RegionPartitionSystem : \(region.appName)")
+        AppInfomation.pakageName = region.appPakage
+        AppInfomation.host = region.appHost
+        AppInfomation.localizeCode = LocalizationManager.shared.getLanguageCode()
+    }
+    
+    
+    func adjust(){
         
     }
     
