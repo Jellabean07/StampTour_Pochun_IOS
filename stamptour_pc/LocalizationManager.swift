@@ -22,7 +22,8 @@ class LocalizationManager {
         if (code == "ko"){
             return "kr"
         }else if (code == "en"){
-            return "eng"
+            //return "eng"
+            return "kr"
         }else{
             return "kr"
         }

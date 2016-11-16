@@ -26,15 +26,16 @@ class MoreViewController : UIViewController ,UITableViewDelegate, UITableViewDat
         logout()
     }
  
-
     func logout(){
         let path = HttpReqPath.LogoutReq
-        let parameters : [ String : AnyObject] = [
-            "accesstoken" : UserDefaultManager.init().getUserAccessToken() as AnyObject,
+        let parameters : [ String : String] = [
+            "nick" : UserDefaultManager.init().getUserNick(),
+            "accesstoken" : UserDefaultManager.init().getUserAccessToken(),
         ]
         
-        self.httpRequest!.connection(path, reqParameter: parameters)
+        self.httpRequest?.connection(path, reqParameter: parameters)
     }
+
     
     func setItem(){
         menu.append(MenuVO.init(img: "img_account",title : "계정 관리"))
@@ -71,11 +72,11 @@ class MoreViewController : UIViewController ,UITableViewDelegate, UITableViewDat
             break
         case 2:
             NSLog("메뉴"+indexPath.row.description, "탭");
-            moveToHideManageView();
+            //moveToHideManageView();
             break
         case 3:
             NSLog("메뉴"+indexPath.row.description, "탭");
-            //moveToSurveyView();
+            moveToSurveyView();
             break
         default: break
             
@@ -105,7 +106,7 @@ class MoreViewController : UIViewController ,UITableViewDelegate, UITableViewDat
         self.present(navController, animated:true, completion: nil)
         
     }
-    func HttpResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
+    func HttpSuccessResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
         let data = resData["resultData"] as! String
         
         UserDefaultManager.init().loggedOut()
@@ -114,6 +115,16 @@ class MoreViewController : UIViewController ,UITableViewDelegate, UITableViewDat
         let navController = UINavigationController(rootViewController: viewController)
         self.present(navController, animated:true, completion: nil)
         
+    }
+    
+    func HttpFailureResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject){
+        if (resCode == "01"){
+            
+        }else if (resCode == "02"){
+            
+        }else if (resCode == "03"){
+            
+        }
     }
 
 }

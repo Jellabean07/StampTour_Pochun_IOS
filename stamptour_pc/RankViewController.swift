@@ -64,7 +64,7 @@ class RankViewController : UIViewController , UITableViewDelegate, UITableViewDa
 
 
     
-    func HttpResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
+    func HttpSuccessResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
         let data = resData["resultData"] as! NSDictionary
         
         let myrank = data["myrank"] as! NSDictionary
@@ -74,9 +74,9 @@ class RankViewController : UIViewController , UITableViewDelegate, UITableViewDa
         let total = myrank["total"] as! Int
         
         
-         print("\(TAG) : rank : \(rank)")
-        print("\(TAG) : nick : \(nick)")
-        print("\(TAG) : total : \(total)")
+//         print("\(TAG) : rank : \(rank)")
+//        print("\(TAG) : nick : \(nick)")
+//        print("\(TAG) : total : \(total)")
         
         self.msg_lab.text = "\(nick)님은 \(total)명 중에 \(rank)위 입니다 "
         
@@ -91,14 +91,24 @@ class RankViewController : UIViewController , UITableViewDelegate, UITableViewDa
             mvo.no = obj["rank"] as! Int
             mvo.cnt = obj["stamp_count"] as! Int
             
-            print("\(TAG) : nick : \(mvo.nick)")
-             print("\(TAG) : no : \(mvo.no)")
-             print("\(TAG) : cnt : \(mvo.cnt)")
+//            print("\(TAG) : nick : \(mvo.nick!)")
+//             print("\(TAG) : no : \(mvo.no!)")
+//             print("\(TAG) : cnt : \(mvo.cnt!)")
             
             RankList.append(mvo)
         }
         
         self.tableView.reloadData()
 
+    }
+    
+    func HttpFailureResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject){
+        if (resCode == "01"){
+            
+        }else if (resCode == "02"){
+            
+        }else if (resCode == "03"){
+            
+        }
     }
 }

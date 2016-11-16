@@ -94,7 +94,7 @@ class ContentsManager : HttpResponse, HttpDownResponse{
      FileBrowser.init().setUnZip(file: "contents.zip")
     }
     
-    func HttpResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
+    func HttpSuccessResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
         let data = resData["resultData"] as! NSDictionary
     
         let version = data["Version"] as! Int
@@ -117,6 +117,16 @@ class ContentsManager : HttpResponse, HttpDownResponse{
         }
         // contentsDown()
         
+    }
+    
+    func HttpFailureResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject){
+        if (resCode == "01"){
+            
+        }else if (resCode == "02"){
+            
+        }else if (resCode == "03"){
+            
+        }
     }
     
     func HttpDownResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
@@ -147,6 +157,8 @@ class ContentsManager : HttpResponse, HttpDownResponse{
         print(resData)
         
     }
+    
+    
     
     
     

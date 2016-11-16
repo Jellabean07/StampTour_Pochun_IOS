@@ -58,8 +58,8 @@ class HttpRequestToServer {
                         
                         if let apiDictionary = apiDictionary as? [String: Any] {
                             let resCode = apiDictionary["code"] as! String
-                            //let resMsg = apiDictionary["message"] as! String
-                             let resMsg = ""
+                            let resMsg = apiDictionary["message"] as! String
+                             //let resMsg = ""
                             let resData = apiDictionary
                             
                             print("\(self.TAG!) : reqPath = \(reqPath)")
@@ -78,16 +78,9 @@ class HttpRequestToServer {
                             //invalid Input : xxxx  파라미터값이 xxxx에들어감
                             
                             if(resCode == "00"){
-                                self.delegate?.HttpResult(reqPath,resCode : resCode, resMsg: resMsg, resData: resData as AnyObject)
-                            }else if(resCode == "01"){
-                                
-                            }else if(resCode == "02"){
-                                
-                            }else if(resCode == "03"){
-                                
+                                self.delegate?.HttpSuccessResult(reqPath,resCode : resCode, resMsg: resMsg, resData: resData as AnyObject)
                             }else{
-                                
-                                
+                                self.delegate?.HttpFailureResult(reqPath,resCode : resCode, resMsg: resMsg, resData: resData as AnyObject)
                             }
                         }
                         

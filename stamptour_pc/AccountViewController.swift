@@ -42,7 +42,7 @@ class AcctManagerViewController : UIViewController , HttpResponse{
     }
     
     
-    func HttpResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
+    func HttpSuccessResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
         if(reqPath == HttpReqPath.UserInfoReq){
             let data = resData["resultData"] as! NSDictionary
             let nick = data["Nick"] as! String
@@ -73,6 +73,16 @@ class AcctManagerViewController : UIViewController , HttpResponse{
             }else{
                 ActionDisplay.init(uvc: self).displayMyAlertMessage("탈퇴 실패")
             }
+        }
+    }
+    
+    func HttpFailureResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject){
+        if (resCode == "01"){
+            
+        }else if (resCode == "02"){
+            
+        }else if (resCode == "03"){
+            
         }
     }
     
@@ -144,8 +154,18 @@ class AcctIdentifyViewController : UIViewController , HttpResponse{
     @IBAction func submit(_ sender: AnyObject) {
        let password = pass_txt.text
     }
-    func HttpResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
+    func HttpSuccessResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
         //let data = resData["resultData"] as! String
         
+    }
+    
+    func HttpFailureResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject){
+        if (resCode == "01"){
+            
+        }else if (resCode == "02"){
+            
+        }else if (resCode == "03"){
+            
+        }
     }
 }

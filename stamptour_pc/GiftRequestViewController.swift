@@ -25,7 +25,7 @@ class GiftRequestViewController: UIViewController,HttpResponse {
         self.httpRequest = HttpRequestToServer.init(TAG: TAG, delegate : self)
         
     }
-    func HttpResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
+    func HttpSuccessResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
         //let data = resData["resultData"] as! String
         
         if (reqPath == HttpReqPath.UserGiftApply) {
@@ -36,6 +36,17 @@ class GiftRequestViewController: UIViewController,HttpResponse {
 //            CommonFunction.dismiss(self)
         }
     }
+    
+    func HttpFailureResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject){
+        if (resCode == "01"){
+            
+        }else if (resCode == "02"){
+            
+        }else if (resCode == "03"){
+            
+        }
+    }
+    
     @IBAction func pop(_ sender: AnyObject) {
         let event = GiftRequestEvent.init(status: false, giftSendDelegate: sourceViewController)
         event.refresh()

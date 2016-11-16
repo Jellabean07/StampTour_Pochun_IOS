@@ -92,7 +92,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate, HttpResponse{
     }
     
     
-    func HttpResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
+    func HttpSuccessResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
         let data = resData["resultData"] as! NSDictionary
         let nick = data["nick"] as! String
         let accesstoken = data["accesstoken"] as! String
@@ -111,6 +111,16 @@ class LoginViewController: UIViewController , UITextFieldDelegate, HttpResponse{
         
        //go-> main
        
+    }
+    
+    func HttpFailureResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject){
+        if (resCode == "01"){
+            
+        }else if (resCode == "02"){
+            
+        }else if (resCode == "03"){
+            
+        }
     }
 }
 
