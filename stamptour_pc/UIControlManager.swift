@@ -85,6 +85,9 @@ class CustomButton: UIButton {
             layer.borderColor = borderColor?.cgColor
         }
     }
+    
+    @IBInspectable var backGroundColor = AppInfomation.themeColor
+    
 }
 
 

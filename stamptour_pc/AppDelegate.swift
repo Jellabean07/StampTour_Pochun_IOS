@@ -17,8 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        RegionPartitionSystem.shared.setResourse()
+        
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: AppInfomation.themeColor], for:.selected)
+        
         //let config = Config.init();
-        //UIControlManager.init().setNavigationConfig(config.NaviBackGroundColor,naviFontColorHex: config.NaviFontColor)
+       // UIControlManager.init().setNavigationConfig(config.NaviBackGroundColor,naviFontColorHex: config.NaviFontColor)
 //        let insertDummy = InsertDummy.init()
 ////        insertDummy.setDummy()
 //        insertDummy

@@ -10,16 +10,13 @@ import Foundation
 import UIKit
 
 class AppInfomation{
+
+    static var region : ResRegion?
+    static var name : String?
+    static var pakageName : String? //보류
+    static var themeColor : UIColor?
+    static var host : String?
+    static var version : Int?
+    static var localizeCode : String?
     
-    init(){
-        
-    }
-    
-    var appVersion : Int?
-    var appRegion : Int?
-    var appThemeColor : UIColor?
-    var appName : String?
-    var appIncon : UIImage? // 보류
-    var appLocalizeCode : Int?
-    var appPakageName : String? //보류
 }

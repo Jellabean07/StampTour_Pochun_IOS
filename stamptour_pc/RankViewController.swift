@@ -51,6 +51,7 @@ class RankViewController : UIViewController , UITableViewDelegate, UITableViewDa
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "RankCell") as! RankCell
         cell.no.text = "\(row.no!)."
+        cell.no.textColor = AppInfomation.themeColor
         cell.nick.text = row.nick!
         cell.cnt.text = "찍은 스탬프 \(row.cnt!)개"
         
