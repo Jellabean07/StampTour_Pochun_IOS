@@ -36,14 +36,22 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
         self.httpRequest = HttpRequestToServer.init(TAG: TAG, delegate : self)
         setContentsData()
         setRequest()
-         self.tableView.allowsSelection = true
+        self.tableView.allowsSelection = true
         StampOverlay.delegate = self
-        
-        let tbvc = self.tabBarController as! MainViewController
-        tbvc.setDelegate(delegate: self)
+        setLocationDelegateTarget()
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        setLocationDelegateTarget()
+        self.tableView.reloadData()
+    }
     @IBAction func shared(_ sender: Any) {
+    }
+    
+    func setLocationDelegateTarget(){
+        let tbvc = self.tabBarController as! MainViewController
+        tbvc.setDelegate(delegate: self)
     }
     
     func setRequest(){
@@ -149,6 +157,7 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
     }
     
     func HttpFailureResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject){
+        StampOverlay.isOverlay = false
         if (resCode == "01"){
             
         }else if (resCode == "02"){
@@ -244,6 +253,12 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //let row = self.stamps[(indexPath as NSIndexPath).row];
         //자세히보기 갈부분
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        let row = self.towns![(indexPath as NSIndexPath).row];
+        viewController.townVO = row
+        let navController = UINavigationController(rootViewController: viewController)
+        self.present(navController, animated:true, completion: nil)
+
     }
     
     func IsStampSealed(nick : String, checktime : String) -> Bool{
@@ -251,7 +266,7 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
     }
     
     
-    func LocationSuccessReceive(latitude : Double, longitude : Double){
+    func LocationSuccessReceive(locations : [CLLocation], latitude : Double, longitude : Double){
         print("\(TAG) : LocationSuccessReceive")
         currentLocation?.latitude = latitude
         currentLocation?.longitude = longitude

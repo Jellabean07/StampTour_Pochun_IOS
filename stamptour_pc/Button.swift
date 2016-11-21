@@ -65,7 +65,8 @@ class OverlapButton: UIButton {
         self.layer.cornerRadius = 15.0
         self.layer.borderWidth = 1
         self.layer.borderColor = AppInfomation.themeColor?.cgColor
-        self.titleLabel?.textColor =  AppInfomation.themeColor
+        self.setTitleColor(AppInfomation.themeColor!, for: UIControlState.normal)
+      
         self.layer.masksToBounds = true
     }
     

@@ -14,6 +14,7 @@ class RankViewController : UIViewController , UITableViewDelegate, UITableViewDa
     var httpRequest : HttpRequestToServer?
     var RankList : [RankVO] = [RankVO]()
     var pageNo : Int?
+    var isNewDataLoading : Bool?
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var msg_lab: UILabel!
@@ -24,10 +25,14 @@ class RankViewController : UIViewController , UITableViewDelegate, UITableViewDa
         
         self.hideKeyboardWhenTappedAround()
         self.pageNo = 0
+        self.isNewDataLoading = false
         self.httpRequest = HttpRequestToServer.init(TAG: TAG, delegate : self)
         self.reqRank()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
     
     func reqRank(){
         let path = HttpReqPath.rankReq
@@ -63,6 +68,24 @@ class RankViewController : UIViewController , UITableViewDelegate, UITableViewDa
         //not select
     }
 
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        //Bottom Refresh
+        print("\(TAG) : Bottom Refresh : 시작")
+        if scrollView == self.tableView{
+             print("\(TAG) : Bottom Refresh : 진입")
+            if ((scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height)
+            {
+                 print("\(TAG) : Bottom Refresh : 스크롤링바텀")
+                if !self.isNewDataLoading!{
+                     print("\(TAG) : Bottom Refresh : dataload")
+                    self.isNewDataLoading = true
+                    self.pageNo! = self.pageNo! + 1
+                    self.reqRank()
+                }
+            }
+        }
+    }
 
     
     func HttpSuccessResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
@@ -82,6 +105,13 @@ class RankViewController : UIViewController , UITableViewDelegate, UITableViewDa
         self.msg_lab.text = "\(nick)님은 \(total)명 중에 \(rank)위 입니다 "
         
         let ranklist = data["ranklist"] as! NSArray
+        
+        if ranklist.count == 0 {
+            if self.pageNo! > 0 {
+                self.pageNo! = self.pageNo! - 1
+            }
+        }
+        
         for row in ranklist{
             
             let obj = row as! NSDictionary
@@ -97,6 +127,10 @@ class RankViewController : UIViewController , UITableViewDelegate, UITableViewDa
 //             print("\(TAG) : cnt : \(mvo.cnt!)")
             
             RankList.append(mvo)
+        }
+        
+        if (total > RankList.count + 30) {
+            self.isNewDataLoading = false
         }
         
         self.tableView.reloadData()

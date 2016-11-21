@@ -17,12 +17,13 @@ enum applySetting{
 enum ResRegion {
     case Default, pochun, shinan
     
+    
     var mainColor: UIColor {
         switch self {
         case .Default:
             return UIControlManager.init().colorWithHexString("#ffffff")
         case .pochun:
-            return UIControlManager.init().colorWithHexString("#00c3e5")
+            return UIControlManager.init().colorWithHexString("#00c3e5") //00BE88 , 00c3e5
         case .shinan:
             return UIControlManager.init().colorWithHexString("#00a1e9")
         }
