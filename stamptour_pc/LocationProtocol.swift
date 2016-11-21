@@ -7,10 +7,10 @@
 //
 
 import Foundation
-
+import CoreLocation
 
 protocol LocationProtocol{
-    func LocationSuccessReceive(latitude : Double, longitude : Double)
+    func LocationSuccessReceive(locations : [CLLocation],latitude : Double, longitude : Double)
     func LocationFailureReceive(didFailWithError error: Error )
     
 }

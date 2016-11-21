@@ -15,6 +15,7 @@ class SurveyViewController : UIViewController , UITextViewDelegate,HttpResponse{
     let TAG : String = "GiftManageViewController"
     var httpRequest : HttpRequestToServer?
     var score:Int?
+    
     @IBOutlet var score1Radio: DLRadioButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,10 @@ class SurveyViewController : UIViewController , UITextViewDelegate,HttpResponse{
         textView.text = "기타 의견을 입력하세요."
         textView.textColor = UIColor.lightGray
         score1Radio.isSelected = true
+        score1Radio.indicatorColor = AppInfomation.themeColor!
         score = 1
+        
+       
         
         
     }
@@ -102,4 +106,30 @@ class SurveyViewController : UIViewController , UITextViewDelegate,HttpResponse{
         ]
         self.httpRequest?.connection(HttpReqPath.SurveyReq, reqParameter: parameters)
     }
+    
+
+    
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        animateViewMoving(false, moveValue: 200)
+        return true
+    }
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+         animateViewMoving(true, moveValue: 200)
+        return true
+    }
+    
+   
+    
+
+    func animateViewMoving (_ up:Bool, moveValue :CGFloat){
+        let movementDuration:TimeInterval = 0.3
+        let movement:CGFloat = ( up ? -moveValue : moveValue)
+        UIView.beginAnimations( "animateView", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(movementDuration )
+        self.view.frame = self.view.frame.offsetBy(dx: 0,  dy: movement)
+        UIView.commitAnimations()
+    }
+    
 }

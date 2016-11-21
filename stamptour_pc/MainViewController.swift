@@ -54,7 +54,7 @@ class MainViewController : UITabBarController , CLLocationManagerDelegate{
         print("\(TAG) : user latitude = \(location!.coordinate.latitude)")
         print("\(TAG) : user longitude = \(location!.coordinate.longitude)")
         
-        self.delegateLoc?.LocationSuccessReceive(latitude: latitude, longitude: logitude)
+        self.delegateLoc?.LocationSuccessReceive(locations : locations, latitude: latitude, longitude: logitude)
         
         //self.locationManager.stopUpdatingLocation()
         

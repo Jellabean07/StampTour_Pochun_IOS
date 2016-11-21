@@ -34,7 +34,7 @@ class HttpDownWithServer {
     }
 
     func download(_ reqPath : String, reqParameter : Parameters){
-        print("\(self.TAG!) : reqURL : \(HttpReqPath.HttpHost+reqPath)")
+        print("\(self.TAG!) : reqURL : \(AppInfomation.host!+reqPath)")
         print("\(self.TAG!) : reqParameter : \(reqParameter)")
        
         LoadingIndicatorView.show("Content Downloading..")
@@ -44,7 +44,7 @@ class HttpDownWithServer {
         
         let nick = "?nick=\(String(describing: reqParameter["nick"]!))&"
         let token = "accesstoken=\(String(describing: reqParameter["accesstoken"]!))"
-        let pathURL : String = HttpReqPath.HttpHost+reqPath+nick+token
+        let pathURL : String = AppInfomation.host!+reqPath+nick+token
         print(pathURL)
         
         FileBrowser.init().fileExistCheck(fileName: "contents.zip", defaultPath : true)
@@ -52,7 +52,7 @@ class HttpDownWithServer {
         
        // Alamofire.download(pathURL, method:.get,encoding: JSONEncoding.default, to: destination)
        // Alamofire.request(HttpReqPath.HttpHost+reqPath, method:.get)
-        Alamofire.download(HttpReqPath.HttpHost+reqPath, method:.get, parameters: reqParameter, to : destination)
+        Alamofire.download(AppInfomation.host!+reqPath, method:.get, parameters: reqParameter, to : destination)
         //Alamofire.download(HttpReqPath.HttpHost+reqPath, method: .get, parameters: reqParameter, encoding: JSONEncoding.default, to: destination)
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
                 print("Progress: \(progress.fractionCompleted)")

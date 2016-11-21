@@ -37,13 +37,28 @@ class SplashViewController : UIViewController{
         
     }
     func setView(){
-      //  self.bgImg.image = UIImage(named: "img_splash_bg")
-        self.logoImg.image = UIImage(named: "img_splash_logo")
-        //self.applyName.text = "©2016. POCHEON"
-        self.applyName.text = "©2016. SHINAN"
+        switch AppInfomation.region! {
+        case ResRegion.pochun.hashValue:
+            self.bgImg.image = UIImage(named: "img_splash_bg")
+            self.logoImg.image = UIImage(named: "img_splash_logo")
+            self.applyName.text = "©2016. POCHEON"
+            break
+        case ResRegion.shinan.hashValue:
+            self.logoImg.image = UIImage(named: "img_splash_logo")
+            self.applyName.text = "©2016. SHINAN"
+            self.applyName.textColor = UIControlManager.init().colorWithHexString("#303030")
+            self.produceName.textColor =  UIControlManager.init().colorWithHexString("#B4B4B4")
+            break
+        default: break
+        }
+        
+//        self.bgImg.image = UIImage(named: "img_splash_bg")
+//        self.logoImg.image = UIImage(named: "img_splash_logo")
+//        self.applyName.text = "©2016. POCHEON"
+        //self.applyName.text = "©2016. SHINAN"
 
-        self.applyName.textColor = UIControlManager.init().colorWithHexString("#303030")
-        self.produceName.textColor =  UIControlManager.init().colorWithHexString("#B4B4B4")
+        //self.applyName.textColor = UIControlManager.init().colorWithHexString("#303030")
+        //self.produceName.textColor =  UIControlManager.init().colorWithHexString("#B4B4B4")
         
         
 

@@ -24,9 +24,9 @@ class HttpRequestToServer {
     
     func connection(_ reqPath : String, reqParameter : Parameters){
         LoadingIndicatorView.show("Loading")
-        print("\(self.TAG!) : reqURL : \(HttpReqPath.HttpHost+reqPath)")
+        print("\(self.TAG!) : reqURL : \(AppInfomation.host!+reqPath)")
         print("\(self.TAG!) : reqParameter : \(reqParameter)")
-        Alamofire.request(HttpReqPath.HttpHost+reqPath,method: .post, parameters: reqParameter)
+        Alamofire.request(AppInfomation.host!+reqPath,method: .post, parameters: reqParameter)
             .validate()
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
                 print("Progress: \(progress.fractionCompleted)")

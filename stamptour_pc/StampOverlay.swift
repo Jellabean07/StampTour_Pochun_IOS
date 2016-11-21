@@ -78,7 +78,17 @@ class StampOverlay{
         longPressGesture.addTarget(self, action: #selector(StampOverlay.longPressSeal))
         
         // add long press gesture in to view
-       
+        // Create label
+        if let textString : String  = "터치를 길게 눌러서 스탬프를 찍어주세요" {
+            let label = UILabel()
+            label.text = textString
+            label.textColor = UIColor.white
+            label.sizeToFit()
+            label.center = CGPoint(x: imageView.center.x, y: imageView.center.y + 160)
+            overlay.addSubview(label)
+        }
+        
+        
         // Animate the overlay to show
 //        UIView.beginAnimations(nil, context: nil)
 //        UIView.setAnimationDuration(0.5)

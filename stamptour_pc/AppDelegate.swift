@@ -20,7 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         RegionPartitionSystem.shared.setResourse()
         
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: AppInfomation.themeColor], for:.selected)
+        
+        UITabBar.appearance().tintColor = AppInfomation.themeColor!
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: AppInfomation.themeColor!], for:.selected)
         
         //let config = Config.init();
        // UIControlManager.init().setNavigationConfig(config.NaviBackGroundColor,naviFontColorHex: config.NaviFontColor)

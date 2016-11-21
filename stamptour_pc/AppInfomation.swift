@@ -11,7 +11,7 @@ import UIKit
 
 class AppInfomation{
 
-    static var region : ResRegion?
+    static var region : Int?
     static var name : String?
     static var pakageName : String? //보류
     static var themeColor : UIColor?

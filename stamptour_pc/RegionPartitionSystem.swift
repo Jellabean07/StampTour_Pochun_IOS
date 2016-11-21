@@ -20,16 +20,22 @@ class RegionPartitionSystem  {
     }
     
     func setResourse(){
-        let enm : ResRegion
         
         let region = ResRegion.shinan
-        AppInfomation.region = region
+        AppInfomation.region = region.hashValue
+        
         AppInfomation.themeColor = region.mainColor
         AppInfomation.name = region.appName
-        print("RegionPartitionSystem : \(region.appName)")
+        
         AppInfomation.pakageName = region.appPakage
         AppInfomation.host = region.appHost
+        
         AppInfomation.localizeCode = LocalizationManager.shared.getLanguageCode()
+        print("RegionPartitionSystem : \(region.appName)")
+         print("RegionPartitionSystem : region : \(AppInfomation.region!)")
+         print("RegionPartitionSystem : themeColor : \(AppInfomation.themeColor!)")
+         print("RegionPartitionSystem : pakageName : \(AppInfomation.pakageName!)")
+        print("RegionPartitionSystem : appHost : \(AppInfomation.host!)")
     }
     
     
