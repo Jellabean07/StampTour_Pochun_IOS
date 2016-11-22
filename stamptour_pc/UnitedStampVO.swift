@@ -45,7 +45,7 @@ class ContentsVO : NSObject, NSCoding{
         let range = decoder.decodeObject(forKey: "range") as! String
         let intro = decoder.decodeObject(forKey: "intro") as! String
         let imgStr = decoder.decodeObject(forKey : "imgStr") as! [String]
-        
+
         self.init(
             no: no,
             title: title,
@@ -96,7 +96,7 @@ class StampVO {
 }
 
 
-class TownVO{
+class TownVO : NSObject, NSCoding{
     
     //var contents : [ContentsVO]?
     //var stamps : [StampVO]?
@@ -114,8 +114,9 @@ class TownVO{
     var nick : String = ""
     var checktime : String = ""
     var images : [UIImage] //마을 이미지
+    var hidden : Bool = false
     
-    init(code : Int, regionCode : Int, stampCount : Int, title : String, subtitle : String, region : String, latitude : String, longitude : String, range : Int, intro : String, nick : String, checktime : String, images : [UIImage] ){
+    init(code : Int, regionCode : Int, stampCount : Int, title : String, subtitle : String, region : String, latitude : String, longitude : String, range : Int, intro : String, nick : String, checktime : String, images : [UIImage] , hidden : Bool){
         self.code = code
         self.regionCode = regionCode
         self.stampCount = stampCount
@@ -129,16 +130,57 @@ class TownVO{
         self.nick = nick
         self.checktime = checktime
         self.images = images
+        self.hidden = hidden
     }
     
+    required convenience init(coder decoder: NSCoder) {
+        let code = decoder.decodeInteger(forKey: "code") as! Int
+        let regionCode = decoder.decodeInteger(forKey: "regionCode") as! Int
+        let stampCount = decoder.decodeInteger(forKey: "stampCount") as! Int
+        let title = decoder.decodeObject(forKey: "title") as! String
+        let subtitle = decoder.decodeObject(forKey: "subtitle") as! String
+        let region = decoder.decodeObject(forKey: "region") as! String
+        let latitude = decoder.decodeObject(forKey: "latitude") as! String
+        let longitude = decoder.decodeObject(forKey: "longitude") as! String
+        let range = decoder.decodeInteger(forKey : "range") as! Int
+        let intro = decoder.decodeObject(forKey: "intro") as! String
+        let nick = decoder.decodeObject(forKey: "nick") as! String
+        let checktime = decoder.decodeObject(forKey: "checktime") as! String
+        let images = decoder.decodeObject(forKey: "images") as! [UIImage]
+        let hidden = decoder.decodeBool(forKey: "hidden") as! Bool
+        
+        self.init(
+            code: code,
+            regionCode: regionCode,
+            stampCount: stampCount,
+            title: title,
+            subtitle: subtitle,
+            region: region,
+            latitude: latitude,
+            longitude: longitude,
+            range: range,
+            intro: intro,
+            nick: nick,
+            checktime: checktime,
+            images: images,
+            hidden: hidden
+        )
+    }
     
-    
-
-//    
-//    func getDirectoryPath() -> String {
-//        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-//        let documentsDirectory = paths[0].appendingPathComponent("contents", isDirectory: true).appendingPathComponent("contents", isDirectory: true)
-//        return documentsDirectory
-//    }
-    
+    func encode(with coder: NSCoder) {
+        coder.encode(self.code, forKey: "code")
+        coder.encode(self.regionCode, forKey: "regionCode")
+        coder.encode(self.stampCount, forKey: "stampCount")
+        coder.encode(self.title, forKey: "title")
+        coder.encode(self.subtitle, forKey: "subtitle")
+        coder.encode(self.region, forKey: "region")
+        coder.encode(self.latitude, forKey: "latitude")
+        coder.encode(self.longitude, forKey: "longitude")
+        coder.encode(self.range, forKey: "range")
+        coder.encode(self.intro, forKey: "intro")
+        coder.encode(self.nick, forKey: "nick")
+        coder.encode(self.checktime, forKey: "checktime")
+        coder.encode(self.images, forKey: "images")
+        coder.encode(self.hidden, forKey: "hidden")
+    }
 }

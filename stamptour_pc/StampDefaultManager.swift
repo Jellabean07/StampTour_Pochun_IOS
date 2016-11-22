@@ -32,10 +32,61 @@ class StampDefaultManager{
             print("There is an issue")
             return  [ContentsVO]()
         }
+    }
+    
+    func setTowns(towns : [TownVO]){
+        let encodedData = NSKeyedArchiver.archivedData(withRootObject: towns)
+        print("encodedData: \(encodedData)")
+        self.userDefault?.set(encodedData, forKey: "towns")
+        self.userDefault?.synchronize()
+    }
+    
+    func getTowns() -> [TownVO] {
+        if let data = self.userDefault?.object(forKey: "towns"),
+            let towns = NSKeyedUnarchiver.unarchiveObject(with: data as! Data) as? [TownVO] {
+            return towns
+        } else {
+            print("There is an issue")
+            return  [TownVO]()
+        }
+    }
+    
+    func setHideItem(townCode : Int){
+        var hide : [Int]?
+        if let data = self.userDefault?.object(forKey: "hide"){
+            hide = NSKeyedUnarchiver.unarchiveObject(with: data as! Data) as? [Int]
+        }else{
+            hide = [Int]()
+        }
+        hide?.append(townCode)
         
+        let encodedData = NSKeyedArchiver.archivedData(withRootObject: hide)
+        self.userDefault?.set(encodedData, forKey: "hide")
+        self.userDefault?.synchronize()
+    }
+    
+    func getHideItem() -> [Int]{
+        if let data = self.userDefault?.object(forKey: "hide"){
+            return (NSKeyedUnarchiver.unarchiveObject(with: data as! Data) as? [Int])!
+        }else{
+            return [Int]()
+        }
+    }
+    
+    func deleteHideItem(townCode : Int){
+        if let data = self.userDefault?.object(forKey: "hide"){
+           var hide = NSKeyedUnarchiver.unarchiveObject(with: data as! Data) as? [Int]
+            for (index,row) in hide!.enumerated(){
+                if row == townCode {
+                    hide!.remove(at: index)
+                    let encodedData = NSKeyedArchiver.archivedData(withRootObject: hide)
+                    self.userDefault?.set(encodedData, forKey: "hide")
+                    self.userDefault?.synchronize()
+                    break
+                }
+            }
+        }
         
-        
-
     }
     
 }

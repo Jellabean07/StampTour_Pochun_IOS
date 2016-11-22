@@ -134,6 +134,7 @@
 		33C1BC661DC59534001DC8DE /* StampAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C1BC651DC59534001DC8DE /* StampAnimationView.swift */; };
 		33E8F47E1DDC3FEB00FC1021 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8F47D1DDC3FEB00FC1021 /* Button.swift */; };
 		33E8F4821DE0093F00FC1021 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8F4811DE0093E00FC1021 /* DetailViewController.swift */; };
+		33E8F4841DE4673700FC1021 /* HideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8F4831DE4673700FC1021 /* HideCell.swift */; };
 		33FA50F11DCB13EA00F81A27 /* FileBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FA50F01DCB13EA00F81A27 /* FileBrowser.swift */; };
 		33FA50F31DCC558100F81A27 /* AppInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FA50F21DCC558100F81A27 /* AppInfomation.swift */; };
 		33FED6C01DC8780000A5D131 /* ResChanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FED6BF1DC8780000A5D131 /* ResChanger.swift */; };
@@ -142,7 +143,7 @@
 		735397CA1DD5BBA2003D9F1C /* GiftSendDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735397C91DD5BBA2003D9F1C /* GiftSendDelegate.swift */; };
 		735397CD1DD5BC35003D9F1C /* GiftRequestEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735397CC1DD5BC35003D9F1C /* GiftRequestEvent.swift */; };
 		7353E92A1DCB0BE80033BDB5 /* GiftManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7353E9291DCB0BE80033BDB5 /* GiftManageViewController.swift */; };
-		7353E92C1DCB0F920033BDB5 /* HideListManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7353E92B1DCB0F920033BDB5 /* HideListManageViewController.swift */; };
+		7353E92C1DCB0F920033BDB5 /* HideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7353E92B1DCB0F920033BDB5 /* HideViewController.swift */; };
 		7396BC1A1DD447D100E9000A /* GiftRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7396BC191DD447D100E9000A /* GiftRequestViewController.swift */; };
 		7396BC1E1DD4519100E9000A /* GiftCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7396BC1D1DD4519100E9000A /* GiftCellDelegate.swift */; };
 		73CE51A11DCC8BE100E17D58 /* GiftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CE51A01DCC8BE100E17D58 /* GiftCell.swift */; };
@@ -304,6 +305,7 @@
 		33C1BC651DC59534001DC8DE /* StampAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StampAnimationView.swift; sourceTree = "<group>"; };
 		33E8F47D1DDC3FEB00FC1021 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		33E8F4811DE0093E00FC1021 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		33E8F4831DE4673700FC1021 /* HideCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideCell.swift; sourceTree = "<group>"; };
 		33FA50F01DCB13EA00F81A27 /* FileBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileBrowser.swift; sourceTree = "<group>"; };
 		33FA50F21DCC558100F81A27 /* AppInfomation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfomation.swift; sourceTree = "<group>"; };
 		33FED6BF1DC8780000A5D131 /* ResChanger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResChanger.swift; sourceTree = "<group>"; };
@@ -313,7 +315,7 @@
 		735397C91DD5BBA2003D9F1C /* GiftSendDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftSendDelegate.swift; sourceTree = "<group>"; };
 		735397CC1DD5BC35003D9F1C /* GiftRequestEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftRequestEvent.swift; sourceTree = "<group>"; };
 		7353E9291DCB0BE80033BDB5 /* GiftManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftManageViewController.swift; sourceTree = "<group>"; };
-		7353E92B1DCB0F920033BDB5 /* HideListManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideListManageViewController.swift; sourceTree = "<group>"; };
+		7353E92B1DCB0F920033BDB5 /* HideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideViewController.swift; sourceTree = "<group>"; };
 		7396BC191DD447D100E9000A /* GiftRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftRequestViewController.swift; sourceTree = "<group>"; };
 		7396BC1D1DD4519100E9000A /* GiftCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftCellDelegate.swift; sourceTree = "<group>"; };
 		73CE51A01DCC8BE100E17D58 /* GiftCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftCell.swift; sourceTree = "<group>"; };
@@ -520,7 +522,7 @@
 				335C97BF1D9A4D050066E25F /* StampViewController.swift */,
 				3381B9171DC9847B002EE080 /* SplashViewController.swift */,
 				7353E9291DCB0BE80033BDB5 /* GiftManageViewController.swift */,
-				7353E92B1DCB0F920033BDB5 /* HideListManageViewController.swift */,
+				7353E92B1DCB0F920033BDB5 /* HideViewController.swift */,
 				7396BC191DD447D100E9000A /* GiftRequestViewController.swift */,
 				732B88C11DDAE5A00018461B /* SurveyViewController.swift */,
 				33E8F4811DE0093E00FC1021 /* DetailViewController.swift */,
@@ -569,6 +571,7 @@
 				33938AE01D9E0D710058B5DC /* StampCell.swift */,
 				73CE51A01DCC8BE100E17D58 /* GiftCell.swift */,
 				7396BC1D1DD4519100E9000A /* GiftCellDelegate.swift */,
+				33E8F4831DE4673700FC1021 /* HideCell.swift */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -992,6 +995,7 @@
 				7353E92A1DCB0BE80033BDB5 /* GiftManageViewController.swift in Sources */,
 				73CE51AB1DCC9BF100E17D58 /* agoGiftVO.swift in Sources */,
 				3392EE251DC19CA800582308 /* UnitedStampVO.swift in Sources */,
+				33E8F4841DE4673700FC1021 /* HideCell.swift in Sources */,
 				33FED6C01DC8780000A5D131 /* ResChanger.swift in Sources */,
 				335C97CF1D9A4D050066E25F /* JoinNickViewController.swift in Sources */,
 				33C1BC661DC59534001DC8DE /* StampAnimationView.swift in Sources */,
@@ -1002,7 +1006,7 @@
 				335C97DE1D9A4D050066E25F /* StringMsg.swift in Sources */,
 				335C97D91D9A4D050066E25F /* MoreViewController.swift in Sources */,
 				335C97C81D9A4D050066E25F /* ActionVO.swift in Sources */,
-				7353E92C1DCB0F920033BDB5 /* HideListManageViewController.swift in Sources */,
+				7353E92C1DCB0F920033BDB5 /* HideViewController.swift in Sources */,
 				335C97CB1D9A4D050066E25F /* ForgetViewController.swift in Sources */,
 				336342391DC8A2E30052A153 /* RegionResManager.swift in Sources */,
 				335C97C91D9A4D050066E25F /* CommonFunction.swift in Sources */,
