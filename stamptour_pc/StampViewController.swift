@@ -16,6 +16,7 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
     @IBOutlet var introMsg: UILabel!
     @IBOutlet var stampCnt: UILabel!
     @IBOutlet var stampTotal: UILabel!
+    @IBOutlet var naviTitle: UINavigationItem!
  
     let TAG : String = "StampViewController"
     var httpRequest : HttpRequestToServer?
@@ -44,8 +45,19 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
     
     override func viewDidAppear(_ animated: Bool) {
         setLocationDelegateTarget()
+        self.towns =  StampDefaultManager.init().getTowns()
         self.tableView.reloadData()
     }
+    
+    @IBAction func goToHide(_ sender: Any) {
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "HideViewController") as! HideViewController
+        let navController = UINavigationController(rootViewController: viewController)
+        self.present(navController, animated:true, completion: nil)
+    }
+    
+    @IBAction func sort(_ sender: Any) {
+    }
+    
     @IBAction func shared(_ sender: Any) {
     }
     
@@ -181,10 +193,27 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
 //            print("\(TAG) : region : \(row.region)")
 //        }
         //self.tableView.reloadData()
+        hideItem()
+    }
+    
+    func hideItem(){
+        let hiddenCodes = StampDefaultManager.init().getHideItem()
+        for code in hiddenCodes{
+            for (index, row) in  self.towns!.enumerated() {
+                if row.code == code {
+                    self.towns![index].hidden = true
+                    print("\(TAG) : hiddin data : \(index) , code : \(row.code)")
+                    break
+                    
+                }
+            }
+        }
+        setStoreTownVO()
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.naviTitle.title = "거리순 \(self.towns!.count)"
         return self.towns!.count
     }
     
@@ -236,7 +265,9 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
                 return ActiveCell
             }else{
                 // normal
-                
+                if row.hidden {
+                    //NormalCell.isHidden = true
+                }
                 NormalCell.vil_thumbnail.image = row.images[0].circle
                 NormalCell.vil_name.text = row.title
                 NormalCell.vil_region.text = "\(row.region)"
@@ -249,6 +280,19 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
     
     }
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let hide = UITableViewRowAction(style: .normal, title: "숨김") { action, index in
+            print("\(self.TAG) : hide button tapped : \(index)")
+            self.hide(index)
+        }
+        hide.backgroundColor = UIColor.red
+        
+        
+        return [hide]
+    }
+//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return UITableViewAutomaticDimension
+//    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //let row = self.stamps[(indexPath as NSIndexPath).row];
@@ -260,6 +304,23 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
         self.present(navController, animated:true, completion: nil)
 
     }
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let row = self.towns![(indexPath as NSIndexPath).row];
+        var rowHeight:CGFloat = 0.0
+
+        if(row.hidden){
+            rowHeight = 0.0
+        }else{
+            //rowHeight = UITableViewAutomaticDimension
+            rowHeight = 80.0    //or whatever you like
+        }
+                
+        return rowHeight
+    }
+
+    
     
     func IsStampSealed(nick : String, checktime : String) -> Bool{
         return (nick != "") && (checktime != "")
@@ -275,6 +336,7 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
         
         self.calcDist!.detectDistance(towns: self.towns!, lat: latitude, long: longitude)
         self.tableView.reloadData()
+        
     }
     func LocationFailureReceive(didFailWithError error: Error ){
         currentLocation?.state = false
@@ -304,4 +366,22 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
         self.reqStampSeal(town_code: town_code , latitude: latitude, longitude: longitude)
     }
     
+    func hide(_ index : IndexPath){
+        print("\(self.TAG) : hide button tapped + \(index)")
+        let row = self.towns![(index as NSIndexPath).row];
+        StampDefaultManager.init().setHideItem(townCode: row.code)
+        let hide = StampDefaultManager.init().getHideItem()
+        hideItem()
+        self.tableView.reloadRows(at: [index], with: UITableViewRowAnimation.right)
+        
+    }
+    
+    func setStoreTownVO(){
+        StampDefaultManager.init().setTowns(towns: self.towns!)
+        if let data : [TownVO] = StampDefaultManager.init().getTowns(){
+            for row in data {
+                print("\(row.title)")
+            }
+        }
+    }
 }

@@ -72,7 +72,7 @@ class MoreViewController : UIViewController ,UITableViewDelegate, UITableViewDat
             break
         case 2:
             NSLog("메뉴"+indexPath.row.description, "탭");
-            //moveToHideManageView();
+            moveToHideManageView();
             break
         case 3:
             NSLog("메뉴"+indexPath.row.description, "탭");
@@ -95,7 +95,7 @@ class MoreViewController : UIViewController ,UITableViewDelegate, UITableViewDat
         
     }
     func moveToHideManageView(){
-        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "HideListManageViewController") as! HideListManageViewController
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "HideViewController") as! HideViewController
         let navController = UINavigationController(rootViewController: viewController)
         self.present(navController, animated:true, completion: nil)
         

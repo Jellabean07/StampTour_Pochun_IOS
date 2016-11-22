@@ -50,7 +50,7 @@ class ContentsManager : HttpResponse, HttpDownResponse{
                     for img in row.imgStr{
                         images.append(FileBrowser.init().getImage(named: img))
                     }
-                    let townVO = TownVO(code: code, regionCode: regionCode, stampCount: stampCount, title: title, subtitle: subtitle, region: region, latitude: latitude, longitude: longitude, range: range, intro: intro, nick: nick, checktime: checktime, images: images)
+                    let townVO = TownVO(code: code, regionCode: regionCode, stampCount: stampCount, title: title, subtitle: subtitle, region: region, latitude: latitude, longitude: longitude, range: range, intro: intro, nick: nick, checktime: checktime, images: images,hidden: false)
                     towns.append(townVO)
                 }
             }

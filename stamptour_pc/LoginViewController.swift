@@ -49,6 +49,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate, HttpResponse{
     }
     
     func NomalLogin(){
+        self.dismissKeyboard()
         let id_value = self.id_txt.text
         let pass_value = self.pass_txt.text
         self.loginCase = LoggedInCase.normal.hashValue;
@@ -108,6 +109,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate, HttpResponse{
         }else{
             NSLog(TAG,"Login Fail")
         }
+        
         
        //go-> main
        
