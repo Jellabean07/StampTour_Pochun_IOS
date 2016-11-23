@@ -621,9 +621,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Edg-XD-hUl">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Edg-XD-hUl">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="HideCell" rowHeight="80" id="tUq-JD-arB" customClass="HideCell" customModule="stamptour_pc" customModuleProvider="target">
@@ -694,6 +693,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Edg-XD-hUl" firstAttribute="width" secondItem="2sH-Pb-s5f" secondAttribute="width" id="Ad2-lv-IJC"/>
+                            <constraint firstItem="Edg-XD-hUl" firstAttribute="centerX" secondItem="2sH-Pb-s5f" secondAttribute="centerX" id="BBi-tp-Vqv"/>
+                            <constraint firstItem="Edg-XD-hUl" firstAttribute="centerY" secondItem="2sH-Pb-s5f" secondAttribute="centerY" id="HNC-aP-bnw"/>
+                            <constraint firstItem="Edg-XD-hUl" firstAttribute="height" secondItem="2sH-Pb-s5f" secondAttribute="height" id="yX6-rX-yhE"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="숨김관리" id="svr-3e-zxu">
                         <barButtonItem key="leftBarButtonItem" title="뒤로" id="dfX-VF-hD5">
@@ -3502,13 +3507,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="계정 정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2a8-zE-zpc">
-                                                <rect key="frame" x="10" y="35" width="345" height="21"/>
+                                                <rect key="frame" x="10" y="35" width="345" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DTC-UB-Cfh" customClass="CustomView" customModule="stamptour_pc" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="66" width="375" height="89"/>
+                                                <rect key="frame" x="0.0" y="61" width="375" height="89"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ic2-vh-VOv">
                                                         <rect key="frame" x="15" y="44.5" width="358" height="1"/>
@@ -3575,15 +3580,15 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 변경" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yC9-ni-hbk">
-                                                <rect key="frame" x="10" y="183" width="345" height="21"/>
+                                                <rect key="frame" x="10" y="178" width="345" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AFw-ba-3Cd" customClass="CustomView" customModule="stamptour_pc" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="214" width="375" height="89"/>
+                                                <rect key="frame" x="0.0" y="204" width="375" height="89"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 입력하세요" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="urG-X9-jxa" customClass="CustomTextField" customModule="stamptour_pc" customModuleProvider="target">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 입력하세요" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="urG-X9-jxa" customClass="CustomTextField" customModule="stamptour_pc" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3599,7 +3604,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 다시 입력하세요" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NWr-qZ-vGH" customClass="CustomTextField" customModule="stamptour_pc" customModuleProvider="target">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="비밀번호를 다시 입력하세요" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NWr-qZ-vGH" customClass="CustomTextField" customModule="stamptour_pc" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="45" width="375" height="44"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3615,7 +3620,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0wN-rZ-ceO">
+                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0wN-rZ-ceO">
                                                         <rect key="frame" x="15" y="44.5" width="358" height="1"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" red="0.80784313730000001" green="0.80784313730000001" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3635,13 +3640,13 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6~16자 영문 소문자, 숫자를 조합하세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B7h-MW-D2Y">
-                                                <rect key="frame" x="10" y="313" width="355" height="21"/>
+                                                <rect key="frame" x="10" y="303" width="355" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyc-Sj-O8P" customClass="CustomButton" customModule="stamptour_pc" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="362" width="375" height="45"/>
+                                                <rect key="frame" x="0.0" y="347" width="375" height="45"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="5Q8-aA-ROt"/>
@@ -3663,7 +3668,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="계정을 삭제하면 회원정보, 선물 신청 내역도 영구적으로 삭제됩니다." lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTX-qz-tdZ">
-                                                <rect key="frame" x="10" y="417" width="355" height="52"/>
+                                                <rect key="frame" x="10" y="402" width="355" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -3809,7 +3814,7 @@
         <image name="img_account" width="29" height="29"/>
         <image name="img_footprint" width="9" height="11"/>
         <image name="img_gift_circle" width="60" height="60"/>
-        <image name="img_stmap" width="60" height="60"/>
+        <image name="img_stmap" width="65" height="65"/>
         <image name="img_survey_circle" width="60" height="60"/>
         <image name="radio_off" width="22" height="22"/>
         <image name="radio_on" width="22" height="22"/>
