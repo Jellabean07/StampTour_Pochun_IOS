@@ -13,16 +13,3 @@ protocol StampSeal{
     
 }
 
-class StampSealProtocol {
-    var TAG : String?
-    var delegate : HttpResponse?
-
-    
-    init(TAG : String, delegate : HttpResponse){
-        self.TAG = TAG
-        self.delegate = delegate
-    
-    }
-    
-    
-}

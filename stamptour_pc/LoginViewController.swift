@@ -106,8 +106,9 @@ class LoginViewController: UIViewController , UITextFieldDelegate, HttpResponse{
             
             
             ContentsManager.init(uvc: self).versionCheck()
-        }else{
+        }else {
             NSLog(TAG,"Login Fail")
+            ActionDisplay.init(uvc: self).displayMyAlertMessage("아이디 또는 비밀번호가 잘못되었습니다")
         }
         
         
@@ -116,6 +117,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate, HttpResponse{
     }
     
     func HttpFailureResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject){
+        
         if (resCode == "01"){
             
         }else if (resCode == "02"){

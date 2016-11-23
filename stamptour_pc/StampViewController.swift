@@ -28,6 +28,7 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
     var stamps : [StampVO]? = [StampVO]()
     var towns : [TownVO]? = [TownVO]()
     
+    var sortedName : String? = "기본"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,14 +41,23 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
         self.tableView.allowsSelection = true
         StampOverlay.delegate = self
         setLocationDelegateTarget()
+        doWork() // 먼저 실행
+        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(StampViewController.doWork), userInfo: nil, repeats: true)
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
+//        setLocationDelegateTarget()
+//        self.towns =  StampDefaultManager.init().getTowns()
+//        self.tableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         setLocationDelegateTarget()
         self.towns =  StampDefaultManager.init().getTowns()
         self.tableView.reloadData()
     }
+    
     
     @IBAction func goToHide(_ sender: Any) {
         let viewController = self.storyboard?.instantiateViewController(withIdentifier: "HideViewController") as! HideViewController
@@ -56,9 +66,38 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
     }
     
     @IBAction func sort(_ sender: Any) {
+        
+        var ActionCodesVO = [ActionCodeVO]()
+        ActionCodesVO.append(ActionCodeVO.init(title: "거리순", code : 0, action: sortTowns))
+        ActionCodesVO.append(ActionCodeVO.init(title: "이름순", code : 1, action: sortTowns))
+        ActionCodesVO.append(ActionCodeVO.init(title: "권역순", code : 2, action: sortTowns))
+        
+        ActionDisplay.init(uvc: self).showActionSheetCodeAction("정렬", userMessege: "원하는 정렬 방법을 선택하세요", actionList: ActionCodesVO)
+        
     }
     
     @IBAction func shared(_ sender: Any) {
+    }
+    
+    func sortTowns(_ title : String , _ sortedCode : Int){
+        switch sortedCode{
+        case 0:
+            self.towns = StampSort.shared.sortByDistance(towns: self.towns!)
+            
+            
+            break
+        case 1:
+            self.towns = StampSort.shared.sortByName(towns: self.towns!)
+            break
+        case 2:
+            self.towns = StampSort.shared.sortByRegion(towns: self.towns!)
+        default:
+            self.towns = StampSort.shared.sortByDistance(towns: self.towns!)
+            break
+        }
+        self.sortedName = title
+        self.naviTitle.title = "\(self.sortedName!) \(self.towns!.count)"
+        self.tableView.reloadData()
     }
     
     func setLocationDelegateTarget(){
@@ -213,7 +252,7 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.naviTitle.title = "거리순 \(self.towns!.count)"
+        self.naviTitle.title = "\(self.sortedName!) \(self.towns!.count)"
         return self.towns!.count
     }
     
@@ -226,9 +265,9 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
         
         var distance : String
         if (currentLocation?.state)!{
-            let dist = calcDist!.distance(lat1: Double((row.latitude))!, lon1: Double((row.longitude))!, lat2: Double((currentLocation?.latitude)!), lon2: Double((currentLocation?.longitude)!), unit: "K")
+           // let dist = calcDist!.distance(lat1: Double((row.latitude))!, lon1: Double((row.longitude))!, lat2: Double((currentLocation?.latitude)!), lon2: Double((currentLocation?.longitude)!), unit: "K")
             //distance = "\(String(dist)) km"
-            
+            let dist = row.distance
             let distK = Int(dist)
             let distM = (dist - Double(distK)) * 1000
             
@@ -333,11 +372,12 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
         currentLocation?.longitude = longitude
         currentLocation?.state = true
         
-        
+        setDistance(locations)
         self.calcDist!.detectDistance(towns: self.towns!, lat: latitude, long: longitude)
-        self.tableView.reloadData()
         
     }
+
+    
     func LocationFailureReceive(didFailWithError error: Error ){
         currentLocation?.state = false
         print("\(TAG) : LocationFailureReceive")
@@ -372,7 +412,9 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
         StampDefaultManager.init().setHideItem(townCode: row.code)
         let hide = StampDefaultManager.init().getHideItem()
         hideItem()
+        self.tableView.beginUpdates()
         self.tableView.reloadRows(at: [index], with: UITableViewRowAnimation.right)
+        self.tableView.endUpdates()
         
     }
     
@@ -383,5 +425,18 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
                 print("\(row.title)")
             }
         }
+    }
+    
+    func setDistance(_ locations : [CLLocation]){
+        let location = locations.last
+        for (index,row) in self.towns!.enumerated(){
+            let dist = calcDist!.distance(lat1: Double((row.latitude))!, lon1: Double((row.longitude))!, lat2: Double((location?.coordinate.latitude)!), lon2: Double((location?.coordinate.longitude)!), unit: "K")
+            
+            self.towns![index].distance = dist
+        }
+    }
+    
+    func doWork(){
+        self.tableView.reloadData()
     }
 }

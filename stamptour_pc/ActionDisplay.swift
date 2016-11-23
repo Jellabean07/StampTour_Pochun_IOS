@@ -149,4 +149,24 @@ class ActionDisplay{
         
     }
     
+    func showActionSheetCodeAction(_ userTitle:String,userMessege:String,actionList: [ActionCodeVO]){
+        // create controller with style as ActionSheet
+        let alertCtrl = UIAlertController(title: userTitle, message: userMessege, preferredStyle: UIAlertControllerStyle.actionSheet)
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+        
+        for row in actionList{
+            let action = UIAlertAction(title: row.title, style: .default, handler: {
+                (_) in
+                row.play()
+            })
+            alertCtrl.addAction(action)
+        }
+        
+        alertCtrl.addAction(cancelAction)
+        
+        // show action sheet
+        self.uvc!.present(alertCtrl, animated: true, completion: nil)
+        
+    }
+    
 }
