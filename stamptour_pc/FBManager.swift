@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import FacebookCore
 import FacebookLogin
+import FacebookShare
 
 class FBManager : HttpResponse{
     
@@ -22,6 +23,33 @@ class FBManager : HttpResponse{
         self.httpRequest = HttpRequestToServer.init(TAG: TAG, delegate : self)
         self.uvc = uvc
     }
+    
+    func getReturnState(){
+        if let accessToken = AccessToken.current {
+            // User is logged in, use 'accessToken' here.
+            self.appId = accessToken.appId
+            reqLogin(appId: accessToken.appId)
+        }else{
+            login()
+        }
+    }
+    
+    func share(){
+        let content = LinkShareContent(url: NSURL(string: "https://developers.facebook.com") as! URL)
+        let shareDialog = ShareDialog(content: content)
+        shareDialog.mode = .feedWeb
+        shareDialog.failsOnInvalidData = true
+        shareDialog.completion = { result in
+            // Handle share results
+        }
+        
+        do {
+            try shareDialog.show()
+        } catch  {
+            
+        }
+    }
+    
     
     func login(){
         let loginManager = LoginManager()
@@ -47,16 +75,7 @@ class FBManager : HttpResponse{
             
         }
     }
-    
-    func getReturnState(){
-        if let accessToken = AccessToken.current {
-            // User is logged in, use 'accessToken' here.
-            self.appId = accessToken.appId
-            reqLogin(appId: accessToken.appId)
-        }else{
-            login()
-        }
-    }
+  
     
     func reqLogin(appId : String){
         let path = HttpReqPath.LoginReq

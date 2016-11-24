@@ -77,6 +77,12 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
     }
     
     @IBAction func shared(_ sender: Any) {
+        if UserDefaultManager.init().getIsLoggedCase() == LoggedInCase.fbLogin.hashValue{
+             FBManager.init(uvc: self).share()
+        }else{
+            
+        }
+       
     }
     
     func sortTowns(_ title : String , _ sortedCode : Int){
