@@ -134,6 +134,7 @@
 		33E8F4821DE0093F00FC1021 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8F4811DE0093E00FC1021 /* DetailViewController.swift */; };
 		33E8F4841DE4673700FC1021 /* HideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8F4831DE4673700FC1021 /* HideCell.swift */; };
 		33E8F4871DE5274E00FC1021 /* StampSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8F4861DE5274E00FC1021 /* StampSort.swift */; };
+		33E8F48E1DE68CEA00FC1021 /* FBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E8F48D1DE68CEA00FC1021 /* FBManager.swift */; };
 		33FA50F11DCB13EA00F81A27 /* FileBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FA50F01DCB13EA00F81A27 /* FileBrowser.swift */; };
 		33FA50F31DCC558100F81A27 /* AppInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FA50F21DCC558100F81A27 /* AppInfomation.swift */; };
 		5D7B2E56B7B3ADE47F5C6A0C /* Pods_stamptour_pc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A14BFF4D0240426E1497D821 /* Pods_stamptour_pc.framework */; };
@@ -175,6 +176,7 @@
 		331800CB1DDAB8BD00AFD22E /* LodingIndicatorOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LodingIndicatorOverlay.swift; sourceTree = "<group>"; };
 		331800CD1DDB19AD00AFD22E /* Shinan.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Shinan.xcassets; sourceTree = "<group>"; };
 		331800D51DDBE8A700AFD22E /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
+		33187B781DE7061F002FA9AE /* stamptour_pc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = stamptour_pc.entitlements; sourceTree = "<group>"; };
 		331B50FA1DD1750D00438111 /* InsertDummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertDummy.swift; sourceTree = "<group>"; };
 		331B50FD1DD175A100438111 /* contents.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = contents.zip; sourceTree = "<group>"; };
 		331B51001DD1A10B00438111 /* eng.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = eng.json; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 		33E8F4811DE0093E00FC1021 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		33E8F4831DE4673700FC1021 /* HideCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideCell.swift; sourceTree = "<group>"; };
 		33E8F4861DE5274E00FC1021 /* StampSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StampSort.swift; sourceTree = "<group>"; };
+		33E8F48D1DE68CEA00FC1021 /* FBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBManager.swift; sourceTree = "<group>"; };
 		33FA50F01DCB13EA00F81A27 /* FileBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileBrowser.swift; sourceTree = "<group>"; };
 		33FA50F21DCC558100F81A27 /* AppInfomation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfomation.swift; sourceTree = "<group>"; };
 		3B695BF8DFFC816A4E838855 /* Pods-stamptour_pc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stamptour_pc.release.xcconfig"; path = "Pods/Target Support Files/Pods-stamptour_pc/Pods-stamptour_pc.release.xcconfig"; sourceTree = "<group>"; };
@@ -460,7 +463,8 @@
 		335C97751D9A4A3F0066E25F /* stamptour_pc */ = {
 			isa = PBXGroup;
 			children = (
-				33E8F4851DE526A500FC1021 /* protocol */,
+				33187B781DE7061F002FA9AE /* stamptour_pc.entitlements */,
+				33E8F48A1DE68CA500FC1021 /* login */,
 				33E8F47C1DDC3F4E00FC1021 /* customview */,
 				331800C41DD861E600AFD22E /* localize */,
 				735397CB1DD5BC13003D9F1C /* event */,
@@ -644,18 +648,19 @@
 			name = customview;
 			sourceTree = "<group>";
 		};
-		33E8F4851DE526A500FC1021 /* protocol */ = {
+		33E8F48A1DE68CA500FC1021 /* login */ = {
 			isa = PBXGroup;
 			children = (
-				331800C71DD99C9700AFD22E /* LocationProtocol.swift */,
-				336CB5321DC59FE5007D047C /* StampSealProtocol.swift */,
+				33E8F48D1DE68CEA00FC1021 /* FBManager.swift */,
 			);
-			name = protocol;
+			name = login;
 			sourceTree = "<group>";
 		};
 		735397C81DD5BB78003D9F1C /* delegate */ = {
 			isa = PBXGroup;
 			children = (
+				331800C71DD99C9700AFD22E /* LocationProtocol.swift */,
+				336CB5321DC59FE5007D047C /* StampSealProtocol.swift */,
 				335C97761D9A4A3F0066E25F /* AppDelegate.swift */,
 				735397C91DD5BBA2003D9F1C /* GiftSendDelegate.swift */,
 			);
@@ -761,6 +766,11 @@
 						DevelopmentTeam = 7PL62EHX8R;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					335C97891D9A4A3F0066E25F = {
 						CreatedOnToolsVersion = 8.0;
@@ -945,6 +955,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				336CB5331DC59FE5007D047C /* StampSealProtocol.swift in Sources */,
+				33E8F48E1DE68CEA00FC1021 /* FBManager.swift in Sources */,
 				33FA50F31DCC558100F81A27 /* AppInfomation.swift in Sources */,
 				3381B9201DC9C0E8002EE080 /* ContentsManager.swift in Sources */,
 				335C97CE1D9A4D050066E25F /* ItemCell.swift in Sources */,
@@ -1170,6 +1181,7 @@
 			baseConfigurationReference = 70E3A8C079B7299CCD1BFFC0 /* Pods-stamptour_pc.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = stamptour_pc/stamptour_pc.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 7PL62EHX8R;
 				INFOPLIST_FILE = "$(SRCROOT)/stamptour_pc/Base.lproj/Info.plist";
@@ -1188,6 +1200,7 @@
 			baseConfigurationReference = 3B695BF8DFFC816A4E838855 /* Pods-stamptour_pc.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = stamptour_pc/stamptour_pc.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 7PL62EHX8R;
 				INFOPLIST_FILE = "$(SRCROOT)/stamptour_pc/Base.lproj/Info.plist";

@@ -112,8 +112,10 @@ class UserDefaultManager{
         self.UserDefault!.removeObject(forKey: "isLoggedInCase");
         self.UserDefault!.synchronize();
         
-        let tbvc = uvc.tabBarController as! MainViewController
-        tbvc.locationManager.stopUpdatingLocation()
+        if let tbvc : MainViewController = uvc.tabBarController as! MainViewController{
+            tbvc.locationManager.stopUpdatingLocation()
+        }
+        
         
         let viewController = uvc.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         let navController = UINavigationController(rootViewController: viewController)
@@ -121,7 +123,7 @@ class UserDefaultManager{
         
     }
     
-    func loggedIn(_ id : String , nick : String, accessToken : String, LoginCase : Int){
+    func loggedIn(_ uvc : UIViewController, id : String , nick : String, accessToken : String, LoginCase : Int){
         self.UserDefault!.setValue(id, forKey: "userId");
         self.UserDefault!.setValue(nick, forKey: "userNick");
         self.UserDefault!.setValue(accessToken, forKey: "userAccessToken")
@@ -129,6 +131,8 @@ class UserDefaultManager{
         self.UserDefault!.set(true, forKey: "isUserLoggedIn");
         self.UserDefault!.set(LoginCase, forKey: "isLoggedInCase");
         self.UserDefault!.synchronize();
+        ContentsManager.init(uvc: uvc).versionCheck()
+        
     }
     
     func removeUserNick_ID() {

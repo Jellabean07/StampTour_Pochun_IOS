@@ -93,14 +93,8 @@ class AcctManagerViewController : UIViewController , HttpResponse{
     }
     
     @IBAction func removeUser(_ sender: AnyObject) {
-        let nick = UserDefaultManager.init().getUserNick()
-        let accesstoken = UserDefaultManager.init().getUserAccessToken()
-        let parameters : [ String : String] = [
-            "accesstoken" : accesstoken,
-            "nick" : nick,
-            "devicetoken":"abcd"
-        ]
-        self.httpRequest?.connection(HttpReqPath.UserRemoveReq, reqParameter: parameters)
+        ActionDisplay.init(uvc: self).displayMyAlertMessageActionYN("정말 삭제 하시겠습니까?", action: reqAccDelete)
+        
     }
     @IBAction func pop(_ sender: AnyObject) {
         CommonFunction.dismiss(self)
@@ -124,6 +118,18 @@ class AcctManagerViewController : UIViewController , HttpResponse{
             return
         }
     }
+    
+    func reqAccDelete(){
+        let nick = UserDefaultManager.init().getUserNick()
+        let accesstoken = UserDefaultManager.init().getUserAccessToken()
+        let parameters : [ String : String] = [
+            "accesstoken" : accesstoken,
+            "nick" : nick,
+            "devicetoken":"abcd"
+        ]
+        self.httpRequest?.connection(HttpReqPath.UserRemoveReq, reqParameter: parameters)
+    }
+    
     func password_validation(password:String,passwordrepeat:String) -> Bool{
         if(password == passwordrepeat){
             if(TextValidation.init().isValidPassword(passwordrepeat)){

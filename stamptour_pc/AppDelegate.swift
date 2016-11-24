@@ -8,6 +8,9 @@
 
 import UIKit
 import CoreData
+import FacebookCore
+import FacebookLogin
+import FacebookShare
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -33,7 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        FileBrowser.init().convertJsonArray(text: jsonString)
 ////        print(FileBrowser.init().getDocumentsDirectory())
 //        FileBrowser.init().currentFiles()
-        return true
+        return SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+       // return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -52,12 +56,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+         AppEventsLogger.activate(application)
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+    }
+    
+    public func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        return SDKApplicationDelegate.shared.application(
+            app,
+            open: url as URL!,
+            sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String,
+            annotation: options[UIApplicationOpenURLOptionsKey.annotation]
+        )
+    }
+    
+    public func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        return SDKApplicationDelegate.shared.application(
+            application,
+            open: url as URL!,
+            sourceApplication: sourceApplication,
+            annotation: annotation
+        )
     }
 
     // MARK: - Core Data stack

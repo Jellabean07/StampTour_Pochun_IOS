@@ -5,7 +5,8 @@
 //  Created by CSC-PC on 2016. 8. 22..
 //  Copyright © 2016년 thatzit. All rights reserved.
 //
-
+import FacebookCore
+import FacebookLogin
 import UIKit
 
 class LoginViewController: UIViewController , UITextFieldDelegate, HttpResponse{
@@ -71,7 +72,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate, HttpResponse{
     }
     
     func FBLoggedin(){
-        
+        FBManager.init(uvc: self).getReturnState()
     }
     
     func KOLoggedIn(){
@@ -102,10 +103,10 @@ class LoginViewController: UIViewController , UITextFieldDelegate, HttpResponse{
         NSLog("\(self.TAG) accesstoken : \(accesstoken)")
         
         if(nick != "-1" && accesstoken != "-1"){
-            UserDefaultManager.init().loggedIn(self.id_txt.text!, nick: nick, accessToken: accesstoken, LoginCase: self.loginCase!)
+            UserDefaultManager.init().loggedIn(self, id: self.id_txt.text!, nick: nick, accessToken: accesstoken, LoginCase: self.loginCase!)
             
             
-            ContentsManager.init(uvc: self).versionCheck()
+            
         }else {
             NSLog(TAG,"Login Fail")
             ActionDisplay.init(uvc: self).displayMyAlertMessage("아이디 또는 비밀번호가 잘못되었습니다")
