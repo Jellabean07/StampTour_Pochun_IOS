@@ -16,10 +16,29 @@ class ActionParaVO{
     }
     
     
+    
     var title:String
     var action:(String)->Void
     
     func play(){
         self.action(title)
+    }
+}
+
+class ActionCodeVO{
+    
+    init(title:String, code:Int,action:@escaping (String,Int)->Void){
+        self.title = title
+        self.code = code
+        self.action = action
+    }
+    
+    
+    var title:String
+    var code:Int
+    var action:(String,Int)->Void
+    
+    func play(){
+        self.action(title,code)
     }
 }

@@ -62,12 +62,14 @@ class JoinViewController : UIViewController, UITextFieldDelegate, HttpResponse{
     }
     
     func chkIdOverlap(){
-        if(self.id_txt.text != ""){
-            if(TextValidation.init().isValidEmail(self.id_txt.text)){
+        let id = self.id_txt.text?.trimmingCharacters(in: .whitespaces)
+       
+        if(id != ""){
+            if(TextValidation.init().isValidEmail(id)){
                 
                 let path = HttpReqPath.JoinIdOverlap
-                let parameters : [ String : AnyObject] = [
-                    "id" : self.id_txt.text! as AnyObject
+                let parameters : [ String : String] = [
+                    "id" : id!
                 ]
                 
                 self.httpRequest!.connection(path, reqParameter: parameters)
@@ -81,11 +83,12 @@ class JoinViewController : UIViewController, UITextFieldDelegate, HttpResponse{
     }
     
     func chkNickOverlap(){
-        if(self.nick_txt.text != ""){
-            if(TextValidation.init().isValidName(self.nick_txt.text)){
+         let nick = self.nick_txt.text?.trimmingCharacters(in: .whitespaces)
+        if(nick != ""){
+            if(TextValidation.init().isValidName(nick)){
                 let path = HttpReqPath.JoinNickOverlap
-                let parameters : [ String : AnyObject] = [
-                    "nick" : self.nick_txt.text! as AnyObject
+                let parameters : [ String : String] = [
+                    "nick" : nick!
                 ]
                 
                 self.httpRequest!.connection(path, reqParameter: parameters)
@@ -99,17 +102,21 @@ class JoinViewController : UIViewController, UITextFieldDelegate, HttpResponse{
     }
     
     func join(){
-        if (!(self.id_txt.text == "" || self.nick_txt.text == "" || self.pass_txt.text == "" || self.repass_txt.text == "")){
+        let id = self.id_txt.text?.trimmingCharacters(in: .whitespaces)
+        let nick = self.nick_txt.text?.trimmingCharacters(in: .whitespaces)
+        let pass = self.pass_txt.text
+        let repass = self.repass_txt.text
+        if (!(id == "" || nick == "" || pass == "" || repass == "")){
             if (self.chkId! == true) {
                 if(self.chkNick! == true){
-                    if(self.pass_txt.text == self.repass_txt.text){
+                    if(pass == repass){
                         if(TextValidation.init().isValidPassword(self.repass_txt.text)){
                             let path = HttpReqPath.JoinReq
                             let parameters : [ String : String] = [
                                 "loggedincase" : LoggedInCase.normal.description,
-                                "id" : self.id_txt.text!,
-                                "password" : self.pass_txt.text!,
-                                "nick" : self.nick_txt.text!
+                                "id" : id!,
+                                "password" : pass!,
+                                "nick" : nick!
                             ]
                             self.httpRequest?.connection(path, reqParameter: parameters)
                             

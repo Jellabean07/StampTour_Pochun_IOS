@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class UserDefaultManager{
     
@@ -102,7 +103,7 @@ class UserDefaultManager{
         }
     }
   
-    func loggedOut(){
+    func loggedOut(uvc : UIViewController){
         self.UserDefault!.removeObject(forKey: "userId")
         self.UserDefault!.removeObject(forKey: "userNick")
         self.UserDefault!.removeObject(forKey: "userAccessToken")
@@ -111,9 +112,18 @@ class UserDefaultManager{
         self.UserDefault!.removeObject(forKey: "isLoggedInCase");
         self.UserDefault!.synchronize();
         
+        if let tbvc : MainViewController = uvc.tabBarController as! MainViewController{
+            tbvc.locationManager.stopUpdatingLocation()
+        }
+        
+        
+        let viewController = uvc.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        let navController = UINavigationController(rootViewController: viewController)
+        uvc.present(navController, animated:true, completion: nil)
+        
     }
     
-    func loggedIn(_ id : String , nick : String, accessToken : String, LoginCase : Int){
+    func loggedIn(_ uvc : UIViewController, id : String , nick : String, accessToken : String, LoginCase : Int){
         self.UserDefault!.setValue(id, forKey: "userId");
         self.UserDefault!.setValue(nick, forKey: "userNick");
         self.UserDefault!.setValue(accessToken, forKey: "userAccessToken")
@@ -121,6 +131,8 @@ class UserDefaultManager{
         self.UserDefault!.set(true, forKey: "isUserLoggedIn");
         self.UserDefault!.set(LoginCase, forKey: "isLoggedInCase");
         self.UserDefault!.synchronize();
+        ContentsManager.init(uvc: uvc).versionCheck()
+        
     }
     
     func removeUserNick_ID() {

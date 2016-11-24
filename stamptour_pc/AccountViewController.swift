@@ -63,38 +63,38 @@ class AcctManagerViewController : UIViewController , HttpResponse{
             }
         }else if(reqPath == HttpReqPath.PasswordChangeReq){
             if(resCode == "00" && resMsg == "SUCCESS"){
-                ActionDisplay.init(uvc: self).displayMyAlertMessage("비밀번호변경 성공")
+                ActionDisplay.init(uvc: self).displayMyAlertMessageAction("비밀번호변경 성공", action: returnHome)
             }else{
-                ActionDisplay.init(uvc: self).displayMyAlertMessage("비밀번호변경 실패")
+                ActionDisplay.init(uvc: self).displayMyAlertMessageAction("비밀번호변경 실패", action: returnHome)
             }
         }else if(reqPath == HttpReqPath.UserRemoveReq){
             if(resCode == "00" && resMsg == "SUCCESS"){
-                ActionDisplay.init(uvc: self).displayMyAlertMessage("탈퇴 성공")
+                ActionDisplay.init(uvc: self).displayMyAlertMessageAction("계정 탈퇴 성공", action: returnHome)
             }else{
-                ActionDisplay.init(uvc: self).displayMyAlertMessage("탈퇴 실패")
+                ActionDisplay.init(uvc: self).displayMyAlertMessageAction("계정 탈퇴 실패", action: returnHome)
             }
         }
     }
     
     func HttpFailureResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject){
-        if (resCode == "01"){
+        if(reqPath == HttpReqPath.PasswordChangeReq){
+            ActionDisplay.init(uvc: self).displayMyAlertMessageAction("비밀번호변경 실패", action: returnHome)
             
-        }else if (resCode == "02"){
+        }else if(reqPath == HttpReqPath.UserRemoveReq){
             
-        }else if (resCode == "03"){
+            ActionDisplay.init(uvc: self).displayMyAlertMessageAction("계정 탈퇴 실패", action: returnHome)
             
         }
+        
+    }
+    
+    func returnHome(){
+       UserDefaultManager.init().loggedOut(uvc: self)
     }
     
     @IBAction func removeUser(_ sender: AnyObject) {
-        let nick = UserDefaultManager.init().getUserNick()
-        let accesstoken = UserDefaultManager.init().getUserAccessToken()
-        let parameters : [ String : String] = [
-            "accesstoken" : accesstoken,
-            "nick" : nick,
-            "devicetoken":"abcd"
-        ]
-        self.httpRequest?.connection(HttpReqPath.UserRemoveReq, reqParameter: parameters)
+        ActionDisplay.init(uvc: self).displayMyAlertMessageActionYN("정말 삭제 하시겠습니까?", action: reqAccDelete)
+        
     }
     @IBAction func pop(_ sender: AnyObject) {
         CommonFunction.dismiss(self)
@@ -118,6 +118,18 @@ class AcctManagerViewController : UIViewController , HttpResponse{
             return
         }
     }
+    
+    func reqAccDelete(){
+        let nick = UserDefaultManager.init().getUserNick()
+        let accesstoken = UserDefaultManager.init().getUserAccessToken()
+        let parameters : [ String : String] = [
+            "accesstoken" : accesstoken,
+            "nick" : nick,
+            "devicetoken":"abcd"
+        ]
+        self.httpRequest?.connection(HttpReqPath.UserRemoveReq, reqParameter: parameters)
+    }
+    
     func password_validation(password:String,passwordrepeat:String) -> Bool{
         if(password == passwordrepeat){
             if(TextValidation.init().isValidPassword(passwordrepeat)){

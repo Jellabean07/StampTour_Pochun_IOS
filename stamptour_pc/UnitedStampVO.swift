@@ -115,6 +115,7 @@ class TownVO : NSObject, NSCoding{
     var checktime : String = ""
     var images : [UIImage] //마을 이미지
     var hidden : Bool = false
+    var distance : Double = 0.0
     
     init(code : Int, regionCode : Int, stampCount : Int, title : String, subtitle : String, region : String, latitude : String, longitude : String, range : Int, intro : String, nick : String, checktime : String, images : [UIImage] , hidden : Bool){
         self.code = code

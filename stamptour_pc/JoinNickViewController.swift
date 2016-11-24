@@ -12,9 +12,11 @@ import UIKit
 class JoinNickViewController : UIViewController,UITextFieldDelegate, HttpResponse{
     
     let TAG : String = "JoinNickViewController"
-    var chkId : Bool? = false
     var chkNick : Bool? = false
     var httpRequest : HttpRequestToServer?
+    var loggedInCase : LoggedInCase?
+    var appId : String?
+    
     
     @IBOutlet var nick_txt: UITextField!
 
@@ -23,9 +25,11 @@ class JoinNickViewController : UIViewController,UITextFieldDelegate, HttpRespons
     }
     
     @IBAction func nick_overlap_btn(_ sender: AnyObject) {
+        chkNickOverlap()
     }
     
     @IBAction func submit_btn(_ sender: AnyObject) {
+        join()
     }
     
     @IBAction func terms_btn(_ sender: AnyObject) {
@@ -39,12 +43,35 @@ class JoinNickViewController : UIViewController,UITextFieldDelegate, HttpRespons
         self.httpRequest = HttpRequestToServer.init(TAG: TAG, delegate : self)
     }
 
+    func join(){
+        let nick = self.nick_txt.text?.trimmingCharacters(in: .whitespaces)
+        if (!(nick == "")){
+                if(self.chkNick! == true){
+                    let path = HttpReqPath.JoinReq
+                    let parameters : [ String : String] = [
+                        "loggedincase" : (loggedInCase?.description)!,
+                        "id" : self.appId!,
+                        "nick" : nick!
+                    ]
+                    self.httpRequest?.connection(path, reqParameter: parameters)
+                    
+                    
+                }else{
+                    ActionDisplay.init(uvc: self).displayMyAlertMessage("별명 중복확인이 필요합니다")
+                }
+          
+        }else{
+            ActionDisplay.init(uvc: self).displayMyAlertMessage("빈칸을 모두 채워주세요")
+        }
+    }
+    
     func chkNickOverlap(){
-        if(self.nick_txt.text != ""){
-            if(TextValidation.init().isValidName(self.nick_txt.text)){
+        let nick = self.nick_txt.text?.trimmingCharacters(in: .whitespaces)
+        if(nick != ""){
+            if(TextValidation.init().isValidName(nick)){
                 let path = HttpReqPath.JoinNickOverlap
-                let parameters : [ String : AnyObject] = [
-                    "nick" : self.nick_txt.text! as AnyObject
+                let parameters : [ String : String] = [
+                    "nick" : nick!
                 ]
                 
                 self.httpRequest!.connection(path, reqParameter: parameters)
@@ -64,15 +91,41 @@ class JoinNickViewController : UIViewController,UITextFieldDelegate, HttpRespons
     
     
     func HttpSuccessResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
-        let data = resData["resultData"] as! String
+        
         if(reqPath == HttpReqPath.JoinNickOverlap){
+            let data = resData["resultData"] as! String
             if data == "duplicate"{
+                ActionDisplay.init(uvc: self).displayMyAlertMessage("중복된 별명입니다")
                 self.chkNick = false
             }else {
+                ActionDisplay.init(uvc: self).displayMyAlertMessage("사용할 수 있는 별명입니다")
                 self.chkNick = true
             }
         }else if(reqPath == HttpReqPath.JoinReq){
+            let path = HttpReqPath.LoginReq
+            let parameters : [ String : String] = [
+                "loggedincase" : (loggedInCase?.description)!,
+                "id" : self.appId!
+            ]
             
+            self.httpRequest!.connection(path, reqParameter: parameters)
+        }else if(reqPath == HttpReqPath.LoginReq){
+            let data = resData["resultData"] as! NSDictionary
+            let nick = data["nick"] as! String
+            let accesstoken = data["accesstoken"] as! String
+            
+            NSLog("\(self.TAG) nick : \(nick)")
+            NSLog("\(self.TAG) accesstoken : \(accesstoken)")
+            
+            if(!(nick == "-1" && accesstoken == "-1")) {
+                 print("\(TAG) : Oauth login success")
+                 UserDefaultManager.init().loggedIn(self, id: self.appId!, nick: nick, accessToken: accesstoken, LoginCase: loggedInCase!.hashValue)
+            }else{
+                print("\(TAG) : Oauth login fail")
+                let viewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                let navController = UINavigationController(rootViewController: viewController)
+                self.present(navController, animated:true, completion: nil)
+            }
         }
     }
     

@@ -9,6 +9,9 @@ target ’stamptour_pc’ do
   pod 'Alamofire', '~> 4.0'
   pod 'Zip', '~> 0.6'
   pod 'DLRadioButton', '~> 1.4'
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
   # Pods for stamptour_pc
 
 

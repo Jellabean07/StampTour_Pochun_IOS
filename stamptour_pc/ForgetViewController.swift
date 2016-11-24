@@ -38,7 +38,7 @@ class ForgetPassViewController : UIViewController, HttpResponse{
         } else{
             let path = HttpReqPath.ForgetPass
             let parameters : [ String : String] = [
-                "id" : self.nick_txt.text!,
+                "id" : self.id_txt.text!,
                 "nick" : self.nick_txt.text!,
                 "loggedincase" : LoggedInCase.normal.description
             ]
@@ -48,10 +48,11 @@ class ForgetPassViewController : UIViewController, HttpResponse{
     
     func HttpSuccessResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
         let data = resData["resultData"] as! String
-        alert?.displayMyAlertMessage("\(data)")
+        alert?.displayMyAlertMessageDismissView("임시 비밀번호는 [\(data)] 입니다")
     }
     
     func HttpFailureResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject){
+         ActionDisplay.init(uvc: self).displayMyAlertMessage("비빌번호를 찾을 수 가 없습니다")
         if (resCode == "01"){
             
         }else if (resCode == "02"){
@@ -99,10 +100,11 @@ class ForgetIdViewController : UIViewController, HttpResponse{
     
     func HttpSuccessResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
         let data = resData["resultData"] as! String
-        alert?.displayMyAlertMessage("\(data)")
+       alert?.displayMyAlertMessageDismissView("당신의 계정은 [\(data)] 입니다 ")
     }
     
     func HttpFailureResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject){
+        ActionDisplay.init(uvc: self).displayMyAlertMessage("아이디를 찾을 수 가 없습니다")
         if (resCode == "01"){
             
         }else if (resCode == "02"){

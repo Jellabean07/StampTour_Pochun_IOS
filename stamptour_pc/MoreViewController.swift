@@ -108,13 +108,7 @@ class MoreViewController : UIViewController ,UITableViewDelegate, UITableViewDat
     }
     func HttpSuccessResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
         let data = resData["resultData"] as! String
-        
-        UserDefaultManager.init().loggedOut()
-        
-        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        let navController = UINavigationController(rootViewController: viewController)
-        self.present(navController, animated:true, completion: nil)
-        
+        UserDefaultManager.init().loggedOut(uvc: self)
     }
     
     func HttpFailureResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject){
