@@ -81,6 +81,8 @@
 		331B517F1DD1A10B00438111 /* town9_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 331B513F1DD1A10B00438111 /* town9_5.png */; };
 		331B51831DD21A3200438111 /* StampDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331B51821DD21A3200438111 /* StampDefaultManager.swift */; };
 		33258F851D9A62C6007F4209 /* StringRes.strings in Resources */ = {isa = PBXBuildFile; fileRef = 33258F841D9A62C6007F4209 /* StringRes.strings */; };
+		3327C0B71DEFABC00081DE8F /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3327C0B61DEFABC00081DE8F /* KakaoOpenSDK.framework */; };
+		3327C0BD1DEFB3EC0081DE8F /* KOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3327C0BC1DEFB3EC0081DE8F /* KOManager.swift */; };
 		335C97771D9A4A3F0066E25F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335C97761D9A4A3F0066E25F /* AppDelegate.swift */; };
 		335C977C1D9A4A3F0066E25F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 335C977A1D9A4A3F0066E25F /* Main.storyboard */; };
 		335C977F1D9A4A3F0066E25F /* stamptour_pc.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 335C977D1D9A4A3F0066E25F /* stamptour_pc.xcdatamodeld */; };
@@ -245,6 +247,9 @@
 		331B513F1DD1A10B00438111 /* town9_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = town9_5.png; sourceTree = "<group>"; };
 		331B51821DD21A3200438111 /* StampDefaultManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StampDefaultManager.swift; sourceTree = "<group>"; };
 		33258F841D9A62C6007F4209 /* StringRes.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = StringRes.strings; sourceTree = "<group>"; };
+		3327C0B61DEFABC00081DE8F /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
+		3327C0BA1DEFB3430081DE8F /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		3327C0BC1DEFB3EC0081DE8F /* KOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KOManager.swift; sourceTree = "<group>"; };
 		335C97731D9A4A3F0066E25F /* stamptour_pc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stamptour_pc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		335C97761D9A4A3F0066E25F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		335C977B1D9A4A3F0066E25F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -330,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D7B2E56B7B3ADE47F5C6A0C /* Pods_stamptour_pc.framework in Frameworks */,
+				3327C0B71DEFABC00081DE8F /* KakaoOpenSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,8 +469,9 @@
 		335C97751D9A4A3F0066E25F /* stamptour_pc */ = {
 			isa = PBXGroup;
 			children = (
+				3327C0BA1DEFB3430081DE8F /* Bridging-Header.h */,
 				33187B781DE7061F002FA9AE /* stamptour_pc.entitlements */,
-				33E8F48A1DE68CA500FC1021 /* login */,
+				33E8F48A1DE68CA500FC1021 /* ouath */,
 				33E8F47C1DDC3F4E00FC1021 /* customview */,
 				331800C41DD861E600AFD22E /* localize */,
 				735397CB1DD5BC13003D9F1C /* event */,
@@ -648,12 +655,13 @@
 			name = customview;
 			sourceTree = "<group>";
 		};
-		33E8F48A1DE68CA500FC1021 /* login */ = {
+		33E8F48A1DE68CA500FC1021 /* ouath */ = {
 			isa = PBXGroup;
 			children = (
 				33E8F48D1DE68CEA00FC1021 /* FBManager.swift */,
+				3327C0BC1DEFB3EC0081DE8F /* KOManager.swift */,
 			);
-			name = login;
+			name = ouath;
 			sourceTree = "<group>";
 		};
 		735397C81DD5BB78003D9F1C /* delegate */ = {
@@ -678,6 +686,7 @@
 		7A17FD24DB8B47654DA39A1A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3327C0B61DEFABC00081DE8F /* KakaoOpenSDK.framework */,
 				A14BFF4D0240426E1497D821 /* Pods_stamptour_pc.framework */,
 			);
 			name = Frameworks;
@@ -1019,6 +1028,7 @@
 				338FE03D1DC868E5008E39AD /* RegionInCase.swift in Sources */,
 				335C97E01D9A4D050066E25F /* UIControlManager.swift in Sources */,
 				331800C81DD99C9700AFD22E /* LocationProtocol.swift in Sources */,
+				3327C0BD1DEFB3EC0081DE8F /* KOManager.swift in Sources */,
 				335C97771D9A4A3F0066E25F /* AppDelegate.swift in Sources */,
 				331B51831DD21A3200438111 /* StampDefaultManager.swift in Sources */,
 				335C97D61D9A4D050066E25F /* MainViewController.swift in Sources */,
@@ -1184,13 +1194,19 @@
 				CODE_SIGN_ENTITLEMENTS = stamptour_pc/stamptour_pc.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 7PL62EHX8R;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/stamptour_pc/Base.lproj/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thatzit.stamptour.Shinan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "stamptour_pc/Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -1203,13 +1219,19 @@
 				CODE_SIGN_ENTITLEMENTS = stamptour_pc/stamptour_pc.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 7PL62EHX8R;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/stamptour_pc/Base.lproj/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thatzit.stamptour.Shinan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "stamptour_pc/Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

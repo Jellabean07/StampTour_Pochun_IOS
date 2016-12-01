@@ -18,5 +18,9 @@ class AppInfomation{
     static var host : String?
     static var version : Int?
     static var localizeCode : String?
+    static var fbAppKey : String?
+    static var fbAppStoreLink : String?
+    static var koAppKey : String?
+    static var koAppStoreLink : String?
     
 }

@@ -35,7 +35,7 @@ class FBManager : HttpResponse{
     }
     
     func share(){
-        let content = LinkShareContent(url: NSURL(string: "https://developers.facebook.com") as! URL)
+        let content = LinkShareContent(url: NSURL(string: AppInfomation.fbAppStoreLink!) as! URL)
         let shareDialog = ShareDialog(content: content)
         shareDialog.mode = .feedWeb
         shareDialog.failsOnInvalidData = true

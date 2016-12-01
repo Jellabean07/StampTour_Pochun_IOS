@@ -76,7 +76,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate, HttpResponse{
     }
     
     func KOLoggedIn(){
-        
+        KOManager.init(uvc: self).getReturnState()
     }
     
     func moveToForgetId(){

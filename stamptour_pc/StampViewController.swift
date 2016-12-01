@@ -77,10 +77,16 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
     }
     
     @IBAction func shared(_ sender: Any) {
-        if UserDefaultManager.init().getIsLoggedCase() == LoggedInCase.fbLogin.hashValue{
-             FBManager.init(uvc: self).share()
-        }else{
-            
+        let loggedCase = UserDefaultManager.init().getIsLoggedCase()
+        switch loggedCase {
+        case LoggedInCase.fbLogin.hashValue:
+            FBManager.init(uvc: self).share()
+            break
+        case LoggedInCase.kakaoLogin.hashValue:
+            KOManager.init(uvc: self).share()
+            break
+        default:
+            break
         }
        
     }
