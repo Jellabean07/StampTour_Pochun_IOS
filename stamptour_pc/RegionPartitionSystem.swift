@@ -31,11 +31,21 @@ class RegionPartitionSystem  {
         AppInfomation.host = region.appHost
         
         AppInfomation.localizeCode = LocalizationManager.shared.getLanguageCode()
+        AppInfomation.fbAppKey = region.fbAppKey
+        AppInfomation.fbAppStoreLink = region.fbAppStoreLink
+        AppInfomation.koAppKey = region.koAppKey
+        AppInfomation.koAppStoreLink = region.koAppStoreLink
+        
         print("RegionPartitionSystem : \(region.appName)")
-         print("RegionPartitionSystem : region : \(AppInfomation.region!)")
-         print("RegionPartitionSystem : themeColor : \(AppInfomation.themeColor!)")
-         print("RegionPartitionSystem : pakageName : \(AppInfomation.pakageName!)")
+        print("RegionPartitionSystem : region : \(AppInfomation.region!)")
+        print("RegionPartitionSystem : themeColor : \(AppInfomation.themeColor!)")
+        print("RegionPartitionSystem : pakageName : \(AppInfomation.pakageName!)")
         print("RegionPartitionSystem : appHost : \(AppInfomation.host!)")
+        print("RegionPartitionSystem : fbAppKey : \(AppInfomation.fbAppKey!)")
+        print("RegionPartitionSystem : fbAppStoreLink : \(AppInfomation.fbAppStoreLink!)")
+        print("RegionPartitionSystem : fbAppKey : \(AppInfomation.koAppKey!)")
+        print("RegionPartitionSystem : fbAppStoreLink : \(AppInfomation.koAppStoreLink!)")
+
     }
     
     

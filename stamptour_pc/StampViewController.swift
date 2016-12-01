@@ -77,6 +77,18 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
     }
     
     @IBAction func shared(_ sender: Any) {
+        let loggedCase = UserDefaultManager.init().getIsLoggedCase()
+        switch loggedCase {
+        case LoggedInCase.fbLogin.hashValue:
+            FBManager.init(uvc: self).share()
+            break
+        case LoggedInCase.kakaoLogin.hashValue:
+            KOManager.init(uvc: self).share()
+            break
+        default:
+            break
+        }
+       
     }
     
     func sortTowns(_ title : String , _ sortedCode : Int){

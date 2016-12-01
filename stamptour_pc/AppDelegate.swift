@@ -12,6 +12,7 @@ import FacebookCore
 import FacebookLogin
 import FacebookShare
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -57,6 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
          AppEventsLogger.activate(application)
+        KOSession.handleDidBecomeActive()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -66,22 +68,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     public func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        if KOSession.isKakaoAccountLoginCallback(url){
+            return KOSession.handleOpen(url)
+        }else{
+            return SDKApplicationDelegate.shared.application(
+                app,
+                open: url as URL!,
+                sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String,
+                annotation: options[UIApplicationOpenURLOptionsKey.annotation]
+            )
+        }
         
-        return SDKApplicationDelegate.shared.application(
-            app,
-            open: url as URL!,
-            sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String,
-            annotation: options[UIApplicationOpenURLOptionsKey.annotation]
-        )
     }
     
     public func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        return SDKApplicationDelegate.shared.application(
-            application,
-            open: url as URL!,
-            sourceApplication: sourceApplication,
-            annotation: annotation
-        )
+        if KOSession.isKakaoAccountLoginCallback(url){
+            return KOSession.handleOpen(url)
+        }else{
+            return SDKApplicationDelegate.shared.application(
+                application,
+                open: url as URL!,
+                sourceApplication: sourceApplication,
+                annotation: annotation
+            )
+        }
     }
 
     // MARK: - Core Data stack

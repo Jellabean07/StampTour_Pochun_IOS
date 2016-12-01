@@ -15,7 +15,7 @@ enum applySetting{
 }
 
 enum ResRegion {
-    case Default, pochun, shinan
+    case Default, pochun, shinan, gyeongju
     
     
     var mainColor: UIColor {
@@ -23,9 +23,11 @@ enum ResRegion {
         case .Default:
             return UIControlManager.init().colorWithHexString("#ffffff")
         case .pochun:
-            return UIControlManager.init().colorWithHexString("#00c3e5") //00BE88 , 00c3e5
+            return UIControlManager.init().colorWithHexString("#00C3E5") //00BE88 , 00c3e5
         case .shinan:
-            return UIControlManager.init().colorWithHexString("#00a1e9")
+            return UIControlManager.init().colorWithHexString("#00A1E9")
+        case .gyeongju:
+            return UIControlManager.init().colorWithHexString("#00CCCC")
         }
     }
     
@@ -37,6 +39,8 @@ enum ResRegion {
             return "포천스탬프투어"
         case .shinan:
             return "신안스탬프투어"
+        case .gyeongju:
+            return "뉴경주스탬프투어"
         }
     }
     
@@ -48,6 +52,8 @@ enum ResRegion {
             return "http://stamptourpochon.mybluemix.net"
         case .shinan:
             return "http://stamptourshinan.mybluemix.net"
+        case .gyeongju:
+            return "http://stamptourkyoungju.mybluemix.net"
         }
     }
     
@@ -60,6 +66,60 @@ enum ResRegion {
             return "com.thatzit.stamptour.PochunStampTour"
         case .shinan:
             return "com.thatzit.stamptour.Shinan"
+        case .gyeongju:
+            return "com.thatzit.stamptour.Gyeongju"
+        }
+    }
+    
+    var fbAppKey : String {
+        switch self {
+        case .Default:
+            return "not key"
+        case .pochun:
+            return "1196868970378253"
+        case .shinan:
+            return "136732466792572"
+        case .gyeongju:
+            return "1256362331100459"
+        }
+    }
+    
+    var fbAppStoreLink : String {
+        switch self {
+        case .Default:
+            return "https://developers.facebook.com"
+        case .pochun:
+            return "https://itunes.apple.com/us/app/pocheonseutaempeutueo/id1170904141?mt=8"
+        case .shinan:
+            return "https://itunes.apple.com/us/app/sin-anseutaempeutueo/id1170914508?mt=8"
+        case .gyeongju:
+            return "https://developers.facebook.com"
+        }
+    }
+    
+    var koAppKey : String {
+        switch self {
+        case .Default:
+            return "not key"
+        case .pochun:
+            return "527f0df26e167313b802571444d94111"
+        case .shinan:
+            return "b3766d4a60aabdf52a60a574ed9a68d3"
+        case .gyeongju:
+            return "1256362331100459"
+        }
+    }
+    
+    var koAppStoreLink : String {
+        switch self {
+        case .Default:
+            return "https://developers.facebook.com"
+        case .pochun:
+            return "https://itunes.apple.com/us/app/pocheonseutaempeutueo/id1170904141?mt=8"
+        case .shinan:
+            return "https://itunes.apple.com/us/app/sin-anseutaempeutueo/id1170914508?mt=8"
+        case .gyeongju:
+            return "https://developers.facebook.com"
         }
     }
 }

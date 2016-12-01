@@ -40,17 +40,22 @@ class SplashViewController : UIViewController{
         switch AppInfomation.region! {
         case ResRegion.pochun.hashValue:
             self.bgImg.image = UIImage(named: "img_splash_bg")
-            self.logoImg.image = UIImage(named: "img_splash_logo")
             self.applyName.text = "©2016. POCHEON"
             break
         case ResRegion.shinan.hashValue:
-            self.logoImg.image = UIImage(named: "img_splash_logo")
             self.applyName.text = "©2016. SHINAN"
+            self.applyName.textColor = UIControlManager.init().colorWithHexString("#303030")
+            self.produceName.textColor =  UIControlManager.init().colorWithHexString("#B4B4B4")
+            break
+        case ResRegion.gyeongju.hashValue:
+            self.applyName.text = "©2016. GYEONGJU"
             self.applyName.textColor = UIControlManager.init().colorWithHexString("#303030")
             self.produceName.textColor =  UIControlManager.init().colorWithHexString("#B4B4B4")
             break
         default: break
         }
+        
+        self.logoImg.image = UIImage(named: "img_splash_logo")
         
 //        self.bgImg.image = UIImage(named: "img_splash_bg")
 //        self.logoImg.image = UIImage(named: "img_splash_logo")
