@@ -11,11 +11,18 @@ import UIKit
 
 class JoinNickViewController : UIViewController,UITextFieldDelegate, HttpResponse{
     
+    let msg_duplicate = NSLocalizedString("join_social_alert_join_confirm_nick_need_duplicate", comment: "별명중복확인이 필요합니다")
+    let msg_trim = NSLocalizedString("join_social_alert_join_confirm_trim_input", comment: "빈칸을 모두 채워주세요")
+    let msg_nick_invalid = NSLocalizedString("join_social_alert_check_duplicate_nick_not_invalid", comment: "6자이내 영문,국문 유효성 검사")
+    let msg_nick_trim = NSLocalizedString("join_social_alert_check_duplicate_nick_trim_input", comment: "별명을 입력해주세요")
+    let msg_nick_dupl = NSLocalizedString("join_social_alert_check_duplicate_nick_duplicate", comment: "중복된 별명입니다")
+    let msg_nick_not_dupl = NSLocalizedString("join_social_alert_check_duplicate_nick_not_duplicate", comment: "사용할 수 있는 별명입니다")
+    
     let TAG : String = "JoinNickViewController"
     var chkNick : Bool? = false
     var httpRequest : HttpRequestToServer?
     var loggedInCase : LoggedInCase?
-    var appId : String?
+    var userId : String?
     
     
     @IBOutlet var nick_txt: UITextField!
@@ -50,18 +57,18 @@ class JoinNickViewController : UIViewController,UITextFieldDelegate, HttpRespons
                     let path = HttpReqPath.JoinReq
                     let parameters : [ String : String] = [
                         "loggedincase" : (loggedInCase?.description)!,
-                        "id" : self.appId!,
+                        "id" : self.userId!,
                         "nick" : nick!
                     ]
                     self.httpRequest?.connection(path, reqParameter: parameters)
                     
                     
                 }else{
-                    ActionDisplay.init(uvc: self).displayMyAlertMessage("별명 중복확인이 필요합니다")
+                    ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_duplicate)
                 }
           
         }else{
-            ActionDisplay.init(uvc: self).displayMyAlertMessage("빈칸을 모두 채워주세요")
+            ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_trim)
         }
     }
     
@@ -77,10 +84,10 @@ class JoinNickViewController : UIViewController,UITextFieldDelegate, HttpRespons
                 self.httpRequest!.connection(path, reqParameter: parameters)
                 
             }else{
-                ActionDisplay.init(uvc: self).displayMyAlertMessage("6자이내 국문이나 영문으로 입력해주세요")
+                ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_nick_invalid)
             }
         }else{
-            ActionDisplay.init(uvc: self).displayMyAlertMessage("별명을 입력해주세요")
+            ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_nick_trim)
         }
     }
     
@@ -95,17 +102,17 @@ class JoinNickViewController : UIViewController,UITextFieldDelegate, HttpRespons
         if(reqPath == HttpReqPath.JoinNickOverlap){
             let data = resData["resultData"] as! String
             if data == "duplicate"{
-                ActionDisplay.init(uvc: self).displayMyAlertMessage("중복된 별명입니다")
+                ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_nick_dupl)
                 self.chkNick = false
             }else {
-                ActionDisplay.init(uvc: self).displayMyAlertMessage("사용할 수 있는 별명입니다")
+                ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_ncik_not_dupl)
                 self.chkNick = true
             }
         }else if(reqPath == HttpReqPath.JoinReq){
             let path = HttpReqPath.LoginReq
             let parameters : [ String : String] = [
                 "loggedincase" : (loggedInCase?.description)!,
-                "id" : self.appId!
+                "id" : self.userId!
             ]
             
             self.httpRequest!.connection(path, reqParameter: parameters)
@@ -119,7 +126,7 @@ class JoinNickViewController : UIViewController,UITextFieldDelegate, HttpRespons
             
             if(!(nick == "-1" && accesstoken == "-1")) {
                  print("\(TAG) : Oauth login success")
-                 UserDefaultManager.init().loggedIn(self, id: self.appId!, nick: nick, accessToken: accesstoken, LoginCase: loggedInCase!.hashValue)
+                 UserDefaultManager.init().loggedIn(self, id: self.userId!, nick: nick, accessToken: accesstoken, LoginCase: loggedInCase!.hashValue)
             }else{
                 print("\(TAG) : Oauth login fail")
                 let viewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController

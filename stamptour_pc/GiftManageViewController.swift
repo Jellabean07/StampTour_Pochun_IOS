@@ -11,6 +11,10 @@ import UIKit
 
 class GiftManageViewController : UIViewController ,UITableViewDelegate, UITableViewDataSource,GiftCellDelegate,GiftSendDelegate,HttpResponse{
     
+    let msg_complete = NSLocalizedString("gift_manage_complete", comment: "선물신청 완료")
+    let msg_press = NSLocalizedString("gift_manage_press_send", comment: "눌러서 선물을 신청하세요")
+    let msg_remain = NSLocalizedString("gift_manage_remain", comment: "선물 신청까지")
+    
     let TAG : String = "GiftManageViewController"
     var httpRequest : HttpRequestToServer?
     @IBOutlet var tableView: UITableView!
@@ -100,7 +104,7 @@ class GiftManageViewController : UIViewController ,UITableViewDelegate, UITableV
                 for agoGiftData in agoGiftList{
                     if(agoGiftData.grade == row.grade){
                         giftCell.giftGrade.text = row.grade
-                        giftCell.giftCount.text = "선물신청 완료"
+                        giftCell.giftCount.text = msg_complete
                         giftCell.giftSendBtn.isUserInteractionEnabled = false
                         giftCell.giftSendBtn.isHidden = true
                         flag = false
@@ -113,20 +117,20 @@ class GiftManageViewController : UIViewController ,UITableViewDelegate, UITableV
                 }
                 if(flag){
                     giftCell.giftGrade.text = row.grade
-                    giftCell.giftCount.text = "눌러서 선물을 신청하세요"
+                    giftCell.giftCount.text = msg_press
                     giftCell.giftSendBtn.tag = indexPath.row
                     return giftCell
                 }
             }else{
                 giftCell.giftGrade.text = row.grade
-                giftCell.giftCount.text = "눌러서 선물을 신청하세요"
+                giftCell.giftCount.text = msg_press
                 giftCell.giftSendBtn.tag = indexPath.row
                 return giftCell
             }
         }else{
             let count = row.stamp_count!-mycountVO.stamp_count!
             giftCell.giftGrade.text = row.grade
-            giftCell.giftCount.text = "선물받기까지 "+(count.description)+"개 남았습니다."
+            giftCell.giftCount.text = "\(msg_remain) \(count.description)"
             giftCell.giftSendBtn.isUserInteractionEnabled = false
             giftCell.giftSendBtn.isHidden = true
         }

@@ -11,6 +11,9 @@ import UIKit
 
 class GiftRequestViewController: UIViewController,HttpResponse {
     
+    let msg_success = NSLocalizedString("gift_alert_send_succees", comment: "선물이 신청되었습니다")
+    let msg_fail = NSLocalizedString("gift_alert_send_fail", comment: "선물 신청 중에 오류가 발생했습니다")
+    
     @IBOutlet var phoneTextField: UITextField!
     @IBOutlet var nameTextField: UITextField!
     let TAG : String = "GiftRequestViewController"
@@ -31,13 +34,14 @@ class GiftRequestViewController: UIViewController,HttpResponse {
         if (reqPath == HttpReqPath.UserGiftApply) {
             let event = GiftRequestEvent.init(status: true, giftSendDelegate: self.sourceViewController)
             event.refresh()
-            ActionDisplay.init(uvc: self).displayMyAlertMessageDismissView("선물신청 성공")
+            ActionDisplay.init(uvc: self).displayMyAlertMessageDismissView(msg_success)
             
 //            CommonFunction.dismiss(self)
         }
     }
     
     func HttpFailureResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject){
+        ActionDisplay.init(uvc: self).displayMyAlertMessageDismissView(msg_fail)
         if (resCode == "01"){
             
         }else if (resCode == "02"){

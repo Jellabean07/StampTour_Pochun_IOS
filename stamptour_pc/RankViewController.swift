@@ -10,6 +10,10 @@ import UIKit
 
 class RankViewController : UIViewController , UITableViewDelegate, UITableViewDataSource, HttpResponse{
     
+    let intro_part_1 = NSLocalizedString("ranking_user_intro_part_1", comment: "님은")
+    let intro_part_2 = NSLocalizedString("ranking_user_intro_part_2", comment: "명 중에")
+    let intro_part_3 = NSLocalizedString("ranking_user_intro_part_3", comment: "위 입니다")
+    
     let TAG : String = "RankViewController"
     var httpRequest : HttpRequestToServer?
     var RankList : [RankVO] = [RankVO]()
@@ -54,11 +58,14 @@ class RankViewController : UIViewController , UITableViewDelegate, UITableViewDa
         let row = self.RankList[(indexPath as NSIndexPath).row];
         
         
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "RankCell") as! RankCell
         cell.no.text = "\(row.no!)."
         cell.no.textColor = AppInfomation.themeColor
         cell.nick.text = row.nick!
-        cell.cnt.text = "찍은 스탬프 \(row.cnt!)개"
+        
+        let count_stamp = NSLocalizedString("ranking_count_stamp", comment: "찍은 스탬프")
+        cell.cnt.text = "\(count_stamp) \(row.cnt!)"
         
         
         return cell;
@@ -101,8 +108,9 @@ class RankViewController : UIViewController , UITableViewDelegate, UITableViewDa
 //         print("\(TAG) : rank : \(rank)")
 //        print("\(TAG) : nick : \(nick)")
 //        print("\(TAG) : total : \(total)")
+       
         
-        self.msg_lab.text = "\(nick)님은 \(total)명 중에 \(rank)위 입니다 "
+        self.msg_lab.text = "\(nick)\(intro_part_1) \(total)\(intro_part_2) \(rank)\(intro_part_3) "
         
         let ranklist = data["ranklist"] as! NSArray
         

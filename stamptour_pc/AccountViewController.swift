@@ -10,6 +10,14 @@ import UIKit
 
 class AcctManagerViewController : UIViewController , HttpResponse{
     
+    let msg_invalid = NSLocalizedString("acc_alert_change_pass_not_invalid", comment: "비밀번호는 6~16자 영문 소문자, 숫자를 조합하세요")
+    let msg_match = NSLocalizedString("acc_alert_change_pass_not_match", comment: "비밀번호가 일치하지 않습니다")
+    let msg_chg_succ = NSLocalizedString("acc_alert_change_success", comment: "정상적으로 비밀번호가 변경 되었습니다")
+    let msg_chg_fail = NSLocalizedString("acc_alert_change_fail", comment: "비밀번호 변경중 오류가 발생했습니다")
+    let msg_del_succ = NSLocalizedString("acc_alert_delete_success", comment: "정상적으로 회원탈퇴 되었습니다")
+    let msg_del_fail = NSLocalizedString("acc_alert_delete_fail", comment: "회원탈퇴중 오류가 발생했습니다")
+    let msg_del_chk = NSLocalizedString("acc_alert_delete_check", comment: "정말 삭제 하시겠습니까?")
+    
     let TAG : String = "AcctManagerViewController"
     var httpRequest : HttpRequestToServer?
     var httpRequestMode : String?
@@ -63,26 +71,26 @@ class AcctManagerViewController : UIViewController , HttpResponse{
             }
         }else if(reqPath == HttpReqPath.PasswordChangeReq){
             if(resCode == "00" && resMsg == "SUCCESS"){
-                ActionDisplay.init(uvc: self).displayMyAlertMessageAction("비밀번호변경 성공", action: returnHome)
+                ActionDisplay.init(uvc: self).displayMyAlertMessageAction(msg_chg_succ, action: returnHome)
             }else{
-                ActionDisplay.init(uvc: self).displayMyAlertMessageAction("비밀번호변경 실패", action: returnHome)
+                ActionDisplay.init(uvc: self).displayMyAlertMessageAction(msg_chg_fail, action: returnHome)
             }
         }else if(reqPath == HttpReqPath.UserRemoveReq){
             if(resCode == "00" && resMsg == "SUCCESS"){
-                ActionDisplay.init(uvc: self).displayMyAlertMessageAction("계정 탈퇴 성공", action: returnHome)
+                ActionDisplay.init(uvc: self).displayMyAlertMessageAction(msg_del_succ, action: returnHome)
             }else{
-                ActionDisplay.init(uvc: self).displayMyAlertMessageAction("계정 탈퇴 실패", action: returnHome)
+                ActionDisplay.init(uvc: self).displayMyAlertMessageAction(msg_del_fail, action: returnHome)
             }
         }
     }
     
     func HttpFailureResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject){
         if(reqPath == HttpReqPath.PasswordChangeReq){
-            ActionDisplay.init(uvc: self).displayMyAlertMessageAction("비밀번호변경 실패", action: returnHome)
+            ActionDisplay.init(uvc: self).displayMyAlertMessageAction(msg_chg_fail, action: returnHome)
             
         }else if(reqPath == HttpReqPath.UserRemoveReq){
             
-            ActionDisplay.init(uvc: self).displayMyAlertMessageAction("계정 탈퇴 실패", action: returnHome)
+            ActionDisplay.init(uvc: self).displayMyAlertMessageAction(msg_del_fail, action: returnHome)
             
         }
         
@@ -93,7 +101,7 @@ class AcctManagerViewController : UIViewController , HttpResponse{
     }
     
     @IBAction func removeUser(_ sender: AnyObject) {
-        ActionDisplay.init(uvc: self).displayMyAlertMessageActionYN("정말 삭제 하시겠습니까?", action: reqAccDelete)
+        ActionDisplay.init(uvc: self).displayMyAlertMessageActionYN(msg_del_chk, action: reqAccDelete)
         
     }
     @IBAction func pop(_ sender: AnyObject) {
@@ -135,11 +143,11 @@ class AcctManagerViewController : UIViewController , HttpResponse{
             if(TextValidation.init().isValidPassword(passwordrepeat)){
                 return true
             }else{
-                 ActionDisplay.init(uvc: self).displayMyAlertMessage("비밀번호는 6~16자 영문 소문자, 숫자를 조합하세요")
+                 ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_invalid)
                 return false
             }
         }else{
-            ActionDisplay.init(uvc: self).displayMyAlertMessage("비밀번호가 일치하지 않습니다")
+            ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_match)
             return false
         }
         return false

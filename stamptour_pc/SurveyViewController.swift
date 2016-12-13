@@ -11,17 +11,24 @@ import UIKit
 import DLRadioButton
 class SurveyViewController : UIViewController , UITextViewDelegate,HttpResponse{
     
+    let msg_add = NSLocalizedString("survey_additional_msg", comment: "기타 의견을 입력하세요.")
+    let msg_success = NSLocalizedString("survey_alert_send_succeess", comment: "설문이 작성 되었습니다")
+    let msg_fail_1 = NSLocalizedString("survey_alert_send_fail_01", comment: "설문 작성 중에 오류가 발생했습니다")
+    let msg_fail_2 = NSLocalizedString("survey_alert_send_fail_02", comment: "설문 작성 중에 오류가 발생했습니다")
+    let msg_fail_3 = NSLocalizedString("survey_alert_send_fail_03", comment: "이미 설문 조사에 참여하셨습니다")
+    
     @IBOutlet var textView: UITextView!
     let TAG : String = "GiftManageViewController"
     var httpRequest : HttpRequestToServer?
     var score:Int?
     
+
     @IBOutlet var score1Radio: DLRadioButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         self.httpRequest = HttpRequestToServer.init(TAG: TAG, delegate : self)
-        textView.text = "기타 의견을 입력하세요."
+        textView.text = msg_add
         textView.textColor = UIColor.lightGray
         score1Radio.isSelected = true
         score1Radio.indicatorColor = AppInfomation.themeColor!
@@ -39,7 +46,7 @@ class SurveyViewController : UIViewController , UITextViewDelegate,HttpResponse{
     }
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "기타 의견을 입력하세요."
+            textView.text = msg_add
             textView.textColor = UIColor.lightGray
         }
     }
@@ -70,17 +77,17 @@ class SurveyViewController : UIViewController , UITextViewDelegate,HttpResponse{
         //let data = resData["resultData"] as! String
         
         if(reqPath == HttpReqPath.SurveyReq){
-            ActionDisplay.init(uvc: self).displayMyAlertMessageDismissView("설문완료")
+            ActionDisplay.init(uvc: self).displayMyAlertMessageDismissView(msg_success)
         }
     }
     
     func HttpFailureResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject){
         if (resCode == "01"){
-            
+            ActionDisplay.init(uvc: self).displayMyAlertMessageDismissView(msg_fail_1)
         }else if (resCode == "02"){
-            
+            ActionDisplay.init(uvc: self).displayMyAlertMessageDismissView(msg_fail_2)
         }else if (resCode == "03"){
-            
+            ActionDisplay.init(uvc: self).displayMyAlertMessageDismissView(msg_fail_3)
         }
     }
     
@@ -91,7 +98,7 @@ class SurveyViewController : UIViewController , UITextViewDelegate,HttpResponse{
         let nick = UserDefaultManager.init().getUserNick()
         let accesstoken = UserDefaultManager.init().getUserAccessToken()
         var text = textView.text.description
-        if(text == "기타 의견을 입력하세요."){
+        if(text == msg_add){
             text = ""
         }
         NSLog(nick)

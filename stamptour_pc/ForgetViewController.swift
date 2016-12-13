@@ -10,6 +10,9 @@ import UIKit
 
 class ForgetPassViewController : UIViewController, HttpResponse{
     
+    let msg_enough = NSLocalizedString("forgot_pass_alert_not_enough", comment: "정보를 모두입력해주세요")
+    let msg_succ = NSLocalizedString("forgot_pass_alert_display_temp_password", comment: "임시비밀번호는")
+    let msg_fail = NSLocalizedString("forgot_pass_alert_not_find_password", comment: "아이디를 찾을수 없습니다")
     let TAG : String = "ForgetPassViewController"
     var httpRequest : HttpRequestToServer?
     var alert : ActionDisplay?
@@ -34,7 +37,7 @@ class ForgetPassViewController : UIViewController, HttpResponse{
     
     func search(){
         if ((self.nick_txt.text!.isEmpty) || (self.id_txt.text!.isEmpty))  {
-            alert?.displayMyAlertMessage("정보를 모두 입력해주세요")
+            alert?.displayMyAlertMessage(msg_enough)
         } else{
             let path = HttpReqPath.ForgetPass
             let parameters : [ String : String] = [
@@ -48,11 +51,13 @@ class ForgetPassViewController : UIViewController, HttpResponse{
     
     func HttpSuccessResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
         let data = resData["resultData"] as! String
-        alert?.displayMyAlertMessageDismissView("임시 비밀번호는 [\(data)] 입니다")
+        
+        alert?.displayMyAlertMessageDismissView("\(msg_succ) [\(data)]")
     }
     
     func HttpFailureResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject){
-         ActionDisplay.init(uvc: self).displayMyAlertMessage("비빌번호를 찾을 수 가 없습니다")
+        
+        ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_fail)
         if (resCode == "01"){
             
         }else if (resCode == "02"){
@@ -65,6 +70,9 @@ class ForgetPassViewController : UIViewController, HttpResponse{
 
 
 class ForgetIdViewController : UIViewController, HttpResponse{
+    let msg_enough = NSLocalizedString("forgot_id_alert_not_enough", comment: "정보를 모두입력해주세요")
+    let msg_succ = NSLocalizedString("forgot_id_alert_display_temp_password", comment: "당신의 계정은")
+    let msg_fail = NSLocalizedString("forgot_id_alert_not_find_password", comment: "아이디를 찾을수 없습니다")
     
     let TAG : String = "ForgetIdViewController"
     var httpRequest : HttpRequestToServer?
@@ -87,7 +95,7 @@ class ForgetIdViewController : UIViewController, HttpResponse{
     
     func search(){
         if (self.nick_txt.text!.isEmpty) {
-            alert?.displayMyAlertMessage("정보를 모두 입력해주세요")
+            alert?.displayMyAlertMessage(msg_enough)
         } else{
             let path = HttpReqPath.ForgetId
             let parameters : [ String : String] = [
@@ -100,11 +108,13 @@ class ForgetIdViewController : UIViewController, HttpResponse{
     
     func HttpSuccessResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
         let data = resData["resultData"] as! String
-       alert?.displayMyAlertMessageDismissView("당신의 계정은 [\(data)] 입니다 ")
+        
+       alert?.displayMyAlertMessageDismissView("\(msg_succ) [\(data)]")
     }
     
     func HttpFailureResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject){
-        ActionDisplay.init(uvc: self).displayMyAlertMessage("아이디를 찾을 수 가 없습니다")
+        
+        ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_fail)
         if (resCode == "01"){
             
         }else if (resCode == "02"){

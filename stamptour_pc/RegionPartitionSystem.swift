@@ -43,8 +43,8 @@ class RegionPartitionSystem  {
         print("RegionPartitionSystem : appHost : \(AppInfomation.host!)")
         print("RegionPartitionSystem : fbAppKey : \(AppInfomation.fbAppKey!)")
         print("RegionPartitionSystem : fbAppStoreLink : \(AppInfomation.fbAppStoreLink!)")
-        print("RegionPartitionSystem : fbAppKey : \(AppInfomation.koAppKey!)")
-        print("RegionPartitionSystem : fbAppStoreLink : \(AppInfomation.koAppStoreLink!)")
+        print("RegionPartitionSystem : koAppKey : \(AppInfomation.koAppKey!)")
+        print("RegionPartitionSystem : koAppStoreLink : \(AppInfomation.koAppStoreLink!)")
 
     }
     

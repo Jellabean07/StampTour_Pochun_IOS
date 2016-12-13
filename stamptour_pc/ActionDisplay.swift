@@ -13,6 +13,10 @@ import UIKit
 class ActionDisplay{
     
     var uvc : UIViewController?
+    let cancel_txt = NSLocalizedString("comm_cancel", comment: "취소")
+    let ok_txt = NSLocalizedString("comm_ok", comment: "OK")
+    let no_txt = NSLocalizedString("comm_no", comment: "NO")
+    
     init(uvc : UIViewController){
         self.uvc = uvc
     }
@@ -20,7 +24,7 @@ class ActionDisplay{
     func displayMyAlertMessage(_ userMessage:String)
     {
         let myAlert=UIAlertController(title:"",message: userMessage,preferredStyle: UIAlertControllerStyle.alert);
-        let okAction=UIAlertAction(title:"OK",style: UIAlertActionStyle.default,handler: nil);
+        let okAction=UIAlertAction(title:ok_txt,style: UIAlertActionStyle.default,handler: nil);
         
         myAlert.addAction(okAction);
         self.uvc!.present(myAlert, animated: true, completion: nil);
@@ -28,7 +32,7 @@ class ActionDisplay{
     func displayMyAlertMessageDismissView(_ userMessage:String)
     {
         let myAlert=UIAlertController(title:"",message: userMessage,preferredStyle: UIAlertControllerStyle.alert);
-        let okAction=UIAlertAction(title:"OK",style: UIAlertActionStyle.default,handler: {
+        let okAction=UIAlertAction(title:ok_txt,style: UIAlertActionStyle.default,handler: {
             (_)in
             CommonFunction.dismiss(self.uvc!)
         });
@@ -39,7 +43,7 @@ class ActionDisplay{
     func displayMyAlertMessageAction(_ userMessage:String, action: @escaping (Void)->Void)
     {
         let myAlert=UIAlertController(title:"",message: userMessage,preferredStyle: UIAlertControllerStyle.alert);
-        let okAction=UIAlertAction(title:"OK",style: UIAlertActionStyle.default,handler: {
+        let okAction=UIAlertAction(title:ok_txt,style: UIAlertActionStyle.default,handler: {
             (_)in
             action()
         });
@@ -51,11 +55,11 @@ class ActionDisplay{
     func displayMyAlertMessageActionYN(_ userMessage:String, action : @escaping (Void) -> Void)
     {
         let myAlert=UIAlertController(title:"",message: userMessage,preferredStyle: UIAlertControllerStyle.alert);
-        let yAction=UIAlertAction(title:"OK",style: UIAlertActionStyle.default,handler: {
+        let yAction=UIAlertAction(title:ok_txt,style: UIAlertActionStyle.default,handler: {
             (_) in
             action()
         });
-        let nAction=UIAlertAction(title:"NO",style: .cancel,handler: nil);
+        let nAction=UIAlertAction(title:no_txt,style: .cancel,handler: nil);
         myAlert.addAction(yAction);
         myAlert.addAction(nAction)
         self.uvc!.present(myAlert, animated: true, completion: nil);
@@ -64,7 +68,7 @@ class ActionDisplay{
     func displayMyAlertMessageActionFromUvc(_ userMessage:String, action : @escaping (UIViewController) -> Void)
     {
         let myAlert=UIAlertController(title:"",message: userMessage,preferredStyle: UIAlertControllerStyle.alert);
-        let okAction=UIAlertAction(title:"OK",style: UIAlertActionStyle.default,handler: {
+        let okAction=UIAlertAction(title:ok_txt,style: UIAlertActionStyle.default,handler: {
             (_)in
             action(self.uvc!)
         });
@@ -74,9 +78,9 @@ class ActionDisplay{
     }
     
     
-    func displayMyAlertMessesgeList(_ userMessege:String, actionList:Array<ActionVO>){
-        let mAlert = UIAlertController(title:"아이디 및 비밀번호 찾기",message: userMessege,preferredStyle: UIAlertControllerStyle.alert);
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+    func displayMyAlertMessesgeList(_ title : String, userMessege:String, actionList:Array<ActionVO>){
+        let mAlert = UIAlertController(title: title,message: userMessege,preferredStyle: UIAlertControllerStyle.alert);
+        let cancelAction = UIAlertAction(title: cancel_txt, style: .cancel, handler: nil)
         
         mAlert.addAction(cancelAction)
         
@@ -93,7 +97,7 @@ class ActionDisplay{
     
     func displayCameraMessesgeList(_ userMessege:String, actionList:Array<ActionVO>){
         let mAlert = UIAlertController(title:"이미지 업로드",message: userMessege,preferredStyle: UIAlertControllerStyle.alert);
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: cancel_txt, style: .cancel, handler: nil)
         
         mAlert.addAction(cancelAction)
         
@@ -112,7 +116,7 @@ class ActionDisplay{
     func showActionSheet(_ userTitle:String,userMessege:String,actionList:Array<ActionVO>){
         // create controller with style as ActionSheet
         let alertCtrl = UIAlertController(title: userTitle, message: userMessege, preferredStyle: UIAlertControllerStyle.actionSheet)
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: cancel_txt, style: UIAlertActionStyle.cancel, handler: nil)
         
         for row in actionList{
             let action = UIAlertAction(title: row.title, style: .default, handler: {
@@ -132,7 +136,7 @@ class ActionDisplay{
     func showActionSheetParaAction(_ userTitle:String,userMessege:String,actionList:Array<ActionParaVO>){
         // create controller with style as ActionSheet
         let alertCtrl = UIAlertController(title: userTitle, message: userMessege, preferredStyle: UIAlertControllerStyle.actionSheet)
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: cancel_txt, style: UIAlertActionStyle.cancel, handler: nil)
         
         for row in actionList{
             let action = UIAlertAction(title: row.title, style: .default, handler: {
@@ -152,7 +156,7 @@ class ActionDisplay{
     func showActionSheetCodeAction(_ userTitle:String,userMessege:String,actionList: [ActionCodeVO]){
         // create controller with style as ActionSheet
         let alertCtrl = UIAlertController(title: userTitle, message: userMessege, preferredStyle: UIAlertControllerStyle.actionSheet)
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: cancel_txt, style: UIAlertActionStyle.cancel, handler: nil)
         
         for row in actionList{
             let action = UIAlertAction(title: row.title, style: .default, handler: {
