@@ -11,6 +11,14 @@ import UIKit
 
 class LoginViewController: UIViewController , UITextFieldDelegate, HttpResponse{
 
+    let msg_find_id = NSLocalizedString("login_alert_find_id", comment: "아이디 찾기")
+    let msg_find_pass = NSLocalizedString("login_alert_find_pass", comment: "비밀번호 찾기")
+    let msg_title = NSLocalizedString("login_alert_find_title", comment: "아이디 및 비밀번호 찾기")
+    let msg_subtitle = NSLocalizedString("login_alert_find_subtitle", comment: "원하는 정보를 선택하세요")
+    let msg_enough = NSLocalizedString("login_alert_not_enough", comment: "아이디또는 패스워드를 입력해주세요")
+    let msg_fail = NSLocalizedString("login_alert_fail", comment: "로그인중 오류가 발생했습니다")
+    let msg_match = NSLocalizedString("login_alert_match", comment: "아이디 또는 비밀번호가 잘못되었습니다")
+    
     let TAG : String = "LoginViewController"
     var httpRequest : HttpRequestToServer?
     var loginCase : Int?
@@ -44,9 +52,9 @@ class LoginViewController: UIViewController , UITextFieldDelegate, HttpResponse{
     
     @IBAction func forget_btn(_ sender: AnyObject) {
         var actionList = Array<ActionVO>()
-        actionList.append(ActionVO(title: "아이디 찾기",action: moveToForgetId))
-        actionList.append(ActionVO(title: "비밀번호 찾기",action: moveToForgetPass))
-        ActionDisplay.init(uvc: self).displayMyAlertMessesgeList("원하는 정보를 선택하세요", actionList: actionList)
+        actionList.append(ActionVO(title: msg_find_id  ,action: moveToForgetId))
+        actionList.append(ActionVO(title: msg_find_pass ,action: moveToForgetPass))
+        ActionDisplay.init(uvc: self).displayMyAlertMessesgeList(msg_title,userMessege : msg_subtitle, actionList: actionList)
     }
     
     func NomalLogin(){
@@ -55,7 +63,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate, HttpResponse{
         let pass_value = self.pass_txt.text
         self.loginCase = LoggedInCase.normal.hashValue;
         if((id_value!.isEmpty||pass_value!.isEmpty)){
-            ActionDisplay.init(uvc: self).displayMyAlertMessage("아이디또는 패스워드를 입력해주세요")
+            ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_enough)
             return;
         }
         else
@@ -72,7 +80,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate, HttpResponse{
     }
     
     func FBLoggedin(){
-        FBManager.init(uvc: self).getReturnState()
+        FBManager.init(uvc: self).login()
     }
     
     func KOLoggedIn(){
@@ -109,7 +117,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate, HttpResponse{
             
         }else {
             NSLog(TAG,"Login Fail")
-            ActionDisplay.init(uvc: self).displayMyAlertMessage("아이디 또는 비밀번호가 잘못되었습니다")
+            ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_match)
         }
         
         
@@ -118,7 +126,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate, HttpResponse{
     }
     
     func HttpFailureResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject){
-        
+          ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_fail)
         if (resCode == "01"){
             
         }else if (resCode == "02"){

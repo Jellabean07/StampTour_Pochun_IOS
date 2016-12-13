@@ -30,4 +30,32 @@ class CommonFunction {
 //        let navController = UINavigationController(rootViewController: viewController)
 //        uvc.present(navController, animated:true, completion: nil)
     }
+    
+    //html 태그 사용하는 문자열로 바꿔줌
+    static func htmlToText(encodedString:String) -> String?
+    {
+        let encodedData = encodedString.data(using: String.Encoding.utf8)!
+        do
+        {
+            return try NSAttributedString(data: encodedData, options: [NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType,NSCharacterEncodingDocumentAttribute:String.Encoding.utf8], documentAttributes: nil).string
+        } catch let error as NSError {
+            print(error.localizedDescription)
+            return nil
+        }
+    }
+}
+
+extension String {
+    var html2AttributedString: NSAttributedString? {
+        guard let data = data(using: .utf8) else { return nil }
+        do {
+            return try NSAttributedString(data: data, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+            return  nil
+        }
+    }
+    var html2String: String {
+        return html2AttributedString?.string ?? ""
+    }
 }

@@ -10,6 +10,22 @@ import UIKit
 
 class JoinViewController : UIViewController, UITextFieldDelegate, HttpResponse{
     
+    let msg_id_inval = NSLocalizedString("join_alert_check_duplicate_id_not_email", comment: "이메일 형식")
+    let msg_id_trim = NSLocalizedString("join_alert_check_duplicate_id_trim_input", comment: "빈칸")
+    let msg_nick_inval = NSLocalizedString("join_alert_check_duplicate_nick_not_invalid", comment: "유효성검사")
+    let msg_nick_trim = NSLocalizedString("join_alert_check_duplicate_nick_trim_input", comment: "빈칸")
+    let msg_trim = NSLocalizedString("join_alert_join_confirm_trim_input", comment: "빈칸")
+    let msg_id_chk = NSLocalizedString("join_alert_join_confirm_id_need_duplicate", comment: "아이디 중복확인 필요")
+    let msg_nick_chk = NSLocalizedString("join_alert_join_confirm_nick_need_duplicate", comment: "별명 중복확인 필요")
+    let msg_pass_match = NSLocalizedString("join_alert_join_confirm_pass_not_match", comment: "비밀번호 불일치")
+    let msg_pass_inval = NSLocalizedString("join_alert_join_confirm_pass_not_invalid", comment: "6자이내 영문,국문 유효성 검사")
+    let msg_succ = NSLocalizedString("join_alert_join_confirm_success", comment: "회원가입완료")
+    let msg_nick_not_dupl = NSLocalizedString("join_alert_check_duplicate_nick_not_duplicate", comment: "별명 사용가능")
+    let msg_nick_dupl = NSLocalizedString("join_alert_check_duplicate_nick_duplicate", comment: "별명 중복")
+    let msg_id_not_dupl = NSLocalizedString("join_alert_check_duplicate_id_not_duplicate", comment: "아아디 사용가능")
+    let msg_id_dupl = NSLocalizedString("join_alert_check_duplicate_id_duplicate", comment: "아이디 중복")
+    
+    
     let TAG : String = "JoinViewController"
     var chkId : Bool? = false
     var chkNick : Bool? = false
@@ -20,10 +36,16 @@ class JoinViewController : UIViewController, UITextFieldDelegate, HttpResponse{
     @IBOutlet var nick_txt: UITextField!
     @IBOutlet var pass_txt: UITextField!
     @IBOutlet var repass_txt: UITextField!
+    @IBOutlet var terms_btn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        
+
+        let attr = self.terms_btn.titleLabel?.text?.html2AttributedString
+        self.terms_btn.setAttributedTitle(attr, for: .normal)
+        
         self.id_txt.addTarget(self, action: #selector(self.textFieldDidChangeId(_:)), for: UIControlEvents.editingChanged)
         self.nick_txt.addTarget(self, action: #selector(self.textFieldDidChangeName(_:)), for: UIControlEvents.editingChanged)
         
@@ -48,8 +70,6 @@ class JoinViewController : UIViewController, UITextFieldDelegate, HttpResponse{
         self.join()
     }
     
-    @IBAction func terms_btn(_ sender: AnyObject) {
-    }
     
     func textFieldDidChangeId(_ textField: UITextField) {
         self.chkId = false
@@ -75,10 +95,12 @@ class JoinViewController : UIViewController, UITextFieldDelegate, HttpResponse{
                 self.httpRequest!.connection(path, reqParameter: parameters)
                 
             }else{
-                ActionDisplay.init(uvc: self).displayMyAlertMessage("이메일 형식으로 입력해주세요")
+                
+                ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_id_inval)
             }
         }else{
-            ActionDisplay.init(uvc: self).displayMyAlertMessage("아이디를 입력해주세요")
+            
+            ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_id_trim)
         }
     }
     
@@ -94,10 +116,12 @@ class JoinViewController : UIViewController, UITextFieldDelegate, HttpResponse{
                 self.httpRequest!.connection(path, reqParameter: parameters)
                 
             }else{
-                ActionDisplay.init(uvc: self).displayMyAlertMessage("6자이내 국문이나 영문으로 입력해주세요")
+                
+                ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_nick_inval)
             }
         }else{
-            ActionDisplay.init(uvc: self).displayMyAlertMessage("별명을 입력해주세요")
+            
+            ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_nick_trim)
         }
     }
     
@@ -121,20 +145,25 @@ class JoinViewController : UIViewController, UITextFieldDelegate, HttpResponse{
                             self.httpRequest?.connection(path, reqParameter: parameters)
                             
                         }else{
-                            ActionDisplay.init(uvc: self).displayMyAlertMessage("비밀번호는 6~16자 영문 소문자, 숫자를 조합하세요")
+                            
+                            ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_pass_inval)
                         }
                     }else{
-                        ActionDisplay.init(uvc: self).displayMyAlertMessage("비밀번호가 일치하지 않습니다")
+                        
+                        ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_pass_match)
                     }
                     
                 }else{
-                    ActionDisplay.init(uvc: self).displayMyAlertMessage("별명 중복확인이 필요합니다")
+                    
+                    ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_nick_chk)
                 }
             }else{
-                ActionDisplay.init(uvc: self).displayMyAlertMessage("아이디 중복확인이 필요합니다")
+
+                ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_id_chk)
             }
         }else{
-            ActionDisplay.init(uvc: self).displayMyAlertMessage("빈칸을 모두 채워주세요")
+            
+            ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_trim)
         }
         
     }
@@ -144,21 +173,25 @@ class JoinViewController : UIViewController, UITextFieldDelegate, HttpResponse{
         if(reqPath == HttpReqPath.JoinIdOverlap){
             if data == "duplicate"{
                 self.chkId = false
-                 ActionDisplay.init(uvc: self).displayMyAlertMessage("중복된 아이디명입니다")
+                
+                 ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_id_dupl)
             }else {
                 self.chkId = true
-                 ActionDisplay.init(uvc: self).displayMyAlertMessage("사용할 수 있는 아이디명입니다")
+
+                 ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_id_not_dupl)
             }
         }else if(reqPath == HttpReqPath.JoinNickOverlap){
             if data == "duplicate"{
                 self.chkNick = false
-                 ActionDisplay.init(uvc: self).displayMyAlertMessage("중복된 별명입니다")
+
+                 ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_nick_dupl)
             }else {
                 self.chkNick = true
-                 ActionDisplay.init(uvc: self).displayMyAlertMessage("사용할 수 있는 별명입니다")
+                
+                 ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_nick_not_dupl)
             }
         }else if(reqPath == HttpReqPath.JoinReq){
-             ActionDisplay.init(uvc: self).displayMyAlertMessageActionFromUvc("회원가입 되었습니다", action: CommonFunction.dismiss)
+             ActionDisplay.init(uvc: self).displayMyAlertMessageActionFromUvc(msg_succ, action: CommonFunction.dismiss)
         }
     }
 

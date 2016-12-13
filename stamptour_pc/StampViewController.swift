@@ -12,6 +12,15 @@ import CoreLocation
 
 class StampViewController : UIViewController,UITabBarControllerDelegate,  UITableViewDelegate, UITableViewDataSource, HttpResponse , LocationProtocol, LocationDetect, StampSeal{
     
+    let dist_msg = NSLocalizedString("main_stamp_sort_by_distance", comment: "거리순")
+    let name_msg = NSLocalizedString("main_stamp_sort_by_name", comment: "이름순")
+    let region_msg = NSLocalizedString("main_stamp_sort_by_region", comment: "권역순")
+    let title_msg = NSLocalizedString("main_stamp_sort_title", comment: "정렬")
+    let subtitle_msg = NSLocalizedString("main_stamp_sort_subtitle", comment: "원하는 정렬 방법을 선택하세요")
+    let intro_part_1 = NSLocalizedString("main_stamp_user_intro_part_1", comment: "님은")
+    let intro_part_2 = NSLocalizedString("main_stamp_user_intro_part_2", comment: "등급입니다")
+    let share_not_msg = NSLocalizedString("main_stamp_share_not_social_login", comment: "소셜 로그인을 통해서만 가능합니다")
+    
     @IBOutlet var tableView: UITableView!
     @IBOutlet var introMsg: UILabel!
     @IBOutlet var stampCnt: UILabel!
@@ -28,7 +37,7 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
     var stamps : [StampVO]? = [StampVO]()
     var towns : [TownVO]? = [TownVO]()
     
-    var sortedName : String? = "기본"
+    var sortedName : String? = NSLocalizedString("main_stamp_sort_by_standard", comment: "기본")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,11 +77,12 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
     @IBAction func sort(_ sender: Any) {
         
         var ActionCodesVO = [ActionCodeVO]()
-        ActionCodesVO.append(ActionCodeVO.init(title: "거리순", code : 0, action: sortTowns))
-        ActionCodesVO.append(ActionCodeVO.init(title: "이름순", code : 1, action: sortTowns))
-        ActionCodesVO.append(ActionCodeVO.init(title: "권역순", code : 2, action: sortTowns))
+       
+        ActionCodesVO.append(ActionCodeVO.init(title: dist_msg, code : 0, action: sortTowns))
+        ActionCodesVO.append(ActionCodeVO.init(title: name_msg, code : 1, action: sortTowns))
+        ActionCodesVO.append(ActionCodeVO.init(title: region_msg, code : 2, action: sortTowns))
         
-        ActionDisplay.init(uvc: self).showActionSheetCodeAction("정렬", userMessege: "원하는 정렬 방법을 선택하세요", actionList: ActionCodesVO)
+        ActionDisplay.init(uvc: self).showActionSheetCodeAction(title_msg, userMessege: subtitle_msg, actionList: ActionCodesVO)
         
     }
     
@@ -86,6 +96,7 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
             KOManager.init(uvc: self).share()
             break
         default:
+            ActionDisplay.init(uvc: self).displayMyAlertMessage(share_not_msg)
             break
         }
        
@@ -207,7 +218,9 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
             
             self.stampCnt.text = String(stamp_count)
             self.stampTotal.text = String(next_stamp_count)
-            self.introMsg.text = "\(nick)님은 \(grade) 등급입니다"
+            
+           
+            self.introMsg.text = "\(nick)\(intro_part_1) \(grade) \(intro_part_2)"
 //            "next_stamp_count": 3,
 //            "stamp_count": 2,
 //            "grade": "초급자",

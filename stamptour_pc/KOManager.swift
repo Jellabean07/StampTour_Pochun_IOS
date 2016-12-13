@@ -13,7 +13,7 @@ class KOManager : HttpResponse{
     let TAG : String = "KOManager"
     var httpRequest : HttpRequestToServer?
     var uvc : UIViewController?
-    var appId : String = ""
+    var userId : String = ""
     
     init(uvc : UIViewController) {
         self.httpRequest = HttpRequestToServer.init(TAG: TAG, delegate : self)
@@ -30,13 +30,22 @@ class KOManager : HttpResponse{
                         if let user = user as? KOUser {
                             print("\(self!.TAG) : KOSession Login : requestMe Success: id is = \(user.id!)")
                             let id = String(describing: user.id!)
-                            self?.appId = id
-                            self!.reqLogin(appId: id)
+                            self?.userId = id
+                            self!.reqLogin(userId: id)
                         }
                     }
                 }
             }else{
                 login()
+            }
+        }
+    }
+    
+    func logout(){
+        let session = KOSession.shared()
+        if let s = session {
+            if s.isOpen(){
+                s.close()
             }
         }
     }
@@ -60,7 +69,7 @@ class KOManager : HttpResponse{
                                 if let user = user as? KOUser {
                                     print("\(self!.TAG) : KOSession Login : requestMe Success: id is = \(user.id!)")
                                     let id = String(describing: user.id!)
-                                    self!.reqLogin(appId: id)
+                                    self!.reqLogin(userId: id)
                                 }
                             }
                         }
@@ -97,11 +106,11 @@ class KOManager : HttpResponse{
         }
     }
     
-    func reqLogin(appId : String){
+    func reqLogin(userId : String){
         let path = HttpReqPath.LoginReq
         let parameters : [ String : String] = [
             "loggedincase" : LoggedInCase.kakaoLogin.description,
-            "id" : appId
+            "id" : userId
         ]
         
         self.httpRequest!.connection(path, reqParameter: parameters)
@@ -118,13 +127,13 @@ class KOManager : HttpResponse{
         if(nick == "-1" && accesstoken == "-1") {
             print("\(self.TAG) : User require join")
             let viewController = self.uvc!.storyboard?.instantiateViewController(withIdentifier: "JoinNickViewController") as! JoinNickViewController
-            viewController.appId = self.appId
+            viewController.userId = self.userId
             viewController.loggedInCase = LoggedInCase.kakaoLogin
             let navController = UINavigationController(rootViewController: viewController)
             self.uvc!.present(navController, animated:true, completion: nil)
             
         }else{
-            UserDefaultManager.init().loggedIn(self.uvc!, id: self.appId, nick: nick, accessToken: accesstoken, LoginCase: LoggedInCase.kakaoLogin.hashValue)
+            UserDefaultManager.init().loggedIn(self.uvc!, id: self.userId, nick: nick, accessToken: accesstoken, LoginCase: LoggedInCase.kakaoLogin.hashValue)
         }
         
         

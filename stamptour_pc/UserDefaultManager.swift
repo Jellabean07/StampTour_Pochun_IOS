@@ -26,7 +26,7 @@ class UserDefaultManager{
         LanguageCode = LanguageInCase.kor.hashValue
         UserDefault =  UserDefaults.standard;
     }
-    
+
     func setUserAccessToken(_ accessToken : String){
         self.UserDefault!.setValue(accessToken, forKey: "userAccessToken");
         self.UserDefault!.synchronize();
@@ -89,21 +89,44 @@ class UserDefaultManager{
         return LoggedCase
     }
     func getIsLoggedState() -> Bool{
-        let state = self.UserDefault!.bool(forKey: "isUserLoggedIn")
-        return state
+        if let state : Bool? = self.UserDefault!.bool(forKey: "isUserLoggedIn"){
+            return state!
+        }else{
+            return false
+        }
     }
 
 
     
     func getLanguageCode() -> Int {
-        if let LanguageCode : Int? = self.UserDefault!.integer(forKey: "LanguageCode"){
-            return LanguageCode!
+        if let LanguageCode : Int = self.UserDefault!.integer(forKey: "LanguageCode"){
+            return LanguageCode
         }else{
             return self.LanguageCode!
         }
     }
-  
+    
+    
+    func defaultLogin(uvc : UIViewController){
+        let id = self.getUserId()
+        let nick = self.getUserNick()
+        let token = self.getUserAccessToken()
+        let loginCase = self.getIsLoggedCase()
+        loggedIn(uvc, id: id, nick: nick, accessToken: token, LoginCase: loginCase)
+    }
+    
+    func defaultLogOut(uvc : UIViewController){
+      
+    }
+    
+ 
     func loggedOut(uvc : UIViewController){
+        if getIsLoggedCase() == LoggedInCase.fbLogin.hashValue{
+            FBManager.init(uvc: uvc).logout()
+        }else if getIsLoggedCase() == LoggedInCase.kakaoLogin.hashValue{
+           // KOManager.init(uvc: uvc).logout()
+        }
+        
         self.UserDefault!.removeObject(forKey: "userId")
         self.UserDefault!.removeObject(forKey: "userNick")
         self.UserDefault!.removeObject(forKey: "userAccessToken")
@@ -112,7 +135,7 @@ class UserDefaultManager{
         self.UserDefault!.removeObject(forKey: "isLoggedInCase");
         self.UserDefault!.synchronize();
         
-        if let tbvc : MainViewController = uvc.tabBarController as! MainViewController{
+        if let tbvc : MainViewController = uvc.tabBarController as? MainViewController{
             tbvc.locationManager.stopUpdatingLocation()
         }
         

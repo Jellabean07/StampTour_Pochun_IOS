@@ -10,11 +10,17 @@ import UIKit
 
 class MoreViewController : UIViewController ,UITableViewDelegate, UITableViewDataSource, HttpResponse{
     
+    
+    let account_msg = NSLocalizedString("more_menu_list_item_account", comment: "계정 관리")
+    let gift_msg = NSLocalizedString("more_menu_list_item_gift", comment: "선물 신청 및 관리")
+    let hiding_msg = NSLocalizedString("more_menu_list_item_hide", comment: "숨김 관리")
+    let survey_msg = NSLocalizedString("more_menu_list_item_survey", comment: "설문 하기")
+    
+    
     let TAG : String = "MoreViewController"
     var httpRequest : HttpRequestToServer?
     var menu : Array = Array<MenuVO>()
 
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +44,11 @@ class MoreViewController : UIViewController ,UITableViewDelegate, UITableViewDat
 
     
     func setItem(){
-        menu.append(MenuVO.init(img: "img_account",title : "계정 관리"))
-        menu.append(MenuVO.init(img: "img_gift",title : "선물 신청 및 관리"))
-        menu.append(MenuVO.init(img: "img_hiding",title : "숨김 관리"))
-        menu.append(MenuVO.init(img: "img_survey",title : "설문 하기"))
+    
+        menu.append(MenuVO.init(img: "img_account",title : account_msg))
+        menu.append(MenuVO.init(img: "img_gift",title : gift_msg))
+        menu.append(MenuVO.init(img: "img_hiding",title : hiding_msg))
+        menu.append(MenuVO.init(img: "img_survey",title : survey_msg))
     }
     
     
