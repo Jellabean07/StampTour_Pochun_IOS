@@ -91,13 +91,30 @@ class ContentsManager : HttpResponse, HttpDownResponse{
     func getRegionName(_ obj : NSDictionary, languageCode : Int ) -> String{
         switch languageCode {
         case LanguageInCase.kor.hashValue:
-            return obj.object(forKey: "region") as! String
+            if LocalizationManager.shared.isLanguageCodeEmpty(languageCode){
+                 return obj.object(forKey: "region") as! String
+            }else{
+                 return obj.object(forKey: "region") as! String
+            }
         case LanguageInCase.eng.hashValue:
-            return obj.object(forKey: "region_en") as! String
+            if LocalizationManager.shared.isLanguageCodeEmpty(languageCode){
+                return obj.object(forKey: "region_en") as! String
+            }else{
+                return obj.object(forKey: "region") as! String
+            }
         case LanguageInCase.jan.hashValue:
-            return obj.object(forKey: "region_jp") as! String
+            if LocalizationManager.shared.isLanguageCodeEmpty(languageCode){
+                return obj.object(forKey: "region_jp") as! String
+            }else{
+                return obj.object(forKey: "region") as! String
+            }
+            
         case LanguageInCase.chi.hashValue:
-            return obj.object(forKey: "region_cn") as! String
+            if LocalizationManager.shared.isLanguageCodeEmpty(languageCode){
+                return obj.object(forKey: "region_cn") as! String
+            }else{
+                return obj.object(forKey: "region") as! String
+            }
         default:
             return obj.object(forKey: "region") as! String
         }
