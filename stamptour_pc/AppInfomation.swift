@@ -17,7 +17,9 @@ class AppInfomation{
     static var themeColor : UIColor?
     static var host : String?
     static var version : Int?
-    static var localizeCode : String?
+    static var localizeName : String?
+    static var localizeCode : Int?
+    static var surpportLng : [Int]?
     static var fbAppKey : String?
     static var fbAppStoreLink : String?
     static var koAppKey : String?

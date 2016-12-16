@@ -72,18 +72,18 @@
 "more_menu_list_item_hide" = "숨김 관리";
 "more_menu_list_item_survey" = "설문 하기";
 
-"survey_additional_msg" = "기타의견을 입력하세요"
-"survey_alert_send_succeess" = "설문이 작성 되었습니다"
-"survey_alert_send_fail_01" = "설문 작성 중에 오류가 발생했습니다"
-"survey_alert_send_fail_02" = "설문 작성 중에 오류가 발생했습니다"
-"survey_alert_send_fail_03" = "이미 설문 조사에 참여하셨습니다"
+"survey_additional_msg" = "기타의견을 입력하세요";
+"survey_alert_send_succeess" = "설문이 작성 되었습니다";
+"survey_alert_send_fail_01" = "설문 작성 중에 오류가 발생했습니다";
+"survey_alert_send_fail_02" = "설문 작성 중에 오류가 발생했습니다";
+"survey_alert_send_fail_03" = "이미 설문 조사에 참여하셨습니다";
 
-"gift_manage_complete" = "선물신청 완료"
-"gift_manage_press_send" = "눌러서 선물을 신청하세요"
-"gift_manage_remain" = "선물 신청까지"
+"gift_manage_complete" = "선물신청 완료";
+"gift_manage_press_send" = "눌러서 선물을 신청하세요";
+"gift_manage_remain" = "선물 신청까지";
 
-"gift_alert_send_succees" = "선물이 신청되었습니다"
-"gift_alert_send_fail" = "선물 신청 중에 오류가 발생했습니다"
+"gift_alert_send_succees" = "선물이 신청되었습니다";
+"gift_alert_send_fail" = "선물 신청 중에 오류가 발생했습니다";
 
 "acc_alert_change_pass_not_invalid" = "비밀번호는 6~16자 영문 소문자, 숫자를 조합하세요";
 "acc_alert_change_pass_not_match" = "비밀번호가 일치하지 않습니다";

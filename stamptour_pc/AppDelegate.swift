@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let jsonString = FileBrowser.init().readFromDocumentsFile(fileName: "kr.json")
 //        FileBrowser.init().convertJsonArray(text: jsonString)
 ////        print(FileBrowser.init().getDocumentsDirectory())
-//        FileBrowser.init().currentFiles()
+        FileBrowser.init().currentFiles()
         return SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
        // return true
     }

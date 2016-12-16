@@ -71,6 +71,19 @@ enum ResRegion {
         }
     }
     
+    var supportLanguage : [Int] {
+        switch self {
+        case .Default:
+            return [LocalizationCase.kor.hashValue]
+        case .pochun:
+            return [LocalizationCase.kor.hashValue,LocalizationCase.eng.hashValue]
+        case .shinan:
+            return [LocalizationCase.kor.hashValue]
+        case .gyeongju:
+            return [LocalizationCase.kor.hashValue,LocalizationCase.eng.hashValue,LocalizationCase.jan.hashValue,LocalizationCase.chi.hashValue]
+        }
+    }
+    
     var fbAppKey : String {
         switch self {
         case .Default:
