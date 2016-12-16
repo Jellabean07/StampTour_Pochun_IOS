@@ -105,7 +105,7 @@ class JoinNickViewController : UIViewController,UITextFieldDelegate, HttpRespons
                 ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_nick_dupl)
                 self.chkNick = false
             }else {
-                ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_ncik_not_dupl)
+                ActionDisplay.init(uvc: self).displayMyAlertMessage(msg_nick_not_dupl)
                 self.chkNick = true
             }
         }else if(reqPath == HttpReqPath.JoinReq){

@@ -22,15 +22,54 @@ class LocalizationManager {
         if (code == "ko"){
             return "kr"
         }else if (code == "en"){
-            //return "eng"
-            return "kr"
+            if(isLanguageCodeEmpty(LanguageInCase.eng.hashValue)){
+                return "eng"
+            }else{
+                return "kr"
+            }
+        }else if (code == "ja"){
+            if(isLanguageCodeEmpty(LanguageInCase.jan.hashValue)){
+                return "jp"
+            }else{
+                return "kr"
+            }
+        }else if (code == "zh"){
+            if(isLanguageCodeEmpty(LanguageInCase.chi.hashValue)){
+                return "ch"
+            }else{
+                return "kr"
+            }
         }else{
             return "kr"
         }
     }
     
+    func isLanguageCodeEmpty(_ languageCode : Int) -> Bool{
+        for code in AppInfomation.surpportLng!{
+            if code == languageCode{
+                return true
+            }
+        }
+        return false
+    }
+    
     func getLanguageCode() -> String{
         let langStr = Locale.current.languageCode
         return langStr!
+    }
+    
+    func getLanguageCodeInt() -> Int{
+        let code = Locale.current.languageCode
+        if (code == "ko"){
+            return LanguageInCase.kor.hashValue
+        }else if (code == "en"){
+            return LanguageInCase.eng.hashValue
+        }else if (code == "ja"){
+           return LanguageInCase.jan.hashValue
+        }else if (code == "zh"){
+           return LanguageInCase.chi.hashValue
+        }else{
+            return LanguageInCase.kor.hashValue
+        }
     }
 }

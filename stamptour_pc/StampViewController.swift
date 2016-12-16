@@ -186,7 +186,7 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
                 mvo.valid_range = obj.object(forKey: "valid_range") as! Int
                 mvo.nick = obj.object(forKey: "Nick") as! String
                 mvo.checktime = obj.object(forKey: "CheckTime") as! String
-                mvo.region = obj.object(forKey: "region") as! String
+                mvo.region = ContentsManager.init(uvc: self).getRegionName(obj,languageCode: AppInfomation.localizeCode!)
                 mvo.rank_no = obj.object(forKey: "rank_no") as! Int
                 mvo.active = false
                 //NSLog(TAG,"\(mvo)")

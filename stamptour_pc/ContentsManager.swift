@@ -88,6 +88,20 @@ class ContentsManager : HttpResponse, HttpDownResponse{
         httpDownload?.download(path, reqParameter: parameters)
     }
 
+    func getRegionName(_ obj : NSDictionary, languageCode : Int ) -> String{
+        switch languageCode {
+        case LanguageInCase.kor.hashValue:
+            return obj.object(forKey: "region") as! String
+        case LanguageInCase.eng.hashValue:
+            return obj.object(forKey: "region_en") as! String
+        case LanguageInCase.jan.hashValue:
+            return obj.object(forKey: "region_jp") as! String
+        case LanguageInCase.chi.hashValue:
+            return obj.object(forKey: "region_cn") as! String
+        default:
+            return obj.object(forKey: "region") as! String
+        }
+    }
     
     func expanding(){
         
@@ -131,8 +145,6 @@ class ContentsManager : HttpResponse, HttpDownResponse{
     
     func HttpDownResult(_ reqPath : String, resCode: String, resMsg: String, resData: AnyObject) {
         //let data = resData["resultData"] as! NSDictionary
-    
-       
         let fileBrowser = FileBrowser.init()
         fileBrowser.setUnZip(file: "contents.zip")
         
