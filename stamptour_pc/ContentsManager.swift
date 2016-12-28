@@ -151,6 +151,7 @@ class ContentsManager : HttpResponse, HttpDownResponse{
     }
     
     func HttpFailureResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject){
+        UserDefaultManager.init().loggedOut(uvc: self.uvc!)
         if (resCode == "01"){
             
         }else if (resCode == "02"){

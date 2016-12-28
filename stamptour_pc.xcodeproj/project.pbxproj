@@ -84,6 +84,7 @@
 		3327C0B71DEFABC00081DE8F /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3327C0B61DEFABC00081DE8F /* KakaoOpenSDK.framework */; };
 		3327C0BD1DEFB3EC0081DE8F /* KOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3327C0BC1DEFB3EC0081DE8F /* KOManager.swift */; };
 		332FD34F1DFE76D800B85A19 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332FD34E1DFE76D800B85A19 /* TermsViewController.swift */; };
+		3348D6E31E1162580037D054 /* StampGuideOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3348D6E21E1162580037D054 /* StampGuideOverlay.swift */; };
 		335C97771D9A4A3F0066E25F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335C97761D9A4A3F0066E25F /* AppDelegate.swift */; };
 		335C977C1D9A4A3F0066E25F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 335C977A1D9A4A3F0066E25F /* Main.storyboard */; };
 		335C977F1D9A4A3F0066E25F /* stamptour_pc.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 335C977D1D9A4A3F0066E25F /* stamptour_pc.xcdatamodeld */; };
@@ -261,6 +262,7 @@
 		3327C0D91DFD93660081DE8F /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ja; path = ja.lproj/Info.plist; sourceTree = "<group>"; };
 		3327C0DA1DFD93680081DE8F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/Info.plist"; sourceTree = "<group>"; };
 		332FD34E1DFE76D800B85A19 /* TermsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
+		3348D6E21E1162580037D054 /* StampGuideOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StampGuideOverlay.swift; sourceTree = "<group>"; };
 		335C97731D9A4A3F0066E25F /* stamptour_pc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stamptour_pc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		335C97761D9A4A3F0066E25F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		335C977B1D9A4A3F0066E25F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -322,10 +324,10 @@
 		33D9341E1E03B2C20042F05D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		33D9341F1E03B2C30042F05D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		33D934211E03C4810042F05D /* LocalizationCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationCase.swift; sourceTree = "<group>"; };
-		33DBE0261DFE79B4007A9915 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
-		33DBE02A1DFE7AEF007A9915 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		33DBE02C1DFFA947007A9915 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		33DBE02E1E03B1ED007A9915 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		33DEABC61E1173C1005FC93B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		33DEABCB1E139CED005FC93B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		33E8F47D1DDC3FEB00FC1021 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		33E8F4811DE0093E00FC1021 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		33E8F4831DE4673700FC1021 /* HideCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideCell.swift; sourceTree = "<group>"; };
@@ -665,6 +667,7 @@
 				331B51821DD21A3200438111 /* StampDefaultManager.swift */,
 				331800C91DDAAC2C00AFD22E /* StampOverlay.swift */,
 				33E8F4861DE5274E00FC1021 /* StampSort.swift */,
+				3348D6E21E1162580037D054 /* StampGuideOverlay.swift */,
 			);
 			name = stamp;
 			sourceTree = "<group>";
@@ -1040,6 +1043,7 @@
 				33E8F4841DE4673700FC1021 /* HideCell.swift in Sources */,
 				335C97CF1D9A4D050066E25F /* JoinNickViewController.swift in Sources */,
 				33C1BC661DC59534001DC8DE /* StampAnimationView.swift in Sources */,
+				3348D6E31E1162580037D054 /* StampGuideOverlay.swift in Sources */,
 				33E8F4821DE0093F00FC1021 /* DetailViewController.swift in Sources */,
 				335C97C61D9A4D050066E25F /* ActionDisplay.swift in Sources */,
 				335C97D71D9A4D050066E25F /* MapViewController.swift in Sources */,
@@ -1113,9 +1117,9 @@
 			children = (
 				335C977B1D9A4A3F0066E25F /* Base */,
 				3327C0D71DFD8D120081DE8F /* en */,
-				33DBE0261DFE79B4007A9915 /* ja */,
-				33DBE02A1DFE7AEF007A9915 /* zh-Hans */,
 				33DBE02C1DFFA947007A9915 /* ko */,
+				33DEABC61E1173C1005FC93B /* ja */,
+				33DEABCB1E139CED005FC93B /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

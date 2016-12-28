@@ -61,6 +61,8 @@
 "main_stamp_sort_title" = "정렬";
 "main_stamp_sort_subtitle" = "원하는 정렬방법을 선택하세요";
 "main_stamp_share_not_social_login" = "소셜 로그인을 통해서만 가능합니다";
+"main_stamp_guide_seal" = "터치를 길게 눌러서 스탬프를 찍어주세요";
+"main_stamp_guide_hide" = "마을은 옆으로 밀어서 숨길수 있어요";
 
 "ranking_user_intro_part_1" = "님은";
 "ranking_user_intro_part_2" = "명중에";

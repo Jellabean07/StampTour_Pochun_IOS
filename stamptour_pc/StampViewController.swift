@@ -53,6 +53,9 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
         doWork() // 먼저 실행
         Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(StampViewController.doWork), userInfo: nil, repeats: true)
         
+        StampGuideOverlay.show()
+        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(StampViewController.guideExit), userInfo: nil, repeats: true)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -463,5 +466,9 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
     
     func doWork(){
         self.tableView.reloadData()
+    }
+    
+    func guideExit(){
+        StampGuideOverlay.hide()
     }
 }

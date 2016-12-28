@@ -76,13 +76,14 @@ class SplashViewController : UIViewController{
 //       }else{
 //           self.performSegue(withIdentifier: "showApp", sender: self)
 //       }
-        self.performSegue(withIdentifier: "showApp", sender: self)
-//        if let state : Bool = UserDefaultManager.init().getIsLoggedState(){
-//            UserDefaultManager.init().defaultLogin(uvc: self)
-//            print("\(self.TAG) : login state : \(state)")
-//        }else{
-//             self.performSegue(withIdentifier: "showApp", sender: self)
-//        }
+       // self.performSegue(withIdentifier: "showApp", sender: self)
+        print("\(self.TAG) : login state : \(UserDefaultManager.init().getIsLoggedState())")
+        if UserDefaultManager.init().getIsLoggedState(){
+            UserDefaultManager.init().defaultLogin(uvc: self)
+           
+        }else{
+             self.performSegue(withIdentifier: "showApp", sender: self)
+        }
         
     }
     

@@ -247,7 +247,7 @@
 "dJl-Gn-f47.normalTitle" = "Sign up";
 
 /* Class = "UILabel"; text = "터치해서 스탬프 찍기"; ObjectID = "dTP-7j-rdS"; */
-"dTP-7j-rdS.text" = "터치해서 스탬프 찍기";
+"dTP-7j-rdS.text" = "Please touch stamp";
 
 /* Class = "UIBarButtonItem"; title = "뒤로"; ObjectID = "dfX-VF-hD5"; */
 "dfX-VF-hD5.title" = "Back";

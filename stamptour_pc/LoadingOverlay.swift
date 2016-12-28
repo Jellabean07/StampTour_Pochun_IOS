@@ -11,6 +11,8 @@ import UIKit
 
 class LoadingOverlay{
     
+    
+    
     var overlayView = UIView()
     var activityIndicator = UIActivityIndicatorView()
     

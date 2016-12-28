@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>ko_KR</string>
 	<key>CFBundleDisplayName</key>
-	<string>뉴경주스탬프투어</string>
+	<string>신안스탬프투어</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -40,7 +40,7 @@
 	<key>FacebookAppID</key>
 	<string>1256362331100459</string>
 	<key>FacebookDisplayName</key>
-	<string>경주스탬프투어</string>
+	<string>신안스탬프투어</string>
 	<key>KAKAO_APP_KEY</key>
 	<string>527f0df26e167313b802571444d94111</string>
 	<key>LSApplicationQueriesSchemes</key>
