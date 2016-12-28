@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>ko_KR</string>
+	<string>ja_JP</string>
 	<key>CFBundleDisplayName</key>
-	<string>뉴경주스탬프투어</string>
+	<string>ShinanStampTour</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -40,7 +40,7 @@
 	<key>FacebookAppID</key>
 	<string>1256362331100459</string>
 	<key>FacebookDisplayName</key>
-	<string>경주스탬프투어</string>
+	<string>ShinanStampTour</string>
 	<key>KAKAO_APP_KEY</key>
 	<string>527f0df26e167313b802571444d94111</string>
 	<key>LSApplicationQueriesSchemes</key>
@@ -104,7 +104,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>당신의 위치는 현재 사용자 위치에서 스탬프 위치까지의 거리를 계산하는데 사용되고, 또한 스탬프 지역 안에 있어서 스탬프에 접근할 수 있는 경우에 안내를 주기 위해 사용됩니다</string>
+	<string>Your Location is used to estimate the distance from the current user’s position to stamp point, to notice while the user is in the stamp zone where stamp is accessible.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>App needs location servers for stuff</string>
 	<key>UILaunchStoryboardName</key>

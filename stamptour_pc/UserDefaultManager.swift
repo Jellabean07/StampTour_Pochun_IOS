@@ -131,7 +131,8 @@ class UserDefaultManager{
         self.UserDefault!.removeObject(forKey: "userNick")
         self.UserDefault!.removeObject(forKey: "userAccessToken")
         //self.UserDefault!.removeObjectForKey("LanguageCode")
-        self.UserDefault!.set(false, forKey: "isUserLoggedIn");
+        //self.UserDefault!.removeObject(forKey: "isUserLoggedIn")
+        self.UserDefault!.setValue(false, forKey: "isUserLoggedIn");
         self.UserDefault!.removeObject(forKey: "isLoggedInCase");
         self.UserDefault!.synchronize();
         
@@ -151,7 +152,7 @@ class UserDefaultManager{
         self.UserDefault!.setValue(nick, forKey: "userNick");
         self.UserDefault!.setValue(accessToken, forKey: "userAccessToken")
        // self.UserDefault!.setValue(code, forKey: "LanguageCode")
-        self.UserDefault!.set(true, forKey: "isUserLoggedIn");
+        self.UserDefault!.setValue(true, forKey: "isUserLoggedIn");
         self.UserDefault!.set(LoginCase, forKey: "isLoggedInCase");
         self.UserDefault!.synchronize();
         ContentsManager.init(uvc: uvc).versionCheck()

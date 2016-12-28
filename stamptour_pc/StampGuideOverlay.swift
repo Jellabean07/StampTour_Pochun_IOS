@@ -1,16 +1,16 @@
 //
-//  StampOverlay.swift
+//  StampGuideOverlay.swift
 //  stamptour_pc
 //
-//  Created by CSC-PC on 2016. 11. 15..
+//  Created by CSC-PC on 2016. 12. 26..
 //  Copyright © 2016년 thatzit. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class StampOverlay{
-
+class StampGuideOverlay{
+    
     
     static var isOverlay : Bool = false
     
@@ -56,31 +56,27 @@ class StampOverlay{
         
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 275))
         //add images to the array
-        var imagesListArray : [UIImage] = []
-        //use for loop
-        for position in 1...5
-        {
-            
-            var strImageName : String = "stamp_success\(position).png"
-            var image  = UIImage(named:strImageName)
-            imagesListArray.append(image!)
-        }
-
+        let strImageName : String = "img_stamp_popup.png"
+        let image  = UIImage(named:strImageName)
+    
+        
         imageView.center = overlay.center
-        imageView.animationImages = imagesListArray;
-        imageView.animationDuration = 1.5
-        imageView.startAnimating()
+        imageView.image = image
+    
         overlay.addSubview(imageView)
         
-        let longPressGesture = UILongPressGestureRecognizer()
-        longPressGesture.minimumPressDuration = 1.0
+        let tapPressGesture = UITapGestureRecognizer()
+
         
         // add target for long press
-        longPressGesture.addTarget(self, action: #selector(StampOverlay.longPressSeal))
+        tapPressGesture.addTarget(self, action: #selector(StampGuideOverlay.tapPress))
+        
+
         
         // add long press gesture in to view
         // Create label
-        let guide_msg = NSLocalizedString("main_stamp_guide_seal", comment: "터치를 길게 눌러서 스탬프를 찍어주세요")
+        
+        let guide_msg = NSLocalizedString("main_stamp_guide_hide", comment: "마을은 옆으로 밀어서 숨길수 있어요")
         if let textString : String  = guide_msg {
             let label = UILabel()
             label.text = textString
@@ -92,13 +88,13 @@ class StampOverlay{
         
         
         // Animate the overlay to show
-//        UIView.beginAnimations(nil, context: nil)
-//        UIView.setAnimationDuration(0.5)
-//        overlay.alpha = overlay.alpha > 0 ? 0 : 0.5
-//        UIView.commitAnimations()
-//        
+        //        UIView.beginAnimations(nil, context: nil)
+        //        UIView.setAnimationDuration(0.5)
+        //        overlay.alpha = overlay.alpha > 0 ? 0 : 0.5
+        //        UIView.commitAnimations()
+        //
         currentOverlay = overlay
-        currentOverlay?.addGestureRecognizer(longPressGesture)
+        currentOverlay?.addGestureRecognizer(tapPressGesture)
     }
     
     
@@ -108,12 +104,10 @@ class StampOverlay{
             currentOverlay =  nil
         }
     }
-
-    @objc static func longPressSeal(){
-        print("long press")
+    @objc static func tapPress(){
+        print("tap press")
         self.hide()
-        self.delegate?.Seal(self.town_code!, latitude: self.latitude!, longitude: self.longitude!)
     }
-   
+  
     
 }

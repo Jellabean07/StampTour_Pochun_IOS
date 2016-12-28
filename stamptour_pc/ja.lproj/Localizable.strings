@@ -6,109 +6,111 @@
   Copyright © 2016년 thatzit. All rights reserved.
 */
 
-"comm_cancel" = "취소";
-"comm_ok" = "예";
-"comm_no" = "아니오";
+"comm_cancel" = "キャンセル";
+"comm_ok" = "はい";
+"comm_no" = "いいえ";
 
-"login_alert_find_id" = "아이디 찾기";
-"login_alert_find_pass" = "비밀번호 찾기";
-"login_alert_find_title" = "아이디 및 비밀번호 찾기";
-"login_alert_find_subtitle" = "원하는 정보를 선택하세요";
-"login_alert_not_enough" = "아이디또는 패스워드를 입력해주세요";
-"login_alert_fail" = "로그인중 오류가 발생했습니다";
-"login_alert_match" = "아이디 또는 비밀번호가 잘못되었습니다";
-
-
-"join_alert_check_duplicate_id_not_email" = "이메일 형식으로 입력해주세요";
-"join_alert_check_duplicate_id_trim_input" = "아이디를 입력해주세요";
-"join_alert_check_duplicate_id_duplicate" = "중복된 아이디명입니다";
-"join_alert_check_duplicate_id_not_duplicate" = "사용할 수 있는 아이디명입니다";
-
-"join_alert_check_duplicate_nick_not_invalid" = "6자이내 국문이나 영문으로 입력해주세요";
-"join_alert_check_duplicate_nick_trim_input" = "별명을 입력해주세요";
-"join_alert_check_duplicate_nick_duplicate" = "중복된 별명입니다";
-"join_alert_check_duplicate_nick_not_duplicate" = "사용할 수 있는 별명입니다";
-
-"join_alert_join_confirm_pass_not_invalid" = "비밀번호는 6~16자 영문 소문자, 숫자를 조합하세요";
-"join_alert_join_confirm_pass_not_match" = "비밀번호가 일치하지 않습니다";
-"join_alert_join_confirm_nick_need_duplicate" = "별명 중복확인이 필요합니다";
-"join_alert_join_confirm_id_need_duplicate" = "아이디 중복확인이 필요합니다";
-"join_alert_join_confirm_trim_input" = "빈칸을 모두 채워주세요";
-"join_alert_join_confirm_success" = "회원가입 되었습니다";
-
-"join_social_alert_check_duplicate_nick_not_invalid" = "6자이내 국문이나 영문으로 입력해주세요";
-"join_social_alert_check_duplicate_nick_trim_input" = "별명을 입력해주세요";
-"join_social_alert_check_duplicate_nick_duplicate" = "중복된 별명입니다";
-"join_social_alert_check_duplicate_nick_not_duplicate" = "사용할 수 있는 별명입니다";
-"join_social_alert_join_confirm_nick_need_duplicate" = "별명 중복확인이 필요합니다";
-"join_social_alert_join_confirm_trim_input" = "빈칸을 모두 채워주세요";
-
-"forgot_pass_alert_not_enough" = "정보를 모두 입력해주세요";
-"forgot_pass_alert_display_temp_password" = "임시 비밀번호";
-"forgot_pass_alert_not_find_password" = "비빌번호를 찾을 수 가 없습니다";
-
-"forgot_id_alert_not_enough" = "정보를 모두 입력해주세요";
-"forgot_id_alert_display_temp_password" = "당신의 계정은 ";
-"forgot_id_alert_not_find_password" = "아이디를 찾을 수 가 없습니다";
-
-"main_stamp_user_intro_part_1" = "님은";
-"main_stamp_user_intro_part_2" = "등급입니다";
-
-"main_stamp_sort_by_standard" = "기본";
-"main_stamp_sort_by_distance" = "거리순";
-"main_stamp_sort_by_name" = "이름순";
-"main_stamp_sort_by_region" = "권역순";
-"main_stamp_sort_title" = "정렬";
-"main_stamp_sort_subtitle" = "원하는 정렬방법을 선택하세요";
-"main_stamp_share_not_social_login" = "소셜 로그인을 통해서만 가능합니다";
-
-"ranking_user_intro_part_1" = "님은";
-"ranking_user_intro_part_2" = "명중에";
-"ranking_user_intro_part_3" = "위입니다";
-"ranking_count_stamp" = "찍은 스탬프";
-
-"more_menu_list_item_account" = "계정 관리";
-"more_menu_list_item_gift" = "선물신청 및 관리";
-"more_menu_list_item_hide" = "숨김 관리";
-"more_menu_list_item_survey" = "설문 하기";
-
-"survey_additional_msg" = "기타의견을 입력하세요";
-"survey_alert_send_succeess" = "설문이 작성 되었습니다";
-"survey_alert_send_fail_01" = "설문 작성 중에 오류가 발생했습니다";
-"survey_alert_send_fail_02" = "설문 작성 중에 오류가 발생했습니다";
-"survey_alert_send_fail_03" = "이미 설문 조사에 참여하셨습니다";
-
-"gift_manage_complete" = "선물신청 완료";
-"gift_manage_press_send" = "눌러서 선물을 신청하세요";
-"gift_manage_remain" = "선물 신청까지";
-
-"gift_alert_send_succees" = "선물이 신청되었습니다";
-"gift_alert_send_fail" = "선물 신청 중에 오류가 발생했습니다";
-
-"acc_alert_change_pass_not_invalid" = "비밀번호는 6~16자 영문 소문자, 숫자를 조합하세요";
-"acc_alert_change_pass_not_match" = "비밀번호가 일치하지 않습니다";
-"acc_alert_change_success" = "정상적으로 비밀번호가 변경 되었습니다";
-"acc_alert_change_fail" = "비밀번호 변경중 오류가 발생했습니다";
-"acc_alert_delete_success" = "정상적으로 회원탈퇴 되었습니다";
-"acc_alert_delete_fail" = "회원탈퇴중 오류가 발생했습니다";
-"acc_alert_delete_check" = "정말 삭제 하시겠습니까?";
+"login_alert_find_id" = "ID探し";
+"login_alert_find_pass" = "PW探し";
+"login_alert_find_title" = "ID, PW探し";
+"login_alert_find_subtitle" = "選択してください";
+"login_alert_not_enough" = "加入する際に入力した情報を入力いて下さい";
+"login_alert_fail" = "エラーが発生しました";
+"login_alert_match" = "有効ではありません";
 
 
+"join_alert_check_duplicate_id_not_email" = "有効な電子メールではありません";
+"join_alert_check_duplicate_id_trim_input" = "電子メールを入力して下さい";
+"join_alert_check_duplicate_id_duplicate" = "使用中のIDです";
+"join_alert_check_duplicate_id_not_duplicate" = "使用可能です";
 
-"terms_msg1" = "1. 수집하는 개인정보 항목 및 수집방법\r\n\r\n 댓츠잇은 회원가입, 원활한 고객상담, 각종 서비스 등 기본적인 서비스 제공을 위한 개인정보를 수집할 수 있습니다. 이용자의 기 본적 인권 침해의 우려가 있는 민감한 개인 정보(인종, 사상 및 신조, 정치적 성향 이나 범죄기록, 의료정보 등)는 기본적으로 수집하지 않습니다. 단, 불가피하게 수집이 필요한 경우 반드시 사전에 동의 절차를 거치도록 하겠습니다. \r\n\r\n •예상 수집항목 : 이름, 비밀번호, 휴대폰 번호, 이메일 주소\r\n\r\n •개인정보 수집 방법 : 앱 회원가입, 이벤트 응모, 회원정보 수정\r\n\r\n";
+"join_alert_check_duplicate_nick_not_invalid" = "６文字以内で入力して下さい";
+"join_alert_check_duplicate_nick_trim_input" = "ニックネームを入力して下さい";
+"join_alert_check_duplicate_nick_duplicate" = "使用中のニックネームです";
+"join_alert_check_duplicate_nick_not_duplicate" = "使用可能です";
 
-"terms_msg2" = "2. 개인정보의 수집 및 이용목적\r\n\r\n 댓츠잇은 수집한 개인정보를 다음의 목적을 위해 활용합니다. 이용자가 제공한 모든 정보는 하기 목적에 필요한 용도 이외로는 사 용되지 않으며 이용 목적이 변경될 시에는 사전 동의를 구할 것입니다.\r\n\r\n •회원 관리 : 회원제 서비스 이용에 따른 본인확인, 개인 식별, 불량회원의 부정 이용 방지와 비인가 사용 방지, 가입 의사 확 인, 만 14세 아동 개인정보 수집 시 법정 대리인 동의여부 확인, 불만처리 등 민원처리, 고지사항 전달\r\n\r\n •마케팅 및 광고에 활용 : 신규 서비스 개발과 이벤트 행사에 따른 정보 전달 및 맞춤 서비스 제공, 인구통계학적 특성에 따른 서비스 제공, 접속 빈도 파악 또는 회원의 서비스 이용에 대한 통계\r\n\r\n";
+"join_alert_join_confirm_pass_not_invalid" = "６文字以内で英数字を組み合わせて下さい";
+"join_alert_join_confirm_pass_not_match" = "パスワードが一致しません";
+"join_alert_join_confirm_nick_need_duplicate" = "ニックネーム、電子メールの重複チェックをして下さい";
+"join_alert_join_confirm_id_need_duplicate" = "ニックネーム、電子メールの重複チェックをして下さい";
+"join_alert_join_confirm_trim_input" = "パスワードを入力して下さい";
+"join_alert_join_confirm_success" = "加入成功";
 
-"terms_msg3" = "3. 개인정보의 보유 및 이용기간 \r\n\r\n 댓츠잇은 회원 가입일로부터 서비스를 제공하는 기간 동안에 한하여 이용자의 개인정보를 보유 및 이용하게 됩니다. 회원 탈퇴를 요청하거나 개인정보의 수집 및 이용에 대한 동의를 철회하는 경우 또는 수집 및 이용목적이 달성되거나 보유 및 이용기간이 종료 한 경우에는 원칙적으로 해당 정보를 지체 없이 파기합니다. 다만, 다음의 정보에 대해서는 아래의 이유로 명시한 기간 동안 보존 합니다. \r\n\r\n •보존 항목 : 서비스 가입, 이용 기록\r\n\r\n •보존이유 : 서비스 이용의 혼선 방지\r\n\r\n 그리고 관계법령의 규정에 의하여 보존할 필요가 있는 경우 회사는 아래와 같이 관계법령에서 정한 일정한 기간 동안 회원정보를 보관합니다.\r\n\r\n •보존 항목 : 서비스이용 관련 개인정보(로그인기록)\r\n\r\n •보존 이유 : 통신비밀보호법 \r\n\r\n •보존 기간 : 3개월\r\n\r\n •보존 항목 : 소비자의 불만 또는 분쟁처리에 관한 기록\r\n\r\n •보존 이유 : 전자상거래 등에서의 소비자보호에 관한 법률\r\n\r\n •보존 기간 : 3년\r\n\r\n •보존 항목 : 계약 또는 청약철회, 대금결제 및 재화 등의 공급에 관한 기록\r\n\r\n •보존 이유 : 전자상거래 등에서의 소비자보호에 관한 법률\r\n\r\n •보존 기간 : 5년\r\n\r\n •보존 항목 : 세법이 규정하는 모든 거래에 관한 장부 및 증빙서류\r\n\r\n •보존 이유 : 국세기본법, 법인세법\r\n\r\n •보존 기간 : 5년\r\n\r\n •보존 항목 : 전자금융 거래에 관한 기록\r\n\r\n •보존 이유 : 전자금융거래법\r\n\r\n •보존 기간 : 5년\r\n\r\n";
+"join_social_alert_check_duplicate_nick_not_invalid" = "６文字以内で入力して下さい";
+"join_social_alert_check_duplicate_nick_trim_input" = "ニックネームを入力して下さい";
+"join_social_alert_check_duplicate_nick_duplicate" = "使用中のニックネームです";
+"join_social_alert_check_duplicate_nick_not_duplicate" = "使用可能です";
+"join_social_alert_join_confirm_nick_need_duplicate" = "ニックネーム重複チェックをして下さい";
+"join_social_alert_join_confirm_trim_input" = "必要な情報を全て入力して下さい";
 
-"terms_msg4" = "4. 개인정보의 파기절차 및 방법\r\n\r\n 댓츠잇은 원칙적으로 개인정보 수집 및 이용목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다. 파기절차 및 방법은 다음과 같습니다.\r\n\r\n 1. 파기절차\r\n\r\n •이용자가 회원가입 등을 위해 입력한 정보는 목적이 달성된 후 별도의 DB로 옮겨져(종이의 경우 별도의 서류함) 내부 방침 및 기타 관련 법령에 의한 정보보호 사유에 따라(보유 및 이용기간 참조) 일정 기간 저장된 후 파기됩니다.\r\n\r\n •별도 DB로 옮겨진 개인정보는 법률에 의한 경우가 아니고서는 다른 목적으로 이용되지 않습니다.\r\n\r\n 2. 파기방법\r\n\r\n •전자적 파일형태로 저장된 개인정보는 기록을 재생할 수 없는 기술적 방법을 사용하여 삭제합니다.\r\n\r\n •종이에 출력된 개인정보는 분쇄기로 분쇄하거나 소각을 통하여 파기합니다.\r\n\r\n";
+"forgot_pass_alert_not_enough" = "必要な情報を全て入力して下さい";
+"forgot_pass_alert_display_temp_password" = "仮パスワード";
+"forgot_pass_alert_not_find_password" = "パスワードを探すことが出来ませんでした";
 
-"terms_msg5" = "5. 개인정보 제공\r\n\r\n 댓츠잇은 이용자들의 개인정보를 '2. 개인정보의 수집목적 및 이용목적'에서 고지한 범위 내에서 사용하며, 이용자의 사전 동의 없이는 동 범위를 초과하여 이용하거나 원칙적으로 이용자의 개인정보를 외부에 제공하지 않습니다. 단, 다음의 경우에는 주의를 기울여 개인정보를 이용 및 제공할 수 있습니다.\r\n\r\n •이용자들이 사전에 동의한 경우\r\n\r\n 개인정보 제공 이전에 개인정보 제공자, 개인정보 제공 목적, 제공하는 개인정보의 항목 및 보유기간을 별도로 알리고 동의절차를 거치며, 이에 이용자가 동의하지 않을 경우에는 제 3자에게 이용자의 개인정보를 제공하지 않습니다.\r\n\r\n •서비스의 제공에 관한 계약의 이행을 위하여 필요한 개인정보로서 경제적/기술적인 사유로 통상의 동의를 받는 것이 현저히 곤란 한 경우\r\n\r\n •법령의 규정에 의거하거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우\r\n\r\n";
+"forgot_id_alert_not_enough" = "必要な情報を全て入力して下さい";
+"forgot_id_alert_display_temp_password" = "あなたのアカウントは ";
+"forgot_id_alert_not_find_password" = "IDを探すことが出来ませんでした";
 
-"terms_msg6" =  "6. 이용자 및 법정대리인의 권리와 그 행사방법\r\n\r\n '이용자 및 법정대리인(본인의 위임을 받지 않고도 법률의 규정에 의하여 대리권의 효력이 발생하는 자로 미성년자에 대한 친권자 나 후견인 등을 말함)은 언제든지 등록되어 있는 자신 혹은 당해 만 14세 미만 아동의 개인정보를 조회하거나 수정할 수 있으며 가입해지를 요청할 수도 있습니다. 이용자 혹은 만 14세 미만 아동의 개인정보 조회/수정을 위해서는 '개인정보변경'(또는 '회원 정보관리' 등)을 통하여 가능하며, 가입해지(동의철회)를 위해서는 '회원탈퇴'를 클릭하여 본인 확인 절차를 거치신 후 직접 열 람, 정정 또는 탈퇴가 가능합니다. 또는 개인정보관리책임자에게 서면, 전화 또는 이메일로 연락하시면 지체 없이 조치하겠습니다. 이용자의 개인정보의 오류에 대한 정정을 요청한 경우에는 정정을 완료하기 전까지 당해 개인정보를 이용 또는 제공하지 않습니다. 또한 잘못된 개인정보를 제3자에게 이미 제공한 경우에는 정정 처리결과를 제3자에게 지체 없이 통지하여 정정이 이루어지도록 하 겠습니다. 다음은 이용자 혹은 법정 대리인의 요청에 의해 해지 또는 삭제된 개인정보는 '3. 개인정보의 보유 및 이용기간'에 명 시된 바에 따라 처리하고 그 외의 용도로 열람 또는 이용할 수 없도록 처리하고 있습니다. \r\n\r\n";
+"main_stamp_user_intro_part_1" = "您";
+"main_stamp_user_intro_part_2" = "是";
 
-"terms_msg7" = "7. 개인정보의 기술적, 관리적 보호 대책\r\n\r\n 댓츠잇은 이용자의 개인정보를 취급함에 있어 개인정보가 분실, 도난, 누출, 변조 또는 훼손되지 않도록 안정성 확보를 위하여 다 음과 같은 기술적, 관리적 대책을 강구하고 있습니다.\r\n\r\n •개인정보 암호화\r\n\r\n 이용자의 개인정보는 비밀번호에 의해 보호되며, 중요한 데이터는 파일 및 전송 데이터를 암호화하거나 파일 잠금 기능을 사용하는 등의 별도 보안기능을 통해 보호 하고 있습니다.\r\n\r\n •개인정보 취급 직원의 교육\r\n\r\n 개인정보관련 취급 직원은 담당자에 한정시켜 최소화 하고 새로운 보안기술의 습득 및 개인정보보호 의무에 관해 정기적인 교육을 실시하며 별도의 비밀번호를 부여하여 접근 권한을 관리하는 등 관리적 대책을 시행하고 있습니다.\r\n\r\n •개인 아이디와 비밀번호 관리\r\n\r\n 이용자가 사용하는 ID와 비밀번호는 원칙적으로 이용자만이 사용하도록 되어 있습니다. 댓츠잇은 이용자의 개인적인 부주의로 ID, 비밀번호 등 개인정보가 유출되어 발생한 문제와 기본적인 인터넷의 위험성 때문에 일어나는 일들에 대해 책임을 지지 않습니다. 비밀번호에 대한 보안 의식을 가지고 비밀번호를 자주 변경하며 공용PC에서의 로그인시 개인정보가 유출되지 않도록 각별한 주의를 기울여 주시기 바랍니다. \r\n\r\n";
+"main_stamp_sort_by_standard" = "基本";
+"main_stamp_sort_by_distance" = "町の順番";
+"main_stamp_sort_by_name" = "名前別";
+"main_stamp_sort_by_region" = "エリア別";
+"main_stamp_sort_title" = "整列";
+"main_stamp_sort_subtitle" = "希望のソート方法を選択してください";
+"main_stamp_share_not_social_login" = "SNSを介してのみ可能です";
+"main_stamp_guide_seal" = "スタンプを長押し撮ってください";
+"main_stamp_guide_hide" = "村は、スライドさせて隠すことができますよ";
 
-"terms_msg8" = "0. 개인정보에 관한 민원서비스\r\n\r\n 댓츠잇은 이용자의 개인정보를 보호하고 개인정보와 관련한 불만을 처리하기 위하여 아래와 같이 개인정보관리책임자를 지정하고 있 습니다. 이용자는 댓츠잇의 서비스를 이용하시며 발생하는 모든 개인정보보호 관련 민원을 개인정보관리책임자로 신고하실 수 있습 니다. 댓츠잇은 이용자들의 신고사항에 대해 신속하게 충분한 답변을 드릴 것입니다. \r\n\r\n 개인정보 관리책임자\r\n 성명 : 김범수\r\n 전화 : 010-7638-0901\r\n 메일 : lizard70@naver.com\r\n\r\n";
+"ranking_user_intro_part_1" = "您";
+"ranking_user_intro_part_2" = " 名中";
+"ranking_user_intro_part_3" = "位是";
+"ranking_count_stamp" = "撮ったスタンプ";
 
-"terms_msg9" = "12. 부칙\r\n\r\n 이 개인정보취급방침은 2016년 5월 1일부터 적용되며, 법령, 정책 또는 보안기술의 변경에 따라 내용의 추가, 삭제 및 수정이 있을 시에는 변경사항의 시행일의 최소 7일 전부터 사이트의 공지사항을 통하여 고지할 것 입니다. 다만, 회원의 권리 또는 의무 에 중요한 내용의 변경은 최소 30일전에 고지하겠습니다.\r\n\r\n •개인정보취급방침 시행일자 : 2016년 5월 1일\r\n\r\n";
+"more_menu_list_item_account" = "アカウント管理";
+"more_menu_list_item_gift" = "プレゼントの申し込み";
+"more_menu_list_item_hide" = "隠し管理";
+"more_menu_list_item_survey" = "アンケート";
+
+"survey_additional_msg" = "その他のコメントを入力してください";
+"survey_alert_send_succeess" = "アンケート終了";
+"survey_alert_send_fail_01" = "アンケート中にエラーが発生しました";
+"survey_alert_send_fail_02" = "アンケート中にエラーが発生しました";
+"survey_alert_send_fail_03" = "すでにアンケートの調査に参加しています";
+
+"gift_manage_complete" = "プレゼントの申し込み完了";
+"gift_manage_press_send" = "押してプレゼントを申し込んで下さい";
+"gift_manage_remain" = "プレゼントをもらうまで";
+
+"gift_alert_send_succees" = "プレゼントが申し込まれました";
+"gift_alert_send_fail" = "プレゼントの申し込み中にエラーが発生しました";
+
+"acc_alert_change_pass_not_invalid" = "パスワードは6～16文字で英数字を組み合わせて設定して下さい。";
+"acc_alert_change_pass_not_match" = "パスワードが一致しません";
+"acc_alert_change_success" = "パスワード変更に成功";
+"acc_alert_change_fail" = "パスワードの変更中にエラーが発生しました";
+"acc_alert_delete_success" = "会員脱退に成功";
+"acc_alert_delete_fail" = "会員脱退中にエラーが発生しました";
+"acc_alert_delete_check" = "本当に削除しますか？";
+
+
+
+"terms_msg1" = "1. 収集する個人情報の項目及び方法\r\n\r\nThat's Itは会員加入、円滑な顧客相談、各種サービスなど基本的なサービス提供のために個人情報を収集させて頂きます。利用者の基本的な人権侵害が憂慮される個人情報(人種、思想及び信條、政治的性向や犯罪記録、医療情報など)は基本的に収集致しません。ただし、不可避に収集が必要な場合は必ず前もって同意の手続きを経るように致します。\r\n\r\n• 収集の予想項目 : 名前、パスワード、ケータイの番号、メールアドレス\r\n\r\n• 個人情報の収集方法 : ウェブ会員加入、イベントの応募、会員情報の修正";
+
+"terms_msg2" = "2. 個人情報の収集及び利用目的\r\n\r\nThat's Itは収集した個人情報を次の目的のために活用致します。利用者が提供したすべての情報は下記の目的に必要な用途以外では使用せず、利用目的が変更される場合は事前に同意を求めます。\r\n\r\n• 会員管理 : 会員制のサービス利用による本人の確認、個人の識別、不良会員の不正利用の防止と否認使用の防止、加入意思の確認、満14歳未満の児童の個人情報収集の際における法廷代理人の同意可否の確認、クレームなどの請願処理、告知事項の伝達\r\n\r\n• マーケティング及び広告に活用 : 新規サービスの開発とイベント行事による情報伝達及びオーダーメードサービスの提供、人口統計学的特性によるサービスの提供、接続頻度の把握または会員のサービス利用に対する統計";
+
+"terms_msg3" = "3. 個人情報の保有及び利用期間\r\n\r\nThat's Itは会員加入日からサービスを提供する期間に限って利用者の個人情報を保有及び利用致します。 会員脱退を要請したり個人情報の収集及び利用に対する同意を撤回する場合、または収集及び利用目的が達成されたり保有及び利用期間が終了した場合には、原則的に該当の情報を透かさず破棄致します。ただし、次の情報に対しては下記の理由で明示した期間保存致します。\r\n\r\n• 保存項目 : サービス加入、利用記録\r\n\r\n• 保存理由 : サービス利用の混線防止\r\n\r\nそして関係法令の規定によって保存する必要がある場合、会社は下記のように関係法令で定めた一定の期間、会員の情報を保管致します。\r\n\r\n• 保存項目 : サービス利用関連の個人情報(ログイン記録)\r\n\r\n• 保存理由 : 通信秘密保護法\r\n\r\n• 保存期間 : 3ヶ月\r\n\r\n• 保存項目 : 消費者のクレームまたは紛争処理に関する記録\r\n\r\n• 保存理由 : 電子商取引などでの消費者保護に関する法律\r\n\r\n• 保存期間 : 3年\r\n\r\n• 保存項目 : 契約または請約撤回、代金決済及び財貨などの供給に関する記録\r\n\r\n• 保存理由 : 電子商取引などでの消費者保護に関する法律\r\n\r\n• 保存期間 : 5年\r\n\r\n• 保存項目 : 税法が規定するすべての取り引きに関する帳簿及び証拠書類\r\n\r\n• 保存理由 : 国税基本法、法人税法\r\n\r\n• 保存期間 : 5年\r\n\r\n• 保存項目 : 電子金融取り引きに関する記録\r\n\r\n• 保存理由 : 電子金融取引法\r\n\r\n• 保存期間 : 5年";
+
+"terms_msg4" = "4. 個人情報の破棄手続き及び方法\r\n\r\nThat's　Itは原則的に、個人情報の収集及び利用目的が達成された後は、該当の情報を透かさず破棄致します。 破棄手続き及び方法は次の通りです。\r\n\r\n1. 破棄手続き\r\n\r\n• 利用者が会員加入などのために入力した情報は目的が達成された後、別途のDBに移されて(紙の場合は別途の書類箱)内部の方針及びその他の関連法令による情報保護の事由によって(保有及び利用期間参照) 一定期間保存された後破棄されます。\r\n\r\n• 別途のDBに移された個人情報は、法律による場合を除いて他の目的に利用されることはありません。\r\n\r\n2. 破棄方法\r\n\r\n• 電子的ファイル形態に保存された個人情報は、記録の再生が不可能な技術的方法で削除致します。\r\n\r\n• 紙に出力された個人情報は、シュレッダーにかけたり焼却を通じて破棄致します。";
+
+"terms_msg5" = "5. 個人情報の提供\r\n\r\nThat's Itは利用者の個人情報を '2. 個人情報の収集及び利用目的'で告知した範囲内でのみ使用し、利用者の事前同意なく同範囲を超過して利用したりなど、原則的に利用者の個人情報を外部に提供致しません。ただし、次の場合には注意しながら個人情報を利用及び提供することが可能です。\r\n\r\n• 利用者が前もって同意した場合\r\n\r\nただし、個人情報の提供以前に提供者、提供目的、提供する個人情報の項目及び保有期間を別途に知らせて同意手続きを経、これに利用者が同意しない場合は第3者に利用者の個人情報を提供致しません。\r\n\r\n• サービスの提供に関する契約の移行のために必要な個人情報として、経済的/技術的な事由で通常の同意を受けるのがかなり困難な場合\r\n\r\n• 法令の規定に基づいたり、捜査目的として法令で決まった手続きや方法によって捜査機関の要求がある場合";
+
+"terms_msg6" =  "6. 利用者及び法定代理人の権利とその行事方法\r\n\r\n利用者及び法定代理人(本人の委任を受けていなくても法律の規定によって代理権の効力が生ずる者で未成年者に対する親権者や後見人などを言う)はいつでも登録されている本人あるいは当該満14歳未満の児童の個人情報を問い合わせたり修正することが出来、加入解約を要請することも出来ます。利用者あるいは満14歳未満の児童の個人情報の問い合わせ/修正のためには '個人情報の変更'(または '会員情報の管理' など)を通じて出来、加入解約(同意撤回)のためには '会員脱退'をクリックして本人確認の手続きを経た後、直接閲覧、訂正または脱退が可能です。または個人情報の管理責任者に書面、電話や電子メールで連絡すれば透かさず措置致します。利用者の個人情報のエラーに対する訂正を要請する場合には、訂正を完了するまでは当該の個人情報を利用または提供致しません。また誤った個人情報を第3者にすでに提供した場合には、訂正処理の結果を第3者に透かさず通知して訂正が成立するように致します。次に利用者あるいは法廷代理人の要請によって解約または削除された個人情報は '3. 個人情報の保有及び利用期間'に明示されているところに従って処理し、それ以外の用途で閲覧または利用することが出来ないように処理しています。";
+
+"terms_msg7" = "7. 個人情報の技術的、管理的保護対策\r\n\r\nThat's Itは利用者の個人情報を扱うにあたって個人情報が紛失、盗難、漏出、変造または毀損されないよう、安定性確保のために次のような技術的、管理的対策を講じています。\r\n\r\n• 個人情報の暗号化\r\n\r\n利用者の個人情報はパスワードによって保護されており、重要なデータはファイル及び転送データを暗号化したり、ファイル施錠機能を使うなど別途の保安機能を通じて保護しています。\r\n\r\n• 個人情報の取り扱いを行う職員の教育\r\n\r\n個人情報関連の取り扱いを行う職員は担当者に限定して最小化し、新しい保安技術の習得及び個人情報の保護義務に関する定期的な教育を実施し、別途のパスワードを付与して接近権限を管理するなど対策を講じています。\r\n\r\n• 個人IDとパスワードの管理\r\n\r\n利用者が使う IDとパスワードは原則的に利用者だけが使うようになっています。That's  Itは利用者の個人的な不注意で ID、パスワードなど個人情報が流出して発生した問題や、基本的なインターネットの危険性のため起こったことに対しては責任を負いません。パスワードに対する保安意識を持ってパスワードはしばしば変更し、共用のPCでログインする際には個人情報が流出しないよう格別の注意を行って下さい。";
+
+"terms_msg8" = "10. 個人情報に関する請願サービス\r\n\r\nThat's Itは利用者の個人情報を保護し個人情報に関連するクレームを処理するため、下記のように個人情報の管理責任者を指定しています。利用者はThat's Itのサービスを利用しながら発生するすべての個人情報の保護に関連する請願を個人情報の管理責任者に届けることが可能です。That's Itは利用者の申告事項に対して速かに十分な返事を致します。\r\n\r\n個人情報の管理責任者\r\n\r\n氏名 : キム・ボムス\r\n\r\n電話 : 010-7638-0901\r\n\r\nメール : lizard70@naver.com";
+
+"terms_msg9" = "12. 付則\r\n\r\nこの個人情報の取り扱い方針は2016年12月1日から適用され、法令、政策または保安技術の変更によって内容の追加、削除及び修正を行う際には、変更事項の施行日の最小7日前からサイトの告知事項を通じて告知致します。ただし、会員の権利または義務として重要な内容の変更は、最小30日前に告知致します。\r\n\r\n• 個人情報の取り扱い方針施行日 : 2016年 12月 1日";

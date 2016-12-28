@@ -62,6 +62,8 @@
 "main_stamp_sort_title" = "Sort";
 "main_stamp_sort_subtitle" = "Please select";
 "main_stamp_share_not_social_login" = "You use not social account.";
+"main_stamp_guide_seal" = "Please press and hold the touch stamp.";
+"main_stamp_guide_hide" = "You can push then hide town";
 
 "ranking_user_intro_part_1" = " is";
 "ranking_user_intro_part_2" = "out of";
