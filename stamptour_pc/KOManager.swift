@@ -112,7 +112,7 @@ class KOManager : HttpResponse{
             "loggedincase" : LoggedInCase.kakaoLogin.description,
             "id" : userId
         ]
-        
+        self.userId = userId
         self.httpRequest!.connection(path, reqParameter: parameters)
     }
     

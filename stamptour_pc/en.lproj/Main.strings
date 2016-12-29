@@ -63,7 +63,7 @@
 "9Xp-MR-KBY.normalTitle" = "Kakaotalk";
 
 /* Class = "UIButton"; normalTitle = "중복체크"; ObjectID = "9sS-Uq-KsI"; */
-"9sS-Uq-KsI.normalTitle" = "Check duplication";
+"9sS-Uq-KsI.normalTitle" = "Check";
 
 /* Class = "UITextField"; placeholder = "별명을 입력하세요"; ObjectID = "AZQ-pu-QW0"; */
 "AZQ-pu-QW0.placeholder" = "Input nickname";
@@ -78,7 +78,7 @@
 "B7h-MW-D2Y.text" = "Password should be the mix between english lowercases and numbers from min 6 to max 16.";
 
 /* Class = "UIButton"; normalTitle = "중복체크"; ObjectID = "BAp-RJ-fZ0"; */
-"BAp-RJ-fZ0.normalTitle" = "Check duplication";
+"BAp-RJ-fZ0.normalTitle" = "Check";
 
 /* Class = "UINavigationItem"; title = "아이디찾기"; ObjectID = "Bcw-Pe-npp"; */
 "Bcw-Pe-npp.title" = "Find ID";
@@ -121,6 +121,9 @@
 
 /* Class = "UILabel"; text = "권역"; ObjectID = "IKe-Id-dWv"; */
 "IKe-Id-dWv.text" = "Region";
+
+/* Class = "UIButton"; normalTitle = "가입신청을 누르시면 개인정보취급방침에 동의한것으로 간주됩니다"; ObjectID = "JCR-Cp-drO"; */
+"JCR-Cp-drO.normalTitle" = "If you click confirm button, you will be considered to agree to <u>Privacy Policy<\u>";
 
 /* Class = "UIButton"; normalTitle = "score5"; ObjectID = "Jlx-Ts-2Ye"; */
 "Jlx-Ts-2Ye.normalTitle" = "score5";
@@ -241,7 +244,7 @@
 "c45-o4-roJ.placeholder" = "Input password again";
 
 /* Class = "UIButton"; normalTitle = "중복체크"; ObjectID = "cgE-jO-zfl"; */
-"cgE-jO-zfl.normalTitle" = "Check duplication";
+"cgE-jO-zfl.normalTitle" = "Check";
 
 /* Class = "UIButton"; normalTitle = "회원가입"; ObjectID = "dJl-Gn-f47"; */
 "dJl-Gn-f47.normalTitle" = "Sign up";
@@ -289,7 +292,7 @@
 "ic7-Gg-l4j.text" = "Get a gift with stamp";
 
 /* Class = "UIButton"; normalTitle = "중복체크"; ObjectID = "iqF-di-rcw"; */
-"iqF-di-rcw.normalTitle" = "Check duplication";
+"iqF-di-rcw.normalTitle" = "Check";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "kDy-70-xUV"; */
 "kDy-70-xUV.text" = "Label";
@@ -319,7 +322,7 @@
 "nob-Di-ilu.title" = "Confirm";
 
 /* Class = "UIButton"; normalTitle = "중복체크"; ObjectID = "npo-FF-M1D"; */
-"npo-FF-M1D.normalTitle" = "Check duplication";
+"npo-FF-M1D.normalTitle" = "Check";
 
 /* Class = "UIBarButtonItem"; title = "확인"; ObjectID = "oJq-3s-3XB"; */
 "oJq-3s-3XB.title" = "Confirm";
@@ -355,7 +358,7 @@
 "rar-sT-bEx.normalTitle" = "Log out";
 
 /* Class = "UIButton"; normalTitle = "중복체크"; ObjectID = "rjx-oi-d8v"; */
-"rjx-oi-d8v.normalTitle" = "Check duplication";
+"rjx-oi-d8v.normalTitle" = "Check";
 
 /* Class = "UINavigationItem"; title = "숨김관리"; ObjectID = "svr-3e-zxu"; */
 "svr-3e-zxu.title" = "Hide Manage";

@@ -110,7 +110,14 @@ class RankViewController : UIViewController , UITableViewDelegate, UITableViewDa
 //        print("\(TAG) : total : \(total)")
        
         
-        self.msg_lab.text = "\(nick)\(intro_part_1) \(total)\(intro_part_2) \(rank)\(intro_part_3) "
+        if AppInfomation.localizeCode! == LocalizationCase.eng.hashValue {
+            self.msg_lab.text = "\(nick)\(intro_part_1) \(rank)\(intro_part_2) \(total)\(intro_part_3) "
+        }else if AppInfomation.localizeCode! == LocalizationCase.chi.hashValue {
+            self.msg_lab.text = "\(nick)\(intro_part_1) \(rank)\(intro_part_2) \(total)\(intro_part_3) "
+        }else{
+            self.msg_lab.text = "\(nick)\(intro_part_1) \(total)\(intro_part_2) \(rank)\(intro_part_3) "
+        }
+        
         
         let ranklist = data["ranklist"] as! NSArray
         

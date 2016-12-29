@@ -63,6 +63,7 @@
 "main_stamp_share_not_social_login" = "SNSを介してのみ可能です";
 "main_stamp_guide_seal" = "スタンプを長押し撮ってください";
 "main_stamp_guide_hide" = "村は、スライドさせて隠すことができますよ";
+"main_stamp_hide" = "隠し";
 
 "ranking_user_intro_part_1" = "您";
 "ranking_user_intro_part_2" = " 名中";

@@ -1416,8 +1416,6 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstItem="Xlm-X0-0tg" firstAttribute="leading" secondItem="fHM-JM-6fy" secondAttribute="leading" constant="330" id="22H-RC-VRa"/>
-                                                <constraint firstItem="Xlm-X0-0tg" firstAttribute="leading" secondItem="oUy-P0-uTn" secondAttribute="trailing" constant="67" id="7tE-zV-PwI"/>
                                                 <constraint firstAttribute="bottom" secondItem="Xlm-X0-0tg" secondAttribute="bottom" id="Hf9-BM-Gdp"/>
                                                 <constraint firstItem="oUy-P0-uTn" firstAttribute="leading" secondItem="fHM-JM-6fy" secondAttribute="leading" constant="15" id="IEU-Hx-l4P"/>
                                                 <constraint firstItem="Xlm-X0-0tg" firstAttribute="top" secondItem="fHM-JM-6fy" secondAttribute="top" id="a6f-1K-16A"/>
@@ -1484,15 +1482,14 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="MhA-en-iXA" secondAttribute="trailing" constant="54" id="3zh-cG-drc"/>
                                                         <constraint firstItem="6qT-Fp-kV2" firstAttribute="top" secondItem="QLN-OO-4nM" secondAttribute="top" constant="8" id="4pE-Pn-2zJ"/>
                                                         <constraint firstAttribute="bottom" secondItem="MhA-en-iXA" secondAttribute="bottom" constant="8" id="Rhv-C2-eRv"/>
                                                         <constraint firstItem="MhA-en-iXA" firstAttribute="top" secondItem="QLN-OO-4nM" secondAttribute="top" constant="37" id="UmT-zQ-rc5"/>
                                                         <constraint firstItem="MhA-en-iXA" firstAttribute="top" secondItem="6qT-Fp-kV2" secondAttribute="bottom" constant="8" id="XSX-s9-B14"/>
-                                                        <constraint firstItem="MhA-en-iXA" firstAttribute="leading" secondItem="QLN-OO-4nM" secondAttribute="leading" constant="54" id="Za1-X9-fgI"/>
                                                         <constraint firstItem="6qT-Fp-kV2" firstAttribute="leading" secondItem="QLN-OO-4nM" secondAttribute="leading" constant="72" id="beg-Eo-2ok"/>
                                                         <constraint firstAttribute="bottom" secondItem="6qT-Fp-kV2" secondAttribute="bottom" constant="37" id="cAJ-rz-GhV"/>
                                                         <constraint firstAttribute="trailing" secondItem="6qT-Fp-kV2" secondAttribute="trailing" constant="72" id="jQC-B7-ZlU"/>
+                                                        <constraint firstItem="MhA-en-iXA" firstAttribute="centerX" secondItem="QLN-OO-4nM" secondAttribute="centerX" id="nx5-US-jDC"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -1620,11 +1617,11 @@
                                                         <constraint firstAttribute="width" constant="65" id="jIF-gu-N4R"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_stamp" translatesAutoresizingMaskIntoConstraints="NO" id="bM3-05-MdQ">
+                                                <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="img_stamp" translatesAutoresizingMaskIntoConstraints="NO" id="bM3-05-MdQ">
                                                     <rect key="frame" x="15" y="7" width="65" height="65"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_stmap" translatesAutoresizingMaskIntoConstraints="NO" id="UGU-ed-Zb2">
+                                                <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_stamp" translatesAutoresizingMaskIntoConstraints="NO" id="UGU-ed-Zb2">
                                                     <rect key="frame" x="15" y="7" width="65" height="65"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="65" id="OrO-iI-Pq4"/>
@@ -2132,82 +2129,11 @@
                                             <action selector="submit_btn:" destination="fFE-b1-2m9" eventType="touchUpInside" id="aty-Dp-Eey"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JCR-Cp-drO">
+                                    <button opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="JCR-Cp-drO">
                                         <rect key="frame" x="10" y="245" width="345" height="28"/>
-                                        <state key="normal">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="가입신청을">
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" size="13" name="AppleSDGothicNeo-Regular"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                                <fragment content=" ">
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" size="13" name="HelveticaNeue"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                                <fragment content="누르시면">
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" size="13" name="AppleSDGothicNeo-Regular"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                                <fragment content=" ">
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" size="13" name="HelveticaNeue"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                                <fragment content="개인정보취급방침">
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" size="13" name="AppleSDGothicNeo-Regular"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        <integer key="NSUnderline" value="1"/>
-                                                    </attributes>
-                                                </fragment>
-                                                <fragment content="에">
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" size="13" name="AppleSDGothicNeo-Regular"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                                <fragment content=" ">
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" size="13" name="HelveticaNeue"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                                <fragment content="동의한것으로">
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" size="13" name="AppleSDGothicNeo-Regular"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                                <fragment content=" ">
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" size="13" name="HelveticaNeue"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                                <fragment content="간주됩니다">
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" size="13" name="AppleSDGothicNeo-Regular"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
+                                        <state key="normal" title="가입신청을 누르시면 개인정보취급방침에 동의한것으로 간주됩니다">
+                                            <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="terms_btn:" destination="fFE-b1-2m9" eventType="touchUpInside" id="u7P-06-mwE"/>
@@ -3275,13 +3201,14 @@
         <image name="img_account" width="29" height="29"/>
         <image name="img_footprint" width="9" height="11"/>
         <image name="img_gift_circle" width="60" height="60"/>
-        <image name="img_stmap" width="60" height="60"/>
+        <image name="img_stamp" width="65" height="65"/>
+        <image name="img_stmap" width="65" height="65"/>
         <image name="img_survey_circle" width="60" height="60"/>
         <image name="radio_off" width="22" height="22"/>
         <image name="radio_on" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tvw-tR-dVN"/>
-        <segue reference="EEa-JW-kzg"/>
+        <segue reference="Ogk-Rr-2YH"/>
     </inferredMetricsTieBreakers>
 </document>

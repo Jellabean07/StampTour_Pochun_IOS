@@ -127,7 +127,7 @@ class FBManager : HttpResponse{
             "loggedincase" : LoggedInCase.fbLogin.description,
             "id" : userId
         ]
-        
+        self.userId = userId
         self.httpRequest!.connection(path, reqParameter: parameters)
     }
     

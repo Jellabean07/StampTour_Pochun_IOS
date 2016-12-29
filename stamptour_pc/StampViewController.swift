@@ -20,6 +20,7 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
     let intro_part_1 = NSLocalizedString("main_stamp_user_intro_part_1", comment: "님은")
     let intro_part_2 = NSLocalizedString("main_stamp_user_intro_part_2", comment: "등급입니다")
     let share_not_msg = NSLocalizedString("main_stamp_share_not_social_login", comment: "소셜 로그인을 통해서만 가능합니다")
+    let hide_msg = NSLocalizedString("main_stamp_hide", comment: "숨김")
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var introMsg: UILabel!
@@ -53,8 +54,12 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
         doWork() // 먼저 실행
         Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(StampViewController.doWork), userInfo: nil, repeats: true)
         
-        StampGuideOverlay.show()
-        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(StampViewController.guideExit), userInfo: nil, repeats: true)
+         print("\(TAG) : getGuideFirst() : \(AppDefaultManager.init().getGuideFirst())")
+        if(!(AppDefaultManager.init().getGuideFirst())){
+            StampGuideOverlay.show()
+            Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(StampViewController.guideExit), userInfo: nil, repeats: true)
+            AppDefaultManager.init().setGuideFirst(true)
+        }
         
     }
     
@@ -348,7 +353,7 @@ class StampViewController : UIViewController,UITabBarControllerDelegate,  UITabl
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let hide = UITableViewRowAction(style: .normal, title: "숨김") { action, index in
+        let hide = UITableViewRowAction(style: .normal, title: hide_msg) { action, index in
             print("\(self.TAG) : hide button tapped : \(index)")
             self.hide(index)
         }
