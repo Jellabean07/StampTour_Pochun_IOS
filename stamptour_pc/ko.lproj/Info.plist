@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>ko_KR</string>
 	<key>CFBundleDisplayName</key>
-	<string>신안스탬프투어</string>
+	<string>GongjuStamptour</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -23,7 +23,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb1256362331100459</string>
+				<string>fb217422435378299</string>
 			</array>
 		</dict>
 		<dict>
@@ -31,25 +31,25 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>kakao527f0df26e167313b802571444d94111</string>
+				<string>kakaoc382ee5f3906b73ac72df987bdec71da</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>FacebookAppID</key>
-	<string>1256362331100459</string>
+	<string>217422435378299</string>
 	<key>FacebookDisplayName</key>
-	<string>신안스탬프투어</string>
+	<string>GongjuStamptour</string>
 	<key>KAKAO_APP_KEY</key>
-	<string>527f0df26e167313b802571444d94111</string>
+	<string>c382ee5f3906b73ac72df987bdec71da</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
 		<string>fb-messenger-api</string>
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
-		<string>kakaob527f0df26e167313b802571444d94111</string>
+		<string>kakaoc382ee5f3906b73ac72df987bdec71da</string>
 		<string>kakaokompassauth</string>
 		<string>storykompassauth</string>
 		<string>kakaolink</string>

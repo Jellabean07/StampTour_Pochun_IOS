@@ -104,6 +104,9 @@
 /* Class = "UILabel"; text = "권역"; ObjectID = "IKe-Id-dWv"; */
 "IKe-Id-dWv.text" = "区域";
 
+/* Class = "UIButton"; normalTitle = "가입신청을 누르시면 개인정보취급방침에 동의한것으로 간주됩니다"; ObjectID = "JCR-Cp-drO"; */
+"JCR-Cp-drO.normalTitle" = "点击申请加入按钮，视为同意个人信息使用方针";
+
 /* Class = "UIButton"; normalTitle = "score5"; ObjectID = "Jlx-Ts-2Ye"; */
 "Jlx-Ts-2Ye.normalTitle" = "score5";
 
@@ -144,7 +147,7 @@
 "Ry1-hi-Mpj.text" = "绰号";
 
 /* Class = "UIButton"; normalTitle = "score2"; ObjectID = "TwH-dS-7QP"; */
-"TwH-dS-7QP.normalTitle" = "";
+"TwH-dS-7QP.normalTitle" = "score2";
 
 /* Class = "UINavigationItem"; title = "설문"; ObjectID = "UPA-En-217"; */
 "UPA-En-217.title" = "问卷";
@@ -193,7 +196,7 @@
 "an7-m0-u9I.placeholder" = "请输入姓名";
 
 /* Class = "UILabel"; text = "진골"; ObjectID = "b0e-8j-d0X"; */
-"b0e-8j-d0X.text" = "진골";
+"b0e-8j-d0X.text" = "";
 
 /* Class = "UITextField"; placeholder = "별명을 입력하세요"; ObjectID = "bNI-JR-rmn"; */
 "bNI-JR-rmn.placeholder" = "请输入绰号";
@@ -229,7 +232,7 @@
 "eiF-oJ-lcE.text" = "不满意";
 
 /* Class = "UINavigationItem"; title = "거리순"; ObjectID = "gu4-WQ-Ccm"; */
-"gu4-WQ-Ccm.title" = "거리순";
+"gu4-WQ-Ccm.title" = "按街头排序";
 
 /* Class = "UINavigationItem"; title = "선물신청"; ObjectID = "hmO-4f-i7G"; */
 "hmO-4f-i7G.title" = "申请礼物";
@@ -250,22 +253,22 @@
 "kDy-70-xUV.text" = "Label";
 
 /* Class = "UIButton"; normalTitle = "계정 삭제"; ObjectID = "kyc-Sj-O8P"; */
-"kyc-Sj-O8P.normalTitle" = "계정 삭제";
+"kyc-Sj-O8P.normalTitle" = "删除帐号";
 
 /* Class = "UIBarButtonItem"; title = "뒤로"; ObjectID = "l3N-rP-jTR"; */
 "l3N-rP-jTR.title" = "回去";
 
 /* Class = "UILabel"; text = "정확히 입력하세요"; ObjectID = "ldC-GK-bFn"; */
-"ldC-GK-bFn.text" = "정확히 입력하세요";
+"ldC-GK-bFn.text" = "请正确输入";
 
 /* Class = "UIBarButtonItem"; title = "숨김관리"; ObjectID = "lp6-Uy-xXp"; */
-"lp6-Uy-xXp.title" = "숨김관리";
+"lp6-Uy-xXp.title" = "隐藏管理";
 
 /* Class = "UILabel"; text = "본인 계정의 이메일을 입력하세요"; ObjectID = "m2l-7k-RaV"; */
-"m2l-7k-RaV.text" = "본인 계정의 이메일을 입력하세요";
+"m2l-7k-RaV.text" = "请输入您的电子邮箱地址";
 
 /* Class = "UINavigationItem"; title = "비밀번호찾기"; ObjectID = "mEL-FW-j3W"; */
-"mEL-FW-j3W.title" = "비밀번호찾기";
+"mEL-FW-j3W.title" = "找回、密码";
 
 /* Class = "UILabel"; text = "권역"; ObjectID = "nHE-tc-kcu"; */
 "nHE-tc-kcu.text" = "区域";

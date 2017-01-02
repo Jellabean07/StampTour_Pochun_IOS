@@ -84,7 +84,7 @@
 "DwT-8q-Xre.text" = "계정로그인";
 
 /* Class = "UIButton"; normalTitle = "가입신청을 누르시면 개인정보취급방침에 동의한것으로 간주됩니다"; ObjectID = "EIK-VV-JR8"; */
-"EIK-VV-JR8.normalTitle" = "가입 신청을 누르시면 <u>개인정보취급방침</u>에 동의한 것으로 간주됩니다";
+"EIK-VV-JR8.normalTitle" = "가입신청을 누르시면 개인정보취급방침에 동의한것으로 간주됩니다";
 
 /* Class = "UILabel"; text = "2620"; ObjectID = "EuS-sx-paD"; */
 "EuS-sx-paD.text" = "2620";
@@ -103,6 +103,9 @@
 
 /* Class = "UILabel"; text = "권역"; ObjectID = "IKe-Id-dWv"; */
 "IKe-Id-dWv.text" = "권역";
+
+/* Class = "UIButton"; normalTitle = "가입신청을 누르시면 개인정보취급방침에 동의한것으로 간주됩니다"; ObjectID = "JCR-Cp-drO"; */
+"JCR-Cp-drO.normalTitle" = "가입신청을 누르시면 개인정보취급방침에 동의한것으로 간주됩니다";
 
 /* Class = "UIButton"; normalTitle = "score5"; ObjectID = "Jlx-Ts-2Ye"; */
 "Jlx-Ts-2Ye.normalTitle" = "score5";
@@ -167,10 +170,8 @@
 /* Class = "UIBarButtonItem"; title = "뒤로"; ObjectID = "WjO-hg-y0I"; */
 "WjO-hg-y0I.title" = "뒤로";
 
-/* Class = "UILabel"; text = "현재 서비스의 만족도를 평가해주세요. 만족도 조사
-결과는 서비스 개선을 위한 자료로 활용됩니다."; ObjectID = "Wtf-oA-bvs"; */
-"Wtf-oA-bvs.text" = "현재 서비스의 만족도를 평가해주세요. 만족도 조사
-결과는 서비스 개선을 위한 자료로 활용됩니다.";
+/* Class = "UILabel"; text = "현재 서비스의 만족도를 평가해주세요. 만족도 조사 결과는 서비스 개선을 위한 자료로 활용됩니다."; ObjectID = "Wtf-oA-bvs"; */
+"Wtf-oA-bvs.text" = "현재 서비스의 만족도를 평가해주세요. 만족도 조사 결과는 서비스 개선을 위한 자료로 활용됩니다.";
 
 /* Class = "UIButton"; normalTitle = "공유"; ObjectID = "Xlm-X0-0tg"; */
 "Xlm-X0-0tg.normalTitle" = "공유";

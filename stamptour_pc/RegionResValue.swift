@@ -15,7 +15,7 @@ enum applySetting{
 }
 
 enum ResRegion {
-    case Default, pochun, shinan, gyeongju
+    case Default, pochun, shinan, gyeongju, gongju
     
     
     var mainColor: UIColor {
@@ -28,6 +28,8 @@ enum ResRegion {
             return UIControlManager.init().colorWithHexString("#00A1E9")
         case .gyeongju:
             return UIControlManager.init().colorWithHexString("#00CCCC")
+        case .gongju:
+            return UIControlManager.init().colorWithHexString("#e5a200")
         }
     }
     
@@ -41,6 +43,8 @@ enum ResRegion {
             return "신안스탬프투어"
         case .gyeongju:
             return "뉴경주스탬프투어"
+        case .gongju:
+            return "공주스탬프투어"
         }
     }
     
@@ -54,6 +58,8 @@ enum ResRegion {
             return "http://stamptourshinan.mybluemix.net"
         case .gyeongju:
             return "http://stamptourkyoungju.mybluemix.net"
+        case .gongju:
+            return "http://stamptourgongju.mybluemix.net"
         }
     }
     
@@ -68,6 +74,8 @@ enum ResRegion {
             return "com.thatzit.stamptour.Shinan"
         case .gyeongju:
             return "com.thatzit.stamptour.Gyeongju"
+        case .gongju:
+            return "com.thatzit.stamptour.Gongju"
         }
     }
     
@@ -80,6 +88,8 @@ enum ResRegion {
         case .shinan:
             return [LocalizationCase.kor.hashValue]
         case .gyeongju:
+            return [LocalizationCase.kor.hashValue,LocalizationCase.eng.hashValue,LocalizationCase.jan.hashValue,LocalizationCase.chi.hashValue]
+        case .gongju:
             return [LocalizationCase.kor.hashValue,LocalizationCase.eng.hashValue,LocalizationCase.jan.hashValue,LocalizationCase.chi.hashValue]
         }
     }
@@ -94,6 +104,8 @@ enum ResRegion {
             return "136732466792572"
         case .gyeongju:
             return "1256362331100459"
+        case .gongju:
+            return "217422435378299"
         }
     }
     
@@ -106,7 +118,9 @@ enum ResRegion {
         case .shinan:
             return "https://itunes.apple.com/us/app/sin-anseutaempeutueo/id1170914508?mt=8"
         case .gyeongju:
-            return "https://developers.facebook.com"
+            return "https://itunes.apple.com/app/id1181294752?mt=8"
+        case .gongju:
+            return "https://itunes.apple.com/app/id1190593570?mt=8"
         }
     }
     
@@ -119,7 +133,9 @@ enum ResRegion {
         case .shinan:
             return "b3766d4a60aabdf52a60a574ed9a68d3"
         case .gyeongju:
-            return "1256362331100459"
+            return "b3766d4a60aabdf52a60a574ed9a68d3"
+        case .gongju:
+            return "c382ee5f3906b73ac72df987bdec71da"
         }
     }
     
@@ -132,7 +148,9 @@ enum ResRegion {
         case .shinan:
             return "https://itunes.apple.com/us/app/sin-anseutaempeutueo/id1170914508?mt=8"
         case .gyeongju:
-            return "https://developers.facebook.com"
+            return "https://itunes.apple.com/app/id1181294752?mt=8"
+        case .gongju:
+            return "https://itunes.apple.com/app/id1190593570?mt=8"
         }
     }
 }

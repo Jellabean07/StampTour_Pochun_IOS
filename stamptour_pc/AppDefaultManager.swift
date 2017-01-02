@@ -14,7 +14,10 @@ class AppDefaultManager{
         
     }
     
-    
+    func setGuideFirst(_ first : Bool){
+        UserDefaults.standard.set(first, forKey: "guideFirst")
+        UserDefaults.standard.synchronize()
+    }
 
     func setUploadtime(_ uploadtime : String){
         UserDefaults.standard.set(uploadtime, forKey: "uploadtime")
@@ -39,6 +42,15 @@ class AppDefaultManager{
     func getLastVersion() -> Bool {
         return UserDefaults.standard.bool(forKey: "first")
     }
+
+    func getGuideFirst() -> Bool {
+        if let first : Bool = UserDefaults.standard.bool(forKey: "guideFirst"){
+            return first
+        }else{
+            return true
+        }
+    }
+
     
     func getVersion() -> Int {
         if let version : Int = UserDefaults.standard.integer(forKey: "version"){

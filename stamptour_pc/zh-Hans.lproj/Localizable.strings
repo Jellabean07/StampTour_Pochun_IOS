@@ -62,9 +62,10 @@
 "main_stamp_share_not_social_login" = "需要登录SNS";
 "main_stamp_guide_seal" = "请按住屏幕";
 "main_stamp_guide_hide" = "您可以隐藏推升镇";
+"main_stamp_hide" = "匿";
 
-"ranking_user_intro_part_1" = "is";
-"ranking_user_intro_part_2" = "out of";
+"ranking_user_intro_part_1" = " is";
+"ranking_user_intro_part_2" = " out of";
 "ranking_user_intro_part_3" = "";
 "ranking_count_stamp" = "已盖的图章";
 
@@ -87,7 +88,7 @@
 "gift_alert_send_fail" = "申请礼物时出现了错误";
 
 "acc_alert_change_pass_not_invalid" = "密码请设置6~16个字的英文小写字母和数字的组合";
-"acc_alert_change_pass_not_match" = "비密码错误";
+"acc_alert_change_pass_not_match" = "密码错误";
 "acc_alert_change_success" = "成功更改密码";
 "acc_alert_change_fail" = "发生了错误";
 "acc_alert_delete_success" = "成功退出会员";

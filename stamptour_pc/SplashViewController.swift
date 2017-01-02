@@ -52,6 +52,12 @@ class SplashViewController : UIViewController{
             self.applyName.textColor = UIControlManager.init().colorWithHexString("#303030")
             self.produceName.textColor =  UIControlManager.init().colorWithHexString("#B4B4B4")
             break
+        case ResRegion.gongju.hashValue:
+            self.bgImg.image = UIImage(named: "img_splash_bg")
+            self.applyName.text = "©2016. GONGJU"
+            self.applyName.textColor = UIControlManager.init().colorWithHexString("#303030")
+            self.produceName.textColor =  UIControlManager.init().colorWithHexString("#B4B4B4")
+            break
         default: break
         }
         

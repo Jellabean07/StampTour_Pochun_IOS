@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>ja_JP</string>
+	<string>ko_KR</string>
 	<key>CFBundleDisplayName</key>
-	<string>ShinanStampTour</string>
+	<string>GongjuStamptour</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -23,7 +23,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb1256362331100459</string>
+				<string>fb217422435378299</string>
 			</array>
 		</dict>
 		<dict>
@@ -31,25 +31,25 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>kakao527f0df26e167313b802571444d94111</string>
+				<string>kakaoc382ee5f3906b73ac72df987bdec71da</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>FacebookAppID</key>
-	<string>1256362331100459</string>
+	<string>217422435378299</string>
 	<key>FacebookDisplayName</key>
-	<string>ShinanStampTour</string>
+	<string>GongjuStamptour</string>
 	<key>KAKAO_APP_KEY</key>
-	<string>527f0df26e167313b802571444d94111</string>
+	<string>c382ee5f3906b73ac72df987bdec71da</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
 		<string>fb-messenger-api</string>
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
-		<string>kakaob527f0df26e167313b802571444d94111</string>
+		<string>kakaoc382ee5f3906b73ac72df987bdec71da</string>
 		<string>kakaokompassauth</string>
 		<string>storykompassauth</string>
 		<string>kakaolink</string>
@@ -104,7 +104,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Your Location is used to estimate the distance from the current user’s position to stamp point, to notice while the user is in the stamp zone where stamp is accessible.</string>
+	<string>あなたの位置は、現在のユーザーの位置からスタンプ位置までの距離を計算するのに使用されて、また、スタンプ区域のあっスタンプにアクセスすることができる場合に案内を与えるために使用されます</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>App needs location servers for stuff</string>
 	<key>UILaunchStoryboardName</key>

@@ -51,8 +51,8 @@
 "forgot_id_alert_display_temp_password" = "Your ID ";
 "forgot_id_alert_not_find_password" = "ID not found";
 
-"main_stamp_user_intro_part_1" = "Ms/Mr";
-"main_stamp_user_intro_part_2" = "is";
+"main_stamp_user_intro_part_1" = " Ms/Mr";
+"main_stamp_user_intro_part_2" = "grade";
 "main_stamp_user_intro_part_3" = "grade";
 
 "main_stamp_sort_by_standard" = "Standard";
@@ -64,9 +64,10 @@
 "main_stamp_share_not_social_login" = "You use not social account.";
 "main_stamp_guide_seal" = "Please press and hold the touch stamp.";
 "main_stamp_guide_hide" = "You can push then hide town";
+"main_stamp_hide" = "hide";
 
 "ranking_user_intro_part_1" = " is";
-"ranking_user_intro_part_2" = "out of";
+"ranking_user_intro_part_2" = " out of";
 "ranking_user_intro_part_3" = "";
 "ranking_count_stamp" = "Completed";
 
