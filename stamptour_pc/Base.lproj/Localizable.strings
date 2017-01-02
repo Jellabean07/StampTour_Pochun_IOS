@@ -1,117 +1,118 @@
-/* 
-  Localizable.strings
-  stamptour_pc
+/*
+ Localizable.strings
+ stamptour_pc
+ 
+ Created by CSC-PC on 2016. 12. 12..
+ Copyright © 2016년 thatzit. All rights reserved.
+ */
 
-  Created by CSC-PC on 2016. 12. 12..
-  Copyright © 2016년 thatzit. All rights reserved.
-*/
+"comm_cancel" = "Cancel";
+"comm_ok" = "OK";
+"comm_no" = "NO";
 
-"comm_cancel" = "취소";
-"comm_ok" = "예";
-"comm_no" = "아니오";
-
-"login_alert_find_id" = "아이디 찾기";
-"login_alert_find_pass" = "비밀번호 찾기";
-"login_alert_find_title" = "아이디 및 비밀번호 찾기";
-"login_alert_find_subtitle" = "원하는 정보를 선택하세요";
-"login_alert_not_enough" = "아이디또는 패스워드를 입력해주세요";
-"login_alert_fail" = "로그인중 오류가 발생했습니다";
-"login_alert_match" = "아이디 또는 비밀번호가 잘못되었습니다";
-
-
-"join_alert_check_duplicate_id_not_email" = "이메일 형식으로 입력해주세요";
-"join_alert_check_duplicate_id_trim_input" = "아이디를 입력해주세요";
-"join_alert_check_duplicate_id_duplicate" = "중복된 아이디명입니다";
-"join_alert_check_duplicate_id_not_duplicate" = "사용할 수 있는 아이디명입니다";
-
-"join_alert_check_duplicate_nick_not_invalid" = "6자이내 국문이나 영문으로 입력해주세요";
-"join_alert_check_duplicate_nick_trim_input" = "별명을 입력해주세요";
-"join_alert_check_duplicate_nick_duplicate" = "중복된 별명입니다";
-"join_alert_check_duplicate_nick_not_duplicate" = "사용할 수 있는 별명입니다";
-
-"join_alert_join_confirm_pass_not_invalid" = "비밀번호는 6~16자 영문 소문자, 숫자를 조합하세요";
-"join_alert_join_confirm_pass_not_match" = "비밀번호가 일치하지 않습니다";
-"join_alert_join_confirm_nick_need_duplicate" = "별명 중복확인이 필요합니다";
-"join_alert_join_confirm_id_need_duplicate" = "아이디 중복확인이 필요합니다";
-"join_alert_join_confirm_trim_input" = "빈칸을 모두 채워주세요";
-"join_alert_join_confirm_success" = "회원가입 되었습니다";
-
-"join_social_alert_check_duplicate_nick_not_invalid" = "6자이내 국문이나 영문으로 입력해주세요";
-"join_social_alert_check_duplicate_nick_trim_input" = "별명을 입력해주세요";
-"join_social_alert_check_duplicate_nick_duplicate" = "중복된 별명입니다";
-"join_social_alert_check_duplicate_nick_not_duplicate" = "사용할 수 있는 별명입니다";
-"join_social_alert_join_confirm_nick_need_duplicate" = "별명 중복확인이 필요합니다";
-"join_social_alert_join_confirm_trim_input" = "빈칸을 모두 채워주세요";
-
-"forgot_pass_alert_not_enough" = "정보를 모두 입력해주세요";
-"forgot_pass_alert_display_temp_password" = "임시 비밀번호";
-"forgot_pass_alert_not_find_password" = "비빌번호를 찾을 수 가 없습니다";
-
-"forgot_id_alert_not_enough" = "정보를 모두 입력해주세요";
-"forgot_id_alert_display_temp_password" = "당신의 계정은 ";
-"forgot_id_alert_not_find_password" = "아이디를 찾을 수 가 없습니다";
-
-"main_stamp_user_intro_part_1" = "님은";
-"main_stamp_user_intro_part_2" = "등급입니다";
-
-"main_stamp_sort_by_standard" = "기본";
-"main_stamp_sort_by_distance" = "거리순";
-"main_stamp_sort_by_name" = "이름순";
-"main_stamp_sort_by_region" = "권역순";
-"main_stamp_sort_title" = "정렬";
-"main_stamp_sort_subtitle" = "원하는 정렬방법을 선택하세요";
-"main_stamp_share_not_social_login" = "소셜 로그인을 통해서만 가능합니다";
-"main_stamp_guide_seal" = "터치를 길게 눌러서 스탬프를 찍어주세요";
-"main_stamp_guide_hide" = "마을은 옆으로 밀어서 숨길수 있어요";
-"main_stamp_hide" = "숨김";
-
-"ranking_user_intro_part_1" = "님은";
-"ranking_user_intro_part_2" = "명중에";
-"ranking_user_intro_part_3" = "위입니다";
-"ranking_count_stamp" = "찍은 스탬프";
-
-"more_menu_list_item_account" = "계정 관리";
-"more_menu_list_item_gift" = "선물신청 및 관리";
-"more_menu_list_item_hide" = "숨김 관리";
-"more_menu_list_item_survey" = "설문 하기";
-
-"survey_additional_msg" = "기타의견을 입력하세요";
-"survey_alert_send_succeess" = "설문이 작성 되었습니다";
-"survey_alert_send_fail_01" = "설문 작성 중에 오류가 발생했습니다";
-"survey_alert_send_fail_02" = "설문 작성 중에 오류가 발생했습니다";
-"survey_alert_send_fail_03" = "이미 설문 조사에 참여하셨습니다";
-
-"gift_manage_complete" = "선물신청 완료";
-"gift_manage_press_send" = "눌러서 선물을 신청하세요";
-"gift_manage_remain" = "선물 신청까지";
-
-"gift_alert_send_succees" = "선물이 신청되었습니다";
-"gift_alert_send_fail" = "선물 신청 중에 오류가 발생했습니다";
-
-"acc_alert_change_pass_not_invalid" = "비밀번호는 6~16자 영문 소문자, 숫자를 조합하세요";
-"acc_alert_change_pass_not_match" = "비밀번호가 일치하지 않습니다";
-"acc_alert_change_success" = "정상적으로 비밀번호가 변경 되었습니다";
-"acc_alert_change_fail" = "비밀번호 변경중 오류가 발생했습니다";
-"acc_alert_delete_success" = "정상적으로 회원탈퇴 되었습니다";
-"acc_alert_delete_fail" = "회원탈퇴중 오류가 발생했습니다";
-"acc_alert_delete_check" = "정말 삭제 하시겠습니까?";
+"login_alert_find_id" = "Find ID";
+"login_alert_find_pass" = "Find password";
+"login_alert_find_title" = "Forgot ID/PW";
+"login_alert_find_subtitle" = "Please select menu";
+"login_alert_not_enough" = "Input information";
+"login_alert_fail" = "Request failed";
+"login_alert_match" = "Invalid information";
 
 
+"join_alert_check_duplicate_id_not_email" = "Email invalid";
+"join_alert_check_duplicate_id_trim_input" = "Input email";
+"join_alert_check_duplicate_id_duplicate" = "ID duplicated";
+"join_alert_check_duplicate_id_not_duplicate" = "Vaild";
 
-"terms_msg1" = "1. 수집하는 개인정보 항목 및 수집방법\r\n\r\n 댓츠잇은 회원가입, 원활한 고객상담, 각종 서비스 등 기본적인 서비스 제공을 위한 개인정보를 수집할 수 있습니다. 이용자의 기 본적 인권 침해의 우려가 있는 민감한 개인 정보(인종, 사상 및 신조, 정치적 성향 이나 범죄기록, 의료정보 등)는 기본적으로 수집하지 않습니다. 단, 불가피하게 수집이 필요한 경우 반드시 사전에 동의 절차를 거치도록 하겠습니다. \r\n\r\n •예상 수집항목 : 이름, 비밀번호, 휴대폰 번호, 이메일 주소\r\n\r\n •개인정보 수집 방법 : 앱 회원가입, 이벤트 응모, 회원정보 수정\r\n\r\n";
+"join_alert_check_duplicate_nick_not_invalid" = "Nickname invalid";
+"join_alert_check_duplicate_nick_trim_input" = "Input nickname";
+"join_alert_check_duplicate_nick_duplicate" = "Nickname duplicated";
+"join_alert_check_duplicate_nick_not_duplicate" = "Vaild";
 
-"terms_msg2" = "2. 개인정보의 수집 및 이용목적\r\n\r\n 댓츠잇은 수집한 개인정보를 다음의 목적을 위해 활용합니다. 이용자가 제공한 모든 정보는 하기 목적에 필요한 용도 이외로는 사 용되지 않으며 이용 목적이 변경될 시에는 사전 동의를 구할 것입니다.\r\n\r\n •회원 관리 : 회원제 서비스 이용에 따른 본인확인, 개인 식별, 불량회원의 부정 이용 방지와 비인가 사용 방지, 가입 의사 확 인, 만 14세 아동 개인정보 수집 시 법정 대리인 동의여부 확인, 불만처리 등 민원처리, 고지사항 전달\r\n\r\n •마케팅 및 광고에 활용 : 신규 서비스 개발과 이벤트 행사에 따른 정보 전달 및 맞춤 서비스 제공, 인구통계학적 특성에 따른 서비스 제공, 접속 빈도 파악 또는 회원의 서비스 이용에 대한 통계\r\n\r\n";
+"join_alert_join_confirm_pass_not_invalid" = "Password invalid";
+"join_alert_join_confirm_pass_not_match" = "Password invalid";
+"join_alert_join_confirm_nick_need_duplicate" = "Check duplication for email";
+"join_alert_join_confirm_id_need_duplicate" = "Check duplication for nickname";
+"join_alert_join_confirm_trim_input" = "Input information";
+"join_alert_join_confirm_success" = "Signup successful";
 
-"terms_msg3" = "3. 개인정보의 보유 및 이용기간 \r\n\r\n 댓츠잇은 회원 가입일로부터 서비스를 제공하는 기간 동안에 한하여 이용자의 개인정보를 보유 및 이용하게 됩니다. 회원 탈퇴를 요청하거나 개인정보의 수집 및 이용에 대한 동의를 철회하는 경우 또는 수집 및 이용목적이 달성되거나 보유 및 이용기간이 종료 한 경우에는 원칙적으로 해당 정보를 지체 없이 파기합니다. 다만, 다음의 정보에 대해서는 아래의 이유로 명시한 기간 동안 보존 합니다. \r\n\r\n •보존 항목 : 서비스 가입, 이용 기록\r\n\r\n •보존이유 : 서비스 이용의 혼선 방지\r\n\r\n 그리고 관계법령의 규정에 의하여 보존할 필요가 있는 경우 회사는 아래와 같이 관계법령에서 정한 일정한 기간 동안 회원정보를 보관합니다.\r\n\r\n •보존 항목 : 서비스이용 관련 개인정보(로그인기록)\r\n\r\n •보존 이유 : 통신비밀보호법 \r\n\r\n •보존 기간 : 3개월\r\n\r\n •보존 항목 : 소비자의 불만 또는 분쟁처리에 관한 기록\r\n\r\n •보존 이유 : 전자상거래 등에서의 소비자보호에 관한 법률\r\n\r\n •보존 기간 : 3년\r\n\r\n •보존 항목 : 계약 또는 청약철회, 대금결제 및 재화 등의 공급에 관한 기록\r\n\r\n •보존 이유 : 전자상거래 등에서의 소비자보호에 관한 법률\r\n\r\n •보존 기간 : 5년\r\n\r\n •보존 항목 : 세법이 규정하는 모든 거래에 관한 장부 및 증빙서류\r\n\r\n •보존 이유 : 국세기본법, 법인세법\r\n\r\n •보존 기간 : 5년\r\n\r\n •보존 항목 : 전자금융 거래에 관한 기록\r\n\r\n •보존 이유 : 전자금융거래법\r\n\r\n •보존 기간 : 5년\r\n\r\n";
+"join_social_alert_check_duplicate_nick_not_invalid" = "Nickname invalid";
+"join_social_alert_check_duplicate_nick_trim_input" = "Input nickname";
+"join_social_alert_check_duplicate_nick_duplicate" = "Nickname duplicated";
+"join_social_alert_check_duplicate_nick_not_duplicate" = "Vaild";
+"join_social_alert_join_confirm_nick_need_duplicate" = "Check duplication for nickname";
+"join_social_alert_join_confirm_trim_input" = "Input nickname";
 
-"terms_msg4" = "4. 개인정보의 파기절차 및 방법\r\n\r\n 댓츠잇은 원칙적으로 개인정보 수집 및 이용목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다. 파기절차 및 방법은 다음과 같습니다.\r\n\r\n 1. 파기절차\r\n\r\n •이용자가 회원가입 등을 위해 입력한 정보는 목적이 달성된 후 별도의 DB로 옮겨져(종이의 경우 별도의 서류함) 내부 방침 및 기타 관련 법령에 의한 정보보호 사유에 따라(보유 및 이용기간 참조) 일정 기간 저장된 후 파기됩니다.\r\n\r\n •별도 DB로 옮겨진 개인정보는 법률에 의한 경우가 아니고서는 다른 목적으로 이용되지 않습니다.\r\n\r\n 2. 파기방법\r\n\r\n •전자적 파일형태로 저장된 개인정보는 기록을 재생할 수 없는 기술적 방법을 사용하여 삭제합니다.\r\n\r\n •종이에 출력된 개인정보는 분쇄기로 분쇄하거나 소각을 통하여 파기합니다.\r\n\r\n";
+"forgot_pass_alert_not_enough" = "Input information";
+"forgot_pass_alert_display_temp_password" = "Temporary password";
+"forgot_pass_alert_not_find_password" = "Password not found";
 
-"terms_msg5" = "5. 개인정보 제공\r\n\r\n 댓츠잇은 이용자들의 개인정보를 '2. 개인정보의 수집목적 및 이용목적'에서 고지한 범위 내에서 사용하며, 이용자의 사전 동의 없이는 동 범위를 초과하여 이용하거나 원칙적으로 이용자의 개인정보를 외부에 제공하지 않습니다. 단, 다음의 경우에는 주의를 기울여 개인정보를 이용 및 제공할 수 있습니다.\r\n\r\n •이용자들이 사전에 동의한 경우\r\n\r\n 개인정보 제공 이전에 개인정보 제공자, 개인정보 제공 목적, 제공하는 개인정보의 항목 및 보유기간을 별도로 알리고 동의절차를 거치며, 이에 이용자가 동의하지 않을 경우에는 제 3자에게 이용자의 개인정보를 제공하지 않습니다.\r\n\r\n •서비스의 제공에 관한 계약의 이행을 위하여 필요한 개인정보로서 경제적/기술적인 사유로 통상의 동의를 받는 것이 현저히 곤란 한 경우\r\n\r\n •법령의 규정에 의거하거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우\r\n\r\n";
+"forgot_id_alert_not_enough" = "Input information";
+"forgot_id_alert_display_temp_password" = "Your ID ";
+"forgot_id_alert_not_find_password" = "ID not found";
 
-"terms_msg6" =  "6. 이용자 및 법정대리인의 권리와 그 행사방법\r\n\r\n '이용자 및 법정대리인(본인의 위임을 받지 않고도 법률의 규정에 의하여 대리권의 효력이 발생하는 자로 미성년자에 대한 친권자 나 후견인 등을 말함)은 언제든지 등록되어 있는 자신 혹은 당해 만 14세 미만 아동의 개인정보를 조회하거나 수정할 수 있으며 가입해지를 요청할 수도 있습니다. 이용자 혹은 만 14세 미만 아동의 개인정보 조회/수정을 위해서는 '개인정보변경'(또는 '회원 정보관리' 등)을 통하여 가능하며, 가입해지(동의철회)를 위해서는 '회원탈퇴'를 클릭하여 본인 확인 절차를 거치신 후 직접 열 람, 정정 또는 탈퇴가 가능합니다. 또는 개인정보관리책임자에게 서면, 전화 또는 이메일로 연락하시면 지체 없이 조치하겠습니다. 이용자의 개인정보의 오류에 대한 정정을 요청한 경우에는 정정을 완료하기 전까지 당해 개인정보를 이용 또는 제공하지 않습니다. 또한 잘못된 개인정보를 제3자에게 이미 제공한 경우에는 정정 처리결과를 제3자에게 지체 없이 통지하여 정정이 이루어지도록 하 겠습니다. 다음은 이용자 혹은 법정 대리인의 요청에 의해 해지 또는 삭제된 개인정보는 '3. 개인정보의 보유 및 이용기간'에 명 시된 바에 따라 처리하고 그 외의 용도로 열람 또는 이용할 수 없도록 처리하고 있습니다. \r\n\r\n";
+"main_stamp_user_intro_part_1" = " Ms/Mr";
+"main_stamp_user_intro_part_2" = "grade";
+"main_stamp_user_intro_part_3" = "grade";
 
-"terms_msg7" = "7. 개인정보의 기술적, 관리적 보호 대책\r\n\r\n 댓츠잇은 이용자의 개인정보를 취급함에 있어 개인정보가 분실, 도난, 누출, 변조 또는 훼손되지 않도록 안정성 확보를 위하여 다 음과 같은 기술적, 관리적 대책을 강구하고 있습니다.\r\n\r\n •개인정보 암호화\r\n\r\n 이용자의 개인정보는 비밀번호에 의해 보호되며, 중요한 데이터는 파일 및 전송 데이터를 암호화하거나 파일 잠금 기능을 사용하는 등의 별도 보안기능을 통해 보호 하고 있습니다.\r\n\r\n •개인정보 취급 직원의 교육\r\n\r\n 개인정보관련 취급 직원은 담당자에 한정시켜 최소화 하고 새로운 보안기술의 습득 및 개인정보보호 의무에 관해 정기적인 교육을 실시하며 별도의 비밀번호를 부여하여 접근 권한을 관리하는 등 관리적 대책을 시행하고 있습니다.\r\n\r\n •개인 아이디와 비밀번호 관리\r\n\r\n 이용자가 사용하는 ID와 비밀번호는 원칙적으로 이용자만이 사용하도록 되어 있습니다. 댓츠잇은 이용자의 개인적인 부주의로 ID, 비밀번호 등 개인정보가 유출되어 발생한 문제와 기본적인 인터넷의 위험성 때문에 일어나는 일들에 대해 책임을 지지 않습니다. 비밀번호에 대한 보안 의식을 가지고 비밀번호를 자주 변경하며 공용PC에서의 로그인시 개인정보가 유출되지 않도록 각별한 주의를 기울여 주시기 바랍니다. \r\n\r\n";
+"main_stamp_sort_by_standard" = "Standard";
+"main_stamp_sort_by_distance" = "By Distance";
+"main_stamp_sort_by_name" = "By Name";
+"main_stamp_sort_by_region" = "By Region";
+"main_stamp_sort_title" = "Sort";
+"main_stamp_sort_subtitle" = "Please select";
+"main_stamp_share_not_social_login" = "You use not social account.";
+"main_stamp_guide_seal" = "Please press and hold the touch stamp.";
+"main_stamp_guide_hide" = "You can push then hide town";
+"main_stamp_hide" = "hide";
 
-"terms_msg8" = "0. 개인정보에 관한 민원서비스\r\n\r\n 댓츠잇은 이용자의 개인정보를 보호하고 개인정보와 관련한 불만을 처리하기 위하여 아래와 같이 개인정보관리책임자를 지정하고 있 습니다. 이용자는 댓츠잇의 서비스를 이용하시며 발생하는 모든 개인정보보호 관련 민원을 개인정보관리책임자로 신고하실 수 있습 니다. 댓츠잇은 이용자들의 신고사항에 대해 신속하게 충분한 답변을 드릴 것입니다. \r\n\r\n 개인정보 관리책임자\r\n 성명 : 김범수\r\n 전화 : 010-7638-0901\r\n 메일 : lizard70@naver.com\r\n\r\n";
+"ranking_user_intro_part_1" = " is";
+"ranking_user_intro_part_2" = " out of";
+"ranking_user_intro_part_3" = "";
+"ranking_count_stamp" = "Completed";
 
-"terms_msg9" = "12. 부칙\r\n\r\n 이 개인정보취급방침은 2016년 5월 1일부터 적용되며, 법령, 정책 또는 보안기술의 변경에 따라 내용의 추가, 삭제 및 수정이 있을 시에는 변경사항의 시행일의 최소 7일 전부터 사이트의 공지사항을 통하여 고지할 것 입니다. 다만, 회원의 권리 또는 의무 에 중요한 내용의 변경은 최소 30일전에 고지하겠습니다.\r\n\r\n •개인정보취급방침 시행일자 : 2016년 5월 1일\r\n\r\n";
+"more_menu_list_item_account" = "Account";
+"more_menu_list_item_gift" = "Event Request";
+"more_menu_list_item_hide" = "Hidden";
+"more_menu_list_item_survey" = "Survey";
+
+"survey_additional_msg" = "Comments";
+"survey_alert_send_succeess" = "Request successful";
+"survey_alert_send_fail_01" = "Request failed";
+"survey_alert_send_fail_02" = "Request failed";
+"survey_alert_send_fail_03" = "You already completed survey";
+
+"gift_manage_complete" = "Completed";
+"gift_manage_press_send" = "Click to request gift";
+"gift_manage_remain" = "For a gift";
+
+"gift_alert_send_succees" = "Request successful";
+"gift_alert_send_fail" = "Request failed";
+
+"acc_alert_change_pass_not_invalid" = "Password invalid";
+"acc_alert_change_pass_not_match" = "Password invalid";
+"acc_alert_change_success" = "Password change successful";
+"acc_alert_change_fail" = "Request failed";
+"acc_alert_delete_success" = "Cancel successful";
+"acc_alert_delete_fail" = "Request failed";
+"acc_alert_delete_check" = "Are you sure to delete your account?";
+
+
+
+"terms_msg1" = "This Privacy Policy (the Policy) explains the way of treatment of the information which is provided or collected in the websites on which this Policy is posted. In addition the Policy also explains the information which is provided or collected in the course of using the applications of the Company which exist in the websites or platforms of other company.\r\n\r\n Through this Policy, the Company regards personal information of the users as important and inform them of the purpose and method of Company\'s using the personal information provided by the users and the measures taken by the Company for protection of those personal information.\r\n\r\n This Policy will be effective on Nov 1, 2015 and, in case of modification thereof, the Company will make public notice of it through posting it on the bulletin board of Company\'s website (or individual notice through sending mails, fax or e-mails).\r\n\r\n";
+
+"terms_msg2" = "1. Information to be collected and method of collection \r\n\r\n (1) Personal information items to be collected \r\n\r\n Personal information items to be collected by the Company are as follows: \r\n\r\n - Information provided by the users \r\n\r\n The Company may collect the information directly provided by the users. \r\n\r\n + Name, email address, ID, telephone number, address, national information, encoded identification information (CI), identification information of overlapped membership (DI) \r\n\r\n + For minors, information of legal representatives (name, birth date, CI and DI of legal representatives) \r\n\r\n - Information collected while the users use services \r\n\r\n Besides of information directly provided by the users, the Company may collect information in the course that the users use the service provided by the Company. \r\n\r\n + Information of devices (equipment/device identifier, operation system, hardware version, equipment set-up and telephone number) \r\n\r\n + Log information (Log data, use time, search word input by users, internet protocol address, cookie and web beacon) \r\n\r\n + Location information (Information of device location including specific geographical location detected through GPS, Bluetooth or Wi-Fi) \r\n\r\n + Other created information \r\n\r\n - Additional procedure for collection of sensitive information \r\n\r\n If collection of sensitive information is indispensable, the Company may collect it by going through lawful procedure in accordance with relevant laws and regulations. The sensitive information which may be collected by the Company is as follows: \r\n\r\n + Thoughts and belief \r\n\r\n + Membership of and withdrawal from labor union or political party \r\n\r\n + Political opinions \r\n\r\n + Information of health and sexual life \r\n\r\n + Genetic information obtained from the result of gene test \r\n\r\n + Information of criminal record including announcement, exemption and suspension of sentences, care and custody, protective custody, treatment and custody, probation, lapse of suspension of sentence and cancellation of suspension of execution. \r\n\r\n (2) Method of collection \r\n\r\n The Company collects the information of users in a way of the followings: \r\n\r\n - Webpage, written form, fax, telephone calling, e-mailing, tools for collection of created information \r\n\r\n 2. Use of collected information \r\n\r\n The Company uses the collected information of users for the following purposes: \r\n\r\n - Member management and identification \r\n\r\n - To detect and deter unauthorized or fraudulent use of or abuse of the Service \r\n\r\n  - Performance of contract and service fee settlement regarding provision of services demanded by the users \r\n\r\n  - Improvement of existing services and development of new services \r\n\r\n  - Making notice of function of company sites or applications or matters on policy change  \r\n\r\n - To help you connect with other users you already know and, with your permission, allow other users to connect with you \r\n\r\n  - To make statistics on member’s service usage, to provide services and place advertisements based on statistical characteristics  \r\n\r\n  - To provide information on promotional events as well as opportunity to participate \r\n\r\n - To comply with applicable laws or legal obligation  \r\n\r\n - Use of information with prior consent of the users (for example, utilization of marketing advertisement) \r\n\r\n  The Company agrees that it will obtain consent from the users, if the Company desires to use the information other than those expressly stated in this Policy. \r\n\r\n  - Period for retention and use of personal information \r\n\r\n  In principle, the Company destructs personal information of users without delay when: the purpose of its collection and use has been achieved; the legal or management needs are satisfied; or users request: Provided that, if it is required to retain the information by relevant laws and regulations, the Company will retain member information for certain period as designated by relevant laws and regulations. The information to be retained as required by relevant laws and regulations are as follows:\r\n\r\n  + Record regarding contract or withdrawal of subscription: 5 years (The Act on Consumer Protection in Electronic Commerce)\r\n\r\n  + Record on payment and supply of goods: 5 years (The Act on Consumer Protection in Electronic Commerce)\r\n\r\n  + Record on consumer complaint or dispute treatment: 3 years (The Act on Consumer Protection in Electronic Commerce)\r\n\r\n  + Record on collection/process, and use of credit information: 3 years (The Act on Use and Protection of Credit Information)\r\n\r\n  + Record on sign/advertisement: 6 months(The Act on Consumer Protection in Electronic Commerce)\r\n\r\n  + Log record of users such as internet/data detecting the place of user connection: 3 months(The Protection of Communications Secrets Act) \r\n\r\n + Other data for checking communication facts: 12 months (The Protection of Communications Secrets Act)\r\n\r\n";
+
+"terms_msg3" = "3. Sharing collected information \r\n\r\n\ Except for the following cases, the Company will not share personal information with a 3rd party: \r\n\r\n\ - When the Company shares the information with its affiliates, partners and service providers; \r\n\r\n\ + When the Company\'s affiliates, partners and service providers carry out services such as bill payment, execution of orders, products delivery and dispute resolution (including disputes on payment and delivery) for and on behalf of the Company \r\n\ - When the users consent the sharing in advance; \r\n\r\n\ + When the user selects to be provided by the information of products and services of certain companies by sharing his or her personal information with those companies\r\n\r\n\ + When the user selects to allow his or her personal information to be shared with the sites or platform of other companies such as social networking sites \r\n\r\n\ +  Other cases where the user gives prior consent for sharing his or her personal information \r\n\r\n\- When the sharing is required by the laws \r\n\r\n\ + If required to be disclosed by the laws and regulations; or \r\n\r\n\ + If required to be disclosed by the investigative agencies for detecting crimes in accordance with the procedure and method as prescribed in the laws and regulations";
+
+"terms_msg4" = "4. Users\' right to access and option \r\n\r\n\ The users or their legal representatives, as main agents of the information, may exercise the following options regarding the collection, use and sharing of personal information by the Company: \r\n\r\n\ \r\n\r\n\- Exercise right to access to personal information; \r\n\r\n\- Make corrections or deletion; \r\n\r\n\- Make temporary suspension of treatment of personal information; or \r\n\r\n\- Request the withdrawal of their consent provided before \r\n\r\n\If, in order to exercise the above options, you, as an user, use the menu of \'amendment of member information of webpage or contact the Company by using representative telephone or sending a document or e-mails, or using telephone to the responsible department (or person in charge of management of personal information), the Company will take measures without delay: Provided that the Company may reject the request of you only to the extent that there exists either proper cause as prescribed in the laws or equivalent cause.";
+
+"terms_msg5" = "5. Security \r\n\r\n\ The Company regards the security of personal information of uses as very important. The company constructs the following security measures to protect the users\' personal information from any unauthorized access, release, use or modification \r\n\r\n\ - Encryption of personal information \r\n\r\n\ + Transmit users\' personal information by using encrypted communication zone \r\n\r\n\ + Store important information such as passwords after encrypting it \r\n\r\n\ - Countermeasures against hacking \r\n\r\n\ + Install a system in the zone the external access to which is controlled so as to prevent leakage or damage of users\' personal information by hacking or computer virus \r\n\r\n\ - Establish and execute internal management plan \r\n\r\n\ - Install and operate access control system \r\n\r\n\ - Take measures to prevent forging or alteration of access record \r\n\r\n\ - Procedure and method of destruction of personal information \r\n\r\n\ In principle, the Company destructs the information immediately after the purposes of its collection and use have been achieved without delay: Provided that, if any information is to be retained as required by relevant laws and regulations, the Company retain it for the period as required by those laws and regulations before destruction and, in such event, the personal information which is stored and managed separately will never be used for other purposes. The Company destructs: hard copies of personal information by shredding with a pulverizer or incinerating it; and delete personal information stored in the form of electric file by using technological method making that information not restored. \r\n\r\n\ - Technical, managerial and physical measures for protection of personal information \r\n\r\n\ In order to prevent the loss, theft, leakage, alteration or damage of personal information of the users, the Company takes technical, managerial and physical measures for securing safety as follows; \r\n\r\n\ + Technical measures \r\n\r\n\> Utilize security servers for transmitting encryption of personal information \r\n\r\n\ > Take measures of encryption for confidential information \r\n\r\n\ > Install and operate access control devices and equipments \r\n\r\n\ > Establish and execute internal management plan \r\n\r\n\ + Managerial measures \r\n\r\n\ > Appoint a staff responsible for protecting personal information \r\n\r\n\ > Provide education and training for staffs treating personal information \r\n\r\n\ > Establish and execute internal management plan \r\n\r\n\ > Establish rules for writing passwords which is hard to be estimated \r\n\r\n\ > Ensure safe storage of record of access to personal information processing system \r\n\r\n\ > Classify the level of authority to access to personal information processing system \r\n\r\n\ + Physical measures \r\n\r\n\ > Establish and operate the procedure for access control for the facilities for storing personal information \r\n\r\n\ > Store documents and backing storage containing personal information in safe places which have locking device";
+
+"terms_msg6" =  "6. Protection of personal information of children \r\n\r\n\ In principle, the Company does not collect any information from the children under 13 or equivalent minimum age as prescribed in the laws in relevant jurisdiction. The website, products and services of the Company are the ones to be provided to ordinary people, in principle. The website or application of the Company has function to do age limit so that children cannot use it and the Company does not intentionally collect any personal information from children through that function. \r\n\r\n\ (Additional procedure for collecting personal information from children) However, if the Company collects any personal information from children under 13 or equivalent minimum age as prescribed in the laws in relevant jurisdiction for the services for unavoidable reason, the Company will go through the additional procedure of the followings for protecting that personal information of children: \r\n\r\n\ - Obtain consent from the parents or guardian of children so as to collect personal information of children or directly send the information of products and services of the Company \r\n\r\n\ - Give the parents or guardian of children a notice of Company\'s policy of privacy protection for children including the items, purpose and sharing of personal information collected \r\n\r\n\ - Grant to legal representatives of children a right to access to personal information of that children/correction or deletion of personal information/temporary suspension of treatment of personal information/ and request for withdrawal of their consent provided before \r\n\r\n\ - Limit the amount of personal information exceeding those necessary for participation in online activities";
+
+"terms_msg7" = "7. Modification of Privacy Protection Policy \r\n\r\n\ The Company has the right to amend or modify this Policy from time to time and, in such case, the Company will make a public notice of it through bulletin board of its website (or through individual notice such as written document, fax or e-mail) and obtain consent from the users if required by relevant laws.";
+
+"terms_msg8" = "8. Responsible department of Company \r\n\r\n\ The Company designates the following department and person in charge of personal information in order to protect personal information of customers and deal with complaints from customers: \r\n\r\n\ - Department responsible for privacy protection and customer service : \r\n\r\n\ Staff name : Bumsoo Kim \r\n\r\n\ Dept : Development \r\n\r\n\ Tel.: 82-10-7638-0901 \r\n\r\n\ E-mail: thatzit1012@gmail.com";
+
+"terms_msg9" = "The latest update date: Nov 1, 2016";
