@@ -1,0 +1,25 @@
+/* 
+  InfoPlist.strings
+  stamptour_pc
+
+  Created by CSC-PC on 2017. 1. 2..
+  Copyright © 2017년 thatzit. All rights reserved.
+*/
+
+//공주
+//"CFBundleDisplayName" = "GongjuStamptour";
+//"CFBundleName" = "GongjuStamptour";
+
+//경주
+//"CFBundleDisplayName" = "GyeongjuStamptour";
+//"CFBundleName" = "GyeongjuStamptour";
+
+//신안
+"CFBundleDisplayName" = "신안스탬프투어";
+"CFBundleName" = "신안스탬프투어";
+
+//포천
+//"CFBundleDisplayName" = "PocheonStamptour";
+//"CFBundleName" = "PocheonStamptour";
+
+"NSLocationAlwaysUsageDescription" = "Your Location is used to estimate the distance from the current user’s position to stamp point, to notice while the user is in the stamp zone where stamp is accessible.";

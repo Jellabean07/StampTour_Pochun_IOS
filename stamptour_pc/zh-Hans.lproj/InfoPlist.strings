@@ -1,0 +1,26 @@
+/* 
+  InfoPlist.strings
+  stamptour_pc
+
+  Created by CSC-PC on 2017. 1. 2..
+  Copyright © 2017년 thatzit. All rights reserved.
+*/
+
+
+//공주
+//"CFBundleDisplayName" = "公州图章旅行";
+//"CFBundleName" = "公州图章旅行";
+
+//경주
+//"CFBundleDisplayName" = "庆州图章旅行";
+//"CFBundleName" = "庆州图章旅行";
+
+//신안
+"CFBundleDisplayName" = "신안스탬프투어";
+"CFBundleName" = "신안스탬프투어";
+
+//포천
+//"CFBundleDisplayName" = "PocheonStamptour";
+//"CFBundleName" = "PocheonStamptour";
+
+"NSLocationAlwaysUsageDescription" = "您的位置用于计算从当前用户位置到印记位置的距离，并且还用于指导如果可以访问印记区域";

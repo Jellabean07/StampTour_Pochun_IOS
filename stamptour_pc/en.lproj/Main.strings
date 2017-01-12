@@ -93,7 +93,7 @@
 "DwT-8q-Xre.text" = "Log in";
 
 /* Class = "UIButton"; normalTitle = "가입신청을 누르시면 개인정보취급방침에 동의한것으로 간주됩니다"; ObjectID = "EIK-VV-JR8"; */
-"EIK-VV-JR8.normalTitle" = "If you click confirm button, you will be considered to agree to <u>Privacy Policy<\u>";
+"EIK-VV-JR8.normalTitle" = "If you click confirm button, you will be considered to agree to Privacy Policy";
 
 /* Class = "UILabel"; text = "2620"; ObjectID = "EuS-sx-paD"; */
 "EuS-sx-paD.text" = "2620";
