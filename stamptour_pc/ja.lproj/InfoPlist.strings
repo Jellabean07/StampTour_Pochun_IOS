@@ -1,0 +1,26 @@
+/* 
+  InfoPlist.strings
+  stamptour_pc
+
+  Created by CSC-PC on 2017. 1. 2..
+  Copyright © 2017년 thatzit. All rights reserved.
+*/
+
+
+//공주
+//"CFBundleDisplayName" = "公州スタンプツアー";
+//"CFBundleName" = "公州スタンプツアー";
+
+//경주
+//"CFBundleDisplayName" = "慶州スタンプツアー";
+//"CFBundleName" = "慶州スタンプツアー";
+
+//신안
+"CFBundleDisplayName" = "신안스탬프투어";
+"CFBundleName" = "신안스탬프투어";
+
+//포천
+//"CFBundleDisplayName" = "PocheonStamptour";
+//"CFBundleName" = "PocheonStamptour";
+
+"NSLocationAlwaysUsageDescription" = "あなたの位置は、現在のユーザーの位置からスタンプ位置までの距離を計算するのに使用されて、また、スタンプ区域のあっスタンプにアクセスすることができる場合に案内を与えるために使用されます";

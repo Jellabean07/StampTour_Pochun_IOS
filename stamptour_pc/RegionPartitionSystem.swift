@@ -21,7 +21,7 @@ class RegionPartitionSystem  {
     
     func setResourse(){
         
-        let region = ResRegion.gongju
+        let region = ResRegion.shinan
         AppInfomation.region = region.hashValue
         
         AppInfomation.themeColor = region.mainColor

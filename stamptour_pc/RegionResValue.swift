@@ -133,7 +133,7 @@ enum ResRegion {
         case .shinan:
             return "b3766d4a60aabdf52a60a574ed9a68d3"
         case .gyeongju:
-            return "b3766d4a60aabdf52a60a574ed9a68d3"
+            return "12dca0c65b433896e42b0f8a612f3fc3"
         case .gongju:
             return "c382ee5f3906b73ac72df987bdec71da"
         }

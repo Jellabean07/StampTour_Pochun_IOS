@@ -134,6 +134,7 @@ class ContentsManager : HttpResponse, HttpDownResponse{
         
         if((version == -1) && (size == -1)){
             print("\(TAG) : Latest version ")
+            setLocalizationContent()
             CommonFunction.moveToController(uvc: self.uvc!)
         }else{
             let uploadtime = data["UploadTime"] as! String
@@ -148,6 +149,13 @@ class ContentsManager : HttpResponse, HttpDownResponse{
         }
         // contentsDown()
         
+    }
+    
+    func setLocalizationContent(){
+         let fileBrowser = FileBrowser.init()
+        let jsonString = fileBrowser.fileLocalizationReadJson()
+        
+        fileBrowser.convertJsonArray(text: jsonString)
     }
     
     func HttpFailureResult(_ reqPath : String, resCode : String, resMsg : String, resData : AnyObject){
@@ -167,13 +175,15 @@ class ContentsManager : HttpResponse, HttpDownResponse{
         fileBrowser.setUnZip(file: "contents.zip")
         
         
-        let langStr = LocalizationManager.shared.getLanguageCode()
-        print("\(TAG) : language code : \(langStr) ")
+       // let langStr = LocalizationManager.shared.getLanguageCode()
+        //print("\(TAG) : language code : \(langStr) ")
         
-        let langCode = LocalizationManager.shared.getConvertContentsLanguageCode(code: langStr )
-        let jsonString = fileBrowser.readFromDocumentsFile(fileName: "\(langCode).json")
+        //let langCode = LocalizationManager.shared.getConvertContentsLanguageCode(code: langStr )
+       // let jsonString = fileBrowser.fileLocalizationReadJson()
 
-        fileBrowser.convertJsonArray(text: jsonString)
+        //fileBrowser.convertJsonArray(text: jsonString)
+        
+        setLocalizationContent()
         
         //파일확인 로그
         fileBrowser.updateFiles()

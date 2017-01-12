@@ -230,6 +230,14 @@ class FileBrowser {
         return townImg
     }
     
+    func fileLocalizationReadJson() -> String{
+        let langStr = LocalizationManager.shared.getLanguageCode()
+        print("\(TAG) : language code : \(langStr) ")
+        
+        let langCode = LocalizationManager.shared.getConvertContentsLanguageCode(code: langStr )
+        return readFromDocumentsFile(fileName: "\(langCode).json")
+    }
+    
     func convertJsonArray(text : String){
         var townList = [ContentsVO]()
         if let data = text.data(using: String.Encoding.utf8) {
