@@ -320,7 +320,7 @@
         <!--지도-->
         <scene sceneID="zgy-Qv-1a0">
             <objects>
-                <viewController storyboardIdentifier="MapViewController" id="xtZ-sU-piS" customClass="MapViewController" customModule="stamptour_pc" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PocheonMapViewController" id="xtZ-sU-piS" customClass="PocheonMapViewController" customModule="stamptour_pc" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tx4-fx-sd9"/>
                         <viewControllerLayoutGuide type="bottom" id="Tyh-FA-bTO"/>
@@ -329,7 +329,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="asO-o8-OSf">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="asO-o8-OSf">
                                 <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                             </mapView>
                         </subviews>

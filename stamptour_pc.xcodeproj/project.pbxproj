@@ -144,6 +144,7 @@
 		33FF46AA1E23916700C4FE2C /* Shinan.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33FF46A91E23916700C4FE2C /* Shinan.xcassets */; };
 		33FF46C21E2759AB00C4FE2C /* Pocheon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33FF46C11E2759AB00C4FE2C /* Pocheon.storyboard */; };
 		33FF46C41E2759B800C4FE2C /* Shinan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33FF46C31E2759B800C4FE2C /* Shinan.storyboard */; };
+		33FF46CA1E28D03B00C4FE2C /* PocheonMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FF46C91E28D03B00C4FE2C /* PocheonMapViewController.swift */; };
 		5D7B2E56B7B3ADE47F5C6A0C /* Pods_stamptour_pc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A14BFF4D0240426E1497D821 /* Pods_stamptour_pc.framework */; };
 		732B88C21DDAE5A00018461B /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B88C11DDAE5A00018461B /* SurveyViewController.swift */; };
 		735397CA1DD5BBA2003D9F1C /* GiftSendDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735397C91DD5BBA2003D9F1C /* GiftSendDelegate.swift */; };
@@ -333,6 +334,7 @@
 		33FF46C11E2759AB00C4FE2C /* Pocheon.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Pocheon.storyboard; sourceTree = "<group>"; };
 		33FF46C31E2759B800C4FE2C /* Shinan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Shinan.storyboard; sourceTree = "<group>"; };
 		33FF46C61E28CD6C00C4FE2C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
+		33FF46C91E28D03B00C4FE2C /* PocheonMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PocheonMapViewController.swift; sourceTree = "<group>"; };
 		3B695BF8DFFC816A4E838855 /* Pods-stamptour_pc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stamptour_pc.release.xcconfig"; path = "Pods/Target Support Files/Pods-stamptour_pc/Pods-stamptour_pc.release.xcconfig"; sourceTree = "<group>"; };
 		70E3A8C079B7299CCD1BFFC0 /* Pods-stamptour_pc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stamptour_pc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-stamptour_pc/Pods-stamptour_pc.debug.xcconfig"; sourceTree = "<group>"; };
 		732B88C11DDAE5A00018461B /* SurveyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
@@ -538,23 +540,8 @@
 		335C97E31D9A4D120066E25F /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				335C97A71D9A4D050066E25F /* AccountViewController.swift */,
-				335C97AD1D9A4D050066E25F /* ForgetViewController.swift */,
-				335C97B11D9A4D050066E25F /* JoinNickViewController.swift */,
-				335C97B21D9A4D050066E25F /* JoinViewController.swift */,
-				335C97B71D9A4D050066E25F /* LoginViewController.swift */,
-				335C97B81D9A4D050066E25F /* MainViewController.swift */,
-				335C97B91D9A4D050066E25F /* MapViewController.swift */,
-				335C97BB1D9A4D050066E25F /* MoreViewController.swift */,
-				335C97BD1D9A4D050066E25F /* RankViewController.swift */,
-				335C97BF1D9A4D050066E25F /* StampViewController.swift */,
-				3381B9171DC9847B002EE080 /* SplashViewController.swift */,
-				7353E9291DCB0BE80033BDB5 /* GiftManageViewController.swift */,
-				7353E92B1DCB0F920033BDB5 /* HideViewController.swift */,
-				7396BC191DD447D100E9000A /* GiftRequestViewController.swift */,
-				732B88C11DDAE5A00018461B /* SurveyViewController.swift */,
-				33E8F4811DE0093E00FC1021 /* DetailViewController.swift */,
-				332FD34E1DFE76D800B85A19 /* TermsViewController.swift */,
+				33FF46C81E28CFB400C4FE2C /* pocheon */,
+				33FF46C71E28CFAF00C4FE2C /* main */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -679,6 +666,38 @@
 				3327C0BC1DEFB3EC0081DE8F /* KOManager.swift */,
 			);
 			name = ouath;
+			sourceTree = "<group>";
+		};
+		33FF46C71E28CFAF00C4FE2C /* main */ = {
+			isa = PBXGroup;
+			children = (
+				335C97A71D9A4D050066E25F /* AccountViewController.swift */,
+				335C97AD1D9A4D050066E25F /* ForgetViewController.swift */,
+				335C97B11D9A4D050066E25F /* JoinNickViewController.swift */,
+				335C97B21D9A4D050066E25F /* JoinViewController.swift */,
+				335C97B71D9A4D050066E25F /* LoginViewController.swift */,
+				335C97B81D9A4D050066E25F /* MainViewController.swift */,
+				335C97B91D9A4D050066E25F /* MapViewController.swift */,
+				335C97BB1D9A4D050066E25F /* MoreViewController.swift */,
+				335C97BD1D9A4D050066E25F /* RankViewController.swift */,
+				335C97BF1D9A4D050066E25F /* StampViewController.swift */,
+				3381B9171DC9847B002EE080 /* SplashViewController.swift */,
+				7353E9291DCB0BE80033BDB5 /* GiftManageViewController.swift */,
+				7353E92B1DCB0F920033BDB5 /* HideViewController.swift */,
+				7396BC191DD447D100E9000A /* GiftRequestViewController.swift */,
+				732B88C11DDAE5A00018461B /* SurveyViewController.swift */,
+				33E8F4811DE0093E00FC1021 /* DetailViewController.swift */,
+				332FD34E1DFE76D800B85A19 /* TermsViewController.swift */,
+			);
+			name = main;
+			sourceTree = "<group>";
+		};
+		33FF46C81E28CFB400C4FE2C /* pocheon */ = {
+			isa = PBXGroup;
+			children = (
+				33FF46C91E28D03B00C4FE2C /* PocheonMapViewController.swift */,
+			);
+			name = pocheon;
 			sourceTree = "<group>";
 		};
 		735397C81DD5BB78003D9F1C /* delegate */ = {
@@ -987,6 +1006,7 @@
 			files = (
 				336CB5331DC59FE5007D047C /* StampSealProtocol.swift in Sources */,
 				33E8F48E1DE68CEA00FC1021 /* FBManager.swift in Sources */,
+				33FF46CA1E28D03B00C4FE2C /* PocheonMapViewController.swift in Sources */,
 				33FA50F31DCC558100F81A27 /* AppInfomation.swift in Sources */,
 				3381B9201DC9C0E8002EE080 /* ContentsManager.swift in Sources */,
 				335C97CE1D9A4D050066E25F /* ItemCell.swift in Sources */,
