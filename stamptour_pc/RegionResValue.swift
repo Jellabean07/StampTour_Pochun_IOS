@@ -153,4 +153,21 @@ enum ResRegion {
             return "https://itunes.apple.com/app/id1190593570?mt=8"
         }
     }
+    
+    var appStoryboard : String {
+        switch self {
+        case .Default:
+            return "Main"
+        case .pochun:
+            return "Pocheon"
+        case .shinan:
+            return "Shinan"
+        case .gyeongju:
+            return "Main"
+        case .gongju:
+            return "Main"
+        }
+    }
+    
+    
 }

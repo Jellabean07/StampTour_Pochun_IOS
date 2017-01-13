@@ -28,6 +28,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().tintColor = AppInfomation.themeColor!
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: AppInfomation.themeColor!], for:.selected)
         
+        // window가 없으니 만들어준다.
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        // 스토리보드 인스턴스
+        let tutorialStoryboard = UIStoryboard(name: AppInfomation.appStoryboard!, bundle: nil)
+        // 뷰 컨트롤러 인스턴스
+        let viewController = tutorialStoryboard.instantiateViewController(withIdentifier: "SplashViewController")
+        
+        // 윈도우의 루트 뷰 컨트롤러 설정
+        self.window?.rootViewController = viewController
+        
+        // 이제 화면에 보여주자.
+        self.window?.makeKeyAndVisible()
+        
         //let config = Config.init();
        // UIControlManager.init().setNavigationConfig(config.NaviBackGroundColor,naviFontColorHex: config.NaviFontColor)
 //        let insertDummy = InsertDummy.init()

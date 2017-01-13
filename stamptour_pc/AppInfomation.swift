@@ -24,5 +24,5 @@ class AppInfomation{
     static var fbAppStoreLink : String?
     static var koAppKey : String?
     static var koAppStoreLink : String?
-    
+    static var appStoryboard : String?
 }

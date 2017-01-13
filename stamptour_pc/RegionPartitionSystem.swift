@@ -37,6 +37,7 @@ class RegionPartitionSystem  {
         AppInfomation.fbAppStoreLink = region.fbAppStoreLink
         AppInfomation.koAppKey = region.koAppKey
         AppInfomation.koAppStoreLink = region.koAppStoreLink
+        AppInfomation.appStoryboard = region.appStoryboard
         
         print("RegionPartitionSystem : \(region.appName)")
         print("RegionPartitionSystem : region : \(AppInfomation.region!)")
@@ -50,33 +51,8 @@ class RegionPartitionSystem  {
         print("RegionPartitionSystem : fbAppStoreLink : \(AppInfomation.fbAppStoreLink!)")
         print("RegionPartitionSystem : koAppKey : \(AppInfomation.koAppKey!)")
         print("RegionPartitionSystem : koAppStoreLink : \(AppInfomation.koAppStoreLink!)")
+        print("RegionPartitionSystem : appStoryboard : \(AppInfomation.appStoryboard!)")
 
     }
-    
-    
-    func adjust(){
         
-    }
-    
-    func show(regionInCase : Int){
-        switch regionInCase {
-        case RegionInCase.pochun.hashValue:
-            break
-        case RegionInCase.shinan.hashValue:
-            break
-        default:
-            break
-        }
-    }
-    
-    func setRegion(regionInCase : Int){
-        //패키지명변경
-        //앱이름 변경
-        //앱아이콘변경
-        //스탬프이미지변경
-        //스플래시 이미지변경
-        //앱 배경색 변경
-        //텍스트변경
-    }
-    
 }
